@@ -1,11 +1,46 @@
 ---
-dataset_info:
-  pretty_name: CodeRouterBench
-  task_categories:
-    - text-generation
-  language:
-    - en
+pretty_name: CodeRouterBench
+task_categories:
+  - text-generation
+language:
+  - en
 license: mit
+tags:
+  - code
+  - benchmark
+  - model-routing
+  - tabular
+configs:
+  - config_name: default
+    data_files:
+      - split: train
+        path: id_train_results_long.csv
+      - split: validation
+        path: id_val_results_long.csv
+      - split: test
+        path: id_test_results_long.csv
+      - split: ood176
+        path: ood176_results_long.csv
+  - config_name: id_full
+    data_files:
+      - split: all
+        path: id_results_long.csv
+      - split: trainval
+        path: id_trainval_results_long.csv
+  - config_name: task_metadata
+    data_files:
+      - split: id_all
+        path: id_tasks.jsonl
+      - split: id_train
+        path: id_train_tasks.jsonl
+      - split: id_validation
+        path: id_val_tasks.jsonl
+      - split: id_test
+        path: id_test_tasks.jsonl
+      - split: id_trainval
+        path: id_trainval_tasks.jsonl
+      - split: ood176
+        path: ood176_tasks.jsonl
 ---
 
 # CodeRouterBench
