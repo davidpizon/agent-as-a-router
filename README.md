@@ -1,9 +1,30 @@
+<div align="center">
+
 # Agent-as-a-Router
 
-**Project Homepage:** [https://www.omnisource.cn/agent-as-a-router](https://www.omnisource.cn/agent-as-a-router)
+**The official implementations of Agent-as-a-Router: Agentic Model Routing for Coding Tasks.**
 
-The official implementations of Agent-as-a-Router: Agentic Model Routing for
-Coding Tasks.
+<p>
+  <a href="https://www.omnisource.cn/agent-as-a-router">
+    <img alt="Homepage" src="https://img.shields.io/badge/Homepage-agent--as--a--router-1f6feb?style=for-the-badge">
+  </a>
+  <a href="https://arxiv.org/abs/2507.05397">
+    <img alt="Paper" src="https://img.shields.io/badge/Paper-arXiv%3A2507.05397-b31b1b?style=for-the-badge">
+  </a>
+  <a href="https://huggingface.co/datasets/Lance1573/CodeRouterBench">
+    <img alt="Benchmark" src="https://img.shields.io/badge/Benchmark-CodeRouterBench-ff9f1c?style=for-the-badge">
+  </a>
+</p>
+
+<p>
+  <a href="https://www.omnisource.cn/agent-as-a-router"><strong>Homepage</strong></a>
+  |
+  <a href="https://arxiv.org/abs/2507.05397"><strong>Paper</strong></a>
+  |
+  <a href="https://huggingface.co/datasets/Lance1573/CodeRouterBench"><strong>Benchmark</strong></a>
+</p>
+
+</div>
 
 This repository also releases **CodeRouterBench**, the benchmark suite used to
 evaluate agentic model routing across in-distribution coding tasks and the
@@ -90,6 +111,12 @@ core tables are complete task-by-model result matrices:
 
 - `data/coderouterbench/id_results_long.csv`: 9,999 ID tasks x 8 backend models
   = 79,992 result rows.
+- `data/coderouterbench/id_train_results_long.csv`: 6,067 train tasks x 8
+  backend models = 48,536 result rows.
+- `data/coderouterbench/id_test_results_long.csv`: 2,919 test tasks x 8
+  backend models = 23,352 result rows.
+- `data/coderouterbench/id_trainval_results_long.csv`: train + validation
+  combined for two-way train/test experiments.
 - `data/coderouterbench/ood176_results_long.csv`: 176 OOD tasks x 8 backend
   models = 1,408 result rows.
 - `data/coderouterbench/id_tasks.jsonl` and
@@ -246,6 +273,10 @@ The release keeps data needed for offline scoring and reproduction. The
 canonical public benchmark files are in `data/coderouterbench/`:
 
 - `id_results_long.csv`: one row per ID task/model result.
+- `id_train_results_long.csv`, `id_val_results_long.csv`, and
+  `id_test_results_long.csv`: official split-specific ID result tables.
+- `id_trainval_results_long.csv`: train + validation combined for two-way
+  train/test experiments.
 - `ood176_results_long.csv`: one row per OOD176 task/model result.
 - `id_tasks.jsonl` and `ood176_tasks.jsonl`: task metadata.
 - `models.json`: the eight canonical backend models and USD pricing metadata.
@@ -284,13 +315,13 @@ python -m pip install -U huggingface_hub
 hf auth login
 
 python scripts/export_coderouterbench.py
-hf repo create LanceZPF/CodeRouterBench --type dataset
-hf upload LanceZPF/CodeRouterBench data/coderouterbench . --repo-type dataset
-hf upload LanceZPF/CodeRouterBench data/matrices raw_matrices --repo-type dataset
-hf upload LanceZPF/CodeRouterBench outputs outputs --repo-type dataset
-hf upload LanceZPF/CodeRouterBench agentic-artifacts/evidence evidence --repo-type dataset
-hf upload LanceZPF/CodeRouterBench configs/eval_pipeline.example.json configs/eval_pipeline.example.json --repo-type dataset
-hf upload LanceZPF/CodeRouterBench examples/custom_benchmark examples/custom_benchmark --repo-type dataset
+hf repo create Lance1573/CodeRouterBench --type dataset
+hf upload Lance1573/CodeRouterBench data/coderouterbench . --repo-type dataset
+hf upload Lance1573/CodeRouterBench data/matrices raw_matrices --repo-type dataset
+hf upload Lance1573/CodeRouterBench outputs outputs --repo-type dataset
+hf upload Lance1573/CodeRouterBench agentic-artifacts/evidence evidence --repo-type dataset
+hf upload Lance1573/CodeRouterBench configs/eval_pipeline.example.json configs/eval_pipeline.example.json --repo-type dataset
+hf upload Lance1573/CodeRouterBench examples/custom_benchmark examples/custom_benchmark --repo-type dataset
 ```
 
 ## Dependency Sets
@@ -382,16 +413,16 @@ python scripts/run_ood_sandbox.py \
 
 ## Citation
 
-If you use this bundle, please cite the associated arXiv paper. The arXiv ID is
-left blank until the preprint is available.
+If you use this bundle, please cite the associated arXiv paper.
 
 ```bibtex
-@article{agent2026zhou,
+@article{agent2025zhou,
   title         = {Agent-as-a-Router: Agentic Model Routing for Coding Tasks},
   author        = {Pengfei Zhou, Zhiwei Tang, Yixing Ma, Jiasheng Tang, Yizeng Han, Zhenglin Wan, Fanqing Meng, Wei Wang, Bohan Zhuang, Wangbo Zhao, Yang You},
-  journal       = {arXiv preprint arXiv:},
-  year          = {2026},
+  journal       = {arXiv preprint arXiv:2507.05397},
+  year          = {2025},
   archivePrefix = {arXiv},
-  eprint        = {},
+  eprint        = {2507.05397},
+  url           = {https://arxiv.org/abs/2507.05397},
 }
 ```

@@ -62,6 +62,9 @@
   "canonical_repository_paths": {
     "coderouterbench": "../data/coderouterbench/",
     "coderouterbench_id_results": "../data/coderouterbench/id_results_long.csv",
+    "coderouterbench_id_train_results": "../data/coderouterbench/id_train_results_long.csv",
+    "coderouterbench_id_test_results": "../data/coderouterbench/id_test_results_long.csv",
+    "coderouterbench_id_trainval_results": "../data/coderouterbench/id_trainval_results_long.csv",
     "coderouterbench_ood176_results": "../data/coderouterbench/ood176_results_long.csv",
     "id_data": "../data/id/",
     "custom_pipeline_config": "../configs/eval_pipeline.example.json",

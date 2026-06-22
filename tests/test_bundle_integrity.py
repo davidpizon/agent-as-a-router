@@ -25,6 +25,11 @@ class BundleIntegrityTests(unittest.TestCase):
         self.assertEqual(summary["id"]["models"], 8)
         self.assertEqual(summary["id"]["rows"], 79992)
         self.assertEqual(summary["id"]["missing_cells"], 0)
+        self.assertEqual(summary["id"]["splits"]["train"], {"rows": 48536, "tasks": 6067})
+        self.assertEqual(summary["id"]["splits"]["val"], {"rows": 8104, "tasks": 1013})
+        self.assertEqual(summary["id"]["splits"]["test"], {"rows": 23352, "tasks": 2919})
+        self.assertEqual(summary["id"]["splits"]["trainval"]["rows"], 56640)
+        self.assertEqual(summary["id"]["splits"]["trainval"]["tasks"], 7080)
         self.assertEqual(summary["ood176"]["tasks"], 176)
         self.assertEqual(summary["ood176"]["models"], 8)
         self.assertEqual(summary["ood176"]["rows"], 1408)
@@ -39,6 +44,16 @@ class BundleIntegrityTests(unittest.TestCase):
                 ["task_id", "split", "dimension", "model", "score", "cost_usd", "total_tokens", "latency_ms"],
             )
             self.assertEqual(sum(1 for _ in reader), summary["id"]["rows"])
+
+        for split, expected_rows in [
+            ("train", 48536),
+            ("val", 8104),
+            ("test", 23352),
+            ("trainval", 56640),
+        ]:
+            with (root / f"id_{split}_results_long.csv").open(newline="") as fh:
+                reader = csv.DictReader(fh)
+                self.assertEqual(sum(1 for _ in reader), expected_rows)
 
         with ood_path.open(newline="") as fh:
             reader = csv.DictReader(fh)

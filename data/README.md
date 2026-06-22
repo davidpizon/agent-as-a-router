@@ -7,7 +7,8 @@ offline baselines.
 
 - `coderouterbench/`: canonical public CodeRouterBench tables. These are
   complete task-by-model result matrices in long-form CSV:
-  9,999 ID tasks x 8 models and 176 OOD tasks x 8 models.
+  9,999 ID tasks x 8 models and 176 OOD tasks x 8 models. It also includes
+  split-specific ID tables for train, validation, test, and train+validation.
 - `id/`: phase-1 in-distribution support data. It contains splits, task
   dimensions, legacy compact oracle labels, token counts, and saved voter
   decisions. Prefer `coderouterbench/id_results_long.csv` when consuming the

@@ -17,8 +17,13 @@ one recorded result for each of the eight canonical backend models.
 ## Canonical Files
 
 - `id_results_long.csv`: 9,999 in-distribution tasks x 8 models = 79,992 result rows.
+- `id_train_results_long.csv`: 6,067 train tasks x 8 models = 48,536 result rows.
+- `id_val_results_long.csv`: 1,013 validation tasks x 8 models = 8,104 result rows.
+- `id_test_results_long.csv`: 2,919 test tasks x 8 models = 23,352 result rows.
+- `id_trainval_results_long.csv`: train + validation combined for two-way train/test experiments.
 - `ood176_results_long.csv`: 176 OOD tasks x 8 models = 1,408 result rows.
 - `id_tasks.jsonl`: ID task metadata with split and dimension.
+- `id_train_tasks.jsonl`, `id_val_tasks.jsonl`, `id_test_tasks.jsonl`, and `id_trainval_tasks.jsonl`: split-specific ID task metadata.
 - `ood176_tasks.jsonl`: OOD176 task prompts and metadata.
 - `models.json`: canonical model list and USD pricing metadata.
 - `summary.json`: counts, source paths, and integrity checks.

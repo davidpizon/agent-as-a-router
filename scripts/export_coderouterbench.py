@@ -75,6 +75,14 @@ def load_id_dimensions() -> dict[str, str]:
     }
 
 
+def write_csv(path: Path, fieldnames: list[str], rows: list[dict[str, Any]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="") as fh:
+        writer = csv.DictWriter(fh, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
 def export_id_tables(output_dir: Path) -> dict[str, Any]:
     obs_matrix: dict[str, dict[str, dict[str, Any]]] = read_json(ID_OBS_MATRIX)
     split_by_task = load_id_splits()
@@ -84,42 +92,39 @@ def export_id_tables(output_dir: Path) -> dict[str, Any]:
     if set(CANONICAL_MODELS) != observed_models:
         raise ValueError(f"Unexpected ID model set: {sorted(observed_models)}")
 
+    fieldnames = [
+        "task_id",
+        "split",
+        "dimension",
+        "model",
+        "score",
+        "cost_usd",
+        "total_tokens",
+        "latency_ms",
+    ]
+
     missing_cells = 0
-    rows_written = 0
-    long_path = output_dir / "id_results_long.csv"
-    long_path.parent.mkdir(parents=True, exist_ok=True)
-    with long_path.open("w", newline="") as fh:
-        fieldnames = [
-            "task_id",
-            "split",
-            "dimension",
-            "model",
-            "score",
-            "cost_usd",
-            "total_tokens",
-            "latency_ms",
-        ]
-        writer = csv.DictWriter(fh, fieldnames=fieldnames)
-        writer.writeheader()
-        for task_id, model_cells in obs_matrix.items():
-            for model in CANONICAL_MODELS:
-                cell = model_cells.get(model)
-                if cell is None:
-                    missing_cells += 1
-                    continue
-                writer.writerow(
-                    {
-                        "task_id": task_id,
-                        "split": split_by_task.get(task_id, ""),
-                        "dimension": dimension_by_task.get(task_id, ""),
-                        "model": model,
-                        "score": cell.get("perf", ""),
-                        "cost_usd": cell.get("cost", ""),
-                        "total_tokens": cell.get("tokens", ""),
-                        "latency_ms": cell.get("latency_ms", ""),
-                    }
-                )
-                rows_written += 1
+    result_rows = []
+    for task_id, model_cells in obs_matrix.items():
+        for model in CANONICAL_MODELS:
+            cell = model_cells.get(model)
+            if cell is None:
+                missing_cells += 1
+                continue
+            result_rows.append(
+                {
+                    "task_id": task_id,
+                    "split": split_by_task.get(task_id, ""),
+                    "dimension": dimension_by_task.get(task_id, ""),
+                    "model": model,
+                    "score": cell.get("perf", ""),
+                    "cost_usd": cell.get("cost", ""),
+                    "total_tokens": cell.get("tokens", ""),
+                    "latency_ms": cell.get("latency_ms", ""),
+                }
+            )
+
+    write_csv(output_dir / "id_results_long.csv", fieldnames, result_rows)
 
     task_rows = [
         {
@@ -131,11 +136,33 @@ def export_id_tables(output_dir: Path) -> dict[str, Any]:
     ]
     write_jsonl(output_dir / "id_tasks.jsonl", task_rows)
 
+    split_summaries = {}
+    for split in ["train", "val", "test"]:
+        split_results = [row for row in result_rows if row["split"] == split]
+        split_tasks = [row for row in task_rows if row["split"] == split]
+        write_csv(output_dir / f"id_{split}_results_long.csv", fieldnames, split_results)
+        write_jsonl(output_dir / f"id_{split}_tasks.jsonl", split_tasks)
+        split_summaries[split] = {
+            "tasks": len(split_tasks),
+            "rows": len(split_results),
+        }
+
+    trainval_results = [row for row in result_rows if row["split"] in {"train", "val"}]
+    trainval_tasks = [row for row in task_rows if row["split"] in {"train", "val"}]
+    write_csv(output_dir / "id_trainval_results_long.csv", fieldnames, trainval_results)
+    write_jsonl(output_dir / "id_trainval_tasks.jsonl", trainval_tasks)
+    split_summaries["trainval"] = {
+        "tasks": len(trainval_tasks),
+        "rows": len(trainval_results),
+        "source_splits": ["train", "val"],
+    }
+
     return {
         "tasks": len(obs_matrix),
         "models": len(CANONICAL_MODELS),
-        "rows": rows_written,
+        "rows": len(result_rows),
         "missing_cells": missing_cells,
+        "splits": split_summaries,
         "source_matrix": "data/matrices/phase1_acrouter_v2/obs_matrix_clean.json",
     }
 
@@ -195,8 +222,13 @@ one recorded result for each of the eight canonical backend models.
 ## Canonical Files
 
 - `id_results_long.csv`: {summary["id"]["tasks"]:,} in-distribution tasks x 8 models = {summary["id"]["rows"]:,} result rows.
+- `id_train_results_long.csv`: {summary["id"]["splits"]["train"]["tasks"]:,} train tasks x 8 models = {summary["id"]["splits"]["train"]["rows"]:,} result rows.
+- `id_val_results_long.csv`: {summary["id"]["splits"]["val"]["tasks"]:,} validation tasks x 8 models = {summary["id"]["splits"]["val"]["rows"]:,} result rows.
+- `id_test_results_long.csv`: {summary["id"]["splits"]["test"]["tasks"]:,} test tasks x 8 models = {summary["id"]["splits"]["test"]["rows"]:,} result rows.
+- `id_trainval_results_long.csv`: train + validation combined for two-way train/test experiments.
 - `ood176_results_long.csv`: 176 OOD tasks x 8 models = {summary["ood176"]["rows"]:,} result rows.
 - `id_tasks.jsonl`: ID task metadata with split and dimension.
+- `id_train_tasks.jsonl`, `id_val_tasks.jsonl`, `id_test_tasks.jsonl`, and `id_trainval_tasks.jsonl`: split-specific ID task metadata.
 - `ood176_tasks.jsonl`: OOD176 task prompts and metadata.
 - `models.json`: canonical model list and USD pricing metadata.
 - `summary.json`: counts, source paths, and integrity checks.

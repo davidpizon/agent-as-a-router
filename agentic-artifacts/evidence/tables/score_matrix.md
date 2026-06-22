@@ -9,6 +9,9 @@ rather than duplicating every matrix row.
 | --- | --- | --- |
 | CodeRouterBench dataset card | `data/coderouterbench/README.md` | Human/HF-facing benchmark definition and schema. |
 | CodeRouterBench ID results | `data/coderouterbench/id_results_long.csv` | 9,999 ID tasks x 8 models = 79,992 result rows. |
+| CodeRouterBench ID train results | `data/coderouterbench/id_train_results_long.csv` | 6,067 train tasks x 8 models = 48,536 result rows. |
+| CodeRouterBench ID test results | `data/coderouterbench/id_test_results_long.csv` | 2,919 test tasks x 8 models = 23,352 result rows. |
+| CodeRouterBench ID trainval results | `data/coderouterbench/id_trainval_results_long.csv` | Train + validation combined for two-way experiments. |
 | CodeRouterBench OOD176 results | `data/coderouterbench/ood176_results_long.csv` | 176 OOD tasks x 8 models = 1,408 result rows. |
 | CodeRouterBench model metadata | `data/coderouterbench/models.json` | Eight canonical backend models and pricing metadata. |
 | New64 raw matrix | `data/matrices/phase2_ood/raw/new64/matrix.json` | Filtered New64 subset and excluded SWE-CI IDs. |

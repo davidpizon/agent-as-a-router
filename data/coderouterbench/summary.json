@@ -6,6 +6,28 @@
     "models": 8,
     "rows": 79992,
     "source_matrix": "data/matrices/phase1_acrouter_v2/obs_matrix_clean.json",
+    "splits": {
+      "test": {
+        "rows": 23352,
+        "tasks": 2919
+      },
+      "train": {
+        "rows": 48536,
+        "tasks": 6067
+      },
+      "trainval": {
+        "rows": 56640,
+        "source_splits": [
+          "train",
+          "val"
+        ],
+        "tasks": 7080
+      },
+      "val": {
+        "rows": 8104,
+        "tasks": 1013
+      }
+    },
     "tasks": 9999
   },
   "models": [
