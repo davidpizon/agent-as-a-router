@@ -26,6 +26,7 @@ of ACRouter and OOD176 baselines.
 - `evidence/tables/ood176_baseline_table.md`: paper-style baseline table.
 - `evidence/tables/score_matrix.md`: full score-matrix pointers and schema.
 - `evidence/figures/README.md`: figure/data-product pointers.
+- `../data/coderouterbench/`: canonical CodeRouterBench task x model tables.
 
 ## Key Claims
 
@@ -39,6 +40,9 @@ of ACRouter and OOD176 baselines.
   bandits, retrieval, trained-policy, single-model, and random OOD176 baselines.
 - `claim:cost-aware`: Router evaluation tracks quality, cost, regret, and
   Perf/USD rather than only raw pass rate.
+- `claim:coderouterbench`: CodeRouterBench is released as complete ID and
+  OOD176 task x 8-model result tables, with router outputs treated as derived
+  artifacts.
 - `claim:extensible-pipeline`: Users can add custom models or benchmark tasks
   through `scripts/run_pipeline.py` without editing built-in OOD176 files.
 - `claim:workflow-api`: `acrouter_repro.inference.ACRouter` can be imported as
@@ -58,6 +62,8 @@ of ACRouter and OOD176 baselines.
   `outputs/baselines_ood176/`
 - `claim:cost-aware` -> `src/configs/router_eval.md` ->
   `evidence/tables/score_matrix.md`
+- `claim:coderouterbench` -> `evidence/tables/score_matrix.md` ->
+  `../data/coderouterbench/README.md`
 
 ## Reproduction Commands
 

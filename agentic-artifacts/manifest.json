@@ -19,6 +19,7 @@
       "python -m unittest discover -s tests"
     ],
     "reproduce": [
+      "python scripts/export_coderouterbench.py",
       "python scripts/run_id.py --output-dir outputs/tmp/id",
       "python scripts/run_acrouter_ood176.py --output-dir outputs/tmp/acrouter_ood176",
       "python scripts/run_baselines_ood176.py --output-dir outputs/tmp/baselines_ood176"
@@ -59,6 +60,9 @@
     ]
   },
   "canonical_repository_paths": {
+    "coderouterbench": "../data/coderouterbench/",
+    "coderouterbench_id_results": "../data/coderouterbench/id_results_long.csv",
+    "coderouterbench_ood176_results": "../data/coderouterbench/ood176_results_long.csv",
     "id_data": "../data/id/",
     "custom_pipeline_config": "../configs/eval_pipeline.example.json",
     "custom_pipeline_examples": "../examples/custom_benchmark/",

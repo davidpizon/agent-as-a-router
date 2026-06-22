@@ -83,6 +83,32 @@ ID n=2919 AvgPerf=50.14 CumReg=201.9 $Total=22.91 Perf/$=2.19 rAcc=0.2395
 
 Checked-in reference files live in `outputs/baselines_ood176/`.
 
+## CodeRouterBench Dataset
+
+**CodeRouterBench** is the benchmark release, not a router output dump. Its
+core tables are complete task-by-model result matrices:
+
+- `data/coderouterbench/id_results_long.csv`: 9,999 ID tasks x 8 backend models
+  = 79,992 result rows.
+- `data/coderouterbench/ood176_results_long.csv`: 176 OOD tasks x 8 backend
+  models = 1,408 result rows.
+- `data/coderouterbench/id_tasks.jsonl` and
+  `data/coderouterbench/ood176_tasks.jsonl`: task metadata.
+- `data/coderouterbench/models.json`: canonical model list and pricing
+  metadata.
+- `data/coderouterbench/summary.json`: integrity counts and source paths.
+
+Each result row records the task id, model, score or pass signal, cost, and
+token/latency or verifier metadata when available. ACRouter decisions,
+baseline traces, and paper tables are derived from these matrices and live
+under `outputs/`.
+
+Rebuild the user-facing benchmark tables from the nested source matrices:
+
+```bash
+python scripts/export_coderouterbench.py
+```
+
 ## Add New Models Or Tasks
 
 Use `scripts/run_pipeline.py` when you want to evaluate a new benchmark, a new
@@ -193,8 +219,10 @@ scripts/run_id.py                ID ACRouter entrypoint
 scripts/run_acrouter_ood176.py   ACRouter replay on OOD176
 scripts/run_baselines_ood176.py  OOD176 baseline replay
 scripts/run_pipeline.py          Config-driven custom model/task evaluation
+scripts/export_coderouterbench.py Export task-by-model benchmark tables
 tests/                           Unit and bundle-integrity tests
 
+data/coderouterbench/            Canonical CodeRouterBench task x model tables
 data/id/                         Phase-1 compact ID labels, splits, tokens
 data/ood/                        Legacy OOD112 matrix, patches, verifier cache
 data/matrices/phase1_acrouter_v2 Phase-1 observation/response matrices
@@ -214,16 +242,29 @@ export PYTHONPATH="$PWD/src:$PWD"
 
 ## CodeRouterBench Data
 
-The release keeps only data needed for offline scoring and reproduction.
+The release keeps data needed for offline scoring and reproduction. The
+canonical public benchmark files are in `data/coderouterbench/`:
 
-- `data/id/` contains task dimensions, train/val/test splits, oracle labels,
-  token counts, and saved voter decisions. It does not include raw model
-  responses or task solutions.
-- `data/matrices/phase2_ood/unified/matrix_acrouter_ood176.json` is the unified
-  176-task matrix used by the current OOD runs.
+- `id_results_long.csv`: one row per ID task/model result.
+- `ood176_results_long.csv`: one row per OOD176 task/model result.
+- `id_tasks.jsonl` and `ood176_tasks.jsonl`: task metadata.
+- `models.json`: the eight canonical backend models and USD pricing metadata.
+- `README.md`: a compact dataset card for Hugging Face Dataset uploads.
+
+The nested source matrices remain available for audit and reproduction:
+
+- `data/matrices/phase1_acrouter_v2/obs_matrix_clean.json` is the complete
+  9,999-task x 8-model ID observation matrix.
+- `data/matrices/phase1_acrouter_v2/response_matrix.json` stores the compact
+  phase-1 response matrix used by the reproduction bundle.
+- `data/matrices/phase2_ood/unified/matrix_acrouter_ood176.json` is the
+  complete 176-task x 8-model OOD176 scoring matrix.
 - `data/matrices/phase2_ood/raw/new64/matrix.json` records the filtered New64
   subset: FeatureBench 49 + LongCLI 14 + SWE-CI 1. The excluded 8 SWE-CI task
   IDs are recorded in the same JSON file.
+- `data/id/` contains task dimensions, train/val/test splits, legacy compact
+  labels, token counts, and saved voter decisions. Prefer
+  `data/coderouterbench/id_results_long.csv` for public benchmark consumption.
 - `data/ood/` contains the legacy OOD112 SWE-MiniSandbox matrix, patch-only
   model submissions, and a hash-checked sandbox cache for supplementary
   reproduction.
@@ -232,6 +273,24 @@ To rebuild the OOD176 unified matrix from the bundled raw snapshots:
 
 ```bash
 python scripts/build_ood176_dataset.py
+```
+
+To publish the dataset to Hugging Face with the current `hf` CLI syntax, run
+from the repository root and use the third positional argument as the target
+path inside the dataset repo:
+
+```bash
+python -m pip install -U huggingface_hub
+hf auth login
+
+python scripts/export_coderouterbench.py
+hf repo create LanceZPF/CodeRouterBench --type dataset
+hf upload LanceZPF/CodeRouterBench data/coderouterbench . --repo-type dataset
+hf upload LanceZPF/CodeRouterBench data/matrices raw_matrices --repo-type dataset
+hf upload LanceZPF/CodeRouterBench outputs outputs --repo-type dataset
+hf upload LanceZPF/CodeRouterBench agentic-artifacts/evidence evidence --repo-type dataset
+hf upload LanceZPF/CodeRouterBench configs/eval_pipeline.example.json configs/eval_pipeline.example.json --repo-type dataset
+hf upload LanceZPF/CodeRouterBench examples/custom_benchmark examples/custom_benchmark --repo-type dataset
 ```
 
 ## Dependency Sets

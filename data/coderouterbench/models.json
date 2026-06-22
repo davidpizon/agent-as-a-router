@@ -1,0 +1,60 @@
+{
+  "models": [
+    {
+      "input_per_1m": 15.0,
+      "model": "claude-opus-4-6",
+      "output_per_1m": 75.0,
+      "provider": "Anthropic",
+      "tier": "premium"
+    },
+    {
+      "input_per_1m": 3.0,
+      "model": "claude-sonnet-4-6",
+      "output_per_1m": 15.0,
+      "provider": "Anthropic",
+      "tier": "high"
+    },
+    {
+      "input_per_1m": 1.25,
+      "model": "gpt-5.4",
+      "output_per_1m": 10.0,
+      "provider": "OpenAI",
+      "tier": "high"
+    },
+    {
+      "input_per_1m": 0.6,
+      "model": "glm-5",
+      "output_per_1m": 2.2,
+      "provider": "Zhipu",
+      "tier": "mid"
+    },
+    {
+      "input_per_1m": 0.6,
+      "model": "kimi-k2.5",
+      "output_per_1m": 2.5,
+      "provider": "Moonshot",
+      "tier": "mid"
+    },
+    {
+      "input_per_1m": 0.3,
+      "model": "MiniMax-M2.7",
+      "output_per_1m": 1.2,
+      "provider": "MiniMax",
+      "tier": "low"
+    },
+    {
+      "input_per_1m": 2.0,
+      "model": "Qwen3-Max",
+      "output_per_1m": 6.0,
+      "provider": "Alibaba",
+      "tier": "mid"
+    },
+    {
+      "input_per_1m": 0.4,
+      "model": "qwen3.5-plus",
+      "output_per_1m": 1.2,
+      "provider": "Alibaba",
+      "tier": "low"
+    }
+  ]
+}

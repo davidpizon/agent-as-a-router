@@ -2,8 +2,10 @@
 
 ## Streams
 
-- ID: 2,919 in-distribution coding tasks.
-- OOD176: current public OOD matrix unified from Old112 plus filtered New64.
+- CodeRouterBench ID: 9,999 in-distribution coding tasks x 8 backend models.
+- ID reproduction split: 2,919 in-distribution test tasks.
+- OOD176: current public OOD matrix unified from Old112 plus filtered New64,
+  176 tasks x 8 backend models.
 
 ## Metrics
 

@@ -26,6 +26,8 @@ and compact evidence snapshot over the canonical repository files:
 
 - `data/` contains the compact matrices, labels, task metadata, and verifier
   cache.
+- `data/coderouterbench/` contains the canonical public task x model result
+  tables for CodeRouterBench.
 - `outputs/` contains checked-in reference outputs and baseline tables.
 - `scripts/` contains the reproducible entrypoints.
 - `configs/` and `examples/` contain the custom pipeline and inference demos.

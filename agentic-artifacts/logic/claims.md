@@ -7,6 +7,7 @@
 | `claim:ood176` | On unified OOD176, ACRouter reaches 73.30 AvgPerf, 14.4 cumulative regret, 68.29 USD total cost, and 1.07 Perf/USD. | `evidence/tables/acrouter_release_summary.csv`, `outputs/acrouter_ood176/ood_metrics.json` | `checked-in-output` |
 | `claim:baseline-coverage` | The release includes OOD176 comparisons for Oracle, ACRouter, online bandits, retrieval, trained-policy routers, single-model baselines, and random routing. | `evidence/tables/ood176_baseline_table.md`, `outputs/baselines_ood176/` | `checked-in-output` |
 | `claim:cost-aware` | Evaluation tracks quality, cost, cumulative regret, and Perf/USD instead of reporting only raw pass rate. | `src/configs/router_eval.md`, `evidence/tables/score_matrix.md` | `derived-index` |
+| `claim:coderouterbench` | CodeRouterBench is released as complete ID and OOD176 task x 8-model result tables, with router outputs treated as derived artifacts. | `data/coderouterbench/README.md`, `evidence/tables/score_matrix.md` | `derived-index` |
 | `claim:extensible-pipeline` | Users can add custom models or benchmark tasks through a config-driven one-command pipeline. | `configs/eval_pipeline.example.json`, `scripts/run_pipeline.py`, `examples/custom_benchmark/` | `derived-index` |
 | `claim:workflow-api` | ACRouter can be imported during inference and connected to arbitrary model-caller and verifier functions. | `src/acrouter_repro/inference.py`, `examples/inference_demo.py` | `derived-index` |
 

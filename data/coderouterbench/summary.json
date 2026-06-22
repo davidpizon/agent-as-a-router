@@ -1,0 +1,28 @@
+{
+  "dataset": "CodeRouterBench",
+  "definition": "complete task-by-model result matrices for eight backend models",
+  "id": {
+    "missing_cells": 0,
+    "models": 8,
+    "rows": 79992,
+    "source_matrix": "data/matrices/phase1_acrouter_v2/obs_matrix_clean.json",
+    "tasks": 9999
+  },
+  "models": [
+    "claude-opus-4-6",
+    "claude-sonnet-4-6",
+    "gpt-5.4",
+    "glm-5",
+    "kimi-k2.5",
+    "MiniMax-M2.7",
+    "Qwen3-Max",
+    "qwen3.5-plus"
+  ],
+  "ood176": {
+    "missing_cells": 0,
+    "models": 8,
+    "rows": 1408,
+    "source_matrix": "data/matrices/phase2_ood/unified/matrix_acrouter_ood176.json",
+    "tasks": 176
+  }
+}

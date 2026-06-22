@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import csv
 import json
 import sys
 import unittest
@@ -15,6 +16,37 @@ def read_json(path: Path) -> dict:
 
 
 class BundleIntegrityTests(unittest.TestCase):
+    def test_coderouterbench_tables_are_complete(self) -> None:
+        root = ROOT / "data" / "coderouterbench"
+        summary = read_json(root / "summary.json")
+
+        self.assertEqual(summary["dataset"], "CodeRouterBench")
+        self.assertEqual(summary["id"]["tasks"], 9999)
+        self.assertEqual(summary["id"]["models"], 8)
+        self.assertEqual(summary["id"]["rows"], 79992)
+        self.assertEqual(summary["id"]["missing_cells"], 0)
+        self.assertEqual(summary["ood176"]["tasks"], 176)
+        self.assertEqual(summary["ood176"]["models"], 8)
+        self.assertEqual(summary["ood176"]["rows"], 1408)
+        self.assertEqual(summary["ood176"]["missing_cells"], 0)
+
+        id_path = root / "id_results_long.csv"
+        ood_path = root / "ood176_results_long.csv"
+        with id_path.open(newline="") as fh:
+            reader = csv.reader(fh)
+            self.assertEqual(
+                next(reader),
+                ["task_id", "split", "dimension", "model", "score", "cost_usd", "total_tokens", "latency_ms"],
+            )
+            self.assertEqual(sum(1 for _ in reader), summary["id"]["rows"])
+
+        with ood_path.open(newline="") as fh:
+            reader = csv.DictReader(fh)
+            self.assertIn("task_id", reader.fieldnames or [])
+            self.assertIn("model", reader.fieldnames or [])
+            self.assertIn("resolved", reader.fieldnames or [])
+            self.assertEqual(sum(1 for _ in reader), summary["ood176"]["rows"])
+
     def test_ood176_matrix_is_complete_and_path_sanitized(self) -> None:
         path = ROOT / "data/matrices/phase2_ood/unified/matrix_acrouter_ood176.json"
         data = read_json(path)

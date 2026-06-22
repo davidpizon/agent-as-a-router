@@ -2,9 +2,12 @@
 
 ## Benchmark Streams
 
-- ID: 2,919 in-distribution coding tasks with compact task dimensions, splits,
-  oracle labels, token counts, and saved voter decisions under `data/id/`.
+- CodeRouterBench ID: 9,999 in-distribution coding tasks x 8 backend models
+  under `data/coderouterbench/id_results_long.csv`.
+- ID reproduction split: the ACRouter ID headline result is evaluated on the
+  2,919-task test split.
 - OOD176: current public OOD matrix built from Old112 plus filtered New64 under
+  `data/coderouterbench/ood176_results_long.csv` and
   `data/matrices/phase2_ood/unified/`.
 
 ## Main ACRouter Results
@@ -37,6 +40,7 @@ decisions, metrics JSON files, and summary tables.
 ## Rebuild Commands
 
 ```bash
+python scripts/export_coderouterbench.py
 python scripts/build_ood176_dataset.py
 python scripts/run_id.py --output-dir outputs/tmp/id
 python scripts/run_acrouter_ood176.py --output-dir outputs/tmp/acrouter_ood176
