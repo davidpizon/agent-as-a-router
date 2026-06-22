@@ -306,22 +306,24 @@ To rebuild the OOD176 unified matrix from the bundled raw snapshots:
 python scripts/build_ood176_dataset.py
 ```
 
-To publish the dataset to Hugging Face with the current `hf` CLI syntax, run
-from the repository root and use the third positional argument as the target
-path inside the dataset repo:
+To overwrite and republish the dataset on Hugging Face, run from the repository
+root:
 
 ```bash
 python -m pip install -U huggingface_hub
 hf auth login
 
-python scripts/export_coderouterbench.py
-hf repo create Lance1573/CodeRouterBench --type dataset
-hf upload Lance1573/CodeRouterBench data/coderouterbench . --repo-type dataset
-hf upload Lance1573/CodeRouterBench data/matrices raw_matrices --repo-type dataset
-hf upload Lance1573/CodeRouterBench outputs outputs --repo-type dataset
-hf upload Lance1573/CodeRouterBench agentic-artifacts/evidence evidence --repo-type dataset
-hf upload Lance1573/CodeRouterBench configs/eval_pipeline.example.json configs/eval_pipeline.example.json --repo-type dataset
-hf upload Lance1573/CodeRouterBench examples/custom_benchmark examples/custom_benchmark --repo-type dataset
+bash scripts/upload_coderouterbench_hf.sh
+```
+
+The script stages the dataset card, canonical CodeRouterBench tables, raw
+matrices, reference outputs, evidence artifacts, config example, and custom
+benchmark example, then performs one `hf upload ... --delete "*"` commit so the
+remote dataset is overwritten instead of appended to. To target another dataset
+repo:
+
+```bash
+bash scripts/upload_coderouterbench_hf.sh owner_or_org/CodeRouterBench
 ```
 
 ## Dependency Sets
