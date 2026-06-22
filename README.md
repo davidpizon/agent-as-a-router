@@ -2,6 +2,9 @@
 
 **Project Homepage:** [https://www.omnisource.cn/agent-as-a-router](https://www.omnisource.cn/agent-as-a-router)
 
+The official implementations of Agent-as-a-Router: Agentic Model Routing for
+Coding Tasks.
+
 ACRouter is an offline-reproducible routing framework for comparing an
 agent-style router against single-model, heuristic, online-bandit, retrieval,
 and trained-policy baselines on coding tasks.
