@@ -1,0 +1,2677 @@
+{
+  "schema_version": 1,
+  "model": "claude-opus-4-6",
+  "items": {
+    "astropy__astropy-13033": {
+      "instance_id": "astropy__astropy-13033",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "db17d79824f47d6d4d8b9a1f22d93841c227e85e5a4faf7a7fdfe2bd6a34c349",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 20.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 20,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-13236": {
+      "instance_id": "astropy__astropy-13236",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "fb1bea863f67dabfa7d64e3a6098e4b34c380c1a12f5a74b1e6ed2710fc40f67",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 24.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 644,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-13398": {
+      "instance_id": "astropy__astropy-13398",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "e0d5ff7c27addc6dbf5d518f684b95af174e21a240d759b535bc192669bda7f9",
+      "resolved": false,
+      "apply_ok": false,
+      "patch_non_empty": true,
+      "error": "patch apply failed",
+      "elapsed_s": 1.2,
+      "tests": {}
+    },
+    "astropy__astropy-13579": {
+      "instance_id": "astropy__astropy-13579",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "c27aeb1aa63a4a51fd380c5f5f06a757244f3bdcdcd4d201c47b1fbeff33def3",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 58.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 40,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-13977": {
+      "instance_id": "astropy__astropy-13977",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "073c5a03fab01993059a82adbbab21f700dcaef0220902d8e3b774496c32d634",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 21.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 12,
+          "failure": 8
+        },
+        "PASS_TO_PASS": {
+          "success": 318,
+          "failure": 4
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-14096": {
+      "instance_id": "astropy__astropy-14096",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "f0df08ff305d91d3898a99dd59ddf69921c59aa9ca3e52024da54d8d0a3ad36a",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 55.5,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 426,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-14309": {
+      "instance_id": "astropy__astropy-14309",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "71a9160b7f6f99600e71de4df89b1a1f470c0dbf47a49eaeb15790e2b233a70a",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 16.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 141,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-14508": {
+      "instance_id": "astropy__astropy-14508",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "238b295c6cfed035aec1031a5d1fbeb0d1ddbeb8fc0e9bb723407c2d520d2a8d",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 44.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 174,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-14539": {
+      "instance_id": "astropy__astropy-14539",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "86666ba67714a7bbffe093f1d700e70898a451d094ef0135e1ef51df5abf435d",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 16.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 46,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-14598": {
+      "instance_id": "astropy__astropy-14598",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "a6e0e03f6fd48188d8d76b8571c3de4a4288ace26567dbc106a6731263c9b2bb",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 15.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 175,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-14995": {
+      "instance_id": "astropy__astropy-14995",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "1923b62da635b30b0320ab99ece81184a50190a739c107891c3fac040ccdfd06",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 37.5,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 179,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-7166": {
+      "instance_id": "astropy__astropy-7166",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "67fdf66c1f64c02b060cb74a336d997eb65bcca4062db2d23d66458472b690f6",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 6.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 6,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-7336": {
+      "instance_id": "astropy__astropy-7336",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "41720811c540729c42a95f5a1fbdf79ae248ec6c351c2c9c5685e908ea24d87f",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 339,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-7671": {
+      "instance_id": "astropy__astropy-7671",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "c56bad6b89ba49f295bf0a22364071b2c16812991b34fe4ff87e40bdde83965d",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 6.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 3,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-8872": {
+      "instance_id": "astropy__astropy-8872",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "ae347929f5d8cd27f219bf174841b53bfaea7a0888fb608ae72edecba7f4f2e1",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 0,
+          "failure": 80
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-10097": {
+      "instance_id": "django__django-10097",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "0d6d55244c6c65c9cffd8bf211bcfa3e402439e503c5b67a1d8e85cfbad43f91",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 263.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 431,
+          "failure": 7
+        },
+        "PASS_TO_PASS": {
+          "success": 1432,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-10914": {
+      "instance_id": "django__django-10914",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "f5ae69fb5b9bde642e692ce816e2f7dbe561732b26b4edebbc105b45c8b9baf2",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 14.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 98,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-10973": {
+      "instance_id": "django__django-10973",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "c4321855273a7daf1324f9a205cc93a89f614018f2481edbde6cf0a631a64c73",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 14.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 5,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 0,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-10999": {
+      "instance_id": "django__django-10999",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "ec9696668ec6524dc629dda67181e1733cfe04a759239ef16f219e28ea3c50a6",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 14.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 10,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11087": {
+      "instance_id": "django__django-11087",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "ae76489a3b81bcefaabe994d31506e1b1733bc04d170bbcc75cd89fd21689015",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 41,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11095": {
+      "instance_id": "django__django-11095",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "18e2990c185e45603ce688b852affbf5f743a23250ff704faf77bed5e052300a",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 19,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11099": {
+      "instance_id": "django__django-11099",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "dcd7202d62b786de764d90d5793d4d1d2f531486e1bd4f2c0b7bf5507a82163d",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 3,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 19,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11119": {
+      "instance_id": "django__django-11119",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "2065323dcdbfcae812028d52307941075ffbba378ed379061e3332bbb3d22d29",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 7,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11133": {
+      "instance_id": "django__django-11133",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "aa6a1964375a71107b6571cfffc8ab75d4176fa08cbbe0a0ae4c858b6a7cb38b",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.5,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 64,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11206": {
+      "instance_id": "django__django-11206",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "a5d6b2d3a7b2e431a2ef07532cccc56f8ad34a5b3ff5904d57c14fc0ea79ab01",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.5,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 4,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11239": {
+      "instance_id": "django__django-11239",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "8479cab0d4dfd766a6bc3439d03a652a4b84796265d9d5cb9892344c6bad5f0d",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 5,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11276": {
+      "instance_id": "django__django-11276",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "eccbc3c9f2a2c0a52ed438d12ba49255bc02e9e3ea73175417b93bfdac2e8808",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 18.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 26,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 548,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11292": {
+      "instance_id": "django__django-11292",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "4ad96aedcde11d6e330063ab5c36796df80f3895a1349c3349ca3e40b750648e",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 31,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11333": {
+      "instance_id": "django__django-11333",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "fdd1e984d9a079f76f4e3bb7ab4dc68df1f67403c077e6de641138384a715062",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11477": {
+      "instance_id": "django__django-11477",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "75df807aaea9992f29561112faa71cbf5bb74579bd37c3a4ccf60e56c24657e6",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 15.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 151,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11490": {
+      "instance_id": "django__django-11490",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "f6029df42f7c116d476b03c7bcb4a394d5c6ae53748bdbf30baf49ddbcf3b8ba",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 14.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 23,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11603": {
+      "instance_id": "django__django-11603",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "df6e582cfacf6cfc0f95a435bd4783890d997bce093ac4f4aae9ff1f03f37ffc",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 14.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 58,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11728": {
+      "instance_id": "django__django-11728",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "7b4e667bb30f951068c1987ae9580af910465eba5658ae0adcb211449a72c56d",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 16.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 44,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11734": {
+      "instance_id": "django__django-11734",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "95dec20b3920390c259ff1d4c18fc6875dc1410c2ffec7b570a795991556729b",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 15.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 275,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11749": {
+      "instance_id": "django__django-11749",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "f080b7d1023d93ae7a63977ce894288cc3a096ac9c9e9d6420c10f687e2f0d5e",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 14.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 34,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11815": {
+      "instance_id": "django__django-11815",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "b86a06701ec2b606ef1a73bd34121c9e1bbf163b25253aaf35096d0777289482",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 15.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 44,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11820": {
+      "instance_id": "django__django-11820",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "c8abde62ac1db4f0c0490d2f0febd86a27e4fedbae2f4733ccafdc6f7f87754c",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 15.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 61,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11848": {
+      "instance_id": "django__django-11848",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "b3a5535246fc0281c9829c4a31ef3c4f3f7c7cc8db2ca4d671a205ad20f19ff2",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 15.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 43,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11951": {
+      "instance_id": "django__django-11951",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "3cc0b623a4393acf23f2426804f91ba7a471b940d928d93b072d6163d0cffd86",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 14.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 21,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11999": {
+      "instance_id": "django__django-11999",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "f2a1f6e8abab505ee4c940e3648a260a85ffcc98851b9fcb19ecf165d107ecc7",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 30,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12039": {
+      "instance_id": "django__django-12039",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "61213f2490bc98bfaa25442fa16cb34f1401c22cf69b11f0944d2f8fbdcd11f5",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 11,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12050": {
+      "instance_id": "django__django-12050",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "08af6e22fa66b28c47c3cd61192637cdcf2fca544718dc4d48f8f01fb469e63f",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 10,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12143": {
+      "instance_id": "django__django-12143",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "132af8d75e205ae5c96c051b2742ccff32effacca2144d04f1ada26456c162c1",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 52,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12155": {
+      "instance_id": "django__django-12155",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "11f03c5b4a6c948d47db139f12901365b976e113194c3cb8f638cb97e72bc208",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 6,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12193": {
+      "instance_id": "django__django-12193",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "4cb9fd1a5c7ef55e0ace8ce597bf219fcba53da88e236f44913bc2a36c4d36a7",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 11,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12276": {
+      "instance_id": "django__django-12276",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "7d4b2e8342743fac795b98a4a1dbf8afbeb7645443dc02efd1a19fafa2c7ce18",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.7,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 117,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12304": {
+      "instance_id": "django__django-12304",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "36edcc3f2ffbce605ca63b8e1fba29b037ba4d61e8e46dfa43812a82ae48b9cf",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.7,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 17,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12406": {
+      "instance_id": "django__django-12406",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "10a0ff5e81a77dd133ef8888c6e005348899cd955b10114498a09143b6c3ae57",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.5,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 165,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12419": {
+      "instance_id": "django__django-12419",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "50b4e86f4f01e293a11afd7e691d97697a95a38da7112682b51fd2018f828629",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 0,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13012": {
+      "instance_id": "django__django-13012",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "beb41be0e2cdd8f6dc42cd3927583b27921a001a10ff7c6701c74d34b8a3f171",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 137,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13028": {
+      "instance_id": "django__django-13028",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "b7a85aab409c8aa003483fde28be38267d82178f57b0a1ce8097bc1c41ebf32f",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 14.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 276,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13089": {
+      "instance_id": "django__django-13089",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "088498455f899e7dda5cad05ee9286e832f7f66197e51dd391b7f86c6b57995d",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 84.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 352,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13121": {
+      "instance_id": "django__django-13121",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "adf56a28ecfe63255872ea72227f5f0a7ac13df89362fc7a0372f104dfe0afad",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 168,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13128": {
+      "instance_id": "django__django-13128",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "91ea559eb99c19fb788648e58dbd74ea473751c5c5f731f2c93c5d51aa9afe88",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 7,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 134,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13195": {
+      "instance_id": "django__django-13195",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "246f71530c8a1179452a457e121f91d55b194962c321be6e98cfd89755c0f540",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 4,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 381,
+          "failure": 1
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13212": {
+      "instance_id": "django__django-13212",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "e11ed4ef2e1780490dfcad9c5cfac6191307a209fc310feaf39dfac3075f20c1",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 3,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13297": {
+      "instance_id": "django__django-13297",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "e175c6d351c9165b0f0834995971a1b610b57971be064d4deb0dbf7867e17508",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 15.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 52,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13315": {
+      "instance_id": "django__django-13315",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "dbe5dcc362da8d15bb7519db031e4e7b6532c900fedc2027010105e28dee9006",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 146,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13343": {
+      "instance_id": "django__django-13343",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "e615810a661d93897d36e4ea0f14b079778e112114614757a703f4420891eefd",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 130,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13344": {
+      "instance_id": "django__django-13344",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "c1b8a3858e25cb6c5328cdbd8ce4986fa0a0b80e3488cea129bfe089cbd41e3e",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 84.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 356,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13346": {
+      "instance_id": "django__django-13346",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "992a552f15b608bc78600e21c28f46c8bc1719fe3176c17f991d1b0a21d4bf8b",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 65,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13401": {
+      "instance_id": "django__django-13401",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "a3160bdc0324200811dd5795fe826347f1eea0538f5d7d220bfa605c603b711d",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 32,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13406": {
+      "instance_id": "django__django-13406",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "c1a75f48f564eea51e47f184f53f47a8dce013a77cfc8eef8c711e7acfd2f160",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 3,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 32,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13512": {
+      "instance_id": "django__django-13512",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "56293f34cabdd84bb662d630186316539dfef307584d4a82beca3dc638b7321c",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 32,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13516": {
+      "instance_id": "django__django-13516",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "c31107300186c4d47bf428eac61aa157a37e7055a8291dffc4994dc7748d5554",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.7,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 43,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13551": {
+      "instance_id": "django__django-13551",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "d65a9f67b511677456cd4dbc45e1ba5fa248c7b6afb5f70471e5b7afab5f196a",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 56,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13590": {
+      "instance_id": "django__django-13590",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "a8d0f7c23df3e35460b5aef59a9312bcca07e4ce67da868b839a37828657c002",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 145,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13670": {
+      "instance_id": "django__django-13670",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "6d5fadf112b22f9573795761d5a1287e5cf847755f283cbc53749c158111aaff",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 17,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13786": {
+      "instance_id": "django__django-13786",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "cc8aea1ca86e42cdb2fade9cc139a01cfad0d9ad161e4dad38df1937414e98df",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 33,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13794": {
+      "instance_id": "django__django-13794",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "a4af2d204f8d35724aee281052a42c40fd6552e7c2607d94f17c935f341d9895",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 24,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13809": {
+      "instance_id": "django__django-13809",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "6a8ac59eab9831099ebb9d99e3b7cb88b8ae46c888281e52098e1976d9bb4e6d",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 56.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 245,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13810": {
+      "instance_id": "django__django-13810",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "c433efd973837b528afe81ac630407c0dee35562b18a3354d006d05215423c07",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 30,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13820": {
+      "instance_id": "django__django-13820",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "5451fd135dd8865bdf7bfc3a4e7df8c5579a0218c25ccb56096a974f28129e18",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 24,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13821": {
+      "instance_id": "django__django-13821",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "8ae19349a02ea96d70c6c3e4c17a3b2fc75f430b2dfbb2ba0014aa1a7e167c8f",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 14,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14007": {
+      "instance_id": "django__django-14007",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "24b090de1a53b8f70c287bee10e5f7190d25e689d685f78c293562c801cf8338",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 12,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14017": {
+      "instance_id": "django__django-14017",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "8f8d3ad45e88aa14e7967f8a8a3a206a06200c6d8a7686d98df8eab02bb0652d",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 14.5,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 147,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14053": {
+      "instance_id": "django__django-14053",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "7725583a25f243522aba1765c7bfba10f9ce79c140d7a9200662a9bdfb1e3a87",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 31,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14122": {
+      "instance_id": "django__django-14122",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "b1c2a89284544cf9d70a8facd1843e030ef5ba067275ed62ab812a7f53c0d19e",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 26,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14140": {
+      "instance_id": "django__django-14140",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "c0aacf557898501bd423710a28526d6a4cd05b2900c5e59cca97f5f692e1c492",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 199,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14155": {
+      "instance_id": "django__django-14155",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "5abc4572bb3cc8a3bf7454e5357a39cb59b34574ae0e1cd0603d53a7ea80c847",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 3
+        },
+        "PASS_TO_PASS": {
+          "success": 89,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14170": {
+      "instance_id": "django__django-14170",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "bd533d86031c0e5346b56b295f28397f1ea6f7fcf03beb3215cc76de5e7eaa99",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 67,
+          "failure": 9
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14311": {
+      "instance_id": "django__django-14311",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "2e98c77413b65c281f557029d60802313181084ce2544781fbd0499b3e3a560d",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 59,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14315": {
+      "instance_id": "django__django-14315",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "49f6712d0b26a39e28ba8db808b9833de447712a7286c1952beb754c558b0994",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 7,
+          "failure": 4
+        },
+        "PASS_TO_PASS": {
+          "success": 0,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14349": {
+      "instance_id": "django__django-14349",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "2a36e0d86b1682e0915d4af921a4120c01e98476607d931646e07fea4e81bb6c",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.5,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 18,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14373": {
+      "instance_id": "django__django-14373",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "15fb15f719725fe7f7aaac4b5535b8b9a51ccecad53b40e2f154d39590ddcfb5",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.7,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 19,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14376": {
+      "instance_id": "django__django-14376",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "0284a2fb813e06431f352839558587bb8f043072695b218ae7fbd41973c2c643",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 3
+        },
+        "PASS_TO_PASS": {
+          "success": 6,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14404": {
+      "instance_id": "django__django-14404",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "3e149f643f378dae548b57e2ad3a32e8a6c3f519051c80cd2adfd3ef4f304285",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 35.7,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 323,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14434": {
+      "instance_id": "django__django-14434",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "c1de0879cd1e394890acdb1828d770c143face37ea84e6ed1356fc38ad2e3ae3",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 133,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14493": {
+      "instance_id": "django__django-14493",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "b2d317d66f891fb68c90fd3548794452bf696524b1f050afbd9815b35f3e2f9e",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 36,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14500": {
+      "instance_id": "django__django-14500",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "e354e8c53f5ac96e04031c6d3f4ad803574af93bec54d467ac78d515dbaf5bf2",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 21,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14539": {
+      "instance_id": "django__django-14539",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "166473255e55cdfb18acfa0c4a8b681f818ef52db6155861bf4d9834ac10b3a2",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 14,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14559": {
+      "instance_id": "django__django-14559",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "9e8f4460db4e29bab4d01cbaa5006e8ba9a126abfe6624f845a1c9676500df4b",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 3,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 23,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14608": {
+      "instance_id": "django__django-14608",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "c4ebc8a7690e6b4c174f8928fff007602272cc009be72906e88f020d8c39e966",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 34.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 4,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 394,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14631": {
+      "instance_id": "django__django-14631",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "b96a1f3ae820829a229e7e517f364fd2c6456b1aeb88ef00c80e5f9e298d2f9b",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 117,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14725": {
+      "instance_id": "django__django-14725",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "4ae1fb72a1a37af40610ccedc67360396b09b59ba91f152d8c9bb56524ba6cf0",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 3,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 64,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14765": {
+      "instance_id": "django__django-14765",
+      "model": "claude-opus-4-6",
+      "patch_sha256": "e30f1f838d6de42dfdf2ff18cfdc8b3cca786571622d201085012c659c172904",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 64,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    }
+  }
+}

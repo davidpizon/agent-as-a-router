@@ -1,0 +1,48 @@
+{
+  "name": "example_custom_benchmark",
+  "tasks_path": "../examples/custom_benchmark/tasks.jsonl",
+  "results_path": "../examples/custom_benchmark/model_results.jsonl",
+  "output_dir": "../outputs/tmp/example_custom_pipeline",
+  "score_threshold": 1.0,
+  "models": {
+    "toy-fast": {
+      "input_per_1m": 5.00,
+      "output_per_1m": 15.00
+    },
+    "toy-balanced": {
+      "input_per_1m": 20.00,
+      "output_per_1m": 60.00
+    },
+    "toy-strong": {
+      "input_per_1m": 100.00,
+      "output_per_1m": 300.00
+    }
+  },
+  "evaluations": [
+    {
+      "name": "ACRouter custom cascade",
+      "type": "verify_and_escalate",
+      "cheap_chain": ["toy-fast", "toy-balanced"],
+      "escalate_to": "toy-strong",
+      "k": 1
+    },
+    {
+      "name": "Always toy-fast",
+      "type": "always",
+      "model": "toy-fast"
+    },
+    {
+      "name": "Always toy-strong",
+      "type": "always",
+      "model": "toy-strong"
+    },
+    {
+      "name": "Oracle",
+      "type": "oracle"
+    },
+    {
+      "name": "Cheapest",
+      "type": "cheapest"
+    }
+  ]
+}

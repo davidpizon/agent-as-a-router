@@ -1,0 +1,45 @@
+artifact: acrouter-open-source
+updated: "2026-06-22"
+provenance: derived-index
+nodes:
+  - id: root
+    type: question
+    status: active
+    summary: "How should coding tasks be routed across heterogeneous models under quality and cost constraints?"
+    binds_to:
+      - logic/claims.md
+      - logic/solution/architecture.md
+  - id: static-router
+    type: rejected_path
+    status: rejected
+    summary: "A static or hard-coded routing policy cannot adapt to verifier feedback or OOD shifts."
+    lesson: "Keep observed score, cost, and verification traces as replayable evidence."
+    binds_to:
+      - logic/solution/architecture.md
+      - evidence/tables/score_matrix.md
+  - id: quality-only-ranking
+    type: rejected_path
+    status: rejected
+    summary: "Quality-only model selection hides expensive decisions that matter for cost-aware regret."
+    lesson: "Report AvgPerf, cumulative regret, total cost, and Perf/USD together."
+    binds_to:
+      - src/configs/router_eval.md
+      - evidence/tables/acrouter_release_summary.csv
+  - id: live-only-evaluation
+    type: rejected_path
+    status: rejected
+    summary: "A release that depends on live model calls is hard for third parties to reproduce."
+    lesson: "Bundle compact matrices, verifier caches, saved checkpoints, and reference outputs."
+    binds_to:
+      - src/environment.md
+      - ../data/
+      - ../outputs/
+  - id: acrouter-loop
+    type: selected_solution
+    status: selected
+    summary: "Use offline replay of the Context-Action-Feedback router with checked-in evidence."
+    binds_to:
+      - logic/solution/architecture.md
+      - src/configs/router_eval.md
+      - evidence/tables/ood176_baseline_table.md
+

@@ -1,0 +1,3086 @@
+{
+  "schema_version": 1,
+  "model": "gpt-5.4",
+  "items": {
+    "astropy__astropy-13033": {
+      "instance_id": "astropy__astropy-13033",
+      "model": "gpt-5.4",
+      "patch_sha256": "ef193043bef9cc72f96ce92254445a312d04374afb092b8f2db4d197a4e0e352",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 19,
+          "failure": 1
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-13236": {
+      "instance_id": "astropy__astropy-13236",
+      "model": "gpt-5.4",
+      "patch_sha256": "231548c50ca8e93b97d8e1403f47fa992829bb49983e6b3a2cd2ea980a364d0e",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 644,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-13398": {
+      "instance_id": "astropy__astropy-13398",
+      "model": "gpt-5.4",
+      "patch_sha256": "bf2cfbcdbddbaa06473b76bf81d018cab518a8d37b968a59a42acf61f45b629a",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 4
+        },
+        "PASS_TO_PASS": {
+          "success": 0,
+          "failure": 68
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-13579": {
+      "instance_id": "astropy__astropy-13579",
+      "model": "gpt-5.4",
+      "patch_sha256": "24efdf742dcd1e9ddcc34ed6d43587ca928a5af16f7f563d98c4d79d082d4f8e",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 40,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-13977": {
+      "instance_id": "astropy__astropy-13977",
+      "model": "gpt-5.4",
+      "patch_sha256": "575b0a8edd3d61d501e9e2b2219d38ac736a63b79020bec923cb25ba66a62b09",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 12,
+          "failure": 8
+        },
+        "PASS_TO_PASS": {
+          "success": 318,
+          "failure": 4
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-14096": {
+      "instance_id": "astropy__astropy-14096",
+      "model": "gpt-5.4",
+      "patch_sha256": "86ec256cc686500cf6076ee415755311bba507f2dff0a5704560f4899872043a",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 18.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 426,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-14309": {
+      "instance_id": "astropy__astropy-14309",
+      "model": "gpt-5.4",
+      "patch_sha256": "71a9160b7f6f99600e71de4df89b1a1f470c0dbf47a49eaeb15790e2b233a70a",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 141,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-14508": {
+      "instance_id": "astropy__astropy-14508",
+      "model": "gpt-5.4",
+      "patch_sha256": "c0f3fcda6dbf0ed2d158df86b3eb0eff5a1bfb2cc83245c6853e352320450112",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 174,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-14539": {
+      "instance_id": "astropy__astropy-14539",
+      "model": "gpt-5.4",
+      "patch_sha256": "d777e9ecf4e9073268f7523bc3559e8cc4729c2020650c065436bf3814ab65d3",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 8.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 46,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-14598": {
+      "instance_id": "astropy__astropy-14598",
+      "model": "gpt-5.4",
+      "patch_sha256": "8266e41de8e1f44d1abba61483940af4aaf9e1f9e7fc6bb80349542447c86ad3",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 175,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-14995": {
+      "instance_id": "astropy__astropy-14995",
+      "model": "gpt-5.4",
+      "patch_sha256": "9d9f5dad8a26566282d791b93ad15e1623b66494e76d28499bd8a81a5d6a9ecf",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 17.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 179,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-7166": {
+      "instance_id": "astropy__astropy-7166",
+      "model": "gpt-5.4",
+      "patch_sha256": "ba5e9dbfe4a68b795835448c2c4c0c54c5193202d46006e53ec80f326268cf06",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 7.7,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 6,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-7336": {
+      "instance_id": "astropy__astropy-7336",
+      "model": "gpt-5.4",
+      "patch_sha256": "196fe2888d230358083dc7eb0b5b7cf10318c7016bf2b18cc8a6529d9380d3be",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.5,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 339,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-7671": {
+      "instance_id": "astropy__astropy-7671",
+      "model": "gpt-5.4",
+      "patch_sha256": "609483f884d01aca928fcd02214329f49d947301b06394759838b55764e65e41",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 7.7,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 3,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-8872": {
+      "instance_id": "astropy__astropy-8872",
+      "model": "gpt-5.4",
+      "patch_sha256": "f0f8dd5df1cc2eb38a34992fefba6cffa148cb637b999fcb3e9859bafc180064",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 0,
+          "failure": 80
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-10097": {
+      "instance_id": "django__django-10097",
+      "model": "gpt-5.4",
+      "patch_sha256": "4ad7f52b959ac1356e7c1753211b8a75dce52b9a65cf0e450d7feef0b68453c8",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 266.7,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 431,
+          "failure": 7
+        },
+        "PASS_TO_PASS": {
+          "success": 1432,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-10554": {
+      "instance_id": "django__django-10554",
+      "model": "gpt-5.4",
+      "patch_sha256": "d9f84b7251f1a335daf59d3468afee62848c7ed583e9047c5223a0492201fedf",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 14.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 23,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-10914": {
+      "instance_id": "django__django-10914",
+      "model": "gpt-5.4",
+      "patch_sha256": "f5ae69fb5b9bde642e692ce816e2f7dbe561732b26b4edebbc105b45c8b9baf2",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 98,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-10973": {
+      "instance_id": "django__django-10973",
+      "model": "gpt-5.4",
+      "patch_sha256": "58fcd71645743b65e7707cc54bce4fa61ebd1f0bcdf7937472ca2c154d196012",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 4,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 0,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-10999": {
+      "instance_id": "django__django-10999",
+      "model": "gpt-5.4",
+      "patch_sha256": "ec9696668ec6524dc629dda67181e1733cfe04a759239ef16f219e28ea3c50a6",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 10,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11087": {
+      "instance_id": "django__django-11087",
+      "model": "gpt-5.4",
+      "patch_sha256": "4496c6770b6dba34a05d1a8fa5ff49b03e1361909a39aa06d950782835f8389a",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 41,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11095": {
+      "instance_id": "django__django-11095",
+      "model": "gpt-5.4",
+      "patch_sha256": "18e2990c185e45603ce688b852affbf5f743a23250ff704faf77bed5e052300a",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 19,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11099": {
+      "instance_id": "django__django-11099",
+      "model": "gpt-5.4",
+      "patch_sha256": "dcd7202d62b786de764d90d5793d4d1d2f531486e1bd4f2c0b7bf5507a82163d",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 3,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 19,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11119": {
+      "instance_id": "django__django-11119",
+      "model": "gpt-5.4",
+      "patch_sha256": "2065323dcdbfcae812028d52307941075ffbba378ed379061e3332bbb3d22d29",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 7,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11133": {
+      "instance_id": "django__django-11133",
+      "model": "gpt-5.4",
+      "patch_sha256": "aa6a1964375a71107b6571cfffc8ab75d4176fa08cbbe0a0ae4c858b6a7cb38b",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 64,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11138": {
+      "instance_id": "django__django-11138",
+      "model": "gpt-5.4",
+      "patch_sha256": "df3463a9f411bfd3c313df4772546bcb3bc2bdafd0d0b472d2eee4e982711e4f",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 73,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11206": {
+      "instance_id": "django__django-11206",
+      "model": "gpt-5.4",
+      "patch_sha256": "b88d672f0d9fca92793433a7005535f717ca46d5788b0619ec5e1c9fcbdc1a6d",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.7,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 4,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11239": {
+      "instance_id": "django__django-11239",
+      "model": "gpt-5.4",
+      "patch_sha256": "f29466aacb22a857a8046073dcf90a4cce3b6e403ccb56cad8682fad7193072b",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 5,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11276": {
+      "instance_id": "django__django-11276",
+      "model": "gpt-5.4",
+      "patch_sha256": "e28420cf70a0e5ed343ffec0977452681cb6a6cb1ba57c63723894c9ed96dd65",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 18.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 26,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 548,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11292": {
+      "instance_id": "django__django-11292",
+      "model": "gpt-5.4",
+      "patch_sha256": "1373d189a744879d270a033338793b7d6a8a9a208f0808fd9294804abc0299ae",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 31,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11333": {
+      "instance_id": "django__django-11333",
+      "model": "gpt-5.4",
+      "patch_sha256": "e1f6b25bb571b75b0e2d968c314d566ac8390b2cc9afc67803422259a9237561",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11477": {
+      "instance_id": "django__django-11477",
+      "model": "gpt-5.4",
+      "patch_sha256": "75df807aaea9992f29561112faa71cbf5bb74579bd37c3a4ccf60e56c24657e6",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.5,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 151,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11490": {
+      "instance_id": "django__django-11490",
+      "model": "gpt-5.4",
+      "patch_sha256": "1b982585e062b050d7b7be763f8632befe1d8a2743aeffa862e3c209e63b2fc5",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.5,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 21,
+          "failure": 2
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11603": {
+      "instance_id": "django__django-11603",
+      "model": "gpt-5.4",
+      "patch_sha256": "9c3b3b8afe257abd5b36de675af4f409880c90cc18a031291e7b4675a8b923f3",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 58,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11728": {
+      "instance_id": "django__django-11728",
+      "model": "gpt-5.4",
+      "patch_sha256": "030bc3aa34771d3b9242a0aadf8c66e3604a30e9069b5d2bea4acefb3c11103c",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 43,
+          "failure": 1
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11734": {
+      "instance_id": "django__django-11734",
+      "model": "gpt-5.4",
+      "patch_sha256": "d5fe16726652371a93e616ba1739a1d1dc8b200810d0f1e408f0d6189884a97e",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 275,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11749": {
+      "instance_id": "django__django-11749",
+      "model": "gpt-5.4",
+      "patch_sha256": "0875d0eaf16fac2a5a1c5e251e8e052cf138886db2bac999bfea261187bd91fd",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.7,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 34,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11815": {
+      "instance_id": "django__django-11815",
+      "model": "gpt-5.4",
+      "patch_sha256": "45ec300a8a20157f7be41a016848b2470cdba78f5c7ea6bf7b43da5e82230a7a",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.5,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 44,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11820": {
+      "instance_id": "django__django-11820",
+      "model": "gpt-5.4",
+      "patch_sha256": "cb4e6457330676bc25cd76ad6a0934c02d7b6fb95a3f1a55ff3cd5e5de3f4969",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 61,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11848": {
+      "instance_id": "django__django-11848",
+      "model": "gpt-5.4",
+      "patch_sha256": "6f76826f69228d7760280707828111be0eb1b5b5e86657f13824862fcf244dca",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 43,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11951": {
+      "instance_id": "django__django-11951",
+      "model": "gpt-5.4",
+      "patch_sha256": "3cc0b623a4393acf23f2426804f91ba7a471b940d928d93b072d6163d0cffd86",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 21,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11999": {
+      "instance_id": "django__django-11999",
+      "model": "gpt-5.4",
+      "patch_sha256": "f2a1f6e8abab505ee4c940e3648a260a85ffcc98851b9fcb19ecf165d107ecc7",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 30,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12039": {
+      "instance_id": "django__django-12039",
+      "model": "gpt-5.4",
+      "patch_sha256": "96436eea47f566ae7e5a1db3095109dbccc32fe2274e71b5b0b4d61e4686f57e",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 11,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12050": {
+      "instance_id": "django__django-12050",
+      "model": "gpt-5.4",
+      "patch_sha256": "08af6e22fa66b28c47c3cd61192637cdcf2fca544718dc4d48f8f01fb469e63f",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.5,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 10,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12143": {
+      "instance_id": "django__django-12143",
+      "model": "gpt-5.4",
+      "patch_sha256": "132af8d75e205ae5c96c051b2742ccff32effacca2144d04f1ada26456c162c1",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 52,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12155": {
+      "instance_id": "django__django-12155",
+      "model": "gpt-5.4",
+      "patch_sha256": "11f03c5b4a6c948d47db139f12901365b976e113194c3cb8f638cb97e72bc208",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 6,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12193": {
+      "instance_id": "django__django-12193",
+      "model": "gpt-5.4",
+      "patch_sha256": "c868ac42d889b4ab83f98c68ca68a5752686bb51c8e2daa6de7219fad0c0ba08",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 11,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12304": {
+      "instance_id": "django__django-12304",
+      "model": "gpt-5.4",
+      "patch_sha256": "e41f1245f5ecd8d50d053c2b084c76a219cf11caa61a9372ca611215854f0e35",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 0,
+          "failure": 17
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12406": {
+      "instance_id": "django__django-12406",
+      "model": "gpt-5.4",
+      "patch_sha256": "01ddc96640fa1d0b24644989ab105aea820e7b8986d8b22a32b1b3fbf8e67d33",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.5,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 165,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12419": {
+      "instance_id": "django__django-12419",
+      "model": "gpt-5.4",
+      "patch_sha256": "50927eeb94a2635fecbebc85a8a6c6881e12e699771e2727d2637de9091683d6",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 0,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13012": {
+      "instance_id": "django__django-13012",
+      "model": "gpt-5.4",
+      "patch_sha256": "d4af4a12d68b6c6df7ce9a2ab07f7313efe6bc81c4636d6e9211773755f52228",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 137,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13028": {
+      "instance_id": "django__django-13028",
+      "model": "gpt-5.4",
+      "patch_sha256": "dbd15380f83b5c1c5507d309e3b3ebdbbd89a51755af10ac3dbddaa32d8417ac",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 276,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13089": {
+      "instance_id": "django__django-13089",
+      "model": "gpt-5.4",
+      "patch_sha256": "2eb788038f7feb15314f2889078f2d6d4ee40057e70865c436c900178cfc547d",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 84.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 352,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13121": {
+      "instance_id": "django__django-13121",
+      "model": "gpt-5.4",
+      "patch_sha256": "a415309dee624f7f65e18f189d9a080c65975c9f842cf3b56be344f92a34dbb4",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 168,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13128": {
+      "instance_id": "django__django-13128",
+      "model": "gpt-5.4",
+      "patch_sha256": "9a6108bb385d21b00746b8f1b95a295695b1fa2a5f69f9e713131c4a4b49d845",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.5,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 7,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 132,
+          "failure": 2
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13195": {
+      "instance_id": "django__django-13195",
+      "model": "gpt-5.4",
+      "patch_sha256": "953eefbb3dad3ec116cc2268f700aba5c16066a0e3ebd516e716fe25246ace60",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 3
+        },
+        "PASS_TO_PASS": {
+          "success": 382,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13212": {
+      "instance_id": "django__django-13212",
+      "model": "gpt-5.4",
+      "patch_sha256": "7620f7d37a899dae33945504a6546a5ba5c335b4e0cea5fe331bc1fa6592d32e",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 3,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13297": {
+      "instance_id": "django__django-13297",
+      "model": "gpt-5.4",
+      "patch_sha256": "f318e139d82dc278fb589296bebb1ca7b0cb8fae17db3b1e5679673df45b3719",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 15.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 52,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13315": {
+      "instance_id": "django__django-13315",
+      "model": "gpt-5.4",
+      "patch_sha256": "dbe5dcc362da8d15bb7519db031e4e7b6532c900fedc2027010105e28dee9006",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 146,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13343": {
+      "instance_id": "django__django-13343",
+      "model": "gpt-5.4",
+      "patch_sha256": "cddee2400034e85cce7d4b1008d87e8d55f6026fc7ed835fd3d9f89dda8dd231",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 130,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13344": {
+      "instance_id": "django__django-13344",
+      "model": "gpt-5.4",
+      "patch_sha256": "1f87e89d817f13cc3885ac2731b6f446ea05216d267211d90479d98cb3d68ea8",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 84.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 356,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13346": {
+      "instance_id": "django__django-13346",
+      "model": "gpt-5.4",
+      "patch_sha256": "ab07a7bc911fba6e4a4f7be250442631117983d8f5a394f99fe05da6665bbaa7",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 65,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13401": {
+      "instance_id": "django__django-13401",
+      "model": "gpt-5.4",
+      "patch_sha256": "2e0f7485cf106a81b9719e9993e3875dbb7d5efd2d181496afedfc87c54d88d6",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 32,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13406": {
+      "instance_id": "django__django-13406",
+      "model": "gpt-5.4",
+      "patch_sha256": "01ffc61e4065e405953d8b10812fb5f80c3043fad821b8b399f70955b25b925f",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 3,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 32,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13512": {
+      "instance_id": "django__django-13512",
+      "model": "gpt-5.4",
+      "patch_sha256": "56293f34cabdd84bb662d630186316539dfef307584d4a82beca3dc638b7321c",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 32,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13516": {
+      "instance_id": "django__django-13516",
+      "model": "gpt-5.4",
+      "patch_sha256": "840ee3037661a8e787aaf83ae637eef97919f2c155d79362992fe613387f10f6",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 43,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13551": {
+      "instance_id": "django__django-13551",
+      "model": "gpt-5.4",
+      "patch_sha256": "4721ac6cbd0989bbac442c3dc76f587b0ac6c2f74289ef81910449ac991bea32",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 56,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13590": {
+      "instance_id": "django__django-13590",
+      "model": "gpt-5.4",
+      "patch_sha256": "00537e357213dab00ac67d6aa1ce0ba3b872c4823a3e38f5e29d3c2c50dc8cf8",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 144,
+          "failure": 1
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13670": {
+      "instance_id": "django__django-13670",
+      "model": "gpt-5.4",
+      "patch_sha256": "6d5fadf112b22f9573795761d5a1287e5cf847755f283cbc53749c158111aaff",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 17,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13786": {
+      "instance_id": "django__django-13786",
+      "model": "gpt-5.4",
+      "patch_sha256": "5f02680bbd623cd2b898336f88de8e50ccc88a8c38b26a44504341b96cada0da",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 33,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13794": {
+      "instance_id": "django__django-13794",
+      "model": "gpt-5.4",
+      "patch_sha256": "ed5c38e6e960c47574aff5cc064cbd4807295f5b5ed058626c28a573770da9fc",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 24,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13809": {
+      "instance_id": "django__django-13809",
+      "model": "gpt-5.4",
+      "patch_sha256": "36ffb917709ddcc0200907a5d150f7afe8e6a59c17649509ad40995f07eb2e6c",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 56.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 245,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13810": {
+      "instance_id": "django__django-13810",
+      "model": "gpt-5.4",
+      "patch_sha256": "93de041b557d98dc5c5e5dd175dec48a642cac3acb7f6bbf1330f0341b6a3adf",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 30,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13820": {
+      "instance_id": "django__django-13820",
+      "model": "gpt-5.4",
+      "patch_sha256": "9b320ff469a21e6c6af8a3ad5cb90ef71608a4ba79f2668062ca7c255f333824",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 24,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13821": {
+      "instance_id": "django__django-13821",
+      "model": "gpt-5.4",
+      "patch_sha256": "5af3c17a0afb53ca48f175550781223267ebca9b2a38e62690be146508b76be8",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 14,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14007": {
+      "instance_id": "django__django-14007",
+      "model": "gpt-5.4",
+      "patch_sha256": "ac1838780d7607089c597e230f14aecfb1ba5e32f7654b454b422a330873cbfc",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 12,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14017": {
+      "instance_id": "django__django-14017",
+      "model": "gpt-5.4",
+      "patch_sha256": "a13528cae2794889f6d56bd44b09053c54ecbb98cf0923497ef0b08eab7451ad",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.7,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 147,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14053": {
+      "instance_id": "django__django-14053",
+      "model": "gpt-5.4",
+      "patch_sha256": "a5fc20c7589e8a90959a3b0a25c7082ccf07e21b975fe695163e8359bda4dda3",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 31,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14122": {
+      "instance_id": "django__django-14122",
+      "model": "gpt-5.4",
+      "patch_sha256": "71a85d685f11ca857f8370f9eb6ffb4ed450c3e43dac9d708cbf11efa88a4b11",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 26,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14140": {
+      "instance_id": "django__django-14140",
+      "model": "gpt-5.4",
+      "patch_sha256": "d8e55027bb6caeb59a0fb1f380b50ab90ec178215e279dea74012fab270b5a88",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 199,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14155": {
+      "instance_id": "django__django-14155",
+      "model": "gpt-5.4",
+      "patch_sha256": "405b59ca361db00825b714044f4a211ae9fec2013507d045d88ee13c1a223f7f",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 3
+        },
+        "PASS_TO_PASS": {
+          "success": 89,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14170": {
+      "instance_id": "django__django-14170",
+      "model": "gpt-5.4",
+      "patch_sha256": "e11bc7e88595f4bd81b7e2ca6febd4e67696234e91460ec493cc385187ea6f48",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 76,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14311": {
+      "instance_id": "django__django-14311",
+      "model": "gpt-5.4",
+      "patch_sha256": "f63271e1a58431d4c84ebe9acf11cddda3ed6f05b5fb48dd17fc0186a7c7fd20",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 56,
+          "failure": 3
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14349": {
+      "instance_id": "django__django-14349",
+      "model": "gpt-5.4",
+      "patch_sha256": "689ada36c56ce6689b7a1c76cf289cf6181163dc89a070c4aea46dc3c0352767",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 18,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14351": {
+      "instance_id": "django__django-14351",
+      "model": "gpt-5.4",
+      "patch_sha256": "9ce473fca7d7aea9518b06882b95affbbf0dd87ec84aef00165b054aa78e430f",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 58,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14373": {
+      "instance_id": "django__django-14373",
+      "model": "gpt-5.4",
+      "patch_sha256": "55af9ccb8f775f155294b3dac599c6e92d980e55b3fb9e707c9f91b18074454e",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 19,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14376": {
+      "instance_id": "django__django-14376",
+      "model": "gpt-5.4",
+      "patch_sha256": "0284a2fb813e06431f352839558587bb8f043072695b218ae7fbd41973c2c643",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 3
+        },
+        "PASS_TO_PASS": {
+          "success": 6,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14404": {
+      "instance_id": "django__django-14404",
+      "model": "gpt-5.4",
+      "patch_sha256": "ac86d4a25c73ca5cc13c2d5777c73196f6db3501ddc66176be91ddb6e42f972d",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 34.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 323,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14434": {
+      "instance_id": "django__django-14434",
+      "model": "gpt-5.4",
+      "patch_sha256": "c1de0879cd1e394890acdb1828d770c143face37ea84e6ed1356fc38ad2e3ae3",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 133,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14493": {
+      "instance_id": "django__django-14493",
+      "model": "gpt-5.4",
+      "patch_sha256": "cb175d75f8593fa5d2b0ed0800a4d58819832d72bd893fea0de559ad0fde9abf",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 6,
+          "failure": 30
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14500": {
+      "instance_id": "django__django-14500",
+      "model": "gpt-5.4",
+      "patch_sha256": "13963e30dcdfe4f88b9818c6de0a133a18177b213307ef499eecceb7dc31ad0e",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.5,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 21,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14539": {
+      "instance_id": "django__django-14539",
+      "model": "gpt-5.4",
+      "patch_sha256": "b07fc7631b26a1455addd0ef8ebb47d9c4e47358c2e3aec860910e8b4cb0c166",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 14,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14559": {
+      "instance_id": "django__django-14559",
+      "model": "gpt-5.4",
+      "patch_sha256": "1f9917ff47892cda26440d1573f19ead9a40b46212fd9debd2a9b2c8d7844bf5",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 23,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14608": {
+      "instance_id": "django__django-14608",
+      "model": "gpt-5.4",
+      "patch_sha256": "c4ebc8a7690e6b4c174f8928fff007602272cc009be72906e88f020d8c39e966",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 34.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 4,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 394,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14631": {
+      "instance_id": "django__django-14631",
+      "model": "gpt-5.4",
+      "patch_sha256": "0261bdc1dedd57266bda2a368124a779c2db0ec5892585b01325fb1b8354ef9d",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 117,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14725": {
+      "instance_id": "django__django-14725",
+      "model": "gpt-5.4",
+      "patch_sha256": "56d1fa9653119e92e859ecc9fa7a0b9552af848f2cbc178bca8e416e7fe37ee9",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 64,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14765": {
+      "instance_id": "django__django-14765",
+      "model": "gpt-5.4",
+      "patch_sha256": "d19e0aa5b33a119e9d509684da591471a45e5e05e8931b4dc96101348ac0a662",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 64,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14792": {
+      "instance_id": "django__django-14792",
+      "model": "gpt-5.4",
+      "patch_sha256": "34017afcdbfba81ac11ae9b3700ff7bb23729ea3c4344ae4ed06b43c0132631d",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 23,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-15037": {
+      "instance_id": "django__django-15037",
+      "model": "gpt-5.4",
+      "patch_sha256": "5efc69a77b331ab077eb33345a6cb358704762f657336eea5ac9a34f3792a355",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 14,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-15098": {
+      "instance_id": "django__django-15098",
+      "model": "gpt-5.4",
+      "patch_sha256": "720bd53eba22ae5f3d1475a79a8e9ed5190e2fcb00cbb92e9fd9c59c2efdaf32",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 87,
+          "failure": 1
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-15103": {
+      "instance_id": "django__django-15103",
+      "model": "gpt-5.4",
+      "patch_sha256": "2605e19df0f9b14f3938f54a94d024a98f4fe4af11f7cbdaf5de9eb710fb3c54",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 17,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-15127": {
+      "instance_id": "django__django-15127",
+      "model": "gpt-5.4",
+      "patch_sha256": "3d74e34e71b0ae4bd3fcde9557d6e8926fe66c999235e7b6891796517726daab",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-15161": {
+      "instance_id": "django__django-15161",
+      "model": "gpt-5.4",
+      "patch_sha256": "5fb0f9b7a29187b054170cde3d44f2f42abe235e722e20a19b0ed8d1a41be52b",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 3,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 208,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-15277": {
+      "instance_id": "django__django-15277",
+      "model": "gpt-5.4",
+      "patch_sha256": "8512d6bc5111e1339c1786cd5be241461e34fd8ee13a81a04afa5257ef244aae",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 158,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-15315": {
+      "instance_id": "django__django-15315",
+      "model": "gpt-5.4",
+      "patch_sha256": "cccd65c851efdaebb0f3f15856e1eadb6a3d1a30fd492c4c335ca83cd70ac703",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 33,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-15368": {
+      "instance_id": "django__django-15368",
+      "model": "gpt-5.4",
+      "patch_sha256": "0e93636e4ca77e66c698870f0faf9c846fe572fe3735d7cf432335140b459430",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 29,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-15375": {
+      "instance_id": "django__django-15375",
+      "model": "gpt-5.4",
+      "patch_sha256": "57d12c519fc3ba4823f85699da1f17b74bf9d8b5970aef5e1caee783c4556165",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 95,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-15499": {
+      "instance_id": "django__django-15499",
+      "model": "gpt-5.4",
+      "patch_sha256": "24dbabc7d22a7ce42cf23dc5c5b92d09dec726fcb8752eac7594b7d427d7e084",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 35,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-15525": {
+      "instance_id": "django__django-15525",
+      "model": "gpt-5.4",
+      "patch_sha256": "46692ab61aa0b6eb5d81ec60b23ced964afbaaadb45194c8a767e9d2e2ee3884",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 53,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-15554": {
+      "instance_id": "django__django-15554",
+      "model": "gpt-5.4",
+      "patch_sha256": "26369e68275d48752ed742033ca730a9a79f6ec890b910e9b993a034cbac0b23",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 19,
+          "failure": 22
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    }
+  }
+}

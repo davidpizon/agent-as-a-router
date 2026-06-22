@@ -1,0 +1,13 @@
+{
+  "$Total": 68.29,
+  "Apply_ok%": 85.8,
+  "AvgPerf%": 73.3,
+  "AvgSteps": 2.66,
+  "CumReg": 14.4,
+  "Escalations": 29,
+  "Perf/$": 1.07,
+  "TotInTok": 74536066,
+  "TotOutTok": 1128908,
+  "n": 176,
+  "rAcc_reward_oracle": 0.7045
+}

@@ -1,0 +1,30 @@
+{
+  "generated_utc": "2026-06-20 16:07:48 UTC",
+  "old112_n": 112,
+  "old112_prompt_source": "data/matrices/phase2_ood/unified/tasks.jsonl",
+  "old112_real_prompt_n": 112,
+  "new64_n": 64,
+  "combined_n": 176,
+  "models": [
+    "claude-opus-4-6",
+    "claude-sonnet-4-6",
+    "gpt-5.4",
+    "glm-5",
+    "kimi-k2.5",
+    "MiniMax-M2.7",
+    "Qwen3-Max",
+    "qwen3.5-plus"
+  ],
+  "new64_model_aliases": {
+    "claude-opus-4-6": "claude-opus-4-6",
+    "claude-sonnet-4-6": "claude-sonnet-4-6",
+    "gpt-5.4-medium": "gpt-5.4",
+    "glm-5": "glm-5",
+    "kimi-k2.6": "kimi-k2.5",
+    "MiniMax-M2.5": "MiniMax-M2.7",
+    "qwen3.5-plus": "qwen3.5-plus",
+    "qwen3.6-plus": "Qwen3-Max"
+  },
+  "new64_prompt_source": "data/matrices/phase2_ood/unified/tasks.jsonl",
+  "new64_real_prompt_n": 64
+}

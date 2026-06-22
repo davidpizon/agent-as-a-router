@@ -1,0 +1,4 @@
+{"task_id":"toy_task_001","benchmark":"ToyBench","dimension":"bug_fixing","prompt":"Fix an off-by-one error in a list loop."}
+{"task_id":"toy_task_002","benchmark":"ToyBench","dimension":"code_generation","prompt":"Write a parser for key=value lines."}
+{"task_id":"toy_task_003","benchmark":"ToyBench","dimension":"long_context","prompt":"Update a multi-file CLI workflow without breaking existing flags."}
+

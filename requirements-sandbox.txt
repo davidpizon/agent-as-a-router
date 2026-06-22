@@ -1,0 +1,13 @@
+# Extends requirements.txt with Python packages used by live Docker/Apptainer
+# SWE-bench grading scripts. Host-level Docker/Apptainer binaries and cached
+# evaluation images/SIF files are still external system requirements.
+
+-r requirements.txt
+
+pandas>=2.1
+pyarrow>=14.0
+swebench>=3.0.0
+datasets>=2.19
+docker>=7.0
+requests>=2.31
+unidiff>=0.7.5

@@ -1,0 +1,62 @@
+{
+  "models": {
+    "MiniMax-M2.7": {
+      "apply_ok": 20,
+      "file": "MiniMax-M2.7.json",
+      "items": 20,
+      "resolved": 16,
+      "source_file": "logs/grading_mini_MiniMax-M2.7_112/report.json"
+    },
+    "Qwen3-Max": {
+      "apply_ok": 22,
+      "file": "Qwen3-Max.json",
+      "items": 23,
+      "resolved": 10,
+      "source_file": "logs/grading_mini_qwen3-max-ds_112/report.json"
+    },
+    "claude-opus-4-6": {
+      "apply_ok": 95,
+      "file": "claude-opus-4-6.json",
+      "items": 96,
+      "resolved": 74,
+      "source_file": "logs/grading_opus_regrade/report.json"
+    },
+    "claude-sonnet-4-6": {
+      "apply_ok": 89,
+      "file": "claude-sonnet-4-6.json",
+      "items": 90,
+      "resolved": 64,
+      "source_file": "logs/grading_sonnet_regrade/report.json"
+    },
+    "glm-5": {
+      "apply_ok": 46,
+      "file": "glm-5.json",
+      "items": 47,
+      "resolved": 32,
+      "source_file": "logs/grading_mini_glm-5-ds_112/report.json"
+    },
+    "gpt-5.4": {
+      "apply_ok": 110,
+      "file": "gpt-5.4.json",
+      "items": 110,
+      "resolved": 60,
+      "source_file": "logs/grading_mini_gpt54_200/report.json"
+    },
+    "kimi-k2.5": {
+      "apply_ok": 30,
+      "file": "kimi-k2.5.json",
+      "items": 31,
+      "resolved": 21,
+      "source_file": "logs/grading_mini_kimi-k2.5-ds_112/report.json"
+    },
+    "qwen3.5-plus": {
+      "apply_ok": 6,
+      "file": "qwen3.5-plus.json",
+      "items": 6,
+      "resolved": 3,
+      "source_file": "logs/grading_mini_qwen3.5-plus-ds_112/report.json"
+    }
+  },
+  "note": "hash-checked cache built from sandbox report.json files",
+  "schema_version": 1
+}

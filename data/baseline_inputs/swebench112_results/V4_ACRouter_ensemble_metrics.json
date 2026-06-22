@@ -1,0 +1,2443 @@
+{
+  "method": "V4_ACRouter_ensemble",
+  "version": "v4.0",
+  "seed": 42,
+  "eps1": 1.0,
+  "eps2": -10.0,
+  "n": 112,
+  "resolved": 14,
+  "resolved_pct": 12.5,
+  "oracle_resolved": 85,
+  "oracle_gap_pct": 83.53,
+  "apply_ok": 21,
+  "non_empty": 21,
+  "cost_usd": 2.64,
+  "router_input_tokens": 64369,
+  "router_output_tokens": 1614,
+  "escalations": 0,
+  "config": {
+    "ensemble_voters": [
+      "api_llm",
+      "logreg",
+      "tfidf_mlp",
+      "routellm_mf",
+      "routellm_sw",
+      "memory_knn",
+      "dim_best"
+    ],
+    "specialist_map": {
+      "bug_fixing": "tfidf_mlp"
+    },
+    "specialist_boost": 2.5,
+    "reward_eps": [
+      1.0,
+      -10.0
+    ],
+    "escalation": false
+  },
+  "decisions": [
+    {
+      "task_id": "django__django-10097",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.1617,
+      "votes": {
+        "kimi-k2.5": 1.31,
+        "Qwen3-Max": 2.31,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-12276",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 0.59,
+        "kimi-k2.5": 0.56,
+        "Qwen3-Max": 6.03,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11333",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.07,
+        "Qwen3-Max": 2.38,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-10554",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.2608,
+      "votes": {
+        "kimi-k2.5": 1.35,
+        "Qwen3-Max": 2.88,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "astropy__astropy-13236",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "gpt-5.4",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0275,
+      "votes": {
+        "kimi-k2.5": 1.19,
+        "gpt-5.4": 1.1,
+        "Qwen3-Max": 1.07,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "astropy__astropy-14598",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "claude-sonnet-4-6",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.59,
+        "claude-sonnet-4-6": 0.98,
+        "Qwen3-Max": 0.43,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11206",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.51,
+        "Qwen3-Max": 3.84,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14007",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "kimi-k2.5",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 3.04,
+        "Qwen3-Max": 0.94,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13028",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.0534,
+      "votes": {
+        "kimi-k2.5": 1.8,
+        "Qwen3-Max": 3.3,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14315",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.16,
+        "Qwen3-Max": 5.7,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14376",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 0.96,
+        "Qwen3-Max": 4.7,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14053",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.67,
+        "Qwen3-Max": 3.14,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-15098",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.37,
+        "Qwen3-Max": 2.54,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14373",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 0.55,
+        "kimi-k2.5": 1.08,
+        "Qwen3-Max": 4.07,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11490",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "kimi-k2.5",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 3.35,
+        "Qwen3-Max": 1.61,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13195",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "kimi-k2.5",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 0.94,
+        "kimi-k2.5": 2.16,
+        "Qwen3-Max": 0.53,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14170",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.42,
+        "Qwen3-Max": 3.55,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "astropy__astropy-14539",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "MiniMax-M2.7",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.0256,
+      "votes": {
+        "MiniMax-M2.7": 0.69,
+        "kimi-k2.5": 0.71,
+        "Qwen3-Max": 2.05,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-12406",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 0.65,
+        "kimi-k2.5": 0.39,
+        "Qwen3-Max": 4.07,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11999",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.11,
+        "Qwen3-Max": 4.7,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13343",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.45,
+        "Qwen3-Max": 3.74,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13315",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.3,
+        "Qwen3-Max": 4.1,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-15315",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "MiniMax-M2.7",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "MiniMax-M2.7": 0.62,
+        "kimi-k2.5": 0.91,
+        "Qwen3-Max": 4.62,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13590",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.48,
+        "Qwen3-Max": 3.15,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13809",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "claude-opus-4-6",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 1.0,
+        "Qwen3-Max": 4.65,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13810",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.29,
+        "Qwen3-Max": 3.49,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13346",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.2,
+        "Qwen3-Max": 3.71,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14404",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 0.55,
+        "kimi-k2.5": 0.61,
+        "Qwen3-Max": 5.17,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11095",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "kimi-k2.5",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 0.56,
+        "kimi-k2.5": 2.65,
+        "Qwen3-Max": 1.33,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11815",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.1,
+        "Qwen3-Max": 3.94,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14434",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.27,
+        "Qwen3-Max": 4.11,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11820",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "kimi-k2.5",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 3.07,
+        "Qwen3-Max": 1.39,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13786",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.19,
+        "Qwen3-Max": 3.8,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11099",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 0.62,
+        "kimi-k2.5": 0.84,
+        "Qwen3-Max": 2.63,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-12419",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.005,
+      "votes": {
+        "claude-opus-4-6": 0.6,
+        "kimi-k2.5": 0.43,
+        "Qwen3-Max": 3.94,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "astropy__astropy-14995",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "kimi-k2.5",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "gpt-5.4"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 2.88,
+        "Qwen3-Max": 0.69,
+        "gpt-5.4": 0.15,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13012",
+      "chosen_model": "gpt-5.4",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "gpt-5.4",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "gpt-5.4"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.16,
+      "votes": {
+        "kimi-k2.5": 1.19,
+        "gpt-5.4": 1.94,
+        "Qwen3-Max": 0.96,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13344",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "MiniMax-M2.7",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "MiniMax-M2.7": 0.68,
+        "kimi-k2.5": 0.4,
+        "Qwen3-Max": 3.33,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-15161",
+      "chosen_model": "gpt-5.4",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "gpt-5.4",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "gpt-5.4"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.2254,
+      "votes": {
+        "kimi-k2.5": 1.02,
+        "gpt-5.4": 2.56,
+        "Qwen3-Max": 1.38,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13297",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "kimi-k2.5",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "gpt-5.4"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 2.35,
+        "Qwen3-Max": 0.91,
+        "gpt-5.4": 0.15,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "astropy__astropy-14309",
+      "chosen_model": "gpt-5.4",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "gpt-5.4",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.0466,
+      "votes": {
+        "kimi-k2.5": 1.39,
+        "gpt-5.4": 1.49,
+        "Qwen3-Max": 1.01,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13512",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 0.57,
+        "kimi-k2.5": 0.61,
+        "Qwen3-Max": 3.62,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-15554",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 0.97,
+        "Qwen3-Max": 4.03,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13128",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 0.99,
+        "Qwen3-Max": 3.72,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-15525",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.43,
+        "Qwen3-Max": 2.38,
+        "gpt-5.4": 0.48,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-12039",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "MiniMax-M2.7",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "MiniMax-M2.7": 0.67,
+        "kimi-k2.5": 0.35,
+        "Qwen3-Max": 3.46,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "astropy__astropy-13398",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "Qwen3-Max",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.1337,
+      "votes": {
+        "kimi-k2.5": 1.02,
+        "Qwen3-Max": 2.68,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14608",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.13,
+        "Qwen3-Max": 3.35,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13516",
+      "chosen_model": "claude-sonnet-4-6",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "claude-sonnet-4-6",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.2565,
+      "votes": {
+        "kimi-k2.5": 1.03,
+        "claude-sonnet-4-6": 1.72,
+        "Qwen3-Max": 1.22,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13551",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "claude-sonnet-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "kimi-k2.5",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-sonnet-4-6": 0.59,
+        "kimi-k2.5": 2.77,
+        "Qwen3-Max": 0.71,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11749",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 0.97,
+        "Qwen3-Max": 2.83,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11119",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.45,
+        "Qwen3-Max": 2.82,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11848",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.16,
+        "Qwen3-Max": 3.18,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11951",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.01,
+        "Qwen3-Max": 5.6,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14349",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.0445,
+      "votes": {
+        "kimi-k2.5": 1.32,
+        "Qwen3-Max": 3.09,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-10973",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 0.56,
+        "kimi-k2.5": 0.97,
+        "Qwen3-Max": 4.69,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13820",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.17,
+        "Qwen3-Max": 3.32,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13401",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.02,
+        "Qwen3-Max": 3.48,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11133",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "kimi-k2.5",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 2.78,
+        "Qwen3-Max": 0.86,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "astropy__astropy-14508",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "MiniMax-M2.7",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.1253,
+      "votes": {
+        "MiniMax-M2.7": 0.98,
+        "kimi-k2.5": 0.31,
+        "Qwen3-Max": 3.49,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11728",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.06,
+        "Qwen3-Max": 3.31,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14493",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "MiniMax-M2.7",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "MiniMax-M2.7": 0.69,
+        "kimi-k2.5": 0.51,
+        "Qwen3-Max": 4.01,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-12193",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "Qwen3-Max",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 0.62,
+        "Qwen3-Max": 5.28,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "astropy__astropy-14096",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "MiniMax-M2.7",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "kimi-k2.5",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.0204,
+      "votes": {
+        "MiniMax-M2.7": 0.64,
+        "kimi-k2.5": 2.47,
+        "Qwen3-Max": 0.77,
+        "gpt-5.4": 0.48,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11603",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "claude-opus-4-6",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 1.01,
+        "Qwen3-Max": 4.52,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-12143",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "claude-sonnet-4-6"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 0.69,
+        "kimi-k2.5": 0.54,
+        "Qwen3-Max": 3.09,
+        "claude-sonnet-4-6": 0.24,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-12155",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "kimi-k2.5",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 3.42,
+        "Qwen3-Max": 1.05,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "astropy__astropy-7336",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "kimi-k2.5",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 2.32,
+        "Qwen3-Max": 1.19,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-12304",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 0.58,
+        "kimi-k2.5": 0.5,
+        "Qwen3-Max": 4.82,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14539",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.38,
+        "Qwen3-Max": 3.24,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-15103",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 0.56,
+        "kimi-k2.5": 0.43,
+        "Qwen3-Max": 4.82,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14140",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "MiniMax-M2.7",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "MiniMax-M2.7": 0.66,
+        "kimi-k2.5": 0.52,
+        "Qwen3-Max": 4.28,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14500",
+      "chosen_model": "claude-sonnet-4-6",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "claude-sonnet-4-6",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.6044,
+      "votes": {
+        "claude-opus-4-6": 0.55,
+        "kimi-k2.5": 0.69,
+        "claude-sonnet-4-6": 1.75,
+        "Qwen3-Max": 1.27,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-10999",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 0.59,
+        "kimi-k2.5": 0.54,
+        "Qwen3-Max": 3.72,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14122",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.12,
+        "Qwen3-Max": 4.48,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-12050",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "kimi-k2.5",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 2.8,
+        "Qwen3-Max": 1.43,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14631",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.4,
+        "Qwen3-Max": 2.68,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11087",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "Qwen3-Max",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.38,
+        "Qwen3-Max": 3.15,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "astropy__astropy-13033",
+      "chosen_model": "gpt-5.4",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "gpt-5.4",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.0643,
+      "votes": {
+        "kimi-k2.5": 1.37,
+        "gpt-5.4": 2.13,
+        "Qwen3-Max": 0.68,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-15368",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "claude-opus-4-6",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 0.66,
+        "claude-opus-4-6": 0.33,
+        "Qwen3-Max": 3.44,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14725",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.51,
+        "Qwen3-Max": 3.67,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13212",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "kimi-k2.5",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 0.57,
+        "kimi-k2.5": 3.22,
+        "Qwen3-Max": 1.74,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-15277",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.32,
+        "Qwen3-Max": 3.54,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13089",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.17,
+        "Qwen3-Max": 4.53,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14792",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.05,
+        "Qwen3-Max": 3.39,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14311",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "kimi-k2.5"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.87,
+        "Qwen3-Max": 3.39,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11138",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.29,
+        "Qwen3-Max": 3.25,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13794",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "kimi-k2.5",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 3.91,
+        "Qwen3-Max": 1.46,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-15037",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "kimi-k2.5",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.0388,
+      "votes": {
+        "kimi-k2.5": 2.87,
+        "Qwen3-Max": 1.11,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14017",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.22,
+        "Qwen3-Max": 3.79,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13406",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "gpt-5.4",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.45,
+        "gpt-5.4": 1.31,
+        "Qwen3-Max": 1.17,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11292",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 0.56,
+        "kimi-k2.5": 0.64,
+        "Qwen3-Max": 3.76,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11239",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.15,
+        "Qwen3-Max": 2.59,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14765",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.07,
+        "Qwen3-Max": 4.09,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-15499",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "gpt-5.4"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 0.55,
+        "kimi-k2.5": 0.56,
+        "Qwen3-Max": 2.88,
+        "gpt-5.4": 0.57,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "astropy__astropy-13977",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.0361,
+      "votes": {
+        "kimi-k2.5": 1.27,
+        "Qwen3-Max": 3.25,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13121",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.13,
+        "Qwen3-Max": 3.75,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13821",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.23,
+        "Qwen3-Max": 3.26,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "astropy__astropy-7166",
+      "chosen_model": "claude-sonnet-4-6",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "claude-sonnet-4-6",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.2321,
+      "votes": {
+        "claude-opus-4-6": 0.55,
+        "kimi-k2.5": 0.58,
+        "claude-sonnet-4-6": 1.78,
+        "Qwen3-Max": 1.1,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-13670",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "gpt-5.4"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.11,
+        "Qwen3-Max": 3.05,
+        "gpt-5.4": 0.42,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-15127",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.23,
+        "Qwen3-Max": 3.72,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14351",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "Qwen3-Max",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.0527,
+      "votes": {
+        "kimi-k2.5": 1.02,
+        "Qwen3-Max": 3.31,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "astropy__astropy-7671",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "glm-5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.0141,
+      "votes": {
+        "glm-5": 1.24,
+        "kimi-k2.5": 0.43,
+        "Qwen3-Max": 1.95,
+        "gpt-5.4": 0.48
+      }
+    },
+    {
+      "task_id": "django__django-15375",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.37,
+        "Qwen3-Max": 2.0,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-10914",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 1.01,
+        "Qwen3-Max": 4.0,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11276",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 0.97,
+        "Qwen3-Max": 4.09,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11477",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "kimi-k2.5",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 0.55,
+        "kimi-k2.5": 2.4,
+        "Qwen3-Max": 1.26,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-11734",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "kimi-k2.5",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 4.09,
+        "Qwen3-Max": 0.7,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14559",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "claude-opus-4-6",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 0.57,
+        "claude-opus-4-6": 0.41,
+        "Qwen3-Max": 5.17,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "astropy__astropy-13579",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "gpt-5.4",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "cost_usd": 0.0532,
+      "votes": {
+        "kimi-k2.5": 1.75,
+        "gpt-5.4": 1.19,
+        "Qwen3-Max": 0.66,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "astropy__astropy-8872",
+      "chosen_model": "kimi-k2.5",
+      "llm_pick": "kimi-k2.5",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "kimi-k2.5",
+        "routellm_mf": "kimi-k2.5",
+        "routellm_sw": "gpt-5.4"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "kimi-k2.5": 3.41,
+        "gpt-5.4": 0.42,
+        "glm-5": 0.43
+      }
+    },
+    {
+      "task_id": "django__django-14155",
+      "chosen_model": "Qwen3-Max",
+      "llm_pick": "claude-opus-4-6",
+      "voter_picks": {
+        "logreg": "kimi-k2.5",
+        "tfidf_mlp": "Qwen3-Max",
+        "routellm_mf": "Qwen3-Max",
+        "routellm_sw": "Qwen3-Max"
+      },
+      "specialist_boost_applied": "tfidf_mlp",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "cost_usd": 0.0,
+      "votes": {
+        "claude-opus-4-6": 0.58,
+        "kimi-k2.5": 1.07,
+        "Qwen3-Max": 4.82,
+        "glm-5": 0.43
+      }
+    }
+  ]
+}

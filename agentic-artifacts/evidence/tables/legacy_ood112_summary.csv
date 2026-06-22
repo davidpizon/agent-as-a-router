@@ -1,0 +1,2 @@
+split,n,AvgPerf%,CumReg,total_cost_usd,Perf_per_usd,rAcc_or_reward_accuracy,Apply_ok%,source,note
+Legacy OOD112,112,66.96,12.8,51.70,1.30,0.6786,77.68,outputs/current/summary.json,Legacy SWE-MiniSandbox supplement; current public OOD benchmark is OOD176.

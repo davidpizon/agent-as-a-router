@@ -1,0 +1,562 @@
+[
+  {
+    "task_id": "astropy__astropy-13033",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "astropy__astropy-13236",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "astropy__astropy-13398",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "astropy__astropy-13579",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "astropy__astropy-13977",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "astropy__astropy-14096",
+    "raw_reply": "{\"model\": \"MiniMax-M2.7\"}\n",
+    "chosen": "MiniMax-M2.7"
+  },
+  {
+    "task_id": "astropy__astropy-14309",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "astropy__astropy-14508",
+    "raw_reply": "{\"model\": \"MiniMax-M2.7\"}\n",
+    "chosen": "MiniMax-M2.7"
+  },
+  {
+    "task_id": "astropy__astropy-14539",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "astropy__astropy-14598",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "astropy__astropy-14995",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "astropy__astropy-7166",
+    "raw_reply": "{\"model\": \"claude-opus-4-6\"}\n",
+    "chosen": "claude-opus-4-6"
+  },
+  {
+    "task_id": "astropy__astropy-7336",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "astropy__astropy-7671",
+    "raw_reply": "{\"model\": \"claude-opus-4-6\"}\n",
+    "chosen": "claude-opus-4-6"
+  },
+  {
+    "task_id": "astropy__astropy-8872",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-10097",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-10554",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-10914",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-10973",
+    "raw_reply": "{\"model\": \"claude-opus-4-6\"}\n",
+    "chosen": "claude-opus-4-6"
+  },
+  {
+    "task_id": "django__django-10999",
+    "raw_reply": "{\"model\": \"claude-sonnet-4-6\"}\n",
+    "chosen": "claude-sonnet-4-6"
+  },
+  {
+    "task_id": "django__django-11087",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-11095",
+    "raw_reply": "{\"model\": \"claude-opus-4-6\"}\n",
+    "chosen": "claude-opus-4-6"
+  },
+  {
+    "task_id": "django__django-11099",
+    "raw_reply": "{\"model\": \"claude-opus-4-6\"}\n",
+    "chosen": "claude-opus-4-6"
+  },
+  {
+    "task_id": "django__django-11119",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-11133",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-11138",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-11206",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-11239",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-11276",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-11292",
+    "raw_reply": "{\"model\": \"claude-opus-4-6\"}\n",
+    "chosen": "claude-opus-4-6"
+  },
+  {
+    "task_id": "django__django-11333",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-11477",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-11490",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-11603",
+    "raw_reply": "{\"model\": \"claude-opus-4-6\"}\n",
+    "chosen": "claude-opus-4-6"
+  },
+  {
+    "task_id": "django__django-11728",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-11734",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-11749",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-11815",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-11820",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-11848",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-11951",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-11999",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-12039",
+    "raw_reply": "{\"model\": \"MiniMax-M2.7\"}\n",
+    "chosen": "MiniMax-M2.7"
+  },
+  {
+    "task_id": "django__django-12050",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-12143",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-12155",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-12193",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-12276",
+    "raw_reply": "{\"model\": \"claude-opus-4-6\"}\n",
+    "chosen": "claude-opus-4-6"
+  },
+  {
+    "task_id": "django__django-12304",
+    "raw_reply": "{\"model\": \"claude-opus-4-6\"}\n",
+    "chosen": "claude-opus-4-6"
+  },
+  {
+    "task_id": "django__django-12406",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-12419",
+    "raw_reply": "{\"model\": \"claude-opus-4-6\"}\n",
+    "chosen": "claude-opus-4-6"
+  },
+  {
+    "task_id": "django__django-13012",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13028",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13089",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13121",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13128",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13195",
+    "raw_reply": "{\"model\": \"claude-opus-4-6\"}\n",
+    "chosen": "claude-opus-4-6"
+  },
+  {
+    "task_id": "django__django-13212",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13297",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13315",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13343",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13344",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13346",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13401",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13406",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13512",
+    "raw_reply": "{\"model\": \"glm-5\"}\n",
+    "chosen": "glm-5"
+  },
+  {
+    "task_id": "django__django-13516",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13551",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13590",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13670",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13786",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13794",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13809",
+    "raw_reply": "{\"model\": \"claude-opus-4-6\"}\n",
+    "chosen": "claude-opus-4-6"
+  },
+  {
+    "task_id": "django__django-13810",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13820",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-13821",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-14007",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-14017",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-14053",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-14122",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-14140",
+    "raw_reply": "{\"model\": \"MiniMax-M2.7\"}\n",
+    "chosen": "MiniMax-M2.7"
+  },
+  {
+    "task_id": "django__django-14155",
+    "raw_reply": "{\"model\": \"claude-opus-4-6\"}\n",
+    "chosen": "claude-opus-4-6"
+  },
+  {
+    "task_id": "django__django-14170",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-14311",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-14315",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-14349",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-14351",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-14373",
+    "raw_reply": "{\"model\": \"claude-opus-4-6\"}\n",
+    "chosen": "claude-opus-4-6"
+  },
+  {
+    "task_id": "django__django-14376",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-14404",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-14434",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-14493",
+    "raw_reply": "{\"model\": \"MiniMax-M2.7\"}\n",
+    "chosen": "MiniMax-M2.7"
+  },
+  {
+    "task_id": "django__django-14500",
+    "raw_reply": "{\"model\": \"claude-opus-4-6\"}\n",
+    "chosen": "claude-opus-4-6"
+  },
+  {
+    "task_id": "django__django-14539",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-14559",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-14608",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-14631",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-14725",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-14765",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-14792",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-15037",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-15098",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-15103",
+    "raw_reply": "{\"model\": \"claude-opus-4-6\"}\n",
+    "chosen": "claude-opus-4-6"
+  },
+  {
+    "task_id": "django__django-15127",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-15161",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-15277",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-15315",
+    "raw_reply": "{\"model\": \"MiniMax-M2.7\"}\n",
+    "chosen": "MiniMax-M2.7"
+  },
+  {
+    "task_id": "django__django-15368",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-15375",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-15499",
+    "raw_reply": "{\"model\": \"claude-opus-4-6\"}\n",
+    "chosen": "claude-opus-4-6"
+  },
+  {
+    "task_id": "django__django-15525",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  },
+  {
+    "task_id": "django__django-15554",
+    "raw_reply": "{\"model\": \"kimi-k2.5\"}\n",
+    "chosen": "kimi-k2.5"
+  }
+]

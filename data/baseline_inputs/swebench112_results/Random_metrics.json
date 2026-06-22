@@ -1,0 +1,25 @@
+{
+  "method": "Random",
+  "n": 112,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "resolved_mean": 33.9,
+  "resolved": 34,
+  "resolved_pct": 30.27,
+  "resolved_std": 4.55,
+  "apply_ok": 52,
+  "non_empty": 53,
+  "cost_usd": 33.09,
+  "oracle_resolved": 85,
+  "oracle_gap_pct": 60.0
+}

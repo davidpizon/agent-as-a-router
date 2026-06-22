@@ -1,0 +1,562 @@
+[
+  {
+    "task_id": "astropy__astropy-13033",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves fixing a misleading exception message in a TimeSeries class. The actual behavior is clear: the code tries to remove a required column, but the exception message incorrectly claims the object is invalid because it expects the 'time' column first. The user's expectation is a helpful error message indicating missing required columns. The 'qwen3.5-plus'",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "astropy__astropy-13236",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves fixing a bug in a Python code snippet related to structured columns and NdarrayMixin in astropy. The user is asking to remove an auto-transform of structured columns into NdarrayMixin. The code snippet provided is a partial function that needs to be corrected. The model 'qwen3.5-plus' is explicitly noted for 'exceptional at",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "astropy__astropy-13398",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves a bug fix for a satellite observation issue related to ITRS to AltAz/HADec coordinate transformations. The user is asking for a direct approach that stays within the ITRS, which implies a need for high-quality, accurate code generation. The user's description of the problem (geocentric vs topocentric aberration) and the specific",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "astropy__astropy-13579",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The user is reporting a bug in astropy's WCS handling, specifically with `world_to_pixel` on a sliced WCS. The description mentions a 'non-trivial PCij matrix' coupling spectral and spatial dimensions, which is a complex 3D WCS scenario. The user explicitly asks to check the development version and GitHub repository for similar issues. This is a",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "astropy__astropy-13977",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task requires implementing a duck type that returns NotImplemented for incompatible arithmetic operations. The provided code structure is sound and follows standard Python conventions for duck typing. The core issue is likely a mismatch in the `__array_ufunc__` signature or implementation details between numpy's `__array_ufunc__` and the duck type's `__array_uf",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "astropy__astropy-14096",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves debugging a Python subclassing error where a custom property references a non-existent attribute. The user's code structure is correct (class defined, property defined, instance created), but the error message is misleading because the attribute lookup fails at the class level rather than the instance level. The model should identify that the error occurs in the `__getattr__`",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "astropy__astropy-14309",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"This is a bug fixing task in Python involving an IndexError in a specific library (astropy/io/registry). The error message indicates a mismatch between the expected and actual number of arguments passed to `identify_format`. The user is likely missing a required argument (e.g., `fname` or `table`) in the call. The `qwen3.5",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "astropy__astropy-14508",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task requires generating a valid FITS Card object with specific keyword/value/comment combinations that are impossible to create via `io.fits` due to truncation. The model must generate the exact string representation of the card, including the trailing space after the comment. The model must also handle the case where the card is too long for the comment to be fully truncated,",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "astropy__astropy-14539",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves debugging a bug in `io.fits.FITSDiff` where identical files report differences due to VLAs. The provided code snippet demonstrates the exact scenario: creating a file with a single VLA column and comparing it to itself. The output shows `identical=False` and `Maximum number of different data values to be reported: 10`, which",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "astropy__astropy-14598",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves debugging a bug in FITS card parsing where null strings (represented as double single quotes '') are incorrectly converted to single single quotes (''). The user's prompt explicitly states that the null string ''' is transformed into ''. This is a specific, well-defined bug in the FITS library's string handling logic. The model should be able to",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "astropy__astropy-14995",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves debugging a bug in NDDataRef mask propagation in v5.3. The user correctly identifies the root cause: when an operand lacks a mask, it gets set to None, causing bitwise_or to fail. The solution is to ensure the mask is propagated correctly. The model's ability to analyze the specific error message and provide a clear, actionable",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "astropy__astropy-7166",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves fixing a bug in Python's InheritDocstrings metaclass where `inspect.isfunction` incorrectly returns False for properties. This is a specific, well-documented issue in Python's metaclass implementation. The model's ability to identify and fix this specific edge case in Python code is highly relevant and expected. Given the low difficulty (15 min) and",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "astropy__astropy-7336",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The user is facing a classic Python type hinting issue where a function with a return type hint (e.g., `-> None`) is being treated as a callable that expects a return value, but the actual return value is `None`. The decorator `quantity_input` attempts to call `to()` on the return value, which fails when the value is `",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "astropy__astropy-7671",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves debugging a Python version comparison bug in the `LooseVersion` class. The user provides a clear reproduction case and a direct link to the bug report. The model must identify the root cause (Python 3.6 compatibility issue with `__lt__` returning NotImplemented) and provide a fix. The `qwen3.5-plus`",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "astropy__astropy-8872",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The user is asking for a bug fix in Python code involving `Quantity` dtype handling. The core issue is that `np.float16` and `np.float` produce `float64` output, while `np.float32` and `np.float_` (numpy's float64) produce `float32`. The user's code is correct",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-10097",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task requires fixing a bug in a URLValidator where invalid characters (like ':', '@', '/') in usernames/passwords are accepted. The user explicitly states that the current regex is insufficient and that the issue originated from a specific PR. The model's capability to identify complex edge cases in URL validation and propose a fix (likely a regex update) is superior to",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-10554",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"This is a classic Django ORM query optimization bug. The issue occurs because `order_by()` on a Union queryset with `order` explicitly defined in the Union query causes Django to re-evaluate the entire Union set, breaking the ordering. The correct approach is to use `order_by()` on the resulting set of objects without the explicit `order` clause, or",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-10914",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task requires fixing a bug in a Django code snippet related to file permissions. The user describes a specific scenario where temporary files created via tempfile have inconsistent permissions (0o0600) compared to default settings, which is a known security issue. The model must identify the root cause (tempfile's default 0o0600 permissions)",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-10973",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task requires executing a Python subprocess with specific arguments (subprocess.run, PGPASSWORD) to interact with a PostgreSQL backend. The complexity is moderate (basic command execution), but the language is Python, which is a high-level language. The model needs to handle command-line arguments and potentially manage environment variables. Qwen3.5-plus is explicitly noted for",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-10999",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task requires fixing a regex pattern in Python to handle negative durations. The provided code has a lookahead `(?=\\\\d+:\\\\d+)` that requires a positive number, which prevents matching negative values. The suggested fix (`(?=\\\\d+:-\\\\d+)`) correctly allows for negative numbers. The model's capability to identify and fix specific regex syntax errors",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-11087",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves fixing a UnicodeDecodeError in a Django management command. The error occurs because the code is trying to decode a string that contains non-UTF-8 characters (likely from a database column name or metadata). The model should identify this specific issue and provide a corrected code snippet. Given the task is a bug fixing task in Python, the model's",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-11095",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task requires adding a Python hook to modify the ModelAdmin class. The user wants to override the existing `get_inline_instances` method to accept a request object and model instance as parameters. The `qwen3.5-plus` model is explicitly noted for 'exceptional at algorithm and competitive programming tasks' and 'code completion', which aligns well with",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-11099",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task requires fixing a Python regex bug in a security validator. The core issue is that the regex $ matches trailing newlines, causing false positives. The proposed fix (\\\\A and \\\\Z) is the standard, correct solution for this specific regex pattern. The model's capability to identify and fix this specific regex error is highly relevant to the task. Given the low",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-11119",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task requires fixing a bug in a Python engine rendering context. The error message indicates that autoescape is not being honored, which is a common issue in engine rendering contexts. The model's ability to identify this specific bug and provide a fix is highly relevant. Qwen3.5-plus is noted for exceptional capabilities in algorithm and competitive programming tasks, which aligns well",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-11133",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The user is encountering a common issue with Django's HttpResponse class when mixing memoryview objects with binary data. The core problem is that Django's HttpResponse class expects bytes (b'') or string (s'') for content, not memoryview objects. When a memoryview is passed, Django attempts to convert it to bytes, which fails and returns a memoryview object as",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-11138",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves fixing a bug in a Django ORM query where a date lookup fails when the TIME_ZONE setting is not used. The root cause is that Django's date lookup logic does not respect the TIME_ZONE setting, whereas the database backend (MySQL) does. The user's code correctly sets TIME_ZONE in the database's OPTIONS, but the ORM query does not",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-11206",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves fixing a bug in a number formatting utility where extremely small numbers are incorrectly displayed. The user explicitly states that the current behavior is incorrect and that the output should be '0.0000...000' for numbers smaller than the current cut-off point. The model must identify this specific logic flaw and implement the fix. The '",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-11239",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task requires adding support for PostgreSQL client certificates (client cert, client key, and CA) to a Django dbshell configuration. The user's prompt explicitly states this is a 'trivial fix' and the code already has the necessary environment variables. The model should generate the exact Python code snippet to add these variables to the existing `OPTIONS` dictionary. The",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-11276",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves a bug fix for a Python function that duplicates the standard library's html.escape() function. The user explicitly requests a wider community version and notes performance improvements (faster .replace() vs .translate()). The model's capability to identify and propose a better alternative (html.escape) is highly relevant. While the task is simple, the model's ability",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-11292",
+    "raw_reply": "```json\n{\n  \"model\": \"claude-sonnet-4-6\",\n  \"reasoning\": \"The task involves adding a new CLI option to an existing Python management command. The user's proposal is to expose a 'skip_checks' option on the command line, which is a straightforward feature addition. The model should handle this efficiently without overcomplicating the code. Given the low difficulty (15-1 hour) and the clear,",
+    "chosen": "claude-sonnet-4-6"
+  },
+  {
+    "task_id": "django__django-11333",
+    "raw_reply": "```json\n{\n  \"model\": \"claude-sonnet-4-6\",\n  \"reasoning\": \"The task involves fixing a bug in URL resolver caching in Django. The user proposes modifying `get_resolver` to check `settings.ROOT_URLCONF` before memoization. This is a straightforward code fix with a clear, well-defined problem statement. The model should handle this efficiently. Given the task is a bug fix in Python code, the model",
+    "chosen": "claude-sonnet-4-6"
+  },
+  {
+    "task_id": "django__django-11477",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves fixing a bug in a URL translation function where optional named groups are missing. This is a complex bug fixing task requiring deep reasoning to understand the URL pattern and the specific error condition. The model's exceptional capabilities in algorithmic and competitive programming tasks make it well-suited for this technical challenge. While other models offer good balance, Qwen3.5-plus",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-11490",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves fixing a bug in a Python ORM query where `values_list()` is being called on a list of objects, causing the list to be mutated and subsequent calls to return the same list. The model should identify this logic error and provide a corrected query. Given the task is a bug fix in Python code, the model's code generation capabilities are highly relevant.",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-11603",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task requires fixing a bug in a Python aggregation framework where DISTINCT support was missing for Avg and Sum aggregates. The user explicitly mentions that this change would involve setting these classes to allow DISTINCT. The model must generate corrected code that implements this logic. Qwen3.5-plus is explicitly noted for 'exceptional at algorithm and competitive programming tasks' and 'best",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-11728",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves fixing a bug in a regex replacement function within Django REST Framework. The core issue is that the function fails to handle trailing slashes in URL patterns, which is a common edge case in URL matching. The provided code snippet demonstrates the exact failure point. The model's capability to handle complex regex patterns and edge cases in Python is highly relevant. Given the specific nature",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-11734",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves fixing a bug in a Python queryset where using `OuterRef()` in an `exclude()` method causes a `ValueError` about using an outer query in a subquery. The provided code demonstrates that `exclude()` with an `OuterRef()` is invalid syntax in Django ORM. The `qwen3.5-plus` model is explicitly noted for '",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-11749",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The user is encountering a Django command execution error where a mutually exclusive group argument is being passed incorrectly. The error message indicates that the parser expects specific positional arguments for the mutually exclusive group, but the user is passing them as keyword arguments. The model's ability to debug complex parsing errors in Django and understand the specific interaction between `nargs='?'` and `",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-11815",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task requires fixing a bug in Django migration generation where enum values are incorrectly used as defaults instead of their names. This is a specific, well-defined code generation issue that requires deep understanding of Django's migration generation logic and enum handling. The model's exceptional capabilities in algorithmic and competitive programming tasks make it highly suitable for this complex, multi-step code generation task",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-11820",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves debugging a Python regression related to ORM field naming conventions (specifically 'pk' vs '__pk' in Meta.ordering). The user provides a clear, specific error message and a regression commit hash. The model must identify the root cause (likely a naming conflict or incorrect field reference) and fix it. Qwen3.5-plus is explicitly noted for",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-11848",
+    "raw_reply": "```json\n{\n  \"model\": \"claude-sonnet-4-6\",\n  \"reasoning\": \"The task involves fixing a bug in a Python function related to date parsing in Django. The core issue is a logic error in the year comparison logic (hard-coding ranges instead of comparing against the current year). The model needs to understand the specific RFC 850/7231 context, identify the root cause of the incorrect logic",
+    "chosen": "claude-sonnet-4-6"
+  },
+  {
+    "task_id": "django__django-11951",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves fixing a bug in Django code where `batch_size` overrides the `compatible_batch_size` calculation. The user explicitly requests a fix using `min(batch_size, max_batch_size)` logic. The `qwen3.5-plus` model is explicitly designed for 'algorithm and competitive programming tasks' and is noted as 'Exceptional at algorithm and",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-11999",
+    "raw_reply": "```json\n{\n  \"model\": \"claude-sonnet-4-6\",\n  \"reasoning\": \"The task involves debugging a Django model field override issue. The user is asking for help fixing a bug where a method is not available in Django 2.2+. The model uses Django 2.2+, and the user expects a method override to work. The model should be able to provide accurate code generation and debugging assistance for this specific Django",
+    "chosen": "claude-sonnet-4-6"
+  },
+  {
+    "task_id": "django__django-12039",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task requires fixing whitespace issues in a CREATE INDEX statement, specifically handling opclasses with descending order. The model 'qwen3.5-plus' is explicitly noted for 'exceptional at algorithm and competitive programming tasks' and 'code completion', which directly aligns with this bug-fixing task. Its high performance ensures it can handle the specific edge case of opclasses",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-12050",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves fixing a bug in a Python ORM query where a list is being coerced to a tuple, breaking value matching. This is a complex, multi-step debugging task requiring deep understanding of ORM semantics, type coercion rules, and potential code refactoring. The model's exceptional performance on algorithmic and competitive programming tasks (Qwen3.5-plus) makes it",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-12143",
+    "raw_reply": "```json\n{\n  \"model\": \"claude-sonnet-4-6\",\n  \"reasoning\": \"The task involves debugging a Django bug related to regex special characters in formset prefixes. The user is asking for a fix to a specific line of code. The model should handle multi-language tasks (Python) and code completion/fixing tasks well. The complexity is moderate (fixing a specific regex pattern), and the language is Python. The",
+    "chosen": "claude-sonnet-4-6"
+  },
+  {
+    "task_id": "django__django-12155",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves debugging a bug in a Python code snippet related to docstring formatting. The user provides the exact code causing the error and the solution. The model must identify the specific line in the code that skips the first line (line 1) and explain why skipping it fixes the issue. The model's ability to analyze code, understand the error message, and provide",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-12193",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves debugging a specific bug in a Django form where a widget's state is incorrectly updated based on a boolean value. The provided code snippet and description are highly specific and technical, requiring deep understanding of Django form widgets and their internal state management. The model's capability to handle complex code generation and debugging tasks is well-suited for this. Given the specific",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-12276",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves fixing a bug in Django's FileInput widget where required attributes are incorrectly displayed on the HTML input element when the file is already set. The user suggests moving the logic to FileInput, but the core issue is that FileInput already handles required attributes internally. The user's proposed solution is incorrect because FileInput uses its own internal logic to manage required",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-12304",
+    "raw_reply": "```json\n{\n  \"model\": \"claude-sonnet-4-6\",\n  \"reasoning\": \"The task involves fixing a bug in Django templates where an enumeration type is being used incorrectly. The model needs to understand Django template syntax, specifically how to handle callable classes (like Choices) in templates. The model should be able to generate the correct code snippet to declare `do_not_call_in_templates = True` on the Choices class. Given the",
+    "chosen": "claude-sonnet-4-6"
+  },
+  {
+    "task_id": "django__django-12406",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves fixing a UI rendering bug in a Django model form where a RadioSelect widget incorrectly displays a blank option (\\\"-------\\\") when the field is not selected. The root cause is likely a mismatch between the model's `blank=False` setting and the widget's default behavior, causing the radio input to be rendered even when the value is missing. The model `",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-12419",
+    "raw_reply": "```json\n{\n  \"model\": \"claude-sonnet-4-6\",\n  \"reasoning\": \"The task involves a security policy change in Django. The user proposes modifying the default Referrer-Policy header to 'same-origin'. While the user acknowledges potential risks (spoofing, dependency breakage), the core task is a straightforward code modification. The model should handle this efficiently. Given the language (Python) and the specific nature of the",
+    "chosen": "claude-sonnet-4-6"
+  },
+  {
+    "task_id": "django__django-13012",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves fixing a bug in a Django ORM query where a constant expression is incorrectly placed in the GROUP BY clause, causing an aggregate function error. The model must identify the specific pattern (constant expression in GROUP BY) and generate the correct SQL syntax (omitting the constant). The model's ability to handle complex SQL generation and debug specific ORM errors is critical here.",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13028",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves debugging a Django ORM error where a filterable attribute is missing from a ForeignKey model. The user is explicitly requesting a bug fix. The model is Python-based, and the error occurs in a Django 3.0.7 environment. The model is complex with multiple fields and foreign keys, requiring deep understanding of Django ORM syntax and exception handling.",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13089",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"This is a database query execution error in Django. The user is calling `cursor.fetchone()[0]` after `cursor.execute()` returns a cursor object, but the cursor is not returning any rows (likely because the query is not returning results or the cursor is not in a 'read' state). The error 'NoneType' object is not subscriptable occurs",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13121",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"This is a bug fixing task involving SQL expression syntax errors in a Django ORM context. The error occurs because the `+` operator is not recognized as a timedelta addition operator in the SQLite/MySQL backend, causing a `decimal.InvalidOperation` exception. The `qwen3.5-plus` model is explicitly designed for algorithmic and competitive programming tasks, including",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13128",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The user's prompt describes a Django ORM task where they need to fix a `FieldError` caused by mixing `DateTimeField` and `DurationField` in an `annotate` expression. The core issue is that Django's `F()` function expects a single output field type, and mixing types causes an error. The user's proposed solution (`Value(datetime.timedelta(), output",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13195",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The user is asking for a bug fix in Python code related to HTTP cookie handling, specifically the `HttpResponseBase.delete_cookie()` method. The issue is that the method is not setting the `SameSite` attribute on the `Set-Cookie` header, which causes cookies to be rejected by modern browsers (Firefox, Chrome) when they are not marked as `Secure`.",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13212",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task requires implementing a custom ValidationError that accepts a value and formats it into a %(value)s placeholder. This is a straightforward code generation task with no complex reasoning or multi-step logic. The model's ability to generate clean, functional Python code for this specific task is highly relevant. Given the low difficulty and the need for a quick implementation, the model's code",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13297",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves debugging a Django template view issue where a SimpleLazyObject is causing a SQL query execution error. The user explicitly requested a fix for a bug fixing task. The model 'qwen3.5-plus' is explicitly noted for 'exceptional at algorithm and competitive programming tasks' and 'code completion', which directly aligns with the complexity and nature",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13315",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves fixing a bug in a Django form field related to `limit_choices_to` on a ForeignKey. The user mentions a regression test patch, which suggests this is a known issue in Django ORM. The `limit_choices_to` parameter is used to filter form fields based on a query, and passing a Q object incorrectly can cause duplicate options. The `qwen",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13343",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task requires fixing a bug in Django FileField deconstruction where a callable storage parameter is being evaluated instead of being returned as a reference. This is a specific code generation/debugging task involving Django ORM internals. The model 'qwen3.5-plus' is explicitly noted for 'exceptional at algorithm and competitive programming tasks' and 'code completion', which",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13344",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves debugging a bug in an ASGI middleware where a coroutine is being passed instead of an HttpResponse. The user explicitly requested to move the middleware down the list to fix this. The model's ability to identify the root cause (coroutine vs HttpResponse) and provide a clear, actionable fix is critical here. While the user's prompt is simple, the",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13346",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The user is reporting a bug in Django ORM where a custom __in filter using a key transform (e.g., 'our_field__key__in') fails to match the expected number of rows compared to a direct key filter. This is a known limitation in Django's ORM where the __in operator relies on the underlying database engine's internal implementation, which may",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13401",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The user is asking for a bug fix in Django ORM to resolve a field equality collision issue where models with the same field value but different models (e.g., A and C) are incorrectly treated as equal. The core problem is that `__eq__` and `__hash__` are not being overridden to handle the `model` attribute correctly. The",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13406",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The user is encountering a classic pickle serialization bug in Django's ORM. The core issue is that `values()` returns a queryset, and when `values_list()` is called, it returns a list of query objects. When these objects are pickled and unpickled, the internal state (like `values_list()`) is corrupted or lost, causing the subsequent",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13512",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves fixing a bug in JSON serialization where Chinese characters are displayed as ASCII. The user has already identified the root cause (default ASCII encoding) and the workaround (using UTF-8 encoding). The model should be able to explain the technical reason, provide the correct code snippet, and confirm the fix works. Given the task is straightforward and the user has already provided",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13516",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves debugging a Python migration script where the 'flush()' method is not working as expected. The user expects the migration to complete successfully, but the output shows the migration running but failing to flush. The error message 'flush() on self.stdout/stderr management commands doesn't work' is a specific Python version issue (likely Python 3.8+ requires flush",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13551",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves fixing a bug in a password reset token generation logic where an email address is being incorrectly included in the hash value. The user's email is a valid field in the AbstractBaseUser class, and the current code logic incorrectly includes it in the hash. The solution is to either remove the email from the hash or factor out the token generation logic.",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13590",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves fixing a bug in Django ORM related to named tuple handling during query resolution. The user explicitly identified the root cause: named tuples are passed to the tuple constructor as iterators instead of their elements. The model 'qwen3.5-plus' is explicitly noted for 'exceptional at algorithm and competitive programming tasks' and 'code completion', which align",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13670",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves fixing a bug in a Django dateformat function where years < 1000 are not formatted with leading zeros. The user explicitly mentions Python's strftime behavior, which aligns with the Django behavior. The model should be selected for its exceptional capabilities in algorithmic and competitive programming tasks, which this bug fixing task represents. The model's performance",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13786",
+    "raw_reply": "```json\n{\n  \"model\": \"claude-sonnet-4-6\",\n  \"reasoning\": \"The task involves debugging a bug in Django ORM migration operations where model options are not being cleared after squashing operations. The user is asking for a bug fix. The provided code snippet shows the exact issue: `CreateModel.reduce()` merges options from the operation, but `AlterModelOptions.state_forwards()` does not remove options that were not found",
+    "chosen": "claude-sonnet-4-6"
+  },
+  {
+    "task_id": "django__django-13794",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The error 'TypeError: can only concatenate str (not '__proxy__') to str' indicates a Python version incompatibility between the user's Python version and the add filter's implementation. The 'lazy string' (lazy string filter) is a Python 3.10+ feature, while the error suggests a Python 3.9 or earlier environment. Qwen",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13809",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves adding a CLI flag to a Django server command. The user's goal is to enable skipping system checks in CI/CD, which aligns with the StackOverflow reference. The complexity is moderate (adding a flag to a command), and the language is Python. The model's strong performance on algorithmic and competitive programming tasks (Qwen3.5-plus",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13810",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The user is asking for a bug fix in Python code related to ASGI middleware and Django. The task involves debugging a specific error ('object HttpResponse can't be used in 'await' expression') and understanding the root cause of the ASGI context handling issue. The model needs to analyze the code, identify the specific line causing the error, and provide a corrected",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13820",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves fixing a bug in a Django migration loader where namespace packages without __file__ are incorrectly skipped during the no-namespace-package check. The user explicitly states this is a bug fix for a 15-1 hour duration, requiring high-quality code generation and precise logic to handle the edge case of namespace packages. The model's capability to handle complex",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-13821",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves fixing a bug in a Python code snippet related to SQLite version support. The difficulty is low (15 min), and the language is Python. The model 'qwen3.5-plus' is explicitly noted for 'exceptional at algorithm and competitive programming tasks' and 'code completion,' which directly aligns with this bug fixing task. Its high performance",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14007",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves debugging a specific bug in a Django ORM model where the primary key value is not being converted via a custom hook (from_db_value) on insert. The user's provided code demonstrates a classic Django ORM issue: the `primary_key=True` flag on a `BigAutoField` triggers the `from_db_value` hook, but the user's",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14017",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The user is asking for a bug fix in Python code involving Django ORM operators. The core issue is that the `__and__` method of the `Q` class raises a `TypeError` because it does not define a `__rand__` method to handle the commutative property of `&` and `|` operators. The `qwen",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14053",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves debugging a bug in a Django admin collection system where post_process() yields the same filename multiple times, causing incorrect file collection. The user's description of the issue (yielding the same filename multiple times) and the specific context (Django 1.11.5, contrib.admin app) are highly specific and align perfectly with the capabilities",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14122",
+    "raw_reply": "```json\n{\n  \"model\": \"claude-sonnet-4-6\",\n  \"reasoning\": \"The task involves fixing a bug in Django where GROUP BY includes Meta.ordering fields, causing incorrect aggregation. The user provides a clear description of the issue and the context of the PR. The model should be selected for its strong code completion and bug fixing capabilities, which aligns with the task's complexity. Given the specific technical details and the need",
+    "chosen": "claude-sonnet-4-6"
+  },
+  {
+    "task_id": "django__django-14140",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves fixing a bug in Django ORM where Q objects with non-subscriptable children (like Exists) cause a TypeError during deconstruction. The provided solution involves patching the deconstruct logic to handle these edge cases. Qwen3.5-plus is explicitly designed for algorithmic and competitive programming tasks, which aligns perfectly with this bug fixing challenge.",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14155",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task requires fixing a bug in a Python class method (__repr__) that incorrectly displays functools.partial objects. The solution involves unwrapping functools.partial objects to reveal the underlying function and arguments. This is a straightforward code generation task with a clear bug fix requirement. The model should be able to generate the necessary code snippet efficiently. Given the task's complexity (fixing a",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14170",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves debugging a bug in a Django ORM query optimization where the BETWEEN operator is being incorrectly used instead of the EXTRACT operation for a specific field. The user's code demonstrates that the BETWEEN operator is being applied to the start_date field in both explicit and implicit lookup contexts, which is the root cause of the broken functionality. The model's exceptional performance on",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14311",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves fixing a bug in an autoreloader that fails to handle dotted module names (e.g., foo.bar.baz) correctly. The core requirement is to ensure the autoreloader correctly invokes the module when a dotted path is specified. The model's capability to handle complex code generation and debugging tasks is highly relevant here. Given the difficulty (15-",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14315",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves fixing a bug in a Python database client where os.environ is not being respected. The provided code snippet and PR link indicate this is a specific, well-defined bug fix in a Django context. The model's capability to handle complex code debugging, identify the root cause of the environment variable issue, and provide a corrected implementation is highly relevant. Given the specific nature",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14349",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"This is a bug fixing task involving Python version-specific test failures related to Django URL validators. The core issue is that the test framework (unittest) is not raising a ValidationError when the URL is malformed (contains brackets), whereas the expected behavior is to raise it. The model must identify this specific edge case in the test logic and fix the assertion to match the expected",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14351",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The user is reporting a Django ORM error ('subquery must return only one column') related to alias setup in a Django query. The core issue is that the alias for the queryset filter (e.g., 'agent__property_groups__in') is incorrectly configured, causing Django to try to select all columns from the alias instead of just the specific column it was",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14373",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task requires fixing a bug in Python code related to date formatting. The error message indicates a specific issue with the `Y` specifier in `django.utils.dateformat.DateFormat`. The model's capability to handle complex debugging and code generation is superior to other models for this specific task. The model's performance on algorithmic and code completion tasks is high, making it the best",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14376",
+    "raw_reply": "```json\n{\n  \"model\": \"claude-sonnet-4-6\",\n  \"reasoning\": \"The task involves fixing a deprecated parameter in a Django backend. The user explicitly provided the source code link and the specific deprecation commit details. The model must understand the context (Django version compatibility), the specific deprecation message, and the correct fix (changing 'db' and 'passwd' to 'database' and 'password'). The '",
+    "chosen": "claude-sonnet-4-6"
+  },
+  {
+    "task_id": "django__django-14404",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves fixing a bug in Django's catch_all_view function where the script name is truncated in the URL. This is a specific, well-documented bug fix in the Django codebase. The model 'qwen3.5-plus' is explicitly noted for 'exceptional at algorithm and competitive programming tasks' and 'code completion', which directly aligns with fixing",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14434",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The user is asking for a bug fix in Python code related to SQL column creation. The core issue is a type mismatch: the code expects a string but receives an instance of Table. The model should identify this specific type error and provide the corrected code. Qwen3.5-plus is explicitly noted for 'exceptional at algorithm and competitive programming tasks' and 'code",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14493",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"This is a bug fixing task in Python involving Django static file management. The error is a classic 'unbound local variable' due to a missing `substitutions` variable in a conditional block. The provided code snippet is a minimal reproduction of the issue. The model should be able to identify the missing variable, locate the specific line causing the error, and provide a corrected",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14500",
+    "raw_reply": "```json\n{\n  \"model\": \"claude-sonnet-4-6\",\n  \"reasoning\": \"The task involves debugging a bug in a migration system where squashed migrations are incorrectly marked as unapplied. This is a multi-step debugging task requiring code analysis, understanding of migration logic, and potential code refactoring. The model's 'High' rating and 'Good balance of speed and quality' make it suitable for this task. It can",
+    "chosen": "claude-sonnet-4-6"
+  },
+  {
+    "task_id": "django__django-14539",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task requires fixing a bug in a URL encoding function. The core issue is that the function is incorrectly handling the `<` character in the URL string. The expected output shows the `<` should be escaped as `\\\\<` (or `\\\\u003C`), but the actual output shows it as `\\\\lt` (or `\\\\u0",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14559",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves fixing a bug in Django's bulk_update() method where it returns None instead of the expected number of rows. The suggested solution is straightforward: simply add the return value to the function's return statement. This is a low-risk, high-impact fix that requires minimal code changes and is well-suited for a 15-1 hour time",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14608",
+    "raw_reply": "```json\n{\n  \"model\": \"claude-sonnet-4-6\",\n  \"reasoning\": \"The task involves adding a specific CSS class to a Python FormSets component. The user's description is clear and well-structured, indicating a straightforward implementation task. The model's 'High' rating and 'Good balance of speed and quality' make it ideal for this. It can efficiently generate the necessary code while maintaining clarity and correctness, which align",
+    "chosen": "claude-sonnet-4-6"
+  },
+  {
+    "task_id": "django__django-14631",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves fixing a bug in a Python form class where data access is inconsistent. The core issue is that `_clean_fields()` and `changed_data()` return different values than `form[name].initial`, which is a common side effect of inconsistent data access patterns. The proposed solution involves refactoring `changed_data()` to use a `cached_property` and `",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14725",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves a bug fix in a JavaScript/Python formset context. The core issue is that the current implementation allows new objects to be created without a specific trigger (like 'edit only' mode), which is unreliable. The solution requires adding a mechanism to prevent new object creation when the form is in edit mode. The model's capability to handle complex code",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14765",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves fixing a bug in a Django project where `real_apps` is expected to be a set but the code incorrectly checks for `None` and converts to a set. The model `qwen3.5-plus` is explicitly noted for 'exceptional at algorithm and competitive programming tasks' and 'code completion', which directly aligns with this bug",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-14792",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The user is asking for a bug fix in a Python code snippet involving timezone handling in Django. The task requires identifying the specific logic error where the timezone name is inverted (Etc/GMT-10 becomes Etc/GMT+10) and fixing it. The model must understand timezone semantics, Django ORM behavior, and code refactoring. The 'qwen",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-15037",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves fixing a SQL constraint issue where a foreign key reference is inverted (referencing 'other_id' instead of 'foo(other_id)'). This is a classic SQL syntax error that requires precise understanding of constraint syntax and table structure. The model must generate a corrected SQL statement. Given the difficulty (15 min - 1 hour) and the specific nature of the",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-15098",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves debugging a Django i18n configuration issue where locale combinations (script + region) are failing to load. The provided code shows a classic i18n pattern where the language code (e.g., 'en-us') is being passed to the i18n_patterns function, but the actual language code used in the URL path (e.g.,",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-15103",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task is a bug fix for a JSON script argument. The user wants to make 'element_id' optional. The core issue is that JSON scripts often require an ID to prevent infinite loops or to reference the script itself. Making it optional is a common security/behavioral change in JSON scripts. The model should be able to generate the corrected JSON script while",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-15127",
+    "raw_reply": "```json\n{\n  \"model\": \"claude-sonnet-4-6\",\n  \"reasoning\": \"The task involves fixing a Django configuration issue where @override_settings is not updating Message.level_tag. This is a multi-language (Python/Django) task requiring code completion and debugging. The model's 'High' rating and 'Good balance of speed and quality' make it suitable for this task. It can handle the specific Django configuration error and provide",
+    "chosen": "claude-sonnet-4-6"
+  },
+  {
+    "task_id": "django__django-15161",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves deconstructing a complex expression (F()) in Python, specifically within the context of Django migration code. The user's request is to simplify generated migration code by applying the same technique to other expressions. The model 'qwen3.5-plus' is explicitly noted for 'exceptional at algorithm and competitive programming tasks' and 'code completion'.",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-15277",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task requires fixing a bug in a Django Value model where a MaxLengthValidator is incorrectly created and used, causing a TypeError when cleaning values. The provided code snippet shows the exact issue: the validator is instantiated without checking if the input is a string, leading to a type mismatch. The user's prompt explicitly asks for a bug fix. Among the available models",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-15315",
+    "raw_reply": "```json\n{\n  \"model\": \"claude-sonnet-4-6\",\n  \"reasoning\": \"The task is a bug fix for Python's object hashing behavior, which is a standard library issue. The model's 'High' rating and 'Good balance of speed and quality' make it well-suited for this. It can handle multi-language tasks (Python) and complex code completion/fixing tasks efficiently. The reasoning is concise and directly",
+    "chosen": "claude-sonnet-4-6"
+  },
+  {
+    "task_id": "django__django-15368",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves fixing a bug in a Django bulk_update query where a string representation of F() is being generated instead of the column name. The root cause is a type check in query.py that is too narrow, preventing the engine from recognizing the expression as a valid column reference. The model 'qwen3.5-plus' is explicitly noted for 'exceptional at",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-15375",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The task involves debugging a Django ORM aggregation bug where adding a default argument causes a SQL syntax error ('FROM' syntax error). The user's description explicitly mentions 'aggregate() with 'default' after annotate() crashes' and provides the specific SQL error message. The model's capability to identify and fix complex SQL syntax errors in ORM contexts is highly relevant. While other",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-15499",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The task involves optimizing a Python code snippet by simplifying a complex class definition (CreateModel + AlterModelManagers) to a single class (CreateModel). This is a code refactoring task with a clear goal. The model must understand the Python syntax, identify redundant or unnecessary code, and produce a clean, optimized version. Qwen3.5-plus is explicitly",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-15525",
+    "raw_reply": "```json\n{\n  \"model\": \"qwen3.5-plus\",\n  \"reasoning\": \"The user is encountering a classic Django ORM issue: a foreign key constraint is missing or misconfigured in the database schema. The error 'KeyError: 'author'' indicates that the database is not storing the 'author' field in the Book model's fields_cache, likely because the foreign key constraint is not set up correctly (e.g., using 'pk'",
+    "chosen": "qwen3.5-plus"
+  },
+  {
+    "task_id": "django__django-15554",
+    "raw_reply": "```json\n{\n\"model\": \"qwen3.5-plus\",\n\"reasoning\": \"The user is asking about the behavior of the `FilteredRelation` ORM in Django. The core issue is that `FilteredRelation` is designed to return a single result set (a `QuerySet`), not a list of tuples. When you use `FilteredRelation` with multiple conditions (e.g., `Q(...) AND Q(...)`), it returns a single `",
+    "chosen": "qwen3.5-plus"
+  }
+]

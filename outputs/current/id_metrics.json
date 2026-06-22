@@ -1,0 +1,14 @@
+{
+  "$Total": 22.91,
+  "AvgPerf%": 50.14,
+  "CumReg": 201.9,
+  "Perf/$": 2.19,
+  "eval_split": "test",
+  "leakage_risk": "none",
+  "missing_score": 1,
+  "n": 2919,
+  "policy": "hierarchical",
+  "rAcc_perf_oracle": 0.2395,
+  "selection_protocol": "hierarchical_group_model_map",
+  "tune_split": "train+val"
+}

@@ -1,0 +1,1305 @@
+{
+  "schema_version": 1,
+  "model": "glm-5",
+  "items": {
+    "astropy__astropy-13033": {
+      "instance_id": "astropy__astropy-13033",
+      "model": "glm-5",
+      "patch_sha256": "173094542a352590f4ba542d002fd9210892860376b3d5b9d09ea4c04433c032",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 37.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 20,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-13236": {
+      "instance_id": "astropy__astropy-13236",
+      "model": "glm-5",
+      "patch_sha256": "f47c269260e2159557b4af0ddc16836514667ac2ed23fd4bbc68301aa206a292",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 14.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 644,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-13398": {
+      "instance_id": "astropy__astropy-13398",
+      "model": "glm-5",
+      "patch_sha256": "562c88628a9bede9ba446f15db8f9e7e15e629908ec6fb7a754bdc3367cf58f9",
+      "resolved": false,
+      "apply_ok": false,
+      "patch_non_empty": true,
+      "error": "patch apply failed",
+      "elapsed_s": 2.0,
+      "tests": {}
+    },
+    "astropy__astropy-13579": {
+      "instance_id": "astropy__astropy-13579",
+      "model": "glm-5",
+      "patch_sha256": "83db35ae4a3f50300c432a4b54af39b3fcda54294d50eafb9bbf5bdb650bedf9",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 40,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-13977": {
+      "instance_id": "astropy__astropy-13977",
+      "model": "glm-5",
+      "patch_sha256": "0f701733668bf5c0d1335dfa8889bb558072acfa36796ca6b43dfae7f3428e08",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.7,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 12,
+          "failure": 8
+        },
+        "PASS_TO_PASS": {
+          "success": 318,
+          "failure": 4
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-14096": {
+      "instance_id": "astropy__astropy-14096",
+      "model": "glm-5",
+      "patch_sha256": "8b284b283c885a386c8f326ee20bb2b92ebf304d2073082dfc0f0aa2b60ef72d",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 426,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-14309": {
+      "instance_id": "astropy__astropy-14309",
+      "model": "glm-5",
+      "patch_sha256": "6f75d4d95cd2040b993995e36529f5171f3359d4c30356b730694fb191c0e3f4",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.5,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 141,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-14508": {
+      "instance_id": "astropy__astropy-14508",
+      "model": "glm-5",
+      "patch_sha256": "ab4341092adba0612dfbe3801e14f99a983aed4638b74150191311fe8b41661e",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 8.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 174,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-14598": {
+      "instance_id": "astropy__astropy-14598",
+      "model": "glm-5",
+      "patch_sha256": "a6e0e03f6fd48188d8d76b8571c3de4a4288ace26567dbc106a6731263c9b2bb",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 8.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 175,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-7336": {
+      "instance_id": "astropy__astropy-7336",
+      "model": "glm-5",
+      "patch_sha256": "b1ddc6f50f6e8c01ccc890bd0d1e4d8cc30dd5ffdd76a44f49ccdaecc3c59758",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 339,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "astropy__astropy-7671": {
+      "instance_id": "astropy__astropy-7671",
+      "model": "glm-5",
+      "patch_sha256": "48f28f82d9ca6b74139a2e6f0e5b88a2e01caad4a5a29f4435c49d19b089c7c9",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 7.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 3,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11099": {
+      "instance_id": "django__django-11099",
+      "model": "glm-5",
+      "patch_sha256": "dcd7202d62b786de764d90d5793d4d1d2f531486e1bd4f2c0b7bf5507a82163d",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 3,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 19,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11206": {
+      "instance_id": "django__django-11206",
+      "model": "glm-5",
+      "patch_sha256": "78a4c32f3399d519546b2751d03a327a412ba15e3b3477090282376d2a6cc7e1",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 4,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12406": {
+      "instance_id": "django__django-12406",
+      "model": "glm-5",
+      "patch_sha256": "357c1541f3455f3d2d17495331581d31233ed9dd8e732495e92ad70a8cbb6d50",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.5,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 165,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12419": {
+      "instance_id": "django__django-12419",
+      "model": "glm-5",
+      "patch_sha256": "0b7794efc9e19ef7c7aa513b2b4388ee7c919feed3277dfab0b0394ab4435624",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 0,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13012": {
+      "instance_id": "django__django-13012",
+      "model": "glm-5",
+      "patch_sha256": "bf031c98abac7d7ecadff085bfcb0de17c4d0b9437d9c339248824db9fabdd2e",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 137,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13028": {
+      "instance_id": "django__django-13028",
+      "model": "glm-5",
+      "patch_sha256": "8a28fda9fb4a7b427ca0ff1e5d880350ced22b3f6492203c6f293f68820dd34d",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 14.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 276,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13089": {
+      "instance_id": "django__django-13089",
+      "model": "glm-5",
+      "patch_sha256": "7064664e2002e6765e95677401ffe68d59a9eb8f7adb41f7efca0fb3aba4de4f",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 85.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 352,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13128": {
+      "instance_id": "django__django-13128",
+      "model": "glm-5",
+      "patch_sha256": "97f88d176bd6beb262173f0a189a3828ab83d39cd367feaed5ac017f597c26f2",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 7,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 134,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13195": {
+      "instance_id": "django__django-13195",
+      "model": "glm-5",
+      "patch_sha256": "0279425ec37c1c21a24a939b9b005719b33dc11532a4e53d146fe5b5105ebbb0",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.1,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 4
+        },
+        "PASS_TO_PASS": {
+          "success": 382,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13212": {
+      "instance_id": "django__django-13212",
+      "model": "glm-5",
+      "patch_sha256": "81e8017a7c615de1cc0b2b75d2840d622f48f97cf53a1068a83d378db2c54e49",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 3,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13297": {
+      "instance_id": "django__django-13297",
+      "model": "glm-5",
+      "patch_sha256": "31fb553602a799e039a04bee105bdd6b3d4c336816d5c11ad7438be3721738d7",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 14.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 52,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13315": {
+      "instance_id": "django__django-13315",
+      "model": "glm-5",
+      "patch_sha256": "dbe5dcc362da8d15bb7519db031e4e7b6532c900fedc2027010105e28dee9006",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.7,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 146,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13343": {
+      "instance_id": "django__django-13343",
+      "model": "glm-5",
+      "patch_sha256": "0e7b4db0a1da253e05455e2f7d07748c06311ae32f08aa19cf36dff8e3f882b4",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 130,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13786": {
+      "instance_id": "django__django-13786",
+      "model": "glm-5",
+      "patch_sha256": "3c7dda23dcae50e37677fbe985f3ed16d9e3342fc54ec69cbd7526212e1409d3",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 33,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13794": {
+      "instance_id": "django__django-13794",
+      "model": "glm-5",
+      "patch_sha256": "2e0e1079d42886a8b4a72cd577c266dc8e6e4adc87fb84578a33b5ee0ac50b9e",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 16.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 24,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13809": {
+      "instance_id": "django__django-13809",
+      "model": "glm-5",
+      "patch_sha256": "0b4ed4c856eacae168823603414bee85aff820358ca055527d02685b59849e22",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 54.5,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 245,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13810": {
+      "instance_id": "django__django-13810",
+      "model": "glm-5",
+      "patch_sha256": "c433efd973837b528afe81ac630407c0dee35562b18a3354d006d05215423c07",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 30,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13820": {
+      "instance_id": "django__django-13820",
+      "model": "glm-5",
+      "patch_sha256": "5451fd135dd8865bdf7bfc3a4e7df8c5579a0218c25ccb56096a974f28129e18",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.7,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 24,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13821": {
+      "instance_id": "django__django-13821",
+      "model": "glm-5",
+      "patch_sha256": "4cfe94d3b3fd03e83226c66b5cdc153bb939d50161da9ebc33199fa280935894",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 14,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14017": {
+      "instance_id": "django__django-14017",
+      "model": "glm-5",
+      "patch_sha256": "c0f0c32037923cb16f3d10dc5e5943ac192d97ac322c84b0d0f73f4ccfb537fd",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 147,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14053": {
+      "instance_id": "django__django-14053",
+      "model": "glm-5",
+      "patch_sha256": "e411bc8b2e32a6ef7265cb83c46de7222fa8d4e21910a4cde1e76b470c0092f6",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 31,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14122": {
+      "instance_id": "django__django-14122",
+      "model": "glm-5",
+      "patch_sha256": "71a85d685f11ca857f8370f9eb6ffb4ed450c3e43dac9d708cbf11efa88a4b11",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 26,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14140": {
+      "instance_id": "django__django-14140",
+      "model": "glm-5",
+      "patch_sha256": "f7ce1eea30e69d163c146d4ec7002600a512429fdd036d42281d8f8f2833eba5",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 2
+        },
+        "PASS_TO_PASS": {
+          "success": 199,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14155": {
+      "instance_id": "django__django-14155",
+      "model": "glm-5",
+      "patch_sha256": "4b3a58ff931eb8db5945e01922e8c1c8641272f703e8e658395282fc87f9dc51",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 12.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 3
+        },
+        "PASS_TO_PASS": {
+          "success": 89,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14170": {
+      "instance_id": "django__django-14170",
+      "model": "glm-5",
+      "patch_sha256": "375a6d1bd625c25cfc71fdc9de331ab6c94e0d5ae17daba293937fbeabb4da80",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 67,
+          "failure": 9
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14311": {
+      "instance_id": "django__django-14311",
+      "model": "glm-5",
+      "patch_sha256": "cda27197fd220d39cf6e58ebbb34934f61cc270349d6e056613c792678db8327",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 59,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14315": {
+      "instance_id": "django__django-14315",
+      "model": "glm-5",
+      "patch_sha256": "49f6712d0b26a39e28ba8db808b9833de447712a7286c1952beb754c558b0994",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.7,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 7,
+          "failure": 4
+        },
+        "PASS_TO_PASS": {
+          "success": 0,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14349": {
+      "instance_id": "django__django-14349",
+      "model": "glm-5",
+      "patch_sha256": "21611beb845854aeebc2f9f0939c4f24edd2b8d3f04989f10a95919db9367174",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 18,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14351": {
+      "instance_id": "django__django-14351",
+      "model": "glm-5",
+      "patch_sha256": "0cc696c819faed38ea2664c3b3cc5732faed3b816dcac7dc4292b8edb158eca5",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.7,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 58,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14373": {
+      "instance_id": "django__django-14373",
+      "model": "glm-5",
+      "patch_sha256": "2b89c6ede13379c007da9ab9b7edc3cbae2aeb75088e9551193fd3758500fc95",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 8.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 19,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14376": {
+      "instance_id": "django__django-14376",
+      "model": "glm-5",
+      "patch_sha256": "0284a2fb813e06431f352839558587bb8f043072695b218ae7fbd41973c2c643",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 9.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 3
+        },
+        "PASS_TO_PASS": {
+          "success": 6,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14404": {
+      "instance_id": "django__django-14404",
+      "model": "glm-5",
+      "patch_sha256": "2df20a71b438b02c9025906730a72f962c0aaf4e4113586588b106cb08cab363",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 34.3,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 323,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14434": {
+      "instance_id": "django__django-14434",
+      "model": "glm-5",
+      "patch_sha256": "1937a529f966b046c3c111eaefde7787af286820b4e95ba3615a25245164d869",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.7,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 133,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14493": {
+      "instance_id": "django__django-14493",
+      "model": "glm-5",
+      "patch_sha256": "b2d317d66f891fb68c90fd3548794452bf696524b1f050afbd9815b35f3e2f9e",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 10.7,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 36,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14500": {
+      "instance_id": "django__django-14500",
+      "model": "glm-5",
+      "patch_sha256": "e354e8c53f5ac96e04031c6d3f4ad803574af93bec54d467ac78d515dbaf5bf2",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 14.9,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 21,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14539": {
+      "instance_id": "django__django-14539",
+      "model": "glm-5",
+      "patch_sha256": "21c683f49f9419301c8d9d2ac68646c6ed5dd6a3d75b5d60a8af82e965ea9125",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 11.0,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 14,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    }
+  }
+}

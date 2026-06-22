@@ -1,0 +1,106 @@
+{
+  "schema_version": "agentic-artifact-v1",
+  "artifact": "ACRouter",
+  "status": "open-source-ready",
+  "updated": "2026-06-22",
+  "purpose": "Agent-readable map for offline ACRouter reproduction and OOD176 baseline inspection.",
+  "entrypoints": {
+    "human_readme": "../README.md",
+    "agent_manifest": "PAPER.md",
+    "static_page": "index.html"
+  },
+  "commands": {
+    "install": [
+      "python -m pip install --upgrade pip setuptools wheel",
+      "python -m pip install -r requirements.txt",
+      "python -m pip install -e ."
+    ],
+    "test": [
+      "python -m unittest discover -s tests"
+    ],
+    "reproduce": [
+      "python scripts/run_id.py --output-dir outputs/tmp/id",
+      "python scripts/run_acrouter_ood176.py --output-dir outputs/tmp/acrouter_ood176",
+      "python scripts/run_baselines_ood176.py --output-dir outputs/tmp/baselines_ood176"
+    ],
+    "custom_pipeline": [
+      "python scripts/run_pipeline.py --config configs/eval_pipeline.example.json"
+    ],
+    "inference_demo": [
+      "python examples/inference_demo.py"
+    ],
+    "legacy_ood112_optional": [
+      "python -m pip install -r requirements-sandbox.txt",
+      "python scripts/run_all.py --output-dir outputs/tmp/run_all_legacy_ood112",
+      "python scripts/run_ood_sandbox.py --verifier report-cache --output-dir outputs/tmp/legacy_ood112"
+    ]
+  },
+  "layers": {
+    "logic": [
+      "logic/claims.md",
+      "logic/experiments.md",
+      "logic/solution/architecture.md",
+      "logic/solution/constraints.md"
+    ],
+    "source_context": [
+      "src/environment.md",
+      "src/configs/router_eval.md"
+    ],
+    "trace": [
+      "trace/exploration_tree.yaml"
+    ],
+    "evidence": [
+      "evidence/tables/acrouter_release_summary.csv",
+      "evidence/tables/legacy_ood112_summary.csv",
+      "evidence/tables/ood176_baseline_metrics.csv",
+      "evidence/tables/ood176_baseline_table.md",
+      "evidence/tables/score_matrix.md",
+      "evidence/figures/README.md"
+    ]
+  },
+  "canonical_repository_paths": {
+    "id_data": "../data/id/",
+    "custom_pipeline_config": "../configs/eval_pipeline.example.json",
+    "custom_pipeline_examples": "../examples/custom_benchmark/",
+    "inference_demo": "../examples/inference_demo.py",
+    "ood176_matrix": "../data/matrices/phase2_ood/unified/matrix_acrouter_ood176.json",
+    "ood176_long_results": "../data/matrices/phase2_ood/unified/results_long.csv",
+    "legacy_ood112_data": "../data/ood/",
+    "legacy_ood112_summary": "../outputs/current/summary.json",
+    "acrouter_ood176_metrics": "../outputs/acrouter_ood176/ood_metrics.json",
+    "baseline_outputs": "../outputs/baselines_ood176/",
+    "tests": "../tests/"
+  },
+  "headline_metrics": {
+    "id": {
+      "n": 2919,
+      "avg_perf_pct": 50.14,
+      "cum_reg": 201.9,
+      "total_cost_usd": 22.91,
+      "perf_per_usd": 2.19
+    },
+    "ood176_acrouter": {
+      "n": 176,
+      "avg_perf_pct": 73.30,
+      "cum_reg": 14.4,
+      "total_cost_usd": 68.29,
+      "perf_per_usd": 1.07,
+      "apply_ok_pct": 85.80
+    }
+  },
+  "legacy_supplement": {
+    "ood112": {
+      "n": 112,
+      "avg_perf_pct": 66.96,
+      "cum_reg": 12.8,
+      "total_cost_usd": 51.70,
+      "perf_per_usd": 1.30,
+      "apply_ok_pct": 77.68
+    }
+  },
+  "provenance": {
+    "numeric_results": "checked-in-output",
+    "artifact_index": "derived-index",
+    "scope_notes": "maintainer-note"
+  }
+}

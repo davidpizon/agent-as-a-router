@@ -1,0 +1,790 @@
+{
+  "schema_version": 1,
+  "model": "MiniMax-M2.7",
+  "items": {
+    "astropy__astropy-13033": {
+      "instance_id": "astropy__astropy-13033",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "\n=== Git Diff ===\ndiff --git a/astropy/timeseries/core.py b/astropy/timeseries/core.py\nindex c279f35f8..d281ab468 100644\n--- a/astropy/timeseries/core.py\n+++ b/astropy/timeseries/core.py\n@@ -74,11 +74,11 @@ class BaseTimeSeries(QTable):\n                                  \"as the first column{} but time series has no columns\"\n                                  .format(self.__class__.__name__, required_columns[0], plural))\n \n-            elif self.colnames[:len(required_columns)] != required_columns:\n+            elif len(self.colnames) < len(required_columns) or self.colnames[:len(required_columns)] != required_columns:\n \n                 raise ValueError(\"{} object is invalid - expected '{}' \"\n                                  \"as the first column{} but found '{}'\"\n-                                 .format(self.__class__.__name__, required_columns[0], plural, self.colnames[0]))\n+                                 .format(self.__class__.__name__, required_columns, plural, self.colnames[:len(required_columns)]))\n \n             if (self._required_columns_relax\n                     and self._required_columns == self.colnames[:len(self._required_columns)]):\n",
+      "patch_sha256": "c68b77cfc73620565a7a58f3751d5969879619f6e0285059f0a7399e2b179b57",
+      "patch_non_empty": true
+    },
+    "astropy__astropy-13236": {
+      "instance_id": "astropy__astropy-13236",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "diff --git a/astropy/table/table.py b/astropy/table/table.py\nindex 5afe2127a..ce658ddbe 100644\n--- a/astropy/table/table.py\n+++ b/astropy/table/table.py\n@@ -1243,6 +1243,12 @@ class Table:\n         # mixin class\n         if (not isinstance(data, Column) and not data_is_mixin\n                 and isinstance(data, np.ndarray) and len(data.dtype) > 1):\n+            warnings.warn(\n+                \"Passing a structured ndarray to Table is deprecated and will be \"\n+                \"converted to a Column in the future. To silence this warning, \"\n+                \"wrap the ndarray in a Column, e.g. Column(data). In the future, \"\n+                \"the structured array will be added as a Column without warning.\",\n+                FutureWarning)\n             data = data.view(NdarrayMixin)\n             data_is_mixin = True\n \n",
+      "patch_sha256": "a826bad78d3a9f62e31575c61dc1ee124b3eaf03587aa24cba205a86ebe466ad",
+      "patch_non_empty": true
+    },
+    "astropy__astropy-13398": {
+      "instance_id": "astropy__astropy-13398",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "astropy__astropy-13579": {
+      "instance_id": "astropy__astropy-13579",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "astropy__astropy-13977": {
+      "instance_id": "astropy__astropy-13977",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "astropy__astropy-14096": {
+      "instance_id": "astropy__astropy-14096",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "diff --git a/astropy/coordinates/sky_coordinate.py b/astropy/coordinates/sky_coordinate.py\nindex ab475f7d0..ef4fe95a7 100644\n--- a/astropy/coordinates/sky_coordinate.py\n+++ b/astropy/coordinates/sky_coordinate.py\n@@ -894,6 +894,23 @@ class SkyCoord(ShapedLikeNDArray):\n             if frame_cls is not None and self.frame.is_transformable_to(frame_cls):\n                 return self.transform_to(attr)\n \n+        # Check if attr is actually defined as a descriptor (e.g., property)\n+        # on the class. If so, the AttributeError is likely coming from inside the\n+        # descriptor, not because the descriptor doesn't exist. Try to access it\n+        # directly to get the real error.\n+        for cls in self.__class__.__mro__:\n+            if hasattr(cls, '__dict__') and attr in cls.__dict__:\n+                obj = cls.__dict__[attr]\n+                if hasattr(obj, '__get__'):\n+                    # Call the descriptor directly to get the real error\n+                    try:\n+                        obj.__get__(self, self.__class__)\n+                    except AttributeError:\n+                        raise\n+                    raise AttributeError(\n+                        f\"'{self.__class__.__name__}' object has no attribute '{attr}'\"\n+                    )\n+\n         # Fail\n         raise AttributeError(\n             f\"'{self.__class__.__name__}' object has no attribute '{attr}'\"\n",
+      "patch_sha256": "67d0384784cde3e2936f961eb687b11bc0389b6a1c89ba77dc4418213a393ab2",
+      "patch_non_empty": true
+    },
+    "astropy__astropy-14309": {
+      "instance_id": "astropy__astropy-14309",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "diff --git a/astropy/io/fits/connect.py b/astropy/io/fits/connect.py\nindex 4b6150f4a..1d27432da 100644\n--- a/astropy/io/fits/connect.py\n+++ b/astropy/io/fits/connect.py\n@@ -69,7 +69,7 @@ def is_fits(origin, filepath, fileobj, *args, **kwargs):\n             (\".fits\", \".fits.gz\", \".fit\", \".fit.gz\", \".fts\", \".fts.gz\")\n         ):\n             return True\n-    return isinstance(args[0], (HDUList, TableHDU, BinTableHDU, GroupsHDU))\n+    return bool(args) and isinstance(args[0], (HDUList, TableHDU, BinTableHDU, GroupsHDU))\n \n \n def _decode_mixins(tbl):\n",
+      "patch_sha256": "71a9160b7f6f99600e71de4df89b1a1f470c0dbf47a49eaeb15790e2b233a70a",
+      "patch_non_empty": true
+    },
+    "astropy__astropy-14508": {
+      "instance_id": "astropy__astropy-14508",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "diff --git a/astropy/io/fits/card.py b/astropy/io/fits/card.py\nindex 118bfced8..e22ae8c82 100644\n--- a/astropy/io/fits/card.py\n+++ b/astropy/io/fits/card.py\n@@ -1299,13 +1299,36 @@ def _format_value(value):\n \n def _format_float(value):\n     \"\"\"Format a floating number to make sure it gets the decimal point.\"\"\"\n+    # First, try Python's default string representation, which is often shorter\n+    # and more readable than the format with .16G\n+    value_str = str(value)\n+\n+    # Check if the string representation is suitable:\n+    # 1. It must be <= 20 characters\n+    # 2. It must have a decimal point or 'E'/'e' (for scientific notation)\n+    if (len(value_str) <= 20 and\n+        (\".\" in value_str or \"E\" in value_str or \"e\" in value_str)):\n+        # Normalize 'e' to 'E' for consistency and normalize exponent format\n+        if \"e\" in value_str:\n+            value_str = value_str.replace(\"e\", \"E\")\n+            if \"E\" in value_str:\n+                significand, exponent = value_str.split(\"E\")\n+                if exponent[0] in (\"+\", \"-\"):\n+                    sign = exponent[0]\n+                    exponent = exponent[1:]\n+                else:\n+                    sign = \"\"\n+                value_str = f\"{significand}E{sign}{int(exponent):02d}\"\n+        return value_str\n+\n+    # Fall back to the original formatting method\n     value_str = f\"{value:.16G}\"\n     if \".\" not in value_str and \"E\" not in value_str:\n         value_str += \".0\"\n     elif \"E\" in value_str:\n         # On some Windows builds of Python (and possibly other platforms?) the\n         # exponent is zero-padded out to, it seems, three digits.  Normalize\n-        # the format to pad only to two digits.\n+        #the format to pad only to two digits.\n         significand, exponent = value_str.split(\"E\")\n         if exponent[0] in (\"+\", \"-\"):\n             sign = exponent[0]\n@@ -1327,7 +1350,6 @@ def _format_float(value):\n \n     return value_str\n \n-\n def _pad(input):\n     \"\"\"Pad blank space to the input string to be multiple of 80.\"\"\"\n     _len = len(input)\n",
+      "patch_sha256": "364d7f6db1d687fdc0007281fb96ad2b62754ab78ddd05dccc6ae3e6d38ad0d1",
+      "patch_non_empty": true
+    },
+    "astropy__astropy-14539": {
+      "instance_id": "astropy__astropy-14539",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "astropy__astropy-14598": {
+      "instance_id": "astropy__astropy-14598",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "astropy__astropy-14995": {
+      "instance_id": "astropy__astropy-14995",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "astropy__astropy-7166": {
+      "instance_id": "astropy__astropy-7166",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "diff --git a/astropy/utils/misc.py b/astropy/utils/misc.py\nindex de3fb01d1..cceaeb957 100644\n--- a/astropy/utils/misc.py\n+++ b/astropy/utils/misc.py\n@@ -528,7 +528,7 @@ class InheritDocstrings(type):\n                 not key.startswith('_'))\n \n         for key, val in dct.items():\n-            if (inspect.isfunction(val) and\n+            if ((inspect.isfunction(val) or isinstance(val, property)) and\n                 is_public_member(key) and\n                 val.__doc__ is None):\n                 for base in cls.__mro__[1:]:\n",
+      "patch_sha256": "67fdf66c1f64c02b060cb74a336d997eb65bcca4062db2d23d66458472b690f6",
+      "patch_non_empty": true
+    },
+    "astropy__astropy-7336": {
+      "instance_id": "astropy__astropy-7336",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "astropy__astropy-7671": {
+      "instance_id": "astropy__astropy-7671",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "astropy__astropy-8872": {
+      "instance_id": "astropy__astropy-8872",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-10097": {
+      "instance_id": "django__django-10097",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-10554": {
+      "instance_id": "django__django-10554",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-10914": {
+      "instance_id": "django__django-10914",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-10973": {
+      "instance_id": "django__django-10973",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-10999": {
+      "instance_id": "django__django-10999",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11087": {
+      "instance_id": "django__django-11087",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11095": {
+      "instance_id": "django__django-11095",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11099": {
+      "instance_id": "django__django-11099",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11119": {
+      "instance_id": "django__django-11119",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "diff --git a/django/template/engine.py b/django/template/engine.py\nindex dfaa67ba12..ff9ce58d59 100644\n--- a/django/template/engine.py\n+++ b/django/template/engine.py\n@@ -160,7 +160,7 @@ class Engine:\n         if isinstance(context, Context):\n             return t.render(context)\n         else:\n-            return t.render(Context(context))\n+            return t.render(Context(context, autoescape=self.autoescape))\n \n     def select_template(self, template_name_list):\n         \"\"\"\n",
+      "patch_sha256": "2065323dcdbfcae812028d52307941075ffbba378ed379061e3332bbb3d22d29",
+      "patch_non_empty": true
+    },
+    "django__django-11133": {
+      "instance_id": "django__django-11133",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11138": {
+      "instance_id": "django__django-11138",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11206": {
+      "instance_id": "django__django-11206",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11239": {
+      "instance_id": "django__django-11239",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "diff --git a/django/db/backends/postgresql/client.py b/django/db/backends/postgresql/client.py\nindex cf4df76882..0efe0d47f0 100644\n--- a/django/db/backends/postgresql/client.py\n+++ b/django/db/backends/postgresql/client.py\n@@ -17,6 +17,10 @@ class DatabaseClient(BaseDatabaseClient):\n         dbname = conn_params.get('database', '')\n         user = conn_params.get('user', '')\n         passwd = conn_params.get('password', '')\n+        sslmode = conn_params.get('sslmode', '')\n+        sslrootcert = conn_params.get('sslrootcert', '')\n+        sslcert = conn_params.get('sslcert', '')\n+        sslkey = conn_params.get('sslkey', '')\n \n         if user:\n             args += ['-U', user]\n@@ -30,6 +34,14 @@ class DatabaseClient(BaseDatabaseClient):\n         subprocess_env = os.environ.copy()\n         if passwd:\n             subprocess_env['PGPASSWORD'] = str(passwd)\n+        if sslmode:\n+            subprocess_env['PGSSLMODE'] = str(sslmode)\n+        if sslrootcert:\n+            subprocess_env['PGSSLROOTCERT'] = str(sslrootcert)\n+        if sslcert:\n+            subprocess_env['PGSSLCERT'] = str(sslcert)\n+        if sslkey:\n+            subprocess_env['PGSSLKEY'] = str(sslkey)\n         try:\n             # Allow SIGINT to pass to psql to abort queries.\n             signal.signal(signal.SIGINT, signal.SIG_IGN)\n",
+      "patch_sha256": "dccba074e2f59e53f305a6bbcc353c272a794d0926957dbca76fd82e00d90c68",
+      "patch_non_empty": true
+    },
+    "django__django-11276": {
+      "instance_id": "django__django-11276",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "diff --git a/django/utils/html.py b/django/utils/html.py\nindex 9c519978f5..e471536b35 100644\n--- a/django/utils/html.py\n+++ b/django/utils/html.py\n@@ -1,5 +1,6 @@\n \"\"\"HTML utilities suitable for global use.\"\"\"\n \n+import html\n import json\n import re\n from html.parser import HTMLParser\n@@ -43,7 +44,7 @@ def escape(text):\n     This may result in double-escaping. If this is a concern, use\n     conditional_escape() instead.\n     \"\"\"\n-    return mark_safe(str(text).translate(_html_escapes))\n+    return mark_safe(html.escape(str(text), quote=True))\n \n \n _js_escapes = {\n",
+      "patch_sha256": "9d7c67f5a48d1208b9d73a090632dcefed59e70848d3eb73c116ca37a7582601",
+      "patch_non_empty": true
+    },
+    "django__django-11292": {
+      "instance_id": "django__django-11292",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "diff --git a/django/core/management/base.py b/django/core/management/base.py\nindex 0c3a981290..dc646cb781 100644\n--- a/django/core/management/base.py\n+++ b/django/core/management/base.py\n@@ -95,7 +95,7 @@ class DjangoHelpFormatter(HelpFormatter):\n     \"\"\"\n     show_last = {\n         '--version', '--verbosity', '--traceback', '--settings', '--pythonpath',\n-        '--no-color', '--force-color',\n+        '--no-color', '--force-color', '--skip-checks',\n     }\n \n     def _reordered_actions(self, actions):\n@@ -286,6 +286,10 @@ class BaseCommand:\n             '--force-color', action='store_true',\n             help='Force colorization of the command output.',\n         )\n+        parser.add_argument(\n+            '--skip-checks', action='store_true',\n+            help='Skip system checks.',\n+        )\n         self.add_arguments(parser)\n         return parser\n \n",
+      "patch_sha256": "bade2e4c729a4bd480084765906cb995e1241aaee3b5ed17bdf34e7a492a86e2",
+      "patch_non_empty": true
+    },
+    "django__django-11333": {
+      "instance_id": "django__django-11333",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "diff --git a/django/urls/base.py b/django/urls/base.py\nindex 0e1c3d909c..52a9564da8 100644\n--- a/django/urls/base.py\n+++ b/django/urls/base.py\n@@ -7,7 +7,7 @@ from django.utils.functional import lazy\n from django.utils.translation import override\n \n from .exceptions import NoReverseMatch, Resolver404\n-from .resolvers import get_ns_resolver, get_resolver\n+from .resolvers import get_ns_resolver, get_resolver, _get_cached_resolver\n from .utils import get_callable\n \n # SCRIPT_NAME prefixes for each thread are stored here. If there's no entry for\n@@ -92,7 +92,7 @@ reverse_lazy = lazy(reverse, str)\n \n def clear_url_caches():\n     get_callable.cache_clear()\n-    get_resolver.cache_clear()\n+    _get_cached_resolver.cache_clear()\n     get_ns_resolver.cache_clear()\n \n \ndiff --git a/django/urls/resolvers.py b/django/urls/resolvers.py\nindex 247e3680c0..43095e7f61 100644\n--- a/django/urls/resolvers.py\n+++ b/django/urls/resolvers.py\n@@ -63,10 +63,14 @@ class ResolverMatch:\n         )\n \n \n-@functools.lru_cache(maxsize=None)\n def get_resolver(urlconf=None):\n     if urlconf is None:\n         urlconf = settings.ROOT_URLCONF\n+    return _get_cached_resolver(urlconf)\n+\n+\n+@functools.lru_cache(maxsize=None)\n+def _get_cached_resolver(urlconf):\n     return URLResolver(RegexPattern(r'^/'), urlconf)\n \n \n",
+      "patch_sha256": "c637b910827013c14dd471ec8c0f403c71846324103ef02ff547471d90d77f08",
+      "patch_non_empty": true
+    },
+    "django__django-11477": {
+      "instance_id": "django__django-11477",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "diff --git a/django/urls/base.py b/django/urls/base.py\nindex 0e1c3d909c..24fd908f74 100644\n--- a/django/urls/base.py\n+++ b/django/urls/base.py\n@@ -172,7 +172,9 @@ def translate_url(url, lang_code):\n         to_be_reversed = \"%s:%s\" % (match.namespace, match.url_name) if match.namespace else match.url_name\n         with override(lang_code):\n             try:\n-                url = reverse(to_be_reversed, args=match.args, kwargs=match.kwargs)\n+                # Filter out None values from kwargs for optional named groups\n+                kwargs = {k: v for k, v in match.kwargs.items() if v is not None}\n+                url = reverse(to_be_reversed, args=match.args, kwargs=kwargs)\n             except NoReverseMatch:\n                 pass\n             else:\n",
+      "patch_sha256": "d514de5673409e10a2b06d0d7cc2501ae3110ae011e7f9e96520e59e905bed84",
+      "patch_non_empty": true
+    },
+    "django__django-11490": {
+      "instance_id": "django__django-11490",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "diff --git a/django/db/models/query.py b/django/db/models/query.py\nindex 1544beb613..286c6c7fea 100644\n--- a/django/db/models/query.py\n+++ b/django/db/models/query.py\n@@ -931,7 +931,7 @@ class QuerySet:\n         # Clear limits and ordering so they can be reapplied\n         clone.query.clear_ordering(True)\n         clone.query.clear_limits()\n-        clone.query.combined_queries = (self.query,) + tuple(qs.query for qs in other_qs)\n+        clone.query.combined_queries = (self.query.clone(),) + tuple(qs.query.clone() for qs in other_qs)\n         clone.query.combinator = combinator\n         clone.query.combinator_all = all\n         return clone\ndiff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py\nindex 08d7faf194..2baaed0890 100644\n--- a/django/db/models/sql/query.py\n+++ b/django/db/models/sql/query.py\n@@ -328,6 +328,7 @@ class Query(BaseExpression):\n             obj.subq_aliases = self.subq_aliases.copy()\n         obj.used_aliases = self.used_aliases.copy()\n         obj._filtered_relations = self._filtered_relations.copy()\n+        obj.combined_queries = tuple(q.clone() for q in self.combined_queries)\n         # Clear the cached_property\n         try:\n             del obj.base_table\n",
+      "patch_sha256": "85335a271fe411528b75662200cd68825aca09d16b0a990cffe3b7afc835f187",
+      "patch_non_empty": true
+    },
+    "django__django-11603": {
+      "instance_id": "django__django-11603",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "diff --git a/django/db/models/aggregates.py b/django/db/models/aggregates.py\nindex da4ff928aa..a062c98c59 100644\n--- a/django/db/models/aggregates.py\n+++ b/django/db/models/aggregates.py\n@@ -97,6 +97,7 @@ class Aggregate(Func):\n \n \n class Avg(FixDurationInputMixin, NumericOutputFieldMixin, Aggregate):\n+    allow_distinct = True\n     function = 'AVG'\n     name = 'Avg'\n \n@@ -119,11 +120,13 @@ class Count(Aggregate):\n \n \n class Max(Aggregate):\n+    allow_distinct = True\n     function = 'MAX'\n     name = 'Max'\n \n \n class Min(Aggregate):\n+    allow_distinct = True\n     function = 'MIN'\n     name = 'Min'\n \n@@ -140,6 +143,7 @@ class StdDev(NumericOutputFieldMixin, Aggregate):\n \n \n class Sum(FixDurationInputMixin, Aggregate):\n+    allow_distinct = True\n     function = 'SUM'\n     name = 'Sum'\n \n",
+      "patch_sha256": "986b8e91c42802b9b71c8d142e925da18805693057c0394cf5f200e785d5f8e5",
+      "patch_non_empty": true
+    },
+    "django__django-11728": {
+      "instance_id": "django__django-11728",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "diff --git a/django/contrib/admindocs/utils.py b/django/contrib/admindocs/utils.py\nindex 1ce4594501..a8bfcb5a8e 100644\n--- a/django/contrib/admindocs/utils.py\n+++ b/django/contrib/admindocs/utils.py\n@@ -180,6 +180,11 @@ def replace_named_groups(pattern):\n             elif val == ')' and prev_char != '\\\\':\n                 unmatched_open_brackets -= 1\n             prev_char = val\n+        else:\n+            # If the loop finishes without a break, check whether the pattern\n+            # ends with a named group.\n+            if unmatched_open_brackets == 0:\n+                group_pattern_and_name.append((pattern[start:], group_name))\n \n     # Replace the string for named capture groups with their group names.\n     for group_pattern, group_name in group_pattern_and_name:\n@@ -212,6 +217,11 @@ def replace_unnamed_groups(pattern):\n             elif val == ')' and prev_char != '\\\\':\n                 unmatched_open_brackets -= 1\n             prev_char = val\n+        else:\n+            # If the loop finishes without a break, check whether the pattern\n+            # ends with an unnamed group.\n+            if unmatched_open_brackets == 0:\n+                group_indices.append((start, len(pattern)))\n \n     # Remove unnamed group matches inside other unnamed capture groups.\n     group_start_end_indices = []\n",
+      "patch_sha256": "ddeb131e64874523fcaa064514f4507c300975157430a7341885795b3d6d71d5",
+      "patch_non_empty": true
+    },
+    "django__django-11734": {
+      "instance_id": "django__django-11734",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11749": {
+      "instance_id": "django__django-11749",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "diff --git a/django/core/management/__init__.py b/django/core/management/__init__.py\nindex 5f2e64761e..a7c6cb7c93 100644\n--- a/django/core/management/__init__.py\n+++ b/django/core/management/__init__.py\n@@ -136,6 +136,24 @@ def call_command(command_name, *args, **options):\n         '{}={}'.format(min(opt.option_strings), arg_options[opt.dest])\n         for opt in parser_actions if opt.required and opt.dest in options\n     ]\n+    # Also add arguments from required mutually exclusive groups that are\n+    # passed via **options. Such groups are marked as required but individual\n+    # actions in them are not.\n+    def get_mutually_exclusive_groups(parser):\n+        yield parser._mutually_exclusive_groups\n+        for opt in parser._actions:\n+            if isinstance(opt, _SubParsersAction):\n+                for sub_parser in opt.choices.values():\n+                    yield from get_mutually_exclusive_groups(sub_parser)\n+\n+    for groups in get_mutually_exclusive_groups(parser):\n+        for group in groups:\n+            if group.required:\n+                for action in group._group_actions:\n+                    if action.dest in arg_options:\n+                        parse_args.append(\n+                            '{}={}'.format(min(action.option_strings), arg_options[action.dest])\n+                        )\n     defaults = parser.parse_args(args=parse_args)\n     defaults = dict(defaults._get_kwargs(), **arg_options)\n     # Raise an error if any unknown options were passed.\n",
+      "patch_sha256": "c77a6bd376403d27890dd2227bb1129de817032485296deee4d76b74fa15488c",
+      "patch_non_empty": true
+    },
+    "django__django-11815": {
+      "instance_id": "django__django-11815",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "diff --git a/django/db/migrations/serializer.py b/django/db/migrations/serializer.py\nindex 27b5cbd379..23e70672ff 100644\n--- a/django/db/migrations/serializer.py\n+++ b/django/db/migrations/serializer.py\n@@ -120,9 +120,7 @@ class EnumSerializer(BaseSerializer):\n     def serialize(self):\n         enum_class = self.value.__class__\n         module = enum_class.__module__\n-        v_string, v_imports = serializer_factory(self.value.value).serialize()\n-        imports = {'import %s' % module, *v_imports}\n-        return \"%s.%s(%s)\" % (module, enum_class.__name__, v_string), imports\n+        return \"%s.%s[%r]\" % (module, enum_class.__name__, self.value.name), {'import %s' % module}\n \n \n class FloatSerializer(BaseSimpleSerializer):\n",
+      "patch_sha256": "76d61552cdb409b6bce75fa8be0aec36f435399a8cdbc726ae628ebf29d3307f",
+      "patch_non_empty": true
+    },
+    "django__django-11820": {
+      "instance_id": "django__django-11820",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "diff --git a/django/db/models/base.py b/django/db/models/base.py\nindex 3ce711f3f1..2b28c27039 100644\n--- a/django/db/models/base.py\n+++ b/django/db/models/base.py\n@@ -1707,20 +1707,24 @@ class Model(metaclass=ModelBase):\n             _cls = cls\n             fld = None\n             for part in field.split(LOOKUP_SEP):\n-                try:\n-                    fld = _cls._meta.get_field(part)\n-                    if fld.is_relation:\n-                        _cls = fld.get_path_info()[-1].to_opts.model\n-                except (FieldDoesNotExist, AttributeError):\n-                    if fld is None or fld.get_transform(part) is None:\n-                        errors.append(\n-                            checks.Error(\n-                                \"'ordering' refers to the nonexistent field, \"\n-                                \"related field, or lookup '%s'.\" % field,\n-                                obj=cls,\n-                                id='models.E015',\n+                if part == 'pk':\n+                    # pk is an alias for the primary key, which is always valid.\n+                    fld = _cls._meta.pk\n+                else:\n+                    try:\n+                        fld = _cls._meta.get_field(part)\n+                    except (FieldDoesNotExist, AttributeError):\n+                        if fld is None or fld.get_transform(part) is None:\n+                            errors.append(\n+                                checks.Error(\n+                                    \"'ordering' refers to the nonexistent field, \"\n+                                    \"related field, or lookup '%s'.\" % field,\n+                                    obj=cls,\n+                                    id='models.E015',\n+                                )\n                             )\n-                        )\n+                if fld is not None and fld.is_relation:\n+                    _cls = fld.get_path_info()[-1].to_opts.model\n \n         # Skip ordering on pk. This is always a valid order_by field\n         # but is an alias and therefore won't be found by opts.get_field.\n",
+      "patch_sha256": "7eb3f3d5365cc5d7088824933e5c814d5e1cd297705e5711722a6c1d0b19d255",
+      "patch_non_empty": true
+    },
+    "django__django-11848": {
+      "instance_id": "django__django-11848",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11951": {
+      "instance_id": "django__django-11951",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "diff --git a/django/db/models/query.py b/django/db/models/query.py\nindex 794e0faae7..92349cd0c5 100644\n--- a/django/db/models/query.py\n+++ b/django/db/models/query.py\n@@ -1209,7 +1209,8 @@ class QuerySet:\n         if ignore_conflicts and not connections[self.db].features.supports_ignore_conflicts:\n             raise NotSupportedError('This database backend does not support ignoring conflicts.')\n         ops = connections[self.db].ops\n-        batch_size = (batch_size or max(ops.bulk_batch_size(fields, objs), 1))\n+        max_batch_size = max(ops.bulk_batch_size(fields, objs), 1)\n+        batch_size = min(batch_size, max_batch_size) if batch_size else max_batch_size\n         inserted_rows = []\n         bulk_return = connections[self.db].features.can_return_rows_from_bulk_insert\n         for item in [objs[i:i + batch_size] for i in range(0, len(objs), batch_size)]:\n",
+      "patch_sha256": "3cc0b623a4393acf23f2426804f91ba7a471b940d928d93b072d6163d0cffd86",
+      "patch_non_empty": true
+    },
+    "django__django-11999": {
+      "instance_id": "django__django-11999",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-12039": {
+      "instance_id": "django__django-12039",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-12050": {
+      "instance_id": "django__django-12050",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-12143": {
+      "instance_id": "django__django-12143",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-12155": {
+      "instance_id": "django__django-12155",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-12193": {
+      "instance_id": "django__django-12193",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "diff --git a/django/forms/widgets.py b/django/forms/widgets.py\nindex 6fe220bea7..d83d63c169 100644\n--- a/django/forms/widgets.py\n+++ b/django/forms/widgets.py\n@@ -522,9 +522,7 @@ class CheckboxInput(Input):\n \n     def get_context(self, name, value, attrs):\n         if self.check_test(value):\n-            if attrs is None:\n-                attrs = {}\n-            attrs['checked'] = True\n+            attrs = {**(attrs or {}), 'checked': True}\n         return super().get_context(name, value, attrs)\n \n     def value_from_datadict(self, data, files, name):\n",
+      "patch_sha256": "4cb9fd1a5c7ef55e0ace8ce597bf219fcba53da88e236f44913bc2a36c4d36a7",
+      "patch_non_empty": true
+    },
+    "django__django-12276": {
+      "instance_id": "django__django-12276",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-12304": {
+      "instance_id": "django__django-12304",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-12406": {
+      "instance_id": "django__django-12406",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-12419": {
+      "instance_id": "django__django-12419",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13012": {
+      "instance_id": "django__django-13012",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13028": {
+      "instance_id": "django__django-13028",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13089": {
+      "instance_id": "django__django-13089",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13121": {
+      "instance_id": "django__django-13121",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13128": {
+      "instance_id": "django__django-13128",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13195": {
+      "instance_id": "django__django-13195",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13212": {
+      "instance_id": "django__django-13212",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13297": {
+      "instance_id": "django__django-13297",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13315": {
+      "instance_id": "django__django-13315",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13343": {
+      "instance_id": "django__django-13343",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13344": {
+      "instance_id": "django__django-13344",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13346": {
+      "instance_id": "django__django-13346",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13401": {
+      "instance_id": "django__django-13401",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13406": {
+      "instance_id": "django__django-13406",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13512": {
+      "instance_id": "django__django-13512",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13516": {
+      "instance_id": "django__django-13516",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13551": {
+      "instance_id": "django__django-13551",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13590": {
+      "instance_id": "django__django-13590",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13670": {
+      "instance_id": "django__django-13670",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13786": {
+      "instance_id": "django__django-13786",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13794": {
+      "instance_id": "django__django-13794",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13809": {
+      "instance_id": "django__django-13809",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13810": {
+      "instance_id": "django__django-13810",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13820": {
+      "instance_id": "django__django-13820",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13821": {
+      "instance_id": "django__django-13821",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14007": {
+      "instance_id": "django__django-14007",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14017": {
+      "instance_id": "django__django-14017",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14053": {
+      "instance_id": "django__django-14053",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14122": {
+      "instance_id": "django__django-14122",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14140": {
+      "instance_id": "django__django-14140",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14155": {
+      "instance_id": "django__django-14155",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14170": {
+      "instance_id": "django__django-14170",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14311": {
+      "instance_id": "django__django-14311",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14315": {
+      "instance_id": "django__django-14315",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14349": {
+      "instance_id": "django__django-14349",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14351": {
+      "instance_id": "django__django-14351",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14373": {
+      "instance_id": "django__django-14373",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14376": {
+      "instance_id": "django__django-14376",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14404": {
+      "instance_id": "django__django-14404",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14434": {
+      "instance_id": "django__django-14434",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14493": {
+      "instance_id": "django__django-14493",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14500": {
+      "instance_id": "django__django-14500",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14539": {
+      "instance_id": "django__django-14539",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14559": {
+      "instance_id": "django__django-14559",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14608": {
+      "instance_id": "django__django-14608",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14631": {
+      "instance_id": "django__django-14631",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14725": {
+      "instance_id": "django__django-14725",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14765": {
+      "instance_id": "django__django-14765",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14792": {
+      "instance_id": "django__django-14792",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15037": {
+      "instance_id": "django__django-15037",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15098": {
+      "instance_id": "django__django-15098",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15103": {
+      "instance_id": "django__django-15103",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15127": {
+      "instance_id": "django__django-15127",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15161": {
+      "instance_id": "django__django-15161",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15277": {
+      "instance_id": "django__django-15277",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15315": {
+      "instance_id": "django__django-15315",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15368": {
+      "instance_id": "django__django-15368",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15375": {
+      "instance_id": "django__django-15375",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15499": {
+      "instance_id": "django__django-15499",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15525": {
+      "instance_id": "django__django-15525",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15554": {
+      "instance_id": "django__django-15554",
+      "model_name_or_path": "MiniMax-M2.7",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    }
+  }
+}

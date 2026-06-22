@@ -1,0 +1,70 @@
+{
+  "models": {
+    "MiniMax-M2.7": {
+      "file": "MiniMax-M2.7.json",
+      "items": 112,
+      "missing_source_ids": 0,
+      "non_empty": 20,
+      "source_file": "output_mini_MiniMax-M2.7_112/preds.json",
+      "source_items": 112
+    },
+    "Qwen3-Max": {
+      "file": "Qwen3-Max.json",
+      "items": 112,
+      "missing_source_ids": 0,
+      "non_empty": 23,
+      "source_file": "output_mini_qwen3-max-ds_112/preds.json",
+      "source_items": 112
+    },
+    "claude-opus-4-6": {
+      "file": "claude-opus-4-6.json",
+      "items": 112,
+      "missing_source_ids": 0,
+      "non_empty": 96,
+      "source_file": "output_mini_claude-opus-4-6_200/preds.json",
+      "source_items": 200
+    },
+    "claude-sonnet-4-6": {
+      "file": "claude-sonnet-4-6.json",
+      "items": 112,
+      "missing_source_ids": 0,
+      "non_empty": 90,
+      "source_file": "output_mini_claude-sonnet-4-6_112/preds.json",
+      "source_items": 112
+    },
+    "glm-5": {
+      "file": "glm-5.json",
+      "items": 112,
+      "missing_source_ids": 0,
+      "non_empty": 47,
+      "source_file": "output_mini_glm-5-ds_112/preds.json",
+      "source_items": 112
+    },
+    "gpt-5.4": {
+      "file": "gpt-5.4.json",
+      "items": 112,
+      "missing_source_ids": 0,
+      "non_empty": 110,
+      "source_file": "output_mini_gpt54_200/preds.json",
+      "source_items": 200
+    },
+    "kimi-k2.5": {
+      "file": "kimi-k2.5.json",
+      "items": 112,
+      "missing_source_ids": 0,
+      "non_empty": 31,
+      "source_file": "output_mini_kimi-k2.5-ds_112/preds.json",
+      "source_items": 112
+    },
+    "qwen3.5-plus": {
+      "file": "qwen3.5-plus.json",
+      "items": 112,
+      "missing_source_ids": 0,
+      "non_empty": 6,
+      "source_file": "output_mini_qwen3.5-plus-ds_112/preds.json",
+      "source_items": 112
+    }
+  },
+  "note": "patch-only bundle; no trajectories or model configs",
+  "schema_version": 1
+}

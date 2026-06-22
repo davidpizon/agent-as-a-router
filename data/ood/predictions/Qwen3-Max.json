@@ -1,0 +1,790 @@
+{
+  "schema_version": 1,
+  "model": "Qwen3-Max",
+  "items": {
+    "astropy__astropy-13033": {
+      "instance_id": "astropy__astropy-13033",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/astropy/timeseries/core.py b/astropy/timeseries/core.py\nindex c279f35f8..d3d75d68e 100644\n--- a/astropy/timeseries/core.py\n+++ b/astropy/timeseries/core.py\n@@ -50,8 +50,8 @@ class BaseTimeSeries(QTable):\n \n     # If _required_column_relax is True, we don't require the columns to be\n     # present but we do require them to be the correct ones IF present. Note\n-    # that this is a temporary state - as soon as the required columns\n-    # are all present, we toggle this to False\n+    # that this is only used when initializing time series objects from\n+    # existing tables.\n     _required_columns_relax = False\n \n     def _check_required_columns(self):\n@@ -74,6 +74,13 @@ class BaseTimeSeries(QTable):\n                                  \"as the first column{} but time series has no columns\"\n                                  .format(self.__class__.__name__, required_columns[0], plural))\n \n+            elif len(self.colnames) < len(required_columns):\n+                # Not enough columns - some required columns are missing\n+                missing_columns = required_columns[len(self.colnames):]\n+                missing_str = \"', '\".join(missing_columns)\n+                raise ValueError(\"{} object is invalid - missing required column{}: '{}'\"\n+                                 .format(self.__class__.__name__, 's' if len(missing_columns) > 1 else '', missing_str))\n+\n             elif self.colnames[:len(required_columns)] != required_columns:\n \n                 raise ValueError(\"{} object is invalid - expected '{}' \"\n",
+      "patch_sha256": "92d0c413da007f12188ebc425f6df7d4980043ad4b5d7725cb4aa3ad3f31984e",
+      "patch_non_empty": true
+    },
+    "astropy__astropy-13236": {
+      "instance_id": "astropy__astropy-13236",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/astropy/table/table.py b/astropy/table/table.py\nindex 5afe2127a..d0208efdf 100644\n--- a/astropy/table/table.py\n+++ b/astropy/table/table.py\n@@ -1243,6 +1243,9 @@ class Table:\n         # mixin class\n         if (not isinstance(data, Column) and not data_is_mixin\n                 and isinstance(data, np.ndarray) and len(data.dtype) > 1):\n+            warnings.warn(\"Structured arrays will be added as Column objects in Astropy 5.2. \"\n+                         \"To retain the current behavior, wrap the data in a Column object.\",\n+                         FutureWarning, stacklevel=3)\n             data = data.view(NdarrayMixin)\n             data_is_mixin = True\n \n",
+      "patch_sha256": "4ce0bb8e165ab82a1936fdf09b8cf7a35e38039e38e327942ed85f5346f17c28",
+      "patch_non_empty": true
+    },
+    "astropy__astropy-13398": {
+      "instance_id": "astropy__astropy-13398",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/astropy/coordinates/builtin_frames/intermediate_rotation_transforms.py b/astropy/coordinates/builtin_frames/intermediate_rotation_transforms.py\nindex a15248c38..247210976 100644\n--- a/astropy/coordinates/builtin_frames/intermediate_rotation_transforms.py\n+++ b/astropy/coordinates/builtin_frames/intermediate_rotation_transforms.py\n@@ -7,16 +7,21 @@ rotations without aberration corrections or offsets.\n \n import numpy as np\n import erfa\n+from astropy import units as u\n \n from astropy.coordinates.baseframe import frame_transform_graph\n from astropy.coordinates.transformations import FunctionTransformWithFiniteDifference\n from astropy.coordinates.matrix_utilities import matrix_transpose\n+from astropy.coordinates.matrix_utilities import rotation_matrix\n \n from .icrs import ICRS\n from .gcrs import GCRS, PrecessedGeocentric\n from .cirs import CIRS\n from .itrs import ITRS\n from .equatorial import TEME, TETE\n+from .altaz import AltAz\n+from .hadec import HADec\n+from .utils import PIOVER2\n from .utils import get_polar_motion, get_jd12, EARTH_CENTER\n \n # # first define helper functions\n@@ -272,6 +277,61 @@ def itrs_to_teme(itrs_coo, teme_frame):\n     return teme_frame.realize_frame(newrepr)\n \n \n+\n+# ITRS to Observed (AltAz, HADec) transformations\n+\n+def itrs_to_observed_mat(observed_frame):\n+    \"\"\"\n+    Form the rotation matrix from ITRS to observed frame (AltAz or HADec).\n+    \"\"\"\n+    lon, lat, height = observed_frame.location.to_geodetic('WGS84')\n+    elong = lon.to_value(u.radian)\n+\n+    if isinstance(observed_frame, AltAz):\n+        # form ITRS to AltAz matrix\n+        elat = lat.to_value(u.radian)\n+        # AltAz frame is left handed\n+        minus_x = np.eye(3)\n+        minus_x[0][0] = -1.0\n+        mat = (minus_x\n+               @ rotation_matrix(PIOVER2 - elat, 'y', unit=u.radian)\n+               @ rotation_matrix(elong, 'z', unit=u.radian))\n+\n+    else:\n+        # form ITRS to HADec matrix\n+        # HADec frame is left handed\n+        minus_y = np.eye(3)\n+        minus_y[1][1] = -1.0\n+        mat = (minus_y\n+               @ rotation_matrix(elong, 'z', unit=u.radian))\n+    return mat\n+\n+\n+@frame_transform_graph.transform(FunctionTransformWithFiniteDifference, ITRS, AltAz)\n+@frame_transform_graph.transform(FunctionTransformWithFiniteDifference, ITRS, HADec)\n+def itrs_to_observed(itrs_coo, observed_frame):\n+    # Trying to synchronize the obstimes here makes no sense. In fact,\n+    # it's a real gotcha as doing an ITRS->ITRS transform references \n+    # ITRS coordinates, which should be tied to the Earth, to the SSB.\n+    # Instead, we treat ITRS coordinates as time invariant here.\n+\n+    # form the Topocentric ITRS position\n+    topocentric_itrs_repr = (itrs_coo.cartesian\n+                             - observed_frame.location.get_itrs().cartesian)\n+    rep = topocentric_itrs_repr.transform(itrs_to_observed_mat(observed_frame))\n+    return observed_frame.realize_frame(rep)\n+\n+\n+@frame_transform_graph.transform(FunctionTransformWithFiniteDifference, AltAz, ITRS)\n+@frame_transform_graph.transform(FunctionTransformWithFiniteDifference, HADec, ITRS)\n+def observed_to_itrs(observed_coo, itrs_frame):\n+    # form the Topocentric ITRS position\n+    topocentric_itrs_repr = observed_coo.cartesian.transform(matrix_transpose(\n+                            itrs_to_observed_mat(observed_coo)))\n+    # form the Geocentric ITRS position\n+    rep = topocentric_itrs_repr + observed_coo.location.get_itrs().cartesian\n+    return itrs_frame.realize_frame(rep)\n+\n # Create loopback transformations\n frame_transform_graph._add_merged_transform(ITRS, CIRS, ITRS)\n frame_transform_graph._add_merged_transform(PrecessedGeocentric, GCRS, PrecessedGeocentric)\n",
+      "patch_sha256": "816f53b985321414e4dcf935e8ae1d4582b458385a0e31ef6176e04f9dc9bc08",
+      "patch_non_empty": true
+    },
+    "astropy__astropy-13579": {
+      "instance_id": "astropy__astropy-13579",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/astropy/wcs/wcsapi/wrappers/sliced_wcs.py b/astropy/wcs/wcsapi/wrappers/sliced_wcs.py\nindex d7605b078..bb6bbd7e5 100644\n--- a/astropy/wcs/wcsapi/wrappers/sliced_wcs.py\n+++ b/astropy/wcs/wcsapi/wrappers/sliced_wcs.py\n@@ -152,6 +152,25 @@ class SlicedLowLevelWCS(BaseWCSWrapper):\n         if len(self._pixel_keep) == 0 or len(self._world_keep) == 0:\n             raise ValueError(\"Cannot slice WCS: the resulting WCS should have \"\n                              \"at least one pixel and one world dimension.\")\n+        # Compute fixed world values for dropped dimensions\n+        pixel_coords_for_dropped = []\n+        for ipix in range(self._wcs.pixel_n_dim):\n+            if isinstance(self._slices_pixel[ipix], numbers.Integral):\n+                pixel_coords_for_dropped.append(self._slices_pixel[ipix])\n+            else:\n+                pixel_coords_for_dropped.append(0)\n+        \n+        world_coords_all = self._wcs.pixel_to_world_values(*pixel_coords_for_dropped)\n+        if self._wcs.world_n_dim == 1:\n+            world_coords_all = [world_coords_all]\n+        else:\n+            world_coords_all = list(world_coords_all)\n+        \n+        self._dropped_world_values = {}\n+        for iworld in range(self._wcs.world_n_dim):\n+            if iworld not in self._world_keep:\n+                self._dropped_world_values[iworld] = world_coords_all[iworld]\n+\n \n     @lazyproperty\n     def dropped_world_dimensions(self):\n@@ -251,7 +270,7 @@ class SlicedLowLevelWCS(BaseWCSWrapper):\n                 iworld_curr += 1\n                 world_arrays_new.append(world_arrays[iworld_curr])\n             else:\n-                world_arrays_new.append(1.)\n+                world_arrays_new.append(self._dropped_world_values[iworld])\n \n         world_arrays_new = np.broadcast_arrays(*world_arrays_new)\n         pixel_arrays = list(self._wcs.world_to_pixel_values(*world_arrays_new))\n",
+      "patch_sha256": "5ec6e2efa3772d162fc390e56969a251d4a92342aeae601232e22b894a661397",
+      "patch_non_empty": true
+    },
+    "astropy__astropy-13977": {
+      "instance_id": "astropy__astropy-13977",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/astropy/units/quantity.py b/astropy/units/quantity.py\nindex b98abfafb..08a9031e6 100644\n--- a/astropy/units/quantity.py\n+++ b/astropy/units/quantity.py\n@@ -665,9 +665,12 @@ class Quantity(np.ndarray):\n \n         # Same for inputs, but here also convert if necessary.\n         arrays = []\n-        for input_, converter in zip(inputs, converters):\n-            input_ = getattr(input_, \"value\", input_)\n-            arrays.append(converter(input_) if converter else input_)\n+        try:\n+            for input_, converter in zip(inputs, converters):\n+                input_ = getattr(input_, \"value\", input_)\n+                arrays.append(converter(input_) if converter else input_)\n+        except ValueError:\n+            return NotImplemented\n \n         # Call our superclass's __array_ufunc__\n         result = super().__array_ufunc__(function, method, *arrays, **kwargs)\n",
+      "patch_sha256": "89c1bbc8825f8144ff698c6e709a3c17a8a6f74b822108cfaa9d739c528fe343",
+      "patch_non_empty": true
+    },
+    "astropy__astropy-14096": {
+      "instance_id": "astropy__astropy-14096",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/astropy/coordinates/sky_coordinate.py b/astropy/coordinates/sky_coordinate.py\nindex ab475f7d0..be166d8a5 100644\n--- a/astropy/coordinates/sky_coordinate.py\n+++ b/astropy/coordinates/sky_coordinate.py\n@@ -894,6 +894,13 @@ class SkyCoord(ShapedLikeNDArray):\n             if frame_cls is not None and self.frame.is_transformable_to(frame_cls):\n                 return self.transform_to(attr)\n \n+        # Check if the attribute actually exists in the class hierarchy\n+        # This handles cases where a property exists but its getter raised AttributeError\n+        if hasattr(type(self), attr):\n+            classname = self.__class__.__name__\n+            raise AttributeError(\n+                \"'\" + classname + \"' object has attribute '\" + attr + \"' but its access failed. Check the attribute implementation.\"\n+            )\n         # Fail\n         raise AttributeError(\n             f\"'{self.__class__.__name__}' object has no attribute '{attr}'\"\n",
+      "patch_sha256": "8bf8e7f677fea57ddb3d0aaa48d70649b726d8545334cc6feebdf24b18c798ff",
+      "patch_non_empty": true
+    },
+    "astropy__astropy-14309": {
+      "instance_id": "astropy__astropy-14309",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/astropy/io/fits/connect.py b/astropy/io/fits/connect.py\nindex 4b6150f4a..1f51fe483 100644\n--- a/astropy/io/fits/connect.py\n+++ b/astropy/io/fits/connect.py\n@@ -69,7 +69,7 @@ def is_fits(origin, filepath, fileobj, *args, **kwargs):\n             (\".fits\", \".fits.gz\", \".fit\", \".fit.gz\", \".fts\", \".fts.gz\")\n         ):\n             return True\n-    return isinstance(args[0], (HDUList, TableHDU, BinTableHDU, GroupsHDU))\n+    return len(args) > 0 and isinstance(args[0], (HDUList, TableHDU, BinTableHDU, GroupsHDU))\n \n \n def _decode_mixins(tbl):\n",
+      "patch_sha256": "2910775ff4e6b4326fe823067ebd1eecc869cdd2da41379f8fa6ea19712994eb",
+      "patch_non_empty": true
+    },
+    "astropy__astropy-14508": {
+      "instance_id": "astropy__astropy-14508",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/astropy/io/fits/card.py b/astropy/io/fits/card.py\nindex 118bfced8..6043ed3dd 100644\n--- a/astropy/io/fits/card.py\n+++ b/astropy/io/fits/card.py\n@@ -1299,6 +1299,24 @@ def _format_value(value):\n \n def _format_float(value):\n     \"\"\"Format a floating number to make sure it gets the decimal point.\"\"\"\n+    # First try using Python's default string representation\n+    default_str = str(value)\n+    \n+    # Check if the default string representation is valid and short enough\n+    if len(default_str) <= 20:\n+        # Parse it back to ensure it represents the same value (avoiding precision issues)\n+        try:\n+            parsed_value = float(default_str)\n+            # Check if it's the same value (within reasonable precision)\n+            if abs(parsed_value - value) <= abs(value) * 1e-15 or (value == 0.0 and parsed_value == 0.0):\n+                # Ensure it has a decimal point if it's not in scientific notation\n+                if \".\" not in default_str and \"e\" not in default_str.lower():\n+                    default_str += \".0\"\n+                return default_str\n+        except (ValueError, OverflowError):\n+            pass\n+    \n+    # Fall back to the original formatting logic\n     value_str = f\"{value:.16G}\"\n     if \".\" not in value_str and \"E\" not in value_str:\n         value_str += \".0\"\n",
+      "patch_sha256": "4567566a8ef5a4b25384a57c60aabdefb35b7be6fc0e05a6d705784a1d33dfcf",
+      "patch_non_empty": true
+    },
+    "astropy__astropy-14539": {
+      "instance_id": "astropy__astropy-14539",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/astropy/io/fits/diff.py b/astropy/io/fits/diff.py\nindex 100cdf1b8..d3608ef01 100644\n--- a/astropy/io/fits/diff.py\n+++ b/astropy/io/fits/diff.py\n@@ -1449,7 +1449,7 @@ class TableDataDiff(_BaseDiff):\n                 arrb.dtype, np.floating\n             ):\n                 diffs = where_not_allclose(arra, arrb, rtol=self.rtol, atol=self.atol)\n-            elif \"P\" in col.format:\n+            elif \"P\" in col.format or \"Q\" in col.format:\n                 diffs = (\n                     [\n                         idx\n",
+      "patch_sha256": "86666ba67714a7bbffe093f1d700e70898a451d094ef0135e1ef51df5abf435d",
+      "patch_non_empty": true
+    },
+    "astropy__astropy-14598": {
+      "instance_id": "astropy__astropy-14598",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "astropy__astropy-14995": {
+      "instance_id": "astropy__astropy-14995",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/astropy/nddata/mixins/ndarithmetic.py b/astropy/nddata/mixins/ndarithmetic.py\nindex 4153dfccb..b00f3471f 100644\n--- a/astropy/nddata/mixins/ndarithmetic.py\n+++ b/astropy/nddata/mixins/ndarithmetic.py\n@@ -512,20 +512,23 @@ class NDArithmeticMixin:\n             If neither had a mask ``None`` is returned. Otherwise\n             ``handle_mask`` must create (and copy) the returned mask.\n         \"\"\"\n-        # If only one mask is present we need not bother about any type checks\n-        if (\n-            self.mask is None and operand is not None and operand.mask is None\n-        ) or handle_mask is None:\n+        # Handle mask propagation when one or both masks may be None\n+        if handle_mask is None:\n             return None\n-        elif self.mask is None and operand is not None:\n-            # Make a copy so there is no reference in the result.\n-            return deepcopy(operand.mask)\n-        elif operand is None:\n+        \n+        # Get masks from both operands\n+        self_has_mask = self.mask is not None\n+        operand_has_mask = operand is not None and operand.mask is not None\n+        \n+        if not self_has_mask and not operand_has_mask:\n+            return None\n+        elif self_has_mask and not operand_has_mask:\n             return deepcopy(self.mask)\n+        elif not self_has_mask and operand_has_mask:\n+            return deepcopy(operand.mask)\n         else:\n-            # Now lets calculate the resulting mask (operation enforces copy)\n+            # Both have masks, apply the handle_mask function\n             return handle_mask(self.mask, operand.mask, **kwds)\n-\n     def _arithmetic_wcs(self, operation, operand, compare_wcs, **kwds):\n         \"\"\"\n         Calculate the resulting wcs.\n",
+      "patch_sha256": "6caf6a7ad24150c69fb858c290d5bfeae5ed982e7713776f2b159b4518c3a307",
+      "patch_non_empty": true
+    },
+    "astropy__astropy-7166": {
+      "instance_id": "astropy__astropy-7166",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/astropy/utils/misc.py b/astropy/utils/misc.py\nindex de3fb01d1..cceaeb957 100644\n--- a/astropy/utils/misc.py\n+++ b/astropy/utils/misc.py\n@@ -528,7 +528,7 @@ class InheritDocstrings(type):\n                 not key.startswith('_'))\n \n         for key, val in dct.items():\n-            if (inspect.isfunction(val) and\n+            if ((inspect.isfunction(val) or isinstance(val, property)) and\n                 is_public_member(key) and\n                 val.__doc__ is None):\n                 for base in cls.__mro__[1:]:\n",
+      "patch_sha256": "67fdf66c1f64c02b060cb74a336d997eb65bcca4062db2d23d66458472b690f6",
+      "patch_non_empty": true
+    },
+    "astropy__astropy-7336": {
+      "instance_id": "astropy__astropy-7336",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/astropy/units/decorators.py b/astropy/units/decorators.py\nindex 8bece5a85..502c20662 100644\n--- a/astropy/units/decorators.py\n+++ b/astropy/units/decorators.py\n@@ -220,7 +220,7 @@ class QuantityInput:\n             # Call the original function with any equivalencies in force.\n             with add_enabled_equivalencies(self.equivalencies):\n                 return_ = wrapped_function(*func_args, **func_kwargs)\n-            if wrapped_signature.return_annotation is not inspect.Signature.empty:\n+            if wrapped_signature.return_annotation is not inspect.Signature.empty and wrapped_signature.return_annotation is not None:\n                 return return_.to(wrapped_signature.return_annotation)\n             else:\n                 return return_\n",
+      "patch_sha256": "41720811c540729c42a95f5a1fbdf79ae248ec6c351c2c9c5685e908ea24d87f",
+      "patch_non_empty": true
+    },
+    "astropy__astropy-7671": {
+      "instance_id": "astropy__astropy-7671",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/astropy/utils/introspection.py b/astropy/utils/introspection.py\nindex 3e784f9fc..96b713c43 100644\n--- a/astropy/utils/introspection.py\n+++ b/astropy/utils/introspection.py\n@@ -7,6 +7,7 @@ import inspect\n import types\n import importlib\n from distutils.version import LooseVersion\n+from packaging.version import parse\n \n \n __all__ = ['resolve_name', 'minversion', 'find_current_module',\n@@ -140,9 +141,9 @@ def minversion(module, version, inclusive=True, version_path='__version__'):\n         have_version = resolve_name(module.__name__, version_path)\n \n     if inclusive:\n-        return LooseVersion(have_version) >= LooseVersion(version)\n+        return parse(have_version) >= parse(version)\n     else:\n-        return LooseVersion(have_version) > LooseVersion(version)\n+        return parse(have_version) > parse(version)\n \n \n def find_current_module(depth=1, finddiff=False):\n",
+      "patch_sha256": "f7d132cfd3222b3269f5caae5440f5ee9988db16212657496095c9e80735941b",
+      "patch_non_empty": true
+    },
+    "astropy__astropy-8872": {
+      "instance_id": "astropy__astropy-8872",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/astropy/units/quantity.py b/astropy/units/quantity.py\nindex ded609cbe..ed333351b 100644\n--- a/astropy/units/quantity.py\n+++ b/astropy/units/quantity.py\n@@ -377,7 +377,7 @@ class Quantity(np.ndarray, metaclass=InheritDocstrings):\n                             \"Numpy numeric type.\")\n \n         # by default, cast any integer, boolean, etc., to float\n-        if dtype is None and (not (np.can_cast(np.float32, value.dtype)\n+        if dtype is None and (value.dtype.kind not in \"fc\" and not (np.can_cast(np.float32, value.dtype)\n                                    or value.dtype.fields)\n                               or value.dtype.kind == 'O'):\n             value = value.astype(float)\n",
+      "patch_sha256": "576464d8256802a2bd95ea027f2d99c8cfac01cfb214381d65c1484f0660dee5",
+      "patch_non_empty": true
+    },
+    "django__django-10097": {
+      "instance_id": "django__django-10097",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/django/core/validators.py b/django/core/validators.py\nindex 92394a7eae..c2e1f79fce 100644\n--- a/django/core/validators.py\n+++ b/django/core/validators.py\n@@ -94,7 +94,7 @@ class URLValidator(RegexValidator):\n \n     regex = _lazy_re_compile(\n         r'^(?:[a-z0-9\\.\\-\\+]*)://'  # scheme is validated separately\n-        r'(?:\\S+(?::\\S*)?@)?'  # user:pass authentication\n+        r'(?:[^ @:/]+(?::[^ @:/]*)?@)?'  # user:pass authentication\n         r'(?:' + ipv4_re + '|' + ipv6_re + '|' + host_re + ')'\n         r'(?::\\d{2,5})?'  # port\n         r'(?:[/?#][^\\s]*)?'  # resource path\n",
+      "patch_sha256": "611de7ba5622a71148dbae6a6af6e1b7f138868f20122e600de18a24f72339ea",
+      "patch_non_empty": true
+    },
+    "django__django-10554": {
+      "instance_id": "django__django-10554",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/django/db/models/sql/compiler.py b/django/db/models/sql/compiler.py\nindex a791908caf..9ba6348f95 100644\n--- a/django/db/models/sql/compiler.py\n+++ b/django/db/models/sql/compiler.py\n@@ -353,7 +353,7 @@ class SQLCompiler:\n                     elif col_alias:\n                         continue\n                     if src == sel_expr:\n-                        resolved.set_source_expressions([RawSQL('%d' % (idx + 1), ())])\n+                        resolved = OrderBy(RawSQL('%d' % (idx + 1), ()), descending=resolved.descending)\n                         break\n                 else:\n                     raise DatabaseError('ORDER BY term does not match any column in the result set.')\n",
+      "patch_sha256": "d831fa517887fa8035622953535d605a5502c4cdac101c0a6ed222461f708ec6",
+      "patch_non_empty": true
+    },
+    "django__django-10914": {
+      "instance_id": "django__django-10914",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-10973": {
+      "instance_id": "django__django-10973",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-10999": {
+      "instance_id": "django__django-10999",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11087": {
+      "instance_id": "django__django-11087",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11095": {
+      "instance_id": "django__django-11095",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11099": {
+      "instance_id": "django__django-11099",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11119": {
+      "instance_id": "django__django-11119",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11133": {
+      "instance_id": "django__django-11133",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/django/http/response.py b/django/http/response.py\nindex 6a84e193ba..86d51ff362 100644\n--- a/django/http/response.py\n+++ b/django/http/response.py\n@@ -118,8 +118,8 @@ class HttpResponseBase:\n             raise BadHeaderError(\"Header values can't contain newlines (got %r)\" % value)\n         try:\n             if isinstance(value, str):\n-                # Ensure string is valid in given charset\n-                value.encode(charset)\n+        return bytes(value.encode(self.charset))\n+        # Handle memoryview objects\n             else:\n                 # Convert bytestring using given charset\n                 value = value.decode(charset)\n@@ -219,340 +219,224 @@ class HttpResponseBase:\n         )\n \n     # Common methods used by subclasses\n-\n     def make_bytes(self, value):\n         \"\"\"Turn a value into a bytestring encoded in the output charset.\"\"\"\n         # Per PEP 3333, this response body must be bytes. To avoid returning\n-        # an instance of a subclass, this function returns `bytes(value)`.\n-        # This doesn't make a copy when `value` already contains bytes.\n+        # an instance of a subclass, this function returns .\n+        # This doesn't make a copy when  already contains bytes.\n \n         # Handle string types -- we can't rely on force_bytes here because:\n         # - Python attempts str conversion first\n         # - when self._charset != 'utf-8' it re-encodes the content\n+        if isinstance(value, memoryview):\n+            return bytes(value)\n         if isinstance(value, bytes):\n             return bytes(value)\n         if isinstance(value, str):\n             return bytes(value.encode(self.charset))\n         # Handle non-string types.\n         return str(value).encode(self.charset)\n+from django.utils.http import http_date\n \n-    # These methods partially implement the file-like object interface.\n-    # See https://docs.python.org/library/io.html#io.IOBase\n-\n-    # The WSGI server must call this method upon completion of the request.\n-    # See http://blog.dscpl.com.au/2012/10/obligations-for-calling-close-on.html\n-    def close(self):\n-        for closable in self._closable_objects:\n-            try:\n-                closable.close()\n-            except Exception:\n-                pass\n-        self.closed = True\n-        signals.request_finished.send(sender=self._handler_class)\n-\n-    def write(self, content):\n-        raise OSError('This %s instance is not writable' % self.__class__.__name__)\n-\n-    def flush(self):\n-        pass\n-\n-    def tell(self):\n-        raise OSError('This %s instance cannot tell its position' % self.__class__.__name__)\n-\n-    # These methods partially implement a stream-like object interface.\n-    # See https://docs.python.org/library/io.html#io.IOBase\n-\n-    def readable(self):\n-        return False\n-\n-    def seekable(self):\n-        return False\n+_charset_from_content_type_re = re.compile(r';\\s*charset=(?P<charset>[^\\s;]+)', re.I)\n \n-    def writable(self):\n-        return False\n \n-    def writelines(self, lines):\n-        raise OSError('This %s instance is not writable' % self.__class__.__name__)\n+class BadHeaderError(ValueError):\n+    pass\n \n \n-class HttpResponse(HttpResponseBase):\n+class HttpResponseBase:\n     \"\"\"\n-    An HTTP response class with a string as content.\n+    An HTTP response base class with dictionary-accessed headers.\n \n-    This content that can be read, appended to, or replaced.\n+    This class doesn't handle content. It should not be used directly.\n+    Use the HttpResponse and StreamingHttpResponse subclasses instead.\n     \"\"\"\n \n-    streaming = False\n-\n-    def __init__(self, content=b'', *args, **kwargs):\n-        super().__init__(*args, **kwargs)\n-        # Content is a bytestring. See the `content` property methods.\n-        self.content = content\n-\n-    def __repr__(self):\n-        return '<%(cls)s status_code=%(status_code)d%(content_type)s>' % {\n-            'cls': self.__class__.__name__,\n-            'status_code': self.status_code,\n-            'content_type': self._content_type_for_repr,\n-        }\n+    status_code = 200\n \n-    def serialize(self):\n-        \"\"\"Full HTTP message, including headers, as a bytestring.\"\"\"\n-        return self.serialize_headers() + b'\\r\\n\\r\\n' + self.content\n+    def __init__(self, content_type=None, status=None, reason=None, charset=None):\n+        # _headers is a mapping of the lowercase name to the original case of\n+        # the header (required for working with legacy systems) and the header\n+        # value. Both the name of the header and its value are ASCII strings.\n+        self._headers = {}\n+        self._closable_objects = []\n+        # This parameter is set by the handler. It's necessary to preserve the\n+        # historical behavior of request_finished.\n+        self._handler_class = None\n+        self.cookies = SimpleCookie()\n+        self.closed = False\n+        if status is not None:\n+            try:\n+                self.status_code = int(status)\n+            except (ValueError, TypeError):\n+                raise TypeError('HTTP status code must be an integer.')\n \n-    __bytes__ = serialize\n+            if not 100 <= self.status_code <= 599:\n+                raise ValueError('HTTP status code must be an integer from 100 to 599.')\n+        self._reason_phrase = reason\n+        self._charset = charset\n+        if content_type is None:\n+            content_type = 'text/html; charset=%s' % self.charset\n+        self['Content-Type'] = content_type\n \n     @property\n-    def content(self):\n-        return b''.join(self._container)\n-\n-    @content.setter\n-    def content(self, value):\n-        # Consume iterators upon assignment to allow repeated iteration.\n-        if hasattr(value, '__iter__') and not isinstance(value, (bytes, str)):\n-            content = b''.join(self.make_bytes(chunk) for chunk in value)\n-            if hasattr(value, 'close'):\n-                try:\n-                    value.close()\n-                except Exception:\n-                    pass\n-        else:\n-            content = self.make_bytes(value)\n-        # Create a list of properly encoded bytestrings to support write().\n-        self._container = [content]\n-\n-    def __iter__(self):\n-        return iter(self._container)\n-\n-    def write(self, content):\n-        self._container.append(self.make_bytes(content))\n-\n-    def tell(self):\n-        return len(self.content)\n-\n-    def getvalue(self):\n-        return self.content\n-\n-    def writable(self):\n-        return True\n-\n-    def writelines(self, lines):\n-        for line in lines:\n-            self.write(line)\n-\n-\n-class StreamingHttpResponse(HttpResponseBase):\n-    \"\"\"\n-    A streaming HTTP response class with an iterator as content.\n-\n-    This should only be iterated once, when the response is streamed to the\n-    client. However, it can be appended to or replaced with a new iterator\n-    that wraps the original content (or yields entirely new content).\n-    \"\"\"\n-\n-    streaming = True\n-\n-    def __init__(self, streaming_content=(), *args, **kwargs):\n-        super().__init__(*args, **kwargs)\n-        # `streaming_content` should be an iterable of bytestrings.\n-        # See the `streaming_content` property methods.\n-        self.streaming_content = streaming_content\n+    def reason_phrase(self):\n+        if self._reason_phrase is not None:\n+            return self._reason_phrase\n+        # Leave self._reason_phrase unset in order to use the default\n+        # reason phrase for status code.\n+        return responses.get(self.status_code, 'Unknown Status Code')\n \n-    @property\n-    def content(self):\n-        raise AttributeError(\n-            \"This %s instance has no `content` attribute. Use \"\n-            \"`streaming_content` instead.\" % self.__class__.__name__\n-        )\n+    @reason_phrase.setter\n+    def reason_phrase(self, value):\n+        self._reason_phrase = value\n \n     @property\n-    def streaming_content(self):\n-        return map(self.make_bytes, self._iterator)\n+    def charset(self):\n+        if self._charset is not None:\n+            return self._charset\n+        content_type = self.get('Content-Type', '')\n+        matched = _charset_from_content_type_re.search(content_type)\n+        if matched:\n+            # Extract the charset and strip its double quotes\n+            return matched.group('charset').replace('\"', '')\n+        return settings.DEFAULT_CHARSET\n \n-    @streaming_content.setter\n-    def streaming_content(self, value):\n-        self._set_streaming_content(value)\n+    @charset.setter\n+    def charset(self, value):\n+        self._charset = value\n \n-    def _set_streaming_content(self, value):\n-        # Ensure we can never iterate on \"value\" more than once.\n-        self._iterator = iter(value)\n-        if hasattr(value, 'close'):\n-            self._closable_objects.append(value)\n+    def serialize_headers(self):\n+        \"\"\"HTTP headers as a bytestring.\"\"\"\n+        def to_bytes(val, encoding):\n+            return val if isinstance(val, bytes) else val.encode(encoding)\n \n-    def __iter__(self):\n-        return self.streaming_content\n+        headers = [\n+            (to_bytes(key, 'ascii') + b': ' + to_bytes(value, 'latin-1'))\n+            for key, value in self._headers.values()\n+        ]\n+        return b'\\r\\n'.join(headers)\n \n-    def getvalue(self):\n-        return b''.join(self.streaming_content)\n+    __bytes__ = serialize_headers\n \n+    @property\n+    def _content_type_for_repr(self):\n+        return ', \"%s\"' % self['Content-Type'] if 'Content-Type' in self else ''\n \n-class FileResponse(StreamingHttpResponse):\n-    \"\"\"\n-    A streaming HTTP response class optimized for files.\n-    \"\"\"\n-    block_size = 4096\n-\n-    def __init__(self, *args, as_attachment=False, filename='', **kwargs):\n-        self.as_attachment = as_attachment\n-        self.filename = filename\n-        super().__init__(*args, **kwargs)\n-\n-    def _set_streaming_content(self, value):\n-        if not hasattr(value, 'read'):\n-            self.file_to_stream = None\n-            return super()._set_streaming_content(value)\n-\n-        self.file_to_stream = filelike = value\n-        if hasattr(filelike, 'close'):\n-            self._closable_objects.append(filelike)\n-        value = iter(lambda: filelike.read(self.block_size), b'')\n-        self.set_headers(filelike)\n-        super()._set_streaming_content(value)\n-\n-    def set_headers(self, filelike):\n+    def _convert_to_charset(self, value, charset, mime_encode=False):\n         \"\"\"\n-        Set some common response headers (Content-Length, Content-Type, and\n-        Content-Disposition) based on the `filelike` response content.\n+        Convert headers key/value to ascii/latin-1 native strings.\n+\n+        `charset` must be 'ascii' or 'latin-1'. If `mime_encode` is True and\n+        `value` can't be represented in the given charset, apply MIME-encoding.\n         \"\"\"\n-        encoding_map = {\n-            'bzip2': 'application/x-bzip',\n-            'gzip': 'application/gzip',\n-            'xz': 'application/x-xz',\n-        }\n-        filename = getattr(filelike, 'name', None)\n-        filename = filename if (isinstance(filename, str) and filename) else self.filename\n-        if os.path.isabs(filename):\n-            self['Content-Length'] = os.path.getsize(filelike.name)\n-        elif hasattr(filelike, 'getbuffer'):\n-            self['Content-Length'] = filelike.getbuffer().nbytes\n-\n-        if self.get('Content-Type', '').startswith('text/html'):\n-            if filename:\n-                content_type, encoding = mimetypes.guess_type(filename)\n-                # Encoding isn't set to prevent browsers from automatically\n-                # uncompressing files.\n-                content_type = encoding_map.get(encoding, content_type)\n-                self['Content-Type'] = content_type or 'application/octet-stream'\n+        if not isinstance(value, (bytes, str)):\n+            value = str(value)\n+        if ((isinstance(value, bytes) and (b'\\n' in value or b'\\r' in value)) or\n+                isinstance(value, str) and ('\\n' in value or '\\r' in value)):\n+            raise BadHeaderError(\"Header values can't contain newlines (got %r)\" % value)\n+        try:\n+            if isinstance(value, str):\n+        return bytes(value.encode(self.charset))\n+        # Handle memoryview objects\n             else:\n-                self['Content-Type'] = 'application/octet-stream'\n-\n-        if self.as_attachment:\n-            filename = self.filename or os.path.basename(filename)\n-            if filename:\n-                try:\n-                    filename.encode('ascii')\n-                    file_expr = 'filename=\"{}\"'.format(filename)\n-                except UnicodeEncodeError:\n-                    file_expr = \"filename*=utf-8''{}\".format(quote(filename))\n-                self['Content-Disposition'] = 'attachment; {}'.format(file_expr)\n-\n-\n-class HttpResponseRedirectBase(HttpResponse):\n-    allowed_schemes = ['http', 'https', 'ftp']\n-\n-    def __init__(self, redirect_to, *args, **kwargs):\n-        super().__init__(*args, **kwargs)\n-        self['Location'] = iri_to_uri(redirect_to)\n-        parsed = urlparse(str(redirect_to))\n-        if parsed.scheme and parsed.scheme not in self.allowed_schemes:\n-            raise DisallowedRedirect(\"Unsafe redirect to URL with protocol '%s'\" % parsed.scheme)\n-\n-    url = property(lambda self: self['Location'])\n-\n-    def __repr__(self):\n-        return '<%(cls)s status_code=%(status_code)d%(content_type)s, url=\"%(url)s\">' % {\n-            'cls': self.__class__.__name__,\n-            'status_code': self.status_code,\n-            'content_type': self._content_type_for_repr,\n-            'url': self.url,\n-        }\n-\n-\n-class HttpResponseRedirect(HttpResponseRedirectBase):\n-    status_code = 302\n-\n-\n-class HttpResponsePermanentRedirect(HttpResponseRedirectBase):\n-    status_code = 301\n-\n-\n-class HttpResponseNotModified(HttpResponse):\n-    status_code = 304\n-\n-    def __init__(self, *args, **kwargs):\n-        super().__init__(*args, **kwargs)\n-        del self['content-type']\n-\n-    @HttpResponse.content.setter\n-    def content(self, value):\n-        if value:\n-            raise AttributeError(\"You cannot set content to a 304 (Not Modified) response\")\n-        self._container = []\n-\n-\n-class HttpResponseBadRequest(HttpResponse):\n-    status_code = 400\n-\n-\n-class HttpResponseNotFound(HttpResponse):\n-    status_code = 404\n-\n+                # Convert bytestring using given charset\n+                value = value.decode(charset)\n+        except UnicodeError as e:\n+            if mime_encode:\n+                value = Header(value, 'utf-8', maxlinelen=sys.maxsize).encode()\n+            else:\n+                e.reason += ', HTTP response headers must be in %s format' % charset\n+                raise\n+        return value\n \n-class HttpResponseForbidden(HttpResponse):\n-    status_code = 403\n+    def __setitem__(self, header, value):\n+        header = self._convert_to_charset(header, 'ascii')\n+        value = self._convert_to_charset(value, 'latin-1', mime_encode=True)\n+        self._headers[header.lower()] = (header, value)\n \n+    def __delitem__(self, header):\n+        self._headers.pop(header.lower(), False)\n \n-class HttpResponseNotAllowed(HttpResponse):\n-    status_code = 405\n+    def __getitem__(self, header):\n+        return self._headers[header.lower()][1]\n \n-    def __init__(self, permitted_methods, *args, **kwargs):\n-        super().__init__(*args, **kwargs)\n-        self['Allow'] = ', '.join(permitted_methods)\n+    def has_header(self, header):\n+        \"\"\"Case-insensitive check for a header.\"\"\"\n+        return header.lower() in self._headers\n \n-    def __repr__(self):\n-        return '<%(cls)s [%(methods)s] status_code=%(status_code)d%(content_type)s>' % {\n-            'cls': self.__class__.__name__,\n-            'status_code': self.status_code,\n-            'content_type': self._content_type_for_repr,\n-            'methods': self['Allow'],\n-        }\n+    __contains__ = has_header\n \n+    def items(self):\n+        return self._headers.values()\n \n-class HttpResponseGone(HttpResponse):\n-    status_code = 410\n+    def get(self, header, alternate=None):\n+        return self._headers.get(header.lower(), (None, alternate))[1]\n \n+    def set_cookie(self, key, value='', max_age=None, expires=None, path='/',\n+                   domain=None, secure=False, httponly=False, samesite=None):\n+        \"\"\"\n+        Set a cookie.\n \n-class HttpResponseServerError(HttpResponse):\n-    status_code = 500\n+        ``expires`` can be:\n+        - a string in the correct format,\n+        - a naive ``datetime.datetime`` object in UTC,\n+        - an aware ``datetime.datetime`` object in any time zone.\n+        If it is a ``datetime.datetime`` object then calculate ``max_age``.\n+        \"\"\"\n+        self.cookies[key] = value\n+        if expires is not None:\n+            if isinstance(expires, datetime.datetime):\n+                if timezone.is_aware(expires):\n+                    expires = timezone.make_naive(expires, timezone.utc)\n+                delta = expires - expires.utcnow()\n+                # Add one second so the date matches exactly (a fraction of\n+                # time gets lost between converting to a timedelta and\n+                # then the date string).\n+                delta = delta + datetime.timedelta(seconds=1)\n+                # Just set max_age - the max_age logic will set expires.\n+                expires = None\n+                max_age = max(0, delta.days * 86400 + delta.seconds)\n+            else:\n+                self.cookies[key]['expires'] = expires\n+        else:\n+            self.cookies[key]['expires'] = ''\n+        if max_age is not None:\n+            self.cookies[key]['max-age'] = max_age\n+            # IE requires expires, so set it if hasn't been already.\n+            if not expires:\n+                self.cookies[key]['expires'] = http_date(time.time() + max_age)\n+        if path is not None:\n+            self.cookies[key]['path'] = path\n+        if domain is not None:\n+            self.cookies[key]['domain'] = domain\n+        if secure:\n+            self.cookies[key]['secure'] = True\n+        if httponly:\n+            self.cookies[key]['httponly'] = True\n+        if samesite:\n+            if samesite.lower() not in ('lax', 'strict'):\n+                raise ValueError('samesite must be \"lax\" or \"strict\".')\n+            self.cookies[key]['samesite'] = samesite\n \n+    def setdefault(self, key, value):\n+        \"\"\"Set a header unless it has already been set.\"\"\"\n+        if key not in self:\n+            self[key] = value\n \n-class Http404(Exception):\n-    pass\n+    def set_signed_cookie(self, key, value, salt='', **kwargs):\n+        value = signing.get_cookie_signer(salt=key + salt).sign(value)\n+        return self.set_cookie(key, value, **kwargs)\n \n+    def delete_cookie(self, key, path='/', domain=None):\n+        # Most browsers ignore the Set-Cookie header if the cookie name starts\n+        # with __Host- or __Secure- and the cookie doesn't use the secure flag.\n+        secure = key.startswith(('__Secure-', '__Host-'))\n+        self.set_cookie(\n+            key, max_age=0, path=path, domain=domain, secure=secure,\n+            expires='Thu, 01 Jan 1970 00:00:00 GMT',\n+        )\n \n-class JsonResponse(HttpResponse):\n-    \"\"\"\n-    An HTTP response class that consumes data to be serialized to JSON.\n-\n-    :param data: Data to be dumped into json. By default only ``dict`` objects\n-      are allowed to be passed due to a security flaw before EcmaScript 5. See\n-      the ``safe`` parameter for more information.\n-    :param encoder: Should be a json encoder class. Defaults to\n-      ``django.core.serializers.json.DjangoJSONEncoder``.\n-    :param safe: Controls if only ``dict`` objects may be serialized. Defaults\n-      to ``True``.\n-    :param json_dumps_params: A dictionary of kwargs passed to json.dumps().\n-    \"\"\"\n+    # Common methods used by subclasses\n \n-    def __init__(self, data, encoder=DjangoJSONEncoder, safe=True,\n-                 json_dumps_params=None, **kwargs):\n-        if safe and not isinstance(data, dict):\n-            raise TypeError(\n-                'In order to allow non-dict objects to be serialized set the '\n-                'safe parameter to False.'\n-            )\n-        if json_dumps_params is None:\n-            json_dumps_params = {}\n-        kwargs.setdefault('content_type', 'application/json')\n-        data = json.dumps(data, cls=encoder, **json_dumps_params)\n-        super().__init__(content=data, **kwargs)\n",
+      "patch_sha256": "4825ad668ddd56464196cfe1db3979cde8f15b82a3d2bc38c5c1864ebb6a656d",
+      "patch_non_empty": true
+    },
+    "django__django-11138": {
+      "instance_id": "django__django-11138",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11206": {
+      "instance_id": "django__django-11206",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11239": {
+      "instance_id": "django__django-11239",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11276": {
+      "instance_id": "django__django-11276",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11292": {
+      "instance_id": "django__django-11292",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11333": {
+      "instance_id": "django__django-11333",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11477": {
+      "instance_id": "django__django-11477",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11490": {
+      "instance_id": "django__django-11490",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11603": {
+      "instance_id": "django__django-11603",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11728": {
+      "instance_id": "django__django-11728",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11734": {
+      "instance_id": "django__django-11734",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11749": {
+      "instance_id": "django__django-11749",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11815": {
+      "instance_id": "django__django-11815",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11820": {
+      "instance_id": "django__django-11820",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11848": {
+      "instance_id": "django__django-11848",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11951": {
+      "instance_id": "django__django-11951",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-11999": {
+      "instance_id": "django__django-11999",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-12039": {
+      "instance_id": "django__django-12039",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-12050": {
+      "instance_id": "django__django-12050",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-12143": {
+      "instance_id": "django__django-12143",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-12155": {
+      "instance_id": "django__django-12155",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-12193": {
+      "instance_id": "django__django-12193",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-12276": {
+      "instance_id": "django__django-12276",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-12304": {
+      "instance_id": "django__django-12304",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-12406": {
+      "instance_id": "django__django-12406",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-12419": {
+      "instance_id": "django__django-12419",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/django/conf/global_settings.py b/django/conf/global_settings.py\nindex 09c9b95d26..5e30e02773 100644\n--- a/django/conf/global_settings.py\n+++ b/django/conf/global_settings.py\n@@ -637,6 +637,6 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = False\n SECURE_HSTS_PRELOAD = False\n SECURE_HSTS_SECONDS = 0\n SECURE_REDIRECT_EXEMPT = []\n-SECURE_REFERRER_POLICY = None\n+SECURE_REFERRER_POLICY = \"same-origin\"\n SECURE_SSL_HOST = None\n SECURE_SSL_REDIRECT = False\n",
+      "patch_sha256": "50927eeb94a2635fecbebc85a8a6c6881e12e699771e2727d2637de9091683d6",
+      "patch_non_empty": true
+    },
+    "django__django-13012": {
+      "instance_id": "django__django-13012",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13028": {
+      "instance_id": "django__django-13028",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py\nindex ce18098fd2..32e1291153 100644\n--- a/django/db/models/sql/query.py\n+++ b/django/db/models/sql/query.py\n@@ -1124,7 +1124,11 @@ class Query(BaseExpression):\n \n     def check_filterable(self, expression):\n         \"\"\"Raise an error if expression cannot be used in a WHERE clause.\"\"\"\n-        if not getattr(expression, 'filterable', True):\n+        # Skip filterable check for model instances (which have _meta attribute)\n+        # as their filterable attribute comes from database fields.\n+        if hasattr(expression, \"_meta\"):\n+            pass\n+        elif not getattr(expression, \"filterable\", True):\n             raise NotSupportedError(\n                 expression.__class__.__name__ + ' is disallowed in the filter '\n                 'clause.'\n@@ -1132,7 +1136,6 @@ class Query(BaseExpression):\n         if hasattr(expression, 'get_source_expressions'):\n             for expr in expression.get_source_expressions():\n                 self.check_filterable(expr)\n-\n     def build_lookup(self, lookups, lhs, rhs):\n         \"\"\"\n         Try to extract transforms and lookup from given lhs.\n",
+      "patch_sha256": "8778f23ec949ad4c7d110dcc2bee2b4c12698a429b956cd93f849b43ce44669f",
+      "patch_non_empty": true
+    },
+    "django__django-13089": {
+      "instance_id": "django__django-13089",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13121": {
+      "instance_id": "django__django-13121",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13128": {
+      "instance_id": "django__django-13128",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13195": {
+      "instance_id": "django__django-13195",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13212": {
+      "instance_id": "django__django-13212",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13297": {
+      "instance_id": "django__django-13297",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/django/views/generic/base.py b/django/views/generic/base.py\nindex ea5baca08d..e3124d021e 100644\n--- a/django/views/generic/base.py\n+++ b/django/views/generic/base.py\n@@ -165,23 +165,36 @@ class TemplateView(TemplateResponseMixin, ContextMixin, View):\n \n \n # RemovedInDjango40Warning\n+class _StringWithDeprecationWarning(str):\n+    def __new__(cls, value, key):\n+        warnings.warn(\n+            \"TemplateView passing URL kwargs to the context is \"\n+            \"deprecated. Reference %s in your template through \"\n+            \"view.kwargs instead.\" % key,\n+            RemovedInDjango40Warning, stacklevel=3,\n+        )\n+        return str.__new__(cls, value)\n+\n+\n def _wrap_url_kwargs_with_deprecation_warning(url_kwargs):\n     context_kwargs = {}\n     for key, value in url_kwargs.items():\n-        # Bind into function closure.\n-        @SimpleLazyObject\n-        def access_value(key=key, value=value):\n-            warnings.warn(\n-                'TemplateView passing URL kwargs to the context is '\n-                'deprecated. Reference %s in your template through '\n-                'view.kwargs instead.' % key,\n-                RemovedInDjango40Warning, stacklevel=2,\n-            )\n-            return value\n-        context_kwargs[key] = access_value\n+        if isinstance(value, str):\n+            context_kwargs[key] = _StringWithDeprecationWarning(value, key)\n+        else:\n+            # Bind into function closure.\n+            @SimpleLazyObject\n+            def access_value(key=key, value=value):\n+                warnings.warn(\n+                    \"TemplateView passing URL kwargs to the context is \"\n+                    \"deprecated. Reference %s in your template through \"\n+                    \"view.kwargs instead.\" % key,\n+                    RemovedInDjango40Warning, stacklevel=2,\n+                )\n+                return value\n+            context_kwargs[key] = access_value\n     return context_kwargs\n \n-\n class RedirectView(View):\n     \"\"\"Provide a redirect on any GET request.\"\"\"\n     permanent = False\n",
+      "patch_sha256": "44e1d6ef1791045321391c40199a034f372cb9da5a243b61d55b626a4e2e6664",
+      "patch_non_empty": true
+    },
+    "django__django-13315": {
+      "instance_id": "django__django-13315",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13343": {
+      "instance_id": "django__django-13343",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13344": {
+      "instance_id": "django__django-13344",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13346": {
+      "instance_id": "django__django-13346",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13401": {
+      "instance_id": "django__django-13401",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13406": {
+      "instance_id": "django__django-13406",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13512": {
+      "instance_id": "django__django-13512",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13516": {
+      "instance_id": "django__django-13516",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13551": {
+      "instance_id": "django__django-13551",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13590": {
+      "instance_id": "django__django-13590",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13670": {
+      "instance_id": "django__django-13670",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13786": {
+      "instance_id": "django__django-13786",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13794": {
+      "instance_id": "django__django-13794",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/django/template/defaultfilters.py b/django/template/defaultfilters.py\nindex 1c844580c6..03c6f09c4d 100644\n--- a/django/template/defaultfilters.py\n+++ b/django/template/defaultfilters.py\n@@ -678,7 +678,7 @@ def add(value, arg):\n         return int(value) + int(arg)\n     except (ValueError, TypeError):\n         try:\n-            return value + arg\n+            return str(value) + str(arg)\n         except Exception:\n             return ''\n \n",
+      "patch_sha256": "c207dffe021b535fe6f9ed1baf3a60c968739d62457d9b127eacb6b7ba896083",
+      "patch_non_empty": true
+    },
+    "django__django-13809": {
+      "instance_id": "django__django-13809",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13810": {
+      "instance_id": "django__django-13810",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13820": {
+      "instance_id": "django__django-13820",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-13821": {
+      "instance_id": "django__django-13821",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14007": {
+      "instance_id": "django__django-14007",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14017": {
+      "instance_id": "django__django-14017",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14053": {
+      "instance_id": "django__django-14053",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14122": {
+      "instance_id": "django__django-14122",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14140": {
+      "instance_id": "django__django-14140",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14155": {
+      "instance_id": "django__django-14155",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14170": {
+      "instance_id": "django__django-14170",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14311": {
+      "instance_id": "django__django-14311",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14315": {
+      "instance_id": "django__django-14315",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14349": {
+      "instance_id": "django__django-14349",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/django/core/validators.py b/django/core/validators.py\nindex a385819510..7da5b0ad18 100644\n--- a/django/core/validators.py\n+++ b/django/core/validators.py\n@@ -101,6 +101,9 @@ class URLValidator(RegexValidator):\n     def __call__(self, value):\n         if not isinstance(value, str):\n             raise ValidationError(self.message, code=self.code, params={'value': value})\n+        # Reject URLs containing control characters (bpo-43882 compatibility)\n+        if \"\\n\" in value or \"\\r\" in value or \"\\t\" in value:\n+            raise ValidationError(self.message, code=self.code, params={\"value\": value})\n         # Check if the scheme is valid.\n         scheme = value.split('://')[0].lower()\n         if scheme not in self.schemes:\n",
+      "patch_sha256": "9d01e6ab86e2a46f74b5f4b04f7b74afff3bc1ecdb5e7122793f8492d3110406",
+      "patch_non_empty": true
+    },
+    "django__django-14351": {
+      "instance_id": "django__django-14351",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "diff --git a/django/db/models/lookups.py b/django/db/models/lookups.py\nindex 5089737034..2f6bc39e77 100644\n--- a/django/db/models/lookups.py\n+++ b/django/db/models/lookups.py\n@@ -401,7 +401,7 @@ class In(FieldGetDbPrepValueIterableMixin, BuiltinLookup):\n             placeholder = '(' + ', '.join(sqls) + ')'\n             return (placeholder, sqls_params)\n         else:\n-            if not getattr(self.rhs, 'has_select_fields', True):\n+            if True:\n                 self.rhs.clear_select_clause()\n                 self.rhs.add_fields(['pk'])\n             return super().process_rhs(compiler, connection)\n",
+      "patch_sha256": "3e93a38c61f2c6be0c5d808574580f488031f40060897199ee482af779c4b39a",
+      "patch_non_empty": true
+    },
+    "django__django-14373": {
+      "instance_id": "django__django-14373",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14376": {
+      "instance_id": "django__django-14376",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14404": {
+      "instance_id": "django__django-14404",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14434": {
+      "instance_id": "django__django-14434",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14493": {
+      "instance_id": "django__django-14493",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14500": {
+      "instance_id": "django__django-14500",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14539": {
+      "instance_id": "django__django-14539",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14559": {
+      "instance_id": "django__django-14559",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14608": {
+      "instance_id": "django__django-14608",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14631": {
+      "instance_id": "django__django-14631",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14725": {
+      "instance_id": "django__django-14725",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14765": {
+      "instance_id": "django__django-14765",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-14792": {
+      "instance_id": "django__django-14792",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15037": {
+      "instance_id": "django__django-15037",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15098": {
+      "instance_id": "django__django-15098",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15103": {
+      "instance_id": "django__django-15103",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15127": {
+      "instance_id": "django__django-15127",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15161": {
+      "instance_id": "django__django-15161",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15277": {
+      "instance_id": "django__django-15277",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15315": {
+      "instance_id": "django__django-15315",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15368": {
+      "instance_id": "django__django-15368",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15375": {
+      "instance_id": "django__django-15375",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15499": {
+      "instance_id": "django__django-15499",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15525": {
+      "instance_id": "django__django-15525",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    },
+    "django__django-15554": {
+      "instance_id": "django__django-15554",
+      "model_name_or_path": "Qwen3-Max",
+      "model_patch": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_non_empty": false
+    }
+  }
+}

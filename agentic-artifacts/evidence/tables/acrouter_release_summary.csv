@@ -1,0 +1,3 @@
+split,n,AvgPerf%,CumReg,total_cost_usd,Perf_per_usd,rAcc_or_reward_accuracy,Apply_ok%,source
+ID,2919,50.14,201.9,22.91,2.19,0.2395,,outputs/current/summary.json
+OOD176,176,73.30,14.4,68.29,1.07,0.7045,85.80,outputs/acrouter_ood176/ood_metrics.json

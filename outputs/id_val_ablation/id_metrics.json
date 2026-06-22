@@ -1,0 +1,14 @@
+{
+  "$Total": 12.9,
+  "AvgPerf%": 47.5,
+  "CumReg": 278.1,
+  "Perf/$": 3.68,
+  "eval_split": "test",
+  "leakage_risk": "none",
+  "missing_score": 196,
+  "n": 2919,
+  "policy": "voter",
+  "rAcc_perf_oracle": 0.2398,
+  "selection_protocol": "per_dimension_voter_selection",
+  "tune_split": "val"
+}

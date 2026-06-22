@@ -1,0 +1,10 @@
+{"task_id":"toy_task_001","model":"toy-fast","resolved":true,"apply_ok":true,"input_tokens":1200,"output_tokens":220}
+{"task_id":"toy_task_001","model":"toy-balanced","resolved":true,"apply_ok":true,"input_tokens":1300,"output_tokens":260}
+{"task_id":"toy_task_001","model":"toy-strong","resolved":true,"apply_ok":true,"input_tokens":1500,"output_tokens":300}
+{"task_id":"toy_task_002","model":"toy-fast","resolved":false,"apply_ok":true,"input_tokens":1800,"output_tokens":260}
+{"task_id":"toy_task_002","model":"toy-balanced","resolved":true,"apply_ok":true,"input_tokens":1900,"output_tokens":340}
+{"task_id":"toy_task_002","model":"toy-strong","resolved":true,"apply_ok":true,"input_tokens":2100,"output_tokens":400}
+{"task_id":"toy_task_003","model":"toy-fast","resolved":false,"apply_ok":true,"input_tokens":2600,"output_tokens":300}
+{"task_id":"toy_task_003","model":"toy-balanced","resolved":false,"apply_ok":true,"input_tokens":2800,"output_tokens":380}
+{"task_id":"toy_task_003","model":"toy-strong","resolved":true,"apply_ok":true,"input_tokens":3200,"output_tokens":600}
+

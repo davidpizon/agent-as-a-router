@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "model": "qwen3.5-plus",
+  "items": {
+    "astropy__astropy-13033": {
+      "instance_id": "astropy__astropy-13033",
+      "model": "qwen3.5-plus",
+      "patch_sha256": "3185b0bb93b9ff710d5c7d8188b0bb8e24563abf45af718f606d340a1017bed6",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 31.7,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 20,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-10097": {
+      "instance_id": "django__django-10097",
+      "model": "qwen3.5-plus",
+      "patch_sha256": "5000077bb200b973498623b79bc6210628af0d0b3dd343be6f3b832cc0985353",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 260.8,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 431,
+          "failure": 7
+        },
+        "PASS_TO_PASS": {
+          "success": 1432,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-11206": {
+      "instance_id": "django__django-11206",
+      "model": "qwen3.5-plus",
+      "patch_sha256": "48facadac75ec5579a1face53c88ee35b124ded4f5815bdb030d80eb23e0a2e3",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 4,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-12155": {
+      "instance_id": "django__django-12155",
+      "model": "qwen3.5-plus",
+      "patch_sha256": "6338258fa00a5b1ab77154be0e4cc0a6fbd942febabb6a5bbe77adb98b0eedb1",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.4,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 6,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-13195": {
+      "instance_id": "django__django-13195",
+      "model": "qwen3.5-plus",
+      "patch_sha256": "02882bb1a62df6595ca800eaa302761cdba2330bfee23bedd4c039322b4d8606",
+      "resolved": false,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.6,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 3
+        },
+        "PASS_TO_PASS": {
+          "success": 382,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    "django__django-14493": {
+      "instance_id": "django__django-14493",
+      "model": "qwen3.5-plus",
+      "patch_sha256": "b2d317d66f891fb68c90fd3548794452bf696524b1f050afbd9815b35f3e2f9e",
+      "resolved": true,
+      "apply_ok": true,
+      "patch_non_empty": true,
+      "error": null,
+      "elapsed_s": 13.2,
+      "tests": {
+        "FAIL_TO_PASS": {
+          "success": 1,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 36,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    }
+  }
+}

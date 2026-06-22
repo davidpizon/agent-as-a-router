@@ -1,0 +1,1026 @@
+{
+  "method": "L2_ft08b_router_v3",
+  "router_model_path": "/home/svu/e1374451/zpfssd/models/qwen35_08b_router_v3_merged",
+  "n": 112,
+  "resolved": 28,
+  "resolved_pct": 25.0,
+  "oracle_resolved": 85,
+  "oracle_gap_pct": 67.06,
+  "apply_ok": 39,
+  "non_empty": 40,
+  "cost_usd": 11.65,
+  "router_input_tokens": 75233,
+  "router_output_tokens": 1602,
+  "router_calls": 112,
+  "fallback_used": 0,
+  "decisions": [
+    {
+      "task_id": "astropy__astropy-13033",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0149,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "astropy__astropy-13236",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0275,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "astropy__astropy-13398",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": true,
+      "backend_cost_usd": 0.0435,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "astropy__astropy-13579",
+      "chosen_model": "kimi-k2.5",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0532,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "astropy__astropy-13977",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0147,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "astropy__astropy-14096",
+      "chosen_model": "MiniMax-M2.7",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "astropy__astropy-14309",
+      "chosen_model": "kimi-k2.5",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.007,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "astropy__astropy-14508",
+      "chosen_model": "MiniMax-M2.7",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "astropy__astropy-14539",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "astropy__astropy-14598",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "astropy__astropy-14995",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "astropy__astropy-7166",
+      "chosen_model": "claude-opus-4-6",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.302,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "astropy__astropy-7336",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "astropy__astropy-7671",
+      "chosen_model": "claude-opus-4-6",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0958,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "astropy__astropy-8872",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-10097",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-10554",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-10914",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-10973",
+      "chosen_model": "claude-opus-4-6",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 1.6272,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-10999",
+      "chosen_model": "claude-sonnet-4-6",
+      "resolved": false,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.1214,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11087",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11095",
+      "chosen_model": "claude-opus-4-6",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.356,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11099",
+      "chosen_model": "claude-opus-4-6",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0262,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11119",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11133",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11138",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0549,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11206",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0615,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11239",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11276",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11292",
+      "chosen_model": "claude-opus-4-6",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 2.6534,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11333",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11477",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11490",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11603",
+      "chosen_model": "claude-opus-4-6",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0909,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11728",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11734",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11749",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11815",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11820",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11848",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11951",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-11999",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-12039",
+      "chosen_model": "MiniMax-M2.7",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-12050",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-12143",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-12155",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-12193",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-12276",
+      "chosen_model": "claude-opus-4-6",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.2654,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-12304",
+      "chosen_model": "claude-opus-4-6",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.1718,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-12406",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-12419",
+      "chosen_model": "claude-opus-4-6",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.3396,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13012",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13028",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13089",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13121",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13128",
+      "chosen_model": "kimi-k2.5",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0316,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13195",
+      "chosen_model": "claude-opus-4-6",
+      "resolved": false,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 1.316,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13212",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13297",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13315",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13343",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13344",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13346",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13401",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13406",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13512",
+      "chosen_model": "glm-5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13516",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13551",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13590",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13670",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13786",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13794",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13809",
+      "chosen_model": "claude-opus-4-6",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 2.2591,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13810",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13820",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-13821",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14007",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14017",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14053",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14122",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14140",
+      "chosen_model": "MiniMax-M2.7",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14155",
+      "chosen_model": "claude-opus-4-6",
+      "resolved": false,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.5505,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14170",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14311",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14315",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14349",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14351",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0109,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14373",
+      "chosen_model": "claude-opus-4-6",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0767,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14376",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0036,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14404",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0121,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14434",
+      "chosen_model": "kimi-k2.5",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0148,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14493",
+      "chosen_model": "MiniMax-M2.7",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14500",
+      "chosen_model": "claude-opus-4-6",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.6104,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14539",
+      "chosen_model": "kimi-k2.5",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0158,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14559",
+      "chosen_model": "kimi-k2.5",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.022,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14608",
+      "chosen_model": "kimi-k2.5",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0163,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14631",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0367,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14725",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0358,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14765",
+      "chosen_model": "kimi-k2.5",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0117,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-14792",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0414,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-15037",
+      "chosen_model": "kimi-k2.5",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0388,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-15098",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0437,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-15103",
+      "chosen_model": "claude-opus-4-6",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-15127",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0121,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-15161",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0243,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-15277",
+      "chosen_model": "kimi-k2.5",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0143,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-15315",
+      "chosen_model": "MiniMax-M2.7",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-15368",
+      "chosen_model": "kimi-k2.5",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0155,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-15375",
+      "chosen_model": "kimi-k2.5",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0322,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-15499",
+      "chosen_model": "claude-opus-4-6",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-15525",
+      "chosen_model": "kimi-k2.5",
+      "resolved": true,
+      "apply_ok": true,
+      "non_empty": true,
+      "backend_cost_usd": 0.0423,
+      "parse_status": "ok"
+    },
+    {
+      "task_id": "django__django-15554",
+      "chosen_model": "kimi-k2.5",
+      "resolved": false,
+      "apply_ok": false,
+      "non_empty": false,
+      "backend_cost_usd": 0.0309,
+      "parse_status": "ok"
+    }
+  ]
+}

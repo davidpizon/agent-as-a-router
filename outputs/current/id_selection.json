@@ -1,0 +1,72 @@
+{
+  "fallback_model": "claude-opus-4-6",
+  "hyperparameter_selection": "train_fit_val_score_grid",
+  "levels": [
+    {
+      "mapping": {
+        "dim1_bcb_v014": "claude-opus-4-6",
+        "dim1_humaneval_HumanEval": "claude-opus-4-6",
+        "dim2_bcb_algo2": "claude-opus-4-6",
+        "dim3_debugbench_sup": "claude-opus-4-6",
+        "dim4_bcb_completion": "claude-opus-4-6",
+        "dim4_he_completion": "claude-opus-4-6",
+        "dim4_mbpp_completion": "claude-opus-4-6",
+        "dim5_bugs2fix_sup": "claude-opus-4-6",
+        "dim6_bcb_ds": "claude-opus-4-6",
+        "dim7_hex_cpp": "claude-opus-4-6",
+        "dim7_hex_go": "claude-opus-4-6",
+        "dim7_hex_java": "claude-opus-4-6",
+        "dim7_hex_js": "claude-opus-4-6",
+        "dim7_hex_python": "claude-opus-4-6",
+        "dim7_multiple_rs": "claude-opus-4-6",
+        "dim7_multiple_ts": "claude-opus-4-6",
+        "dim8_codexglue_sup": "claude-opus-4-6",
+        "dim9_he_testgen": "Qwen3-Max",
+        "dim9_lcb_testgen": "gpt-5.4",
+        "dim9_mbpp_testgen": "claude-opus-4-6"
+      },
+      "mode": "first3"
+    },
+    {
+      "mapping": {
+        "bcb": "claude-opus-4-6",
+        "bugs2fix": "gpt-5.4",
+        "codexglue": "claude-opus-4-6",
+        "cruxeval": "claude-opus-4-6",
+        "debugbench": "claude-opus-4-6",
+        "ds1000": "kimi-k2.5",
+        "he": "Qwen3-Max",
+        "hex": "claude-opus-4-6",
+        "humaneval": "claude-opus-4-6",
+        "lcb": "Qwen3-Max",
+        "mbpp": "claude-opus-4-6",
+        "multiple": "claude-opus-4-6",
+        "swebench": "claude-opus-4-6"
+      },
+      "mode": "source"
+    },
+    {
+      "mapping": {
+        "algorithm": "glm-5",
+        "bug_fixing": "claude-opus-4-6",
+        "code_completion": "claude-opus-4-6",
+        "code_generation": "claude-opus-4-6",
+        "code_refactoring": "gpt-5.4",
+        "code_understanding": "claude-opus-4-6",
+        "data_science": "kimi-k2.5",
+        "multi_language": "claude-opus-4-6",
+        "test_generation": "Qwen3-Max"
+      },
+      "mode": "dimension"
+    }
+  ],
+  "min_count": 50,
+  "modes": [
+    "first3",
+    "source",
+    "dimension"
+  ],
+  "objective": "perf",
+  "policy": "hierarchical_group_model_map",
+  "shrink": 500.0
+}

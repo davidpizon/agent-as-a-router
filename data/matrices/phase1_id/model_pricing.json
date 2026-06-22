@@ -1,0 +1,54 @@
+{
+  "_comment": "API pricing in USD per 1M tokens. Values mirrored from acrouter_v4.0/scripts/recompute_all_acc.py::PRICING_PER_1M so the coding-router oracle and the ACRouter canonical rAcc use identical cost tables.",
+  "_aligned_with": "acrouter_v4.0/scripts/recompute_all_acc.py",
+  "models": {
+    "claude-opus-4-6": {
+      "provider": "Anthropic",
+      "input_per_1m": 15.0,
+      "output_per_1m": 75.0,
+      "tier": "premium"
+    },
+    "claude-sonnet-4-6": {
+      "provider": "Anthropic",
+      "input_per_1m": 3.0,
+      "output_per_1m": 15.0,
+      "tier": "high"
+    },
+    "gpt-5.4": {
+      "provider": "OpenAI",
+      "input_per_1m": 1.25,
+      "output_per_1m": 10.0,
+      "tier": "high"
+    },
+    "Qwen3-Max": {
+      "provider": "Alibaba",
+      "input_per_1m": 2.0,
+      "output_per_1m": 6.0,
+      "tier": "mid"
+    },
+    "qwen3.5-plus": {
+      "provider": "Alibaba",
+      "input_per_1m": 0.4,
+      "output_per_1m": 1.2,
+      "tier": "low"
+    },
+    "kimi-k2.5": {
+      "provider": "Moonshot",
+      "input_per_1m": 0.6,
+      "output_per_1m": 2.5,
+      "tier": "mid"
+    },
+    "glm-5": {
+      "provider": "Zhipu",
+      "input_per_1m": 0.6,
+      "output_per_1m": 2.2,
+      "tier": "mid"
+    },
+    "MiniMax-M2.7": {
+      "provider": "MiniMax",
+      "input_per_1m": 0.3,
+      "output_per_1m": 1.2,
+      "tier": "low"
+    }
+  }
+}

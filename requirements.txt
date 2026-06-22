@@ -1,0 +1,26 @@
+# Default environment for offline ACRouter reproduction, OOD176 baseline replay,
+# saved trained-router checkpoints, tests, and legacy baseline utilities.
+#
+# The core ID/OOD112 reproduction itself uses only the Python standard library,
+# but OOD176 baselines load sklearn checkpoints and run numpy-based replay.
+
+numpy>=1.26,<3
+scipy>=1.11
+# Saved baseline checkpoints were created with sklearn 1.8.x. Keep new
+# environments on that minor line so pickle replay is warning-free.
+scikit-learn>=1.8,<1.9
+joblib>=1.3
+threadpoolctl>=3.2
+
+# Optional-but-useful for legacy training utilities and RouteLLM-BERT paths.
+# The bundled OOD176 saved checkpoints do not download sentence-transformer
+# weights, but these packages make the repository's baseline code complete.
+torch>=2.2
+transformers>=4.41,<6
+sentence-transformers>=3.0,<6
+huggingface-hub>=0.23,<2
+safetensors>=0.4
+tokenizers>=0.19
+tqdm>=4.66
+packaging>=23.0
+Pillow>=10.0

@@ -1,0 +1,2391 @@
+{
+  "eps": {
+    "cost": -0.1,
+    "perf": 1.0
+  },
+  "generated_utc": "2026-06-13 15:13:48 UTC",
+  "matrix_path": "data/matrices/phase2_ood/unified/matrix_acrouter_ood176.json",
+  "metrics": [
+    {
+      "$Backend": 24.11,
+      "$Router": 0.0,
+      "$Total": 24.11,
+      "Apply_ok%": 86.36,
+      "AvgPerf%": 78.98,
+      "CumReg": 0.0,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 3.28,
+      "TotInTok": 33249073,
+      "TotOutTok": 538926,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 0.18,
+          "AvgPerf%": 100.0,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 0.19,
+          "AvgPerf%": 28.57,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 23.75,
+          "AvgPerf%": 75.89,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.0,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 0.36,
+          "AvgPerf%": 84.38,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 23.75,
+          "AvgPerf%": 75.89,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "reward_oracle",
+      "method": "Oracle",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "MiniMax-M2.7": 99,
+        "Qwen3-Max": 11,
+        "claude-opus-4-6": 9,
+        "claude-sonnet-4-6": 7,
+        "glm-5": 2,
+        "gpt-5.4": 29,
+        "kimi-k2.5": 18,
+        "qwen3.5-plus": 1
+      },
+      "n": 176,
+      "note": "Cost-aware reward oracle with epsilon=(1,-0.1).",
+      "rAcc_reward_oracle": 1.0
+    },
+    {
+      "$Backend": 68.29,
+      "$Router": 0.0,
+      "$Total": 68.29,
+      "Apply_ok%": 85.8,
+      "AvgPerf%": 73.3,
+      "CumReg": 14.4,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 1.07,
+      "TotInTok": 74536066,
+      "TotOutTok": 1128908,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 0.45,
+          "AvgPerf%": 100.0,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 16.14,
+          "AvgPerf%": 28.57,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 51.7,
+          "AvgPerf%": 66.96,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.0,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 16.59,
+          "AvgPerf%": 84.38,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 51.7,
+          "AvgPerf%": 66.96,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "acrouter_unique_release_ood176",
+      "method": "ACRouter (ours)",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "MiniMax-M2.7": 62,
+        "claude-opus-4-6": 4,
+        "glm-5": 50,
+        "gpt-5.4": 42,
+        "kimi-k2.5": 18
+      },
+      "n": 176,
+      "note": "ACRouter release OOD176 decisions from run_acrouter_ood176.py. Source metrics file reports AvgPerf=73.3 CumReg=14.4 $Total=68.29.",
+      "rAcc_reward_oracle": 0.642
+    },
+    {
+      "$Backend": 58.83,
+      "$Router": 0.0,
+      "$Total": 58.83,
+      "Apply_ok%": 85.23,
+      "AvgPerf%": 57.95,
+      "CumReg": 40.5,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 0.99,
+      "TotInTok": 32855400,
+      "TotOutTok": 545929,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 7.29,
+          "AvgPerf%": 89.8,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 7.52,
+          "AvgPerf%": 21.43,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 43.92,
+          "AvgPerf%": 48.21,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.1,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 14.91,
+          "AvgPerf%": 75.0,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 43.92,
+          "AvgPerf%": 48.21,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "online_lints_cost_aware",
+      "method": "LinTS",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "MiniMax-M2.7": 18,
+        "Qwen3-Max": 13,
+        "claude-opus-4-6": 28,
+        "claude-sonnet-4-6": 19,
+        "glm-5": 26,
+        "gpt-5.4": 53,
+        "kimi-k2.5": 7,
+        "qwen3.5-plus": 12
+      },
+      "n": 176,
+      "note": "Offline online replay over the OOD176 task order.",
+      "rAcc_reward_oracle": 0.1534
+    },
+    {
+      "$Backend": 54.32,
+      "$Router": 0.0,
+      "$Total": 54.32,
+      "Apply_ok%": 84.09,
+      "AvgPerf%": 57.95,
+      "CumReg": 40.0,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 1.07,
+      "TotInTok": 34267911,
+      "TotOutTok": 618163,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 5.62,
+          "AvgPerf%": 87.76,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 2.72,
+          "AvgPerf%": 7.14,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 45.76,
+          "AvgPerf%": 50.89,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.22,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 8.56,
+          "AvgPerf%": 70.31,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 45.76,
+          "AvgPerf%": 50.89,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "online_linucb_cost_aware",
+      "method": "LinUCB",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "MiniMax-M2.7": 35,
+        "Qwen3-Max": 14,
+        "claude-opus-4-6": 7,
+        "claude-sonnet-4-6": 42,
+        "glm-5": 28,
+        "gpt-5.4": 39,
+        "kimi-k2.5": 4,
+        "qwen3.5-plus": 7
+      },
+      "n": 176,
+      "note": "Offline online replay over the OOD176 task order.",
+      "rAcc_reward_oracle": 0.233
+    },
+    {
+      "$Backend": 5.53,
+      "$Router": 0.0,
+      "$Total": 5.53,
+      "Apply_ok%": 48.3,
+      "AvgPerf%": 35.23,
+      "CumReg": 75.1,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 6.37,
+      "TotInTok": 13864128,
+      "TotOutTok": 280049,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 1.75,
+          "AvgPerf%": 89.8,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 0.53,
+          "AvgPerf%": 14.29,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 3.22,
+          "AvgPerf%": 13.39,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.02,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 2.3,
+          "AvgPerf%": 73.44,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 3.22,
+          "AvgPerf%": 13.39,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "online_knn_retrieval",
+      "method": "kNN Retrieval",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "MiniMax-M2.7": 101,
+        "Qwen3-Max": 64,
+        "claude-opus-4-6": 1,
+        "claude-sonnet-4-6": 1,
+        "glm-5": 6,
+        "gpt-5.4": 1,
+        "kimi-k2.5": 1,
+        "qwen3.5-plus": 1
+      },
+      "n": 176,
+      "note": "Online kNN replay using task metadata/hash features and observed chosen-model rewards.",
+      "rAcc_reward_oracle": 0.2216
+    },
+    {
+      "$Backend": 7.48,
+      "$Router": 0.0,
+      "$Total": 7.48,
+      "Apply_ok%": 42.05,
+      "AvgPerf%": 28.98,
+      "CumReg": 86.3,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 3.88,
+      "TotInTok": 24724484,
+      "TotOutTok": 281309,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 2.91,
+          "AvgPerf%": 57.14,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 0.95,
+          "AvgPerf%": 0.0,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 3.6,
+          "AvgPerf%": 19.64,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.01,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 3.87,
+          "AvgPerf%": 45.31,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 3.6,
+          "AvgPerf%": 19.64,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "old112_published_replay_plus_new64_router_or_modal:T1_LogReg_metrics.json",
+      "method": "LogReg",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "Qwen3-Max": 4,
+        "claude-opus-4-6": 4,
+        "gpt-5.4": 37,
+        "kimi-k2.5": 108,
+        "通义千问Max": 23
+      },
+      "n": 176,
+      "new64_extended": 0,
+      "new64_extension_model": "kimi-k2.5",
+      "new64_predicted": 64,
+      "new64_router_error": null,
+      "new64_saved_router": "logreg",
+      "note": "Old112 published decisions replayed; New64 is predicted by the saved LogReg router on real New64 prompts.",
+      "old112_replayed": 112,
+      "published_source_file": "data/baseline_inputs/swebench112_results/T1_LogReg_metrics.json",
+      "published_source_method": "T1_LogReg",
+      "rAcc_reward_oracle": 0.0909
+    },
+    {
+      "$Backend": 6.06,
+      "$Router": 0.0,
+      "$Total": 6.06,
+      "Apply_ok%": 51.7,
+      "AvgPerf%": 31.82,
+      "CumReg": 81.2,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 5.25,
+      "TotInTok": 13733083,
+      "TotOutTok": 204993,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 2.18,
+          "AvgPerf%": 75.51,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 0.33,
+          "AvgPerf%": 14.29,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 3.52,
+          "AvgPerf%": 14.29,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.02,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 2.54,
+          "AvgPerf%": 62.5,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 3.52,
+          "AvgPerf%": 14.29,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "old112_published_replay_plus_new64_router_or_modal:T4_RouteLLM_SW_metrics.json",
+      "method": "RouteLLM-BERT",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "Qwen3-Max": 149,
+        "claude-opus-4-6": 1,
+        "claude-sonnet-4-6": 1,
+        "gpt-5.4": 9,
+        "kimi-k2.5": 16
+      },
+      "n": 176,
+      "new64_extended": 0,
+      "new64_extension_model": "Qwen3-Max",
+      "new64_predicted": 64,
+      "new64_router_error": null,
+      "new64_saved_router": "routellm_sw",
+      "note": "No published RouteLLM-BERT OOD112 decision file was found in this worktree; uses the available T4_RouteLLM_SW OOD112 decisions as the closest published RouteLLM proxy, and predicts New64 with the saved RouteLLM-SW router on real prompts.",
+      "old112_replayed": 112,
+      "published_source_file": "data/baseline_inputs/swebench112_results/T4_RouteLLM_SW_metrics.json",
+      "published_source_method": "T4_RouteLLM_SW",
+      "rAcc_reward_oracle": 0.0739
+    },
+    {
+      "$Backend": 5.02,
+      "$Router": 0.0,
+      "$Total": 5.02,
+      "Apply_ok%": 18.75,
+      "AvgPerf%": 13.07,
+      "CumReg": 114.1,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 2.6,
+      "TotInTok": 5922268,
+      "TotOutTok": 98220,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 0.73,
+          "AvgPerf%": 14.29,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 0.01,
+          "AvgPerf%": 0.0,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 4.28,
+          "AvgPerf%": 13.39,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.01,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 0.74,
+          "AvgPerf%": 12.5,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 4.28,
+          "AvgPerf%": 13.39,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "old112_published_replay_plus_new64_router_or_modal:T2_TFIDF_MLP_metrics.json",
+      "method": "TF-IDF+MLP",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "Qwen3-Max": 82,
+        "claude-sonnet-4-6": 4,
+        "gpt-5.4": 14,
+        "kimi-k2.5": 21,
+        "通义千问Max": 55
+      },
+      "n": 176,
+      "new64_extended": 0,
+      "new64_extension_model": "Qwen3-Max",
+      "new64_predicted": 64,
+      "new64_router_error": null,
+      "new64_saved_router": "tfidf_mlp",
+      "note": "Old112 published decisions replayed; New64 is predicted by the saved TF-IDF+MLP router on real New64 prompts.",
+      "old112_replayed": 112,
+      "published_source_file": "data/baseline_inputs/swebench112_results/T2_TFIDF_MLP_metrics.json",
+      "published_source_method": "T2_TFIDF_MLP",
+      "rAcc_reward_oracle": 0.0455
+    },
+    {
+      "$Backend": 12.18,
+      "$Router": 0.0,
+      "$Total": 12.18,
+      "Apply_ok%": 58.52,
+      "AvgPerf%": 23.86,
+      "CumReg": 95.8,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 1.96,
+      "TotInTok": 37587404,
+      "TotOutTok": 383393,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 0.41,
+          "AvgPerf%": 26.53,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 0.12,
+          "AvgPerf%": 0.0,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 11.65,
+          "AvgPerf%": 25.0,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.01,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 0.53,
+          "AvgPerf%": 21.88,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 11.65,
+          "AvgPerf%": 25.0,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "old112_published_replay_plus_new64_router_or_modal:L2_ft08b_router_v3_metrics.json",
+      "method": "Qwen3.5-0.8B-Finetuned",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "MiniMax-M2.7": 6,
+        "claude-opus-4-6": 17,
+        "claude-sonnet-4-6": 1,
+        "glm-5": 1,
+        "kimi-k2.5": 151
+      },
+      "n": 176,
+      "new64_extended": 64,
+      "new64_extension_model": "kimi-k2.5",
+      "new64_predicted": 0,
+      "new64_router_error": null,
+      "new64_saved_router": null,
+      "note": "Old112 uses the available L2_ft08b_router_v3 decisions; this file's published OOD112 resolved_pct is 25.00, not the 55.36 value in the provided LaTeX table. New64 uses modal extension.",
+      "old112_replayed": 112,
+      "published_source_file": "data/baseline_inputs/swebench112_results/L2_ft08b_router_v3_metrics.json",
+      "published_source_method": "L2_ft08b_router_v3",
+      "rAcc_reward_oracle": 0.0966
+    },
+    {
+      "$Backend": 4.15,
+      "$Router": 0.0,
+      "$Total": 4.15,
+      "Apply_ok%": 48.3,
+      "AvgPerf%": 32.95,
+      "CumReg": 79.0,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 7.93,
+      "TotInTok": 11657202,
+      "TotOutTok": 188592,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 1.17,
+          "AvgPerf%": 91.84,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 0.33,
+          "AvgPerf%": 14.29,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 2.64,
+          "AvgPerf%": 8.93,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.01,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 1.51,
+          "AvgPerf%": 75.0,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 2.64,
+          "AvgPerf%": 8.93,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "old112_published_replay_plus_new64_router_or_modal:T3_RouteLLM_MF_metrics.json",
+      "method": "RouteLLM-MF",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "Qwen3-Max": 174,
+        "kimi-k2.5": 2
+      },
+      "n": 176,
+      "new64_extended": 0,
+      "new64_extension_model": "Qwen3-Max",
+      "new64_predicted": 64,
+      "new64_router_error": null,
+      "new64_saved_router": "routellm_mf",
+      "note": "Old112 published decisions replayed; New64 is predicted by the saved RouteLLM-MF router on real New64 prompts.",
+      "old112_replayed": 112,
+      "published_source_file": "data/baseline_inputs/swebench112_results/T3_RouteLLM_MF_metrics.json",
+      "published_source_method": "T3_RouteLLM_MF",
+      "rAcc_reward_oracle": 0.0625
+    },
+    {
+      "$Backend": 194.91,
+      "$Router": 0.0,
+      "$Total": 194.91,
+      "Apply_ok%": 90.34,
+      "AvgPerf%": 63.64,
+      "CumReg": 44.1,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 0.33,
+      "TotInTok": 36228771,
+      "TotOutTok": 550576,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 54.26,
+          "AvgPerf%": 67.35,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 15.5,
+          "AvgPerf%": 28.57,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 124.03,
+          "AvgPerf%": 66.07,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 1.11,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 70.88,
+          "AvgPerf%": 59.38,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 124.03,
+          "AvgPerf%": 66.07,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "always:claude-opus-4-6",
+      "method": "Always-Opus 4.6",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "claude-opus-4-6": 176
+      },
+      "n": 176,
+      "note": "",
+      "rAcc_reward_oracle": 0.0511
+    },
+    {
+      "$Backend": 1.46,
+      "$Router": 0.0,
+      "$Total": 1.46,
+      "Apply_ok%": 53.41,
+      "AvgPerf%": 19.89,
+      "CumReg": 101.7,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 13.6,
+      "TotInTok": 38288824,
+      "TotOutTok": 372248,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 0.41,
+          "AvgPerf%": 26.53,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 0.12,
+          "AvgPerf%": 0.0,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 0.93,
+          "AvgPerf%": 18.75,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.01,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 0.53,
+          "AvgPerf%": 21.88,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 0.93,
+          "AvgPerf%": 18.75,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "always:kimi-k2.5",
+      "method": "Always-Kimi-K2.5",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "kimi-k2.5": 176
+      },
+      "n": 176,
+      "note": "",
+      "rAcc_reward_oracle": 0.1023
+    },
+    {
+      "$Backend": 6.21,
+      "$Router": 0.0,
+      "$Total": 6.21,
+      "Apply_ok%": 39.77,
+      "AvgPerf%": 27.27,
+      "CumReg": 89.2,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 4.39,
+      "TotInTok": 51437774,
+      "TotOutTok": 840908,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 1.73,
+          "AvgPerf%": 87.76,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 0.49,
+          "AvgPerf%": 7.14,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 3.95,
+          "AvgPerf%": 2.68,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.04,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 2.26,
+          "AvgPerf%": 70.31,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 3.95,
+          "AvgPerf%": 2.68,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "always:qwen3.5-plus",
+      "method": "Always-Qwen3.5-Plus",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "qwen3.5-plus": 176
+      },
+      "n": 176,
+      "note": "",
+      "rAcc_reward_oracle": 0.0057
+    },
+    {
+      "$Backend": 54.46,
+      "$Router": 0.0,
+      "$Total": 54.46,
+      "Apply_ok%": 66.02,
+      "AvgPerf%": 40.34,
+      "CumReg": 71.04,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 0.75,
+      "TotInTok": 30513673.3,
+      "TotOutTok": 494939.7,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 17.99,
+          "AvgPerf%": 73.47,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 3.81,
+          "AvgPerf%": 0.0,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 32.43,
+          "AvgPerf%": 37.5,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.8,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 22.61,
+          "AvgPerf%": 57.81,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 32.43,
+          "AvgPerf%": 37.5,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "random_10_seed_mean",
+      "method": "Random",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "MiniMax-M2.7": 19,
+        "Qwen3-Max": 18,
+        "claude-opus-4-6": 19,
+        "claude-sonnet-4-6": 31,
+        "glm-5": 32,
+        "gpt-5.4": 19,
+        "kimi-k2.5": 21,
+        "qwen3.5-plus": 17
+      },
+      "n": 176,
+      "note": "Mean over seeds 42-51; per-seed decisions are in decisions/.",
+      "rAcc_reward_oracle": 0.1131,
+      "seed_count": 10,
+      "seed_metrics": [
+        {
+          "$Backend": 55.03,
+          "$Router": 0.0,
+          "$Total": 55.03,
+          "Apply_ok%": 71.02,
+          "AvgPerf%": 44.89,
+          "CumReg": 63.1,
+          "OracleAvgPerf%": 78.98,
+          "Perf/$": 0.82,
+          "TotInTok": 30990452,
+          "TotOutTok": 557439,
+          "by_bench": {
+            "featurebench": {
+              "$Total": 17.99,
+              "AvgPerf%": 73.47,
+              "n": 49
+            },
+            "longcli": {
+              "$Total": 3.81,
+              "AvgPerf%": 0.0,
+              "n": 14
+            },
+            "old112": {
+              "$Total": 32.43,
+              "AvgPerf%": 37.5,
+              "n": 112
+            },
+            "swe_ci": {
+              "$Total": 0.8,
+              "AvgPerf%": 100.0,
+              "n": 1
+            }
+          },
+          "by_source_split": {
+            "new64": {
+              "$Total": 22.61,
+              "AvgPerf%": 57.81,
+              "n": 64
+            },
+            "old112": {
+              "$Total": 32.43,
+              "AvgPerf%": 37.5,
+              "n": 112
+            }
+          },
+          "decision_count": 176,
+          "decision_source": "random_seed_42",
+          "method": "Random_seed42",
+          "missing_decisions": 0,
+          "model_distribution": {
+            "MiniMax-M2.7": 19,
+            "Qwen3-Max": 18,
+            "claude-opus-4-6": 19,
+            "claude-sonnet-4-6": 31,
+            "glm-5": 32,
+            "gpt-5.4": 19,
+            "kimi-k2.5": 21,
+            "qwen3.5-plus": 17
+          },
+          "n": 176,
+          "note": "",
+          "rAcc_reward_oracle": 0.1307
+        },
+        {
+          "$Backend": 57.53,
+          "$Router": 0.0,
+          "$Total": 57.53,
+          "Apply_ok%": 67.61,
+          "AvgPerf%": 41.48,
+          "CumReg": 69.3,
+          "OracleAvgPerf%": 78.98,
+          "Perf/$": 0.72,
+          "TotInTok": 32402175,
+          "TotOutTok": 502141,
+          "by_bench": {
+            "featurebench": {
+              "$Total": 16.01,
+              "AvgPerf%": 73.47,
+              "n": 49
+            },
+            "longcli": {
+              "$Total": 4.03,
+              "AvgPerf%": 14.29,
+              "n": 14
+            },
+            "old112": {
+              "$Total": 37.27,
+              "AvgPerf%": 30.36,
+              "n": 112
+            },
+            "swe_ci": {
+              "$Total": 0.22,
+              "AvgPerf%": 100.0,
+              "n": 1
+            }
+          },
+          "by_source_split": {
+            "new64": {
+              "$Total": 20.26,
+              "AvgPerf%": 60.94,
+              "n": 64
+            },
+            "old112": {
+              "$Total": 37.27,
+              "AvgPerf%": 30.36,
+              "n": 112
+            }
+          },
+          "decision_count": 176,
+          "decision_source": "random_seed_43",
+          "method": "Random_seed43",
+          "missing_decisions": 0,
+          "model_distribution": {
+            "MiniMax-M2.7": 18,
+            "Qwen3-Max": 23,
+            "claude-opus-4-6": 24,
+            "claude-sonnet-4-6": 30,
+            "glm-5": 19,
+            "gpt-5.4": 25,
+            "kimi-k2.5": 17,
+            "qwen3.5-plus": 20
+          },
+          "n": 176,
+          "note": "",
+          "rAcc_reward_oracle": 0.1023
+        },
+        {
+          "$Backend": 48.89,
+          "$Router": 0.0,
+          "$Total": 48.89,
+          "Apply_ok%": 68.18,
+          "AvgPerf%": 44.32,
+          "CumReg": 63.5,
+          "OracleAvgPerf%": 78.98,
+          "Perf/$": 0.91,
+          "TotInTok": 31573037,
+          "TotOutTok": 498868,
+          "by_bench": {
+            "featurebench": {
+              "$Total": 14.22,
+              "AvgPerf%": 73.47,
+              "n": 49
+            },
+            "longcli": {
+              "$Total": 6.47,
+              "AvgPerf%": 21.43,
+              "n": 14
+            },
+            "old112": {
+              "$Total": 27.4,
+              "AvgPerf%": 33.93,
+              "n": 112
+            },
+            "swe_ci": {
+              "$Total": 0.8,
+              "AvgPerf%": 100.0,
+              "n": 1
+            }
+          },
+          "by_source_split": {
+            "new64": {
+              "$Total": 21.49,
+              "AvgPerf%": 62.5,
+              "n": 64
+            },
+            "old112": {
+              "$Total": 27.4,
+              "AvgPerf%": 33.93,
+              "n": 112
+            }
+          },
+          "decision_count": 176,
+          "decision_source": "random_seed_44",
+          "method": "Random_seed44",
+          "missing_decisions": 0,
+          "model_distribution": {
+            "MiniMax-M2.7": 21,
+            "Qwen3-Max": 18,
+            "claude-opus-4-6": 23,
+            "claude-sonnet-4-6": 29,
+            "glm-5": 19,
+            "gpt-5.4": 24,
+            "kimi-k2.5": 25,
+            "qwen3.5-plus": 17
+          },
+          "n": 176,
+          "note": "",
+          "rAcc_reward_oracle": 0.1193
+        },
+        {
+          "$Backend": 64.21,
+          "$Router": 0.0,
+          "$Total": 64.21,
+          "Apply_ok%": 69.89,
+          "AvgPerf%": 42.05,
+          "CumReg": 69.0,
+          "OracleAvgPerf%": 78.98,
+          "Perf/$": 0.65,
+          "TotInTok": 33526908,
+          "TotOutTok": 519515,
+          "by_bench": {
+            "featurebench": {
+              "$Total": 18.18,
+              "AvgPerf%": 69.39,
+              "n": 49
+            },
+            "longcli": {
+              "$Total": 5.57,
+              "AvgPerf%": 21.43,
+              "n": 14
+            },
+            "old112": {
+              "$Total": 40.46,
+              "AvgPerf%": 32.14,
+              "n": 112
+            },
+            "swe_ci": {
+              "$Total": 0.0,
+              "AvgPerf%": 100.0,
+              "n": 1
+            }
+          },
+          "by_source_split": {
+            "new64": {
+              "$Total": 23.75,
+              "AvgPerf%": 59.38,
+              "n": 64
+            },
+            "old112": {
+              "$Total": 40.46,
+              "AvgPerf%": 32.14,
+              "n": 112
+            }
+          },
+          "decision_count": 176,
+          "decision_source": "random_seed_45",
+          "method": "Random_seed45",
+          "missing_decisions": 0,
+          "model_distribution": {
+            "MiniMax-M2.7": 21,
+            "Qwen3-Max": 30,
+            "claude-opus-4-6": 29,
+            "claude-sonnet-4-6": 24,
+            "glm-5": 18,
+            "gpt-5.4": 18,
+            "kimi-k2.5": 21,
+            "qwen3.5-plus": 15
+          },
+          "n": 176,
+          "note": "",
+          "rAcc_reward_oracle": 0.1136
+        },
+        {
+          "$Backend": 65.72,
+          "$Router": 0.0,
+          "$Total": 65.72,
+          "Apply_ok%": 64.77,
+          "AvgPerf%": 40.34,
+          "CumReg": 72.2,
+          "OracleAvgPerf%": 78.98,
+          "Perf/$": 0.61,
+          "TotInTok": 28407381,
+          "TotOutTok": 434037,
+          "by_bench": {
+            "featurebench": {
+              "$Total": 12.92,
+              "AvgPerf%": 81.63,
+              "n": 49
+            },
+            "longcli": {
+              "$Total": 5.21,
+              "AvgPerf%": 0.0,
+              "n": 14
+            },
+            "old112": {
+              "$Total": 47.58,
+              "AvgPerf%": 26.79,
+              "n": 112
+            },
+            "swe_ci": {
+              "$Total": 0.01,
+              "AvgPerf%": 100.0,
+              "n": 1
+            }
+          },
+          "by_source_split": {
+            "new64": {
+              "$Total": 18.14,
+              "AvgPerf%": 64.06,
+              "n": 64
+            },
+            "old112": {
+              "$Total": 47.58,
+              "AvgPerf%": 26.79,
+              "n": 112
+            }
+          },
+          "decision_count": 176,
+          "decision_source": "random_seed_46",
+          "method": "Random_seed46",
+          "missing_decisions": 0,
+          "model_distribution": {
+            "MiniMax-M2.7": 25,
+            "Qwen3-Max": 26,
+            "claude-opus-4-6": 23,
+            "claude-sonnet-4-6": 25,
+            "glm-5": 18,
+            "gpt-5.4": 23,
+            "kimi-k2.5": 21,
+            "qwen3.5-plus": 15
+          },
+          "n": 176,
+          "note": "",
+          "rAcc_reward_oracle": 0.108
+        },
+        {
+          "$Backend": 56.65,
+          "$Router": 0.0,
+          "$Total": 56.65,
+          "Apply_ok%": 64.77,
+          "AvgPerf%": 39.77,
+          "CumReg": 72.3,
+          "OracleAvgPerf%": 78.98,
+          "Perf/$": 0.7,
+          "TotInTok": 34236204,
+          "TotOutTok": 549282,
+          "by_bench": {
+            "featurebench": {
+              "$Total": 17.2,
+              "AvgPerf%": 69.39,
+              "n": 49
+            },
+            "longcli": {
+              "$Total": 4.31,
+              "AvgPerf%": 7.14,
+              "n": 14
+            },
+            "old112": {
+              "$Total": 35.12,
+              "AvgPerf%": 30.36,
+              "n": 112
+            },
+            "swe_ci": {
+              "$Total": 0.02,
+              "AvgPerf%": 100.0,
+              "n": 1
+            }
+          },
+          "by_source_split": {
+            "new64": {
+              "$Total": 21.53,
+              "AvgPerf%": 56.25,
+              "n": 64
+            },
+            "old112": {
+              "$Total": 35.12,
+              "AvgPerf%": 30.36,
+              "n": 112
+            }
+          },
+          "decision_count": 176,
+          "decision_source": "random_seed_47",
+          "method": "Random_seed47",
+          "missing_decisions": 0,
+          "model_distribution": {
+            "MiniMax-M2.7": 25,
+            "Qwen3-Max": 21,
+            "claude-opus-4-6": 23,
+            "claude-sonnet-4-6": 28,
+            "glm-5": 19,
+            "gpt-5.4": 14,
+            "kimi-k2.5": 22,
+            "qwen3.5-plus": 24
+          },
+          "n": 176,
+          "note": "",
+          "rAcc_reward_oracle": 0.1193
+        },
+        {
+          "$Backend": 41.04,
+          "$Router": 0.0,
+          "$Total": 41.04,
+          "Apply_ok%": 64.2,
+          "AvgPerf%": 38.64,
+          "CumReg": 72.7,
+          "OracleAvgPerf%": 78.98,
+          "Perf/$": 0.94,
+          "TotInTok": 23128941,
+          "TotOutTok": 420175,
+          "by_bench": {
+            "featurebench": {
+              "$Total": 16.11,
+              "AvgPerf%": 71.43,
+              "n": 49
+            },
+            "longcli": {
+              "$Total": 4.94,
+              "AvgPerf%": 14.29,
+              "n": 14
+            },
+            "old112": {
+              "$Total": 18.89,
+              "AvgPerf%": 26.79,
+              "n": 112
+            },
+            "swe_ci": {
+              "$Total": 1.11,
+              "AvgPerf%": 100.0,
+              "n": 1
+            }
+          },
+          "by_source_split": {
+            "new64": {
+              "$Total": 22.16,
+              "AvgPerf%": 59.38,
+              "n": 64
+            },
+            "old112": {
+              "$Total": 18.89,
+              "AvgPerf%": 26.79,
+              "n": 112
+            }
+          },
+          "decision_count": 176,
+          "decision_source": "random_seed_48",
+          "method": "Random_seed48",
+          "missing_decisions": 0,
+          "model_distribution": {
+            "MiniMax-M2.7": 21,
+            "Qwen3-Max": 23,
+            "claude-opus-4-6": 23,
+            "claude-sonnet-4-6": 25,
+            "glm-5": 23,
+            "gpt-5.4": 25,
+            "kimi-k2.5": 17,
+            "qwen3.5-plus": 19
+          },
+          "n": 176,
+          "note": "",
+          "rAcc_reward_oracle": 0.1193
+        },
+        {
+          "$Backend": 45.93,
+          "$Router": 0.0,
+          "$Total": 45.93,
+          "Apply_ok%": 63.07,
+          "AvgPerf%": 39.77,
+          "CumReg": 71.2,
+          "OracleAvgPerf%": 78.98,
+          "Perf/$": 0.87,
+          "TotInTok": 27362386,
+          "TotOutTok": 468142,
+          "by_bench": {
+            "featurebench": {
+              "$Total": 15.99,
+              "AvgPerf%": 71.43,
+              "n": 49
+            },
+            "longcli": {
+              "$Total": 4.75,
+              "AvgPerf%": 7.14,
+              "n": 14
+            },
+            "old112": {
+              "$Total": 25.2,
+              "AvgPerf%": 29.46,
+              "n": 112
+            },
+            "swe_ci": {
+              "$Total": 0.0,
+              "AvgPerf%": 100.0,
+              "n": 1
+            }
+          },
+          "by_source_split": {
+            "new64": {
+              "$Total": 20.73,
+              "AvgPerf%": 57.81,
+              "n": 64
+            },
+            "old112": {
+              "$Total": 25.2,
+              "AvgPerf%": 29.46,
+              "n": 112
+            }
+          },
+          "decision_count": 176,
+          "decision_source": "random_seed_49",
+          "method": "Random_seed49",
+          "missing_decisions": 0,
+          "model_distribution": {
+            "MiniMax-M2.7": 26,
+            "Qwen3-Max": 20,
+            "claude-opus-4-6": 20,
+            "claude-sonnet-4-6": 31,
+            "glm-5": 23,
+            "gpt-5.4": 14,
+            "kimi-k2.5": 22,
+            "qwen3.5-plus": 20
+          },
+          "n": 176,
+          "note": "",
+          "rAcc_reward_oracle": 0.1364
+        },
+        {
+          "$Backend": 54.59,
+          "$Router": 0.0,
+          "$Total": 54.59,
+          "Apply_ok%": 66.48,
+          "AvgPerf%": 37.5,
+          "CumReg": 76.0,
+          "OracleAvgPerf%": 78.98,
+          "Perf/$": 0.69,
+          "TotInTok": 32121979,
+          "TotOutTok": 509007,
+          "by_bench": {
+            "featurebench": {
+              "$Total": 14.59,
+              "AvgPerf%": 57.14,
+              "n": 49
+            },
+            "longcli": {
+              "$Total": 4.97,
+              "AvgPerf%": 0.0,
+              "n": 14
+            },
+            "old112": {
+              "$Total": 35.03,
+              "AvgPerf%": 33.04,
+              "n": 112
+            },
+            "swe_ci": {
+              "$Total": 0.0,
+              "AvgPerf%": 100.0,
+              "n": 1
+            }
+          },
+          "by_source_split": {
+            "new64": {
+              "$Total": 19.55,
+              "AvgPerf%": 45.31,
+              "n": 64
+            },
+            "old112": {
+              "$Total": 35.03,
+              "AvgPerf%": 33.04,
+              "n": 112
+            }
+          },
+          "decision_count": 176,
+          "decision_source": "random_seed_50",
+          "method": "Random_seed50",
+          "missing_decisions": 0,
+          "model_distribution": {
+            "MiniMax-M2.7": 22,
+            "Qwen3-Max": 19,
+            "claude-opus-4-6": 22,
+            "claude-sonnet-4-6": 27,
+            "glm-5": 24,
+            "gpt-5.4": 19,
+            "kimi-k2.5": 23,
+            "qwen3.5-plus": 20
+          },
+          "n": 176,
+          "note": "",
+          "rAcc_reward_oracle": 0.0909
+        },
+        {
+          "$Backend": 55.0,
+          "$Router": 0.0,
+          "$Total": 55.0,
+          "Apply_ok%": 60.23,
+          "AvgPerf%": 34.66,
+          "CumReg": 81.1,
+          "OracleAvgPerf%": 78.98,
+          "Perf/$": 0.63,
+          "TotInTok": 31387270,
+          "TotOutTok": 490791,
+          "by_bench": {
+            "featurebench": {
+              "$Total": 17.31,
+              "AvgPerf%": 69.39,
+              "n": 49
+            },
+            "longcli": {
+              "$Total": 5.02,
+              "AvgPerf%": 7.14,
+              "n": 14
+            },
+            "old112": {
+              "$Total": 31.57,
+              "AvgPerf%": 22.32,
+              "n": 112
+            },
+            "swe_ci": {
+              "$Total": 1.11,
+              "AvgPerf%": 100.0,
+              "n": 1
+            }
+          },
+          "by_source_split": {
+            "new64": {
+              "$Total": 23.43,
+              "AvgPerf%": 56.25,
+              "n": 64
+            },
+            "old112": {
+              "$Total": 31.57,
+              "AvgPerf%": 22.32,
+              "n": 112
+            }
+          },
+          "decision_count": 176,
+          "decision_source": "random_seed_51",
+          "method": "Random_seed51",
+          "missing_decisions": 0,
+          "model_distribution": {
+            "MiniMax-M2.7": 17,
+            "Qwen3-Max": 24,
+            "claude-opus-4-6": 25,
+            "claude-sonnet-4-6": 21,
+            "glm-5": 19,
+            "gpt-5.4": 18,
+            "kimi-k2.5": 17,
+            "qwen3.5-plus": 35
+          },
+          "n": 176,
+          "note": "",
+          "rAcc_reward_oracle": 0.0909
+        }
+      ]
+    }
+  ],
+  "models": [
+    "claude-opus-4-6",
+    "claude-sonnet-4-6",
+    "gpt-5.4",
+    "glm-5",
+    "kimi-k2.5",
+    "MiniMax-M2.7",
+    "Qwen3-Max",
+    "qwen3.5-plus"
+  ],
+  "n": 176,
+  "random_seed_metrics": [
+    {
+      "$Backend": 55.03,
+      "$Router": 0.0,
+      "$Total": 55.03,
+      "Apply_ok%": 71.02,
+      "AvgPerf%": 44.89,
+      "CumReg": 63.1,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 0.82,
+      "TotInTok": 30990452,
+      "TotOutTok": 557439,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 17.99,
+          "AvgPerf%": 73.47,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 3.81,
+          "AvgPerf%": 0.0,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 32.43,
+          "AvgPerf%": 37.5,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.8,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 22.61,
+          "AvgPerf%": 57.81,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 32.43,
+          "AvgPerf%": 37.5,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "random_seed_42",
+      "method": "Random_seed42",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "MiniMax-M2.7": 19,
+        "Qwen3-Max": 18,
+        "claude-opus-4-6": 19,
+        "claude-sonnet-4-6": 31,
+        "glm-5": 32,
+        "gpt-5.4": 19,
+        "kimi-k2.5": 21,
+        "qwen3.5-plus": 17
+      },
+      "n": 176,
+      "note": "",
+      "rAcc_reward_oracle": 0.1307
+    },
+    {
+      "$Backend": 57.53,
+      "$Router": 0.0,
+      "$Total": 57.53,
+      "Apply_ok%": 67.61,
+      "AvgPerf%": 41.48,
+      "CumReg": 69.3,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 0.72,
+      "TotInTok": 32402175,
+      "TotOutTok": 502141,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 16.01,
+          "AvgPerf%": 73.47,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 4.03,
+          "AvgPerf%": 14.29,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 37.27,
+          "AvgPerf%": 30.36,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.22,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 20.26,
+          "AvgPerf%": 60.94,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 37.27,
+          "AvgPerf%": 30.36,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "random_seed_43",
+      "method": "Random_seed43",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "MiniMax-M2.7": 18,
+        "Qwen3-Max": 23,
+        "claude-opus-4-6": 24,
+        "claude-sonnet-4-6": 30,
+        "glm-5": 19,
+        "gpt-5.4": 25,
+        "kimi-k2.5": 17,
+        "qwen3.5-plus": 20
+      },
+      "n": 176,
+      "note": "",
+      "rAcc_reward_oracle": 0.1023
+    },
+    {
+      "$Backend": 48.89,
+      "$Router": 0.0,
+      "$Total": 48.89,
+      "Apply_ok%": 68.18,
+      "AvgPerf%": 44.32,
+      "CumReg": 63.5,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 0.91,
+      "TotInTok": 31573037,
+      "TotOutTok": 498868,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 14.22,
+          "AvgPerf%": 73.47,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 6.47,
+          "AvgPerf%": 21.43,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 27.4,
+          "AvgPerf%": 33.93,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.8,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 21.49,
+          "AvgPerf%": 62.5,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 27.4,
+          "AvgPerf%": 33.93,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "random_seed_44",
+      "method": "Random_seed44",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "MiniMax-M2.7": 21,
+        "Qwen3-Max": 18,
+        "claude-opus-4-6": 23,
+        "claude-sonnet-4-6": 29,
+        "glm-5": 19,
+        "gpt-5.4": 24,
+        "kimi-k2.5": 25,
+        "qwen3.5-plus": 17
+      },
+      "n": 176,
+      "note": "",
+      "rAcc_reward_oracle": 0.1193
+    },
+    {
+      "$Backend": 64.21,
+      "$Router": 0.0,
+      "$Total": 64.21,
+      "Apply_ok%": 69.89,
+      "AvgPerf%": 42.05,
+      "CumReg": 69.0,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 0.65,
+      "TotInTok": 33526908,
+      "TotOutTok": 519515,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 18.18,
+          "AvgPerf%": 69.39,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 5.57,
+          "AvgPerf%": 21.43,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 40.46,
+          "AvgPerf%": 32.14,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.0,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 23.75,
+          "AvgPerf%": 59.38,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 40.46,
+          "AvgPerf%": 32.14,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "random_seed_45",
+      "method": "Random_seed45",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "MiniMax-M2.7": 21,
+        "Qwen3-Max": 30,
+        "claude-opus-4-6": 29,
+        "claude-sonnet-4-6": 24,
+        "glm-5": 18,
+        "gpt-5.4": 18,
+        "kimi-k2.5": 21,
+        "qwen3.5-plus": 15
+      },
+      "n": 176,
+      "note": "",
+      "rAcc_reward_oracle": 0.1136
+    },
+    {
+      "$Backend": 65.72,
+      "$Router": 0.0,
+      "$Total": 65.72,
+      "Apply_ok%": 64.77,
+      "AvgPerf%": 40.34,
+      "CumReg": 72.2,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 0.61,
+      "TotInTok": 28407381,
+      "TotOutTok": 434037,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 12.92,
+          "AvgPerf%": 81.63,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 5.21,
+          "AvgPerf%": 0.0,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 47.58,
+          "AvgPerf%": 26.79,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.01,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 18.14,
+          "AvgPerf%": 64.06,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 47.58,
+          "AvgPerf%": 26.79,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "random_seed_46",
+      "method": "Random_seed46",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "MiniMax-M2.7": 25,
+        "Qwen3-Max": 26,
+        "claude-opus-4-6": 23,
+        "claude-sonnet-4-6": 25,
+        "glm-5": 18,
+        "gpt-5.4": 23,
+        "kimi-k2.5": 21,
+        "qwen3.5-plus": 15
+      },
+      "n": 176,
+      "note": "",
+      "rAcc_reward_oracle": 0.108
+    },
+    {
+      "$Backend": 56.65,
+      "$Router": 0.0,
+      "$Total": 56.65,
+      "Apply_ok%": 64.77,
+      "AvgPerf%": 39.77,
+      "CumReg": 72.3,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 0.7,
+      "TotInTok": 34236204,
+      "TotOutTok": 549282,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 17.2,
+          "AvgPerf%": 69.39,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 4.31,
+          "AvgPerf%": 7.14,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 35.12,
+          "AvgPerf%": 30.36,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.02,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 21.53,
+          "AvgPerf%": 56.25,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 35.12,
+          "AvgPerf%": 30.36,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "random_seed_47",
+      "method": "Random_seed47",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "MiniMax-M2.7": 25,
+        "Qwen3-Max": 21,
+        "claude-opus-4-6": 23,
+        "claude-sonnet-4-6": 28,
+        "glm-5": 19,
+        "gpt-5.4": 14,
+        "kimi-k2.5": 22,
+        "qwen3.5-plus": 24
+      },
+      "n": 176,
+      "note": "",
+      "rAcc_reward_oracle": 0.1193
+    },
+    {
+      "$Backend": 41.04,
+      "$Router": 0.0,
+      "$Total": 41.04,
+      "Apply_ok%": 64.2,
+      "AvgPerf%": 38.64,
+      "CumReg": 72.7,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 0.94,
+      "TotInTok": 23128941,
+      "TotOutTok": 420175,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 16.11,
+          "AvgPerf%": 71.43,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 4.94,
+          "AvgPerf%": 14.29,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 18.89,
+          "AvgPerf%": 26.79,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 1.11,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 22.16,
+          "AvgPerf%": 59.38,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 18.89,
+          "AvgPerf%": 26.79,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "random_seed_48",
+      "method": "Random_seed48",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "MiniMax-M2.7": 21,
+        "Qwen3-Max": 23,
+        "claude-opus-4-6": 23,
+        "claude-sonnet-4-6": 25,
+        "glm-5": 23,
+        "gpt-5.4": 25,
+        "kimi-k2.5": 17,
+        "qwen3.5-plus": 19
+      },
+      "n": 176,
+      "note": "",
+      "rAcc_reward_oracle": 0.1193
+    },
+    {
+      "$Backend": 45.93,
+      "$Router": 0.0,
+      "$Total": 45.93,
+      "Apply_ok%": 63.07,
+      "AvgPerf%": 39.77,
+      "CumReg": 71.2,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 0.87,
+      "TotInTok": 27362386,
+      "TotOutTok": 468142,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 15.99,
+          "AvgPerf%": 71.43,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 4.75,
+          "AvgPerf%": 7.14,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 25.2,
+          "AvgPerf%": 29.46,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.0,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 20.73,
+          "AvgPerf%": 57.81,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 25.2,
+          "AvgPerf%": 29.46,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "random_seed_49",
+      "method": "Random_seed49",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "MiniMax-M2.7": 26,
+        "Qwen3-Max": 20,
+        "claude-opus-4-6": 20,
+        "claude-sonnet-4-6": 31,
+        "glm-5": 23,
+        "gpt-5.4": 14,
+        "kimi-k2.5": 22,
+        "qwen3.5-plus": 20
+      },
+      "n": 176,
+      "note": "",
+      "rAcc_reward_oracle": 0.1364
+    },
+    {
+      "$Backend": 54.59,
+      "$Router": 0.0,
+      "$Total": 54.59,
+      "Apply_ok%": 66.48,
+      "AvgPerf%": 37.5,
+      "CumReg": 76.0,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 0.69,
+      "TotInTok": 32121979,
+      "TotOutTok": 509007,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 14.59,
+          "AvgPerf%": 57.14,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 4.97,
+          "AvgPerf%": 0.0,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 35.03,
+          "AvgPerf%": 33.04,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 0.0,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 19.55,
+          "AvgPerf%": 45.31,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 35.03,
+          "AvgPerf%": 33.04,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "random_seed_50",
+      "method": "Random_seed50",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "MiniMax-M2.7": 22,
+        "Qwen3-Max": 19,
+        "claude-opus-4-6": 22,
+        "claude-sonnet-4-6": 27,
+        "glm-5": 24,
+        "gpt-5.4": 19,
+        "kimi-k2.5": 23,
+        "qwen3.5-plus": 20
+      },
+      "n": 176,
+      "note": "",
+      "rAcc_reward_oracle": 0.0909
+    },
+    {
+      "$Backend": 55.0,
+      "$Router": 0.0,
+      "$Total": 55.0,
+      "Apply_ok%": 60.23,
+      "AvgPerf%": 34.66,
+      "CumReg": 81.1,
+      "OracleAvgPerf%": 78.98,
+      "Perf/$": 0.63,
+      "TotInTok": 31387270,
+      "TotOutTok": 490791,
+      "by_bench": {
+        "featurebench": {
+          "$Total": 17.31,
+          "AvgPerf%": 69.39,
+          "n": 49
+        },
+        "longcli": {
+          "$Total": 5.02,
+          "AvgPerf%": 7.14,
+          "n": 14
+        },
+        "old112": {
+          "$Total": 31.57,
+          "AvgPerf%": 22.32,
+          "n": 112
+        },
+        "swe_ci": {
+          "$Total": 1.11,
+          "AvgPerf%": 100.0,
+          "n": 1
+        }
+      },
+      "by_source_split": {
+        "new64": {
+          "$Total": 23.43,
+          "AvgPerf%": 56.25,
+          "n": 64
+        },
+        "old112": {
+          "$Total": 31.57,
+          "AvgPerf%": 22.32,
+          "n": 112
+        }
+      },
+      "decision_count": 176,
+      "decision_source": "random_seed_51",
+      "method": "Random_seed51",
+      "missing_decisions": 0,
+      "model_distribution": {
+        "MiniMax-M2.7": 17,
+        "Qwen3-Max": 24,
+        "claude-opus-4-6": 25,
+        "claude-sonnet-4-6": 21,
+        "glm-5": 19,
+        "gpt-5.4": 18,
+        "kimi-k2.5": 17,
+        "qwen3.5-plus": 35
+      },
+      "n": 176,
+      "note": "",
+      "rAcc_reward_oracle": 0.0909
+    }
+  ],
+  "table_rows": [
+    {
+      "ID_AvgPerf%": 57.0,
+      "ID_CumReg": 0.0,
+      "ID_Perf/$": 8.2,
+      "OOD_$Total": 24.11,
+      "OOD_Apply_ok%": 86.36,
+      "OOD_AvgPerf%": 78.98,
+      "OOD_CumReg": 0.0,
+      "OOD_Perf/$": 3.28,
+      "OOD_n": 176,
+      "Router": "Oracle",
+      "decision_source": "reward_oracle",
+      "group": "Bound",
+      "note": "Cost-aware reward oracle with epsilon=(1,-0.1)."
+    },
+    {
+      "ID_AvgPerf%": 49.98,
+      "ID_CumReg": 205.5,
+      "ID_Perf/$": 3.79,
+      "OOD_$Total": 68.29,
+      "OOD_Apply_ok%": 85.8,
+      "OOD_AvgPerf%": 73.3,
+      "OOD_CumReg": 14.4,
+      "OOD_Perf/$": 1.07,
+      "OOD_n": 176,
+      "Router": "ACRouter (ours)",
+      "decision_source": "acrouter_unique_release_ood176",
+      "group": "Agent-as-a-Router",
+      "note": "ACRouter release OOD176 decisions from run_acrouter_ood176.py. Source metrics file reports AvgPerf=73.3 CumReg=14.4 $Total=68.29."
+    },
+    {
+      "ID_AvgPerf%": 46.48,
+      "ID_CumReg": 307.4,
+      "ID_Perf/$": 4.49,
+      "OOD_$Total": 58.83,
+      "OOD_Apply_ok%": 85.23,
+      "OOD_AvgPerf%": 57.95,
+      "OOD_CumReg": 40.5,
+      "OOD_Perf/$": 0.99,
+      "OOD_n": 176,
+      "Router": "LinTS",
+      "decision_source": "online_lints_cost_aware",
+      "group": "Dynamic: Online Bandit",
+      "note": "Offline online replay over the OOD176 task order."
+    },
+    {
+      "ID_AvgPerf%": 46.84,
+      "ID_CumReg": 296.9,
+      "ID_Perf/$": 4.38,
+      "OOD_$Total": 54.32,
+      "OOD_Apply_ok%": 84.09,
+      "OOD_AvgPerf%": 57.95,
+      "OOD_CumReg": 40.0,
+      "OOD_Perf/$": 1.07,
+      "OOD_n": 176,
+      "Router": "LinUCB",
+      "decision_source": "online_linucb_cost_aware",
+      "group": "Dynamic: Online Bandit",
+      "note": "Offline online replay over the OOD176 task order."
+    },
+    {
+      "ID_AvgPerf%": 47.5,
+      "ID_CumReg": 277.4,
+      "ID_Perf/$": 3.69,
+      "OOD_AvgPerf%": null,
+      "OOD_CumReg": null,
+      "OOD_Perf/$": null,
+      "OOD_n": null,
+      "Router": "DimensionBest",
+      "decision_source": "not_applicable_to_ood",
+      "group": "Static: Heuristic",
+      "note": "DimensionBest remains not applicable to OOD because unseen agentic tasks lack a predefined dimension-to-model map."
+    },
+    {
+      "ID_AvgPerf%": 47.18,
+      "ID_CumReg": 286.7,
+      "ID_Perf/$": 6.07,
+      "OOD_$Total": 5.53,
+      "OOD_Apply_ok%": 48.3,
+      "OOD_AvgPerf%": 35.23,
+      "OOD_CumReg": 75.1,
+      "OOD_Perf/$": 6.37,
+      "OOD_n": 176,
+      "Router": "kNN Retrieval",
+      "decision_source": "online_knn_retrieval",
+      "group": "Static: Heuristic",
+      "note": "Online kNN replay using task metadata/hash features and observed chosen-model rewards."
+    },
+    {
+      "ID_AvgPerf%": 47.26,
+      "ID_CumReg": 284.4,
+      "ID_Perf/$": 6.27,
+      "OOD_$Total": 7.48,
+      "OOD_Apply_ok%": 42.05,
+      "OOD_AvgPerf%": 28.98,
+      "OOD_CumReg": 86.3,
+      "OOD_Perf/$": 3.88,
+      "OOD_n": 176,
+      "Router": "LogReg",
+      "decision_source": "old112_published_replay_plus_new64_router_or_modal:T1_LogReg_metrics.json",
+      "group": "Static: Trained Policy",
+      "note": "Old112 published decisions replayed; New64 is predicted by the saved LogReg router on real New64 prompts."
+    },
+    {
+      "ID_AvgPerf%": 47.22,
+      "ID_CumReg": 285.5,
+      "ID_Perf/$": 6.22,
+      "OOD_$Total": 6.06,
+      "OOD_Apply_ok%": 51.7,
+      "OOD_AvgPerf%": 31.82,
+      "OOD_CumReg": 81.2,
+      "OOD_Perf/$": 5.25,
+      "OOD_n": 176,
+      "Router": "RouteLLM-BERT",
+      "decision_source": "old112_published_replay_plus_new64_router_or_modal:T4_RouteLLM_SW_metrics.json",
+      "group": "Static: Trained Policy",
+      "note": "No published RouteLLM-BERT OOD112 decision file was found in this worktree; uses the available T4_RouteLLM_SW OOD112 decisions as the closest published RouteLLM proxy, and predicts New64 with the saved RouteLLM-SW router on real prompts."
+    },
+    {
+      "ID_AvgPerf%": 46.97,
+      "ID_CumReg": 292.8,
+      "ID_Perf/$": 6.11,
+      "OOD_$Total": 5.02,
+      "OOD_Apply_ok%": 18.75,
+      "OOD_AvgPerf%": 13.07,
+      "OOD_CumReg": 114.1,
+      "OOD_Perf/$": 2.6,
+      "OOD_n": 176,
+      "Router": "TF-IDF+MLP",
+      "decision_source": "old112_published_replay_plus_new64_router_or_modal:T2_TFIDF_MLP_metrics.json",
+      "group": "Static: Trained Policy",
+      "note": "Old112 published decisions replayed; New64 is predicted by the saved TF-IDF+MLP router on real New64 prompts."
+    },
+    {
+      "ID_AvgPerf%": 46.41,
+      "ID_CumReg": 309.1,
+      "ID_Perf/$": 6.82,
+      "OOD_$Total": 12.18,
+      "OOD_Apply_ok%": 58.52,
+      "OOD_AvgPerf%": 23.86,
+      "OOD_CumReg": 95.8,
+      "OOD_Perf/$": 1.96,
+      "OOD_n": 176,
+      "Router": "Qwen3.5-0.8B-Finetuned",
+      "decision_source": "old112_published_replay_plus_new64_router_or_modal:L2_ft08b_router_v3_metrics.json",
+      "group": "Static: Trained Policy",
+      "note": "Old112 uses the available L2_ft08b_router_v3 decisions; this file's published OOD112 resolved_pct is 25.00, not the 55.36 value in the provided LaTeX table. New64 uses modal extension."
+    },
+    {
+      "ID_AvgPerf%": 46.16,
+      "ID_CumReg": 316.5,
+      "ID_Perf/$": 6.19,
+      "OOD_$Total": 4.15,
+      "OOD_Apply_ok%": 48.3,
+      "OOD_AvgPerf%": 32.95,
+      "OOD_CumReg": 79.0,
+      "OOD_Perf/$": 7.93,
+      "OOD_n": 176,
+      "Router": "RouteLLM-MF",
+      "decision_source": "old112_published_replay_plus_new64_router_or_modal:T3_RouteLLM_MF_metrics.json",
+      "group": "Static: Trained Policy",
+      "note": "Old112 published decisions replayed; New64 is predicted by the saved RouteLLM-MF router on real New64 prompts."
+    },
+    {
+      "ID_AvgPerf%": 43.83,
+      "ID_CumReg": 387.1,
+      "ID_Perf/$": 1.29,
+      "OOD_$Total": 194.91,
+      "OOD_Apply_ok%": 90.34,
+      "OOD_AvgPerf%": 63.64,
+      "OOD_CumReg": 44.1,
+      "OOD_Perf/$": 0.33,
+      "OOD_n": 176,
+      "Router": "Always-Opus 4.6",
+      "decision_source": "always:claude-opus-4-6",
+      "group": "Single-Model Baselines",
+      "note": ""
+    },
+    {
+      "ID_AvgPerf%": 36.66,
+      "ID_CumReg": 593.3,
+      "ID_Perf/$": 12.62,
+      "OOD_$Total": 1.46,
+      "OOD_Apply_ok%": 53.41,
+      "OOD_AvgPerf%": 19.89,
+      "OOD_CumReg": 101.7,
+      "OOD_Perf/$": 13.6,
+      "OOD_n": 176,
+      "Router": "Always-Kimi-K2.5",
+      "decision_source": "always:kimi-k2.5",
+      "group": "Single-Model Baselines",
+      "note": ""
+    },
+    {
+      "ID_AvgPerf%": 37.16,
+      "ID_CumReg": 580.2,
+      "ID_Perf/$": 2.05,
+      "OOD_$Total": 6.21,
+      "OOD_Apply_ok%": 39.77,
+      "OOD_AvgPerf%": 27.27,
+      "OOD_CumReg": 89.2,
+      "OOD_Perf/$": 4.39,
+      "OOD_n": 176,
+      "Router": "Always-Qwen3.5-Plus",
+      "decision_source": "always:qwen3.5-plus",
+      "group": "Single-Model Baselines",
+      "note": ""
+    },
+    {
+      "ID_AvgPerf%": 38.75,
+      "ID_CumReg": 533.6,
+      "ID_Perf/$": 2.48,
+      "OOD_$Total": 54.46,
+      "OOD_Apply_ok%": 66.02,
+      "OOD_AvgPerf%": 40.34,
+      "OOD_CumReg": 71.04,
+      "OOD_Perf/$": 0.75,
+      "OOD_n": 176,
+      "Router": "Random",
+      "decision_source": "random_10_seed_mean",
+      "group": "Single-Model Baselines",
+      "note": "Mean over seeds 42-51; per-seed decisions are in decisions/."
+    }
+  ]
+}
