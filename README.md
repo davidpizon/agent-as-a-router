@@ -1,5 +1,7 @@
 # ACRouter
 
+**Project Homepage:** [https://www.omnisource.cn/agent-as-a-router](https://www.omnisource.cn/agent-as-a-router)
+
 ACRouter is an offline-reproducible routing framework for comparing an
 agent-style router against single-model, heuristic, online-bandit, retrieval,
 and trained-policy baselines on coding tasks.
@@ -314,5 +316,16 @@ python scripts/run_ood_sandbox.py \
 
 ## Citation
 
-If you use this bundle in a paper or artifact, cite the associated ACRouter
-paper and include the exact commit or archive hash of this repository.
+If you use this bundle, please cite the associated arXiv paper. The arXiv ID is
+left blank until the preprint is available.
+
+```bibtex
+@article{acrouter2026,
+  title         = {Agent-as-a-Router},
+  author        = {ACRouter Authors},
+  journal       = {arXiv preprint arXiv:},
+  year          = {2026},
+  archivePrefix = {arXiv},
+  eprint        = {},
+}
+```
