@@ -1,11 +1,15 @@
-# ACRouter
+# Agent-as-a-Router
 
 **Project Homepage:** [https://www.omnisource.cn/agent-as-a-router](https://www.omnisource.cn/agent-as-a-router)
 
 The official implementations of Agent-as-a-Router: Agentic Model Routing for
 Coding Tasks.
 
-ACRouter is an offline-reproducible routing framework for comparing an
+This repository also releases **CodeRouterBench**, the benchmark suite used to
+evaluate agentic model routing across in-distribution coding tasks and the
+current OOD176 agentic-programming task stream.
+
+ACRouter is a prototype agent-as-a-router framework for comparing an
 agent-style router against single-model, heuristic, online-bandit, retrieval,
 and trained-policy baselines on coding tasks.
 
@@ -208,7 +212,7 @@ install the package, use:
 export PYTHONPATH="$PWD/src:$PWD"
 ```
 
-## Data Included
+## CodeRouterBench Data
 
 The release keeps only data needed for offline scoring and reproduction.
 
