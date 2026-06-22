@@ -367,46 +367,9 @@ Run the secret scanner:
 bash scripts/check_no_secrets.sh
 ```
 
-## Legacy OOD112 Supplement
-
-OOD112 is the older SWE-MiniSandbox stream used during development. It remains
-in the repository for auditability and backward comparison, but OOD176 is the
-current OOD benchmark for public results.
-
-Run the legacy ID + OOD112 summary:
-
-```bash
-python scripts/run_all.py --output-dir outputs/tmp/run_all_legacy_ood112
-```
-
-Run legacy OOD112 with the bundled report cache:
-
-```bash
-python scripts/run_ood_sandbox.py \
-  --verifier report-cache \
-  --output-dir outputs/tmp/legacy_ood112
-```
-
-Run live Docker verification for a legacy OOD112 sandbox-command setup:
-
-```bash
-python scripts/run_ood_sandbox.py \
-  --verifier sandbox-command \
-  --grade-script scripts/grade_swebench_docker.py \
-  --dataset-path /path/to/SWE-bench_Verified/data/test-00000-of-00001.parquet \
-  --output-dir outputs/tmp/legacy_ood112_live
-```
-
 ## Notes And Caveats
 
 - No API keys are required. The release does not call external model APIs.
-- `RouteLLM-BERT` on OOD176 uses the available legacy RouteLLM-SW OOD112
-  decision replay as the closest published proxy for the Old112 portion; this
-  matches the recorded experiment note in `baseline_metrics.json`.
-- `Qwen3.5-0.8B-Finetuned` on OOD176 uses the available
-  legacy `L2_ft08b_router_v3` OOD112 decisions for the Old112 portion and a
-  modal New64 extension because no runnable finetuned-router API artifact is
-  bundled.
 - The saved `bert_mlp_router.pkl` checkpoint uses the TF-IDF fallback path, so
   OOD176 baseline replay does not download a sentence-transformer model.
 - `scripts/build_compact_data.py`, `scripts/build_ood_patch_bundle.py`, and
