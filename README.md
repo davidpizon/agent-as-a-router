@@ -418,11 +418,11 @@ python scripts/run_ood_sandbox.py \
 If you use this bundle, please cite the associated arXiv paper.
 
 ```bibtex
-@article{agent2025zhou,
+@article{agent2026zhou,
   title         = {Agent-as-a-Router: Agentic Model Routing for Coding Tasks},
   author        = {Pengfei Zhou, Zhiwei Tang, Yixing Ma, Jiasheng Tang, Yizeng Han, Zhenglin Wan, Fanqing Meng, Wei Wang, Bohan Zhuang, Wangbo Zhao, Yang You},
   journal       = {arXiv preprint arXiv:2507.05397},
-  year          = {2025},
+  year          = {2026},
   archivePrefix = {arXiv},
   eprint        = {2507.05397},
   url           = {https://arxiv.org/abs/2507.05397},
