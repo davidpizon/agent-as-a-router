@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -11,10 +12,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def run_python(*args: str) -> subprocess.CompletedProcess[str]:
+def run_python(*args: str, env: dict[str, str] | None = None) -> subprocess.CompletedProcess[str]:
+    process_env = os.environ.copy()
+    if env:
+        process_env.update(env)
     return subprocess.run(
         [sys.executable, *args],
         cwd=ROOT,
+        env=process_env,
         text=True,
         capture_output=True,
         check=True,
@@ -65,7 +70,68 @@ class DemoTests(unittest.TestCase):
             self.assertTrue(route["dry_run"])
             self.assertEqual(route["selected_tool"], "codex")
             self.assertEqual(route["command"][0], "codex")
+            self.assertEqual(route["command"][:2], ["codex", "exec"])
+            self.assertNotIn("--ask-for-approval", route["command"])
             self.assertIn("Patch this repository", route["command"][-1])
+
+    def test_commercial_cli_router_supports_command_prefix_env(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            run_python(
+                "demos/commercial_cli_router/router_mvp.py",
+                "--config",
+                "demos/commercial_cli_router/tools.example.json",
+                "--tool",
+                "codex",
+                "--prompt",
+                "Patch this repository so pytest passes",
+                "--output-dir",
+                tmp,
+                "--dry-run",
+                env={"ACROUTER_CODEX_PREFIX": "ccswitch run --"},
+            )
+            run_dir = next(Path(tmp).iterdir())
+            route = json.loads((run_dir / "route.json").read_text())
+
+            self.assertEqual(route["command"][:5], ["ccswitch", "run", "--", "codex", "exec"])
+            self.assertIn("Patch this repository", route["command"][-1])
+
+    def test_commercial_cli_router_executes_configured_command(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            config = {
+                "tools": [
+                    {
+                        "name": "codex",
+                        "enabled": True,
+                        "command": [
+                            sys.executable,
+                            "-c",
+                            "import sys; print(sys.argv[-1])",
+                        ],
+                        "prompt_mode": "append_arg",
+                    }
+                ],
+                "routes": [],
+            }
+            config_path = Path(tmp) / "tools.json"
+            output_dir = Path(tmp) / "runs"
+            config_path.write_text(json.dumps(config))
+
+            run_python(
+                "demos/commercial_cli_router/router_mvp.py",
+                "--config",
+                str(config_path),
+                "--tool",
+                "codex",
+                "--prompt",
+                "safe smoke prompt",
+                "--output-dir",
+                str(output_dir),
+            )
+            run_dir = next(output_dir.iterdir())
+            result = json.loads((run_dir / "result.json").read_text())
+
+            self.assertTrue(result["passed"])
+            self.assertIn("safe smoke prompt", result["stdout"])
 
     def test_commercial_cli_router_npm_wrapper_is_private(self) -> None:
         package_path = ROOT / "demos/commercial_cli_router/npm/package.json"

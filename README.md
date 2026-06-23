@@ -160,6 +160,9 @@ python demos/commercial_cli_router/router_mvp.py \
 Command templates live in
 `demos/commercial_cli_router/tools.example.json`. A private local npm wrapper is
 available under `demos/commercial_cli_router/npm/` for `npm link` workflows.
+Set `ACROUTER_CODEX_PREFIX`, `ACROUTER_CLAUDE_PREFIX`, or
+`ACROUTER_OPENCODE_PREFIX` to wrap a backend with `ccswitch` or another command
+switcher.
 
 ## Add Your Own Benchmark Or Models
 

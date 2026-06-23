@@ -24,13 +24,31 @@ python demos/commercial_cli_router/router_mvp.py \
 
 The default templates are in `tools.example.json`:
 
-- `codex`: `codex exec --ask-for-approval never --sandbox workspace-write --cd {workdir} <prompt>`
+- `codex`: `codex exec --sandbox workspace-write --cd {workdir} <prompt>`
 - `claude-code`: `claude --print --permission-mode acceptEdits <prompt>`
 - `opencode`: `opencode run <prompt>`
 
 Edit those templates if your installed CLI uses a different non-interactive
 form. `router_mvp.py --dry-run` writes the exact rendered command to
 `demos/commercial_cli_router/runs/`.
+
+## ccswitch Or Other Wrappers
+
+Each tool supports an optional `command_prefix` list and a `command_prefix_env`.
+This lets you wrap the selected product CLI without changing router code:
+
+```bash
+ACROUTER_CODEX_PREFIX="ccswitch" \
+python demos/commercial_cli_router/router_mvp.py \
+  --tool codex \
+  --prompt "Patch this repository so pytest passes" \
+  --dry-run
+```
+
+The rendered command becomes `ccswitch codex exec ... <prompt>`. If your local
+wrapper uses a different syntax, either set a longer prefix such as
+`ACROUTER_CODEX_PREFIX="ccswitch run --"` or copy
+`tools.ccswitch.example.json` and edit `command_prefix` directly.
 
 ## Local npm Wrapper
 

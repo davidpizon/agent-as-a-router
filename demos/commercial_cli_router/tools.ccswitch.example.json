@@ -3,7 +3,8 @@
     {
       "name": "codex",
       "enabled": true,
-      "description": "Codex CLI non-interactive exec. The prompt is appended as the final argument.",
+      "description": "Codex through an outer ccswitch-style wrapper. Edit command_prefix to match your local ccswitch syntax.",
+      "command_prefix": ["ccswitch"],
       "command_prefix_env": "ACROUTER_CODEX_PREFIX",
       "command": [
         "codex",
@@ -18,7 +19,8 @@
     {
       "name": "claude-code",
       "enabled": true,
-      "description": "Claude Code non-interactive print mode. The prompt is appended as the final argument.",
+      "description": "Claude Code through an outer ccswitch-style wrapper.",
+      "command_prefix": ["ccswitch"],
       "command_prefix_env": "ACROUTER_CLAUDE_PREFIX",
       "command": [
         "claude",
@@ -31,7 +33,8 @@
     {
       "name": "opencode",
       "enabled": true,
-      "description": "opencode command template. Edit this command if your installed opencode CLI uses a different non-interactive form.",
+      "description": "opencode through an outer ccswitch-style wrapper.",
+      "command_prefix": ["ccswitch"],
       "command_prefix_env": "ACROUTER_OPENCODE_PREFIX",
       "command": [
         "opencode",

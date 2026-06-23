@@ -139,7 +139,10 @@ The default command templates are in
 `demos/commercial_cli_router/tools.example.json`. A private-by-default npm
 wrapper is included under `demos/commercial_cli_router/npm/` for local
 `npm link` usage; public npm or product marketplace publication still requires
-maintainer account credentials and an explicit release step.
+maintainer account credentials and an explicit release step. The templates also
+support optional `command_prefix` and `command_prefix_env` fields, so users can
+wrap a backend with `ccswitch` or a similar command switcher without changing
+router code.
 
 ## Hugging Face Download
 

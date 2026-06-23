@@ -7,6 +7,7 @@ import argparse
 import json
 import os
 import re
+import shlex
 import shutil
 import subprocess
 import sys
@@ -39,7 +40,7 @@ def find_tool(config: dict[str, Any], name: str) -> dict[str, Any]:
 
 
 def tool_available(tool: dict[str, Any]) -> bool:
-    command = tool.get("command") or []
+    command = command_prefix(tool) + list(tool.get("command") or [])
     return bool(command and shutil.which(command[0]))
 
 
@@ -69,7 +70,10 @@ def render_command(tool: dict[str, Any], prompt: str, workdir: Path) -> list[str
         "prompt": prompt,
         "workdir": str(workdir),
     }
-    rendered = [str(part).format(**replacements) for part in tool.get("command", [])]
+    rendered = [
+        str(part).format(**replacements)
+        for part in command_prefix(tool) + list(tool.get("command", []))
+    ]
     if tool.get("prompt_mode", "append_arg") == "append_arg" and "{prompt}" not in " ".join(
         map(str, tool.get("command", []))
     ):
@@ -79,6 +83,14 @@ def render_command(tool: dict[str, Any], prompt: str, workdir: Path) -> list[str
 
 def sanitize_name(value: str) -> str:
     return re.sub(r"[^A-Za-z0-9_.-]+", "_", value).strip("_") or "tool"
+
+
+def command_prefix(tool: dict[str, Any]) -> list[str]:
+    prefix = list(tool.get("command_prefix", []))
+    prefix_env = tool.get("command_prefix_env")
+    if prefix_env and os.environ.get(prefix_env):
+        prefix.extend(shlex.split(os.environ[prefix_env]))
+    return [str(part) for part in prefix]
 
 
 def new_run_dir(output_root: Path) -> Path:
