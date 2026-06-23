@@ -10,19 +10,16 @@
     "rows": 79992,
     "source_matrix": "data/matrices/phase1_acrouter_v2/obs_matrix_clean.json",
     "splits": {
-      "test": {
+      "id_test": {
         "cost_usd_total": 174.711472,
         "missing_token_records": 42,
         "rows": 23352,
+        "source_splits": [
+          "test"
+        ],
         "tasks": 2919
       },
-      "train": {
-        "cost_usd_total": 381.895299,
-        "missing_token_records": 95,
-        "rows": 48536,
-        "tasks": 6067
-      },
-      "trainval": {
+      "probing": {
         "cost_usd_total": 443.468272,
         "missing_token_records": 106,
         "rows": 56640,
@@ -31,12 +28,6 @@
           "val"
         ],
         "tasks": 7080
-      },
-      "val": {
-        "cost_usd_total": 61.572972,
-        "missing_token_records": 11,
-        "rows": 8104,
-        "tasks": 1013
       }
     },
     "tasks": 9999

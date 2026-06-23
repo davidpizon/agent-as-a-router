@@ -27,14 +27,12 @@ class BundleIntegrityTests(unittest.TestCase):
         self.assertEqual(summary["id"]["missing_cells"], 0)
         self.assertEqual(summary["id"]["missing_token_records"], 148)
         self.assertAlmostEqual(summary["id"]["cost_usd_total"], 618.179743, places=6)
-        self.assertEqual(summary["id"]["splits"]["train"]["rows"], 48536)
-        self.assertEqual(summary["id"]["splits"]["train"]["tasks"], 6067)
-        self.assertEqual(summary["id"]["splits"]["val"]["rows"], 8104)
-        self.assertEqual(summary["id"]["splits"]["val"]["tasks"], 1013)
-        self.assertEqual(summary["id"]["splits"]["test"]["rows"], 23352)
-        self.assertEqual(summary["id"]["splits"]["test"]["tasks"], 2919)
-        self.assertEqual(summary["id"]["splits"]["trainval"]["rows"], 56640)
-        self.assertEqual(summary["id"]["splits"]["trainval"]["tasks"], 7080)
+        self.assertEqual(summary["id"]["splits"]["probing"]["rows"], 56640)
+        self.assertEqual(summary["id"]["splits"]["probing"]["tasks"], 7080)
+        self.assertEqual(summary["id"]["splits"]["probing"]["source_splits"], ["train", "val"])
+        self.assertEqual(summary["id"]["splits"]["id_test"]["rows"], 23352)
+        self.assertEqual(summary["id"]["splits"]["id_test"]["tasks"], 2919)
+        self.assertEqual(summary["id"]["splits"]["id_test"]["source_splits"], ["test"])
         self.assertEqual(summary["ood176"]["tasks"], 176)
         self.assertEqual(summary["ood176"]["models"], 8)
         self.assertEqual(summary["ood176"]["rows"], 1408)
@@ -49,6 +47,7 @@ class BundleIntegrityTests(unittest.TestCase):
                 [
                     "task_id",
                     "split",
+                    "source_split",
                     "dimension",
                     "model",
                     "score",
@@ -67,19 +66,31 @@ class BundleIntegrityTests(unittest.TestCase):
             rows = list(reader)
             nonzero_cost_rows = sum(float(row["cost_usd"] or 0.0) > 0 for row in rows)
             missing_token_rows = sum(row["cost_source"] == "missing_token_record" for row in rows)
+            self.assertEqual({row["split"] for row in rows}, {"probing", "id_test"})
+            self.assertEqual({row["source_split"] for row in rows}, {"train", "val", "test"})
             self.assertEqual(nonzero_cost_rows, 79844)
             self.assertEqual(missing_token_rows, 148)
             self.assertAlmostEqual(sum(float(row["cost_usd"] or 0.0) for row in rows), 618.179743, places=6)
 
         for split, expected_rows in [
-            ("train", 48536),
-            ("val", 8104),
+            ("probing", 56640),
             ("test", 23352),
-            ("trainval", 56640),
         ]:
             with (root / f"id_{split}_results_long.csv").open(newline="") as fh:
                 reader = csv.DictReader(fh)
                 self.assertEqual(sum(1 for _ in reader), expected_rows)
+
+        for obsolete in [
+            "id_train_results_long.csv",
+            "id_train_tasks.jsonl",
+            "id_val_results_long.csv",
+            "id_val_tasks.jsonl",
+            "id_trainval_results_long.csv",
+            "id_trainval_tasks.jsonl",
+            "id_id_test_results_long.csv",
+            "id_id_test_tasks.jsonl",
+        ]:
+            self.assertFalse((root / obsolete).exists(), obsolete)
 
         with ood_path.open(newline="") as fh:
             reader = csv.DictReader(fh)
@@ -92,8 +103,7 @@ class BundleIntegrityTests(unittest.TestCase):
         text = (ROOT / "data" / "coderouterbench" / "README.md").read_text()
         self.assertIn("configs:", text)
         self.assertIn("config_name: default", text)
-        self.assertIn("path: id_train_results_long.csv", text)
-        self.assertIn("path: id_val_results_long.csv", text)
+        self.assertIn("path: id_probing_results_long.csv", text)
         self.assertIn("path: id_test_results_long.csv", text)
         self.assertIn("path: ood176_results_long.csv", text)
         self.assertIn("https://huggingface.co/papers/2606.22902", text)

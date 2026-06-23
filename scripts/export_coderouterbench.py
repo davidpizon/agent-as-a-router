@@ -117,6 +117,7 @@ def export_id_tables(output_dir: Path) -> dict[str, Any]:
     fieldnames = [
         "task_id",
         "split",
+        "source_split",
         "dimension",
         "model",
         "score",
@@ -132,6 +133,8 @@ def export_id_tables(output_dir: Path) -> dict[str, Any]:
     missing_token_records = 0
     result_rows = []
     for task_id, model_cells in obs_matrix.items():
+        source_split = split_by_task.get(task_id, "")
+        public_split = "id_test" if source_split == "test" else "probing"
         for model in CANONICAL_MODELS:
             cell = model_cells.get(model)
             if cell is None:
@@ -154,7 +157,8 @@ def export_id_tables(output_dir: Path) -> dict[str, Any]:
             result_rows.append(
                 {
                     "task_id": task_id,
-                    "split": split_by_task.get(task_id, ""),
+                    "split": public_split,
+                    "source_split": source_split,
                     "dimension": dimension_by_task.get(task_id, ""),
                     "model": model,
                     "score": cell.get("perf", ""),
@@ -172,7 +176,8 @@ def export_id_tables(output_dir: Path) -> dict[str, Any]:
     task_rows = [
         {
             "task_id": task_id,
-            "split": split_by_task.get(task_id, ""),
+            "split": "id_test" if split_by_task.get(task_id, "") == "test" else "probing",
+            "source_split": split_by_task.get(task_id, ""),
             "dimension": dimension_by_task.get(task_id, ""),
         }
         for task_id in obs_matrix
@@ -180,11 +185,27 @@ def export_id_tables(output_dir: Path) -> dict[str, Any]:
     write_jsonl(output_dir / "id_tasks.jsonl", task_rows)
 
     split_summaries = {}
-    for split in ["train", "val", "test"]:
+    for obsolete in [
+        "id_train_results_long.csv",
+        "id_train_tasks.jsonl",
+        "id_val_results_long.csv",
+        "id_val_tasks.jsonl",
+        "id_trainval_results_long.csv",
+        "id_trainval_tasks.jsonl",
+        "id_id_test_results_long.csv",
+        "id_id_test_tasks.jsonl",
+    ]:
+        (output_dir / obsolete).unlink(missing_ok=True)
+
+    split_files = {
+        "probing": ("id_probing_results_long.csv", "id_probing_tasks.jsonl"),
+        "id_test": ("id_test_results_long.csv", "id_test_tasks.jsonl"),
+    }
+    for split, (results_file, tasks_file) in split_files.items():
         split_results = [row for row in result_rows if row["split"] == split]
         split_tasks = [row for row in task_rows if row["split"] == split]
-        write_csv(output_dir / f"id_{split}_results_long.csv", fieldnames, split_results)
-        write_jsonl(output_dir / f"id_{split}_tasks.jsonl", split_tasks)
+        write_csv(output_dir / results_file, fieldnames, split_results)
+        write_jsonl(output_dir / tasks_file, split_tasks)
         split_summaries[split] = {
             "tasks": len(split_tasks),
             "rows": len(split_results),
@@ -194,23 +215,8 @@ def export_id_tables(output_dir: Path) -> dict[str, Any]:
             "missing_token_records": sum(
                 1 for row in split_results if row["cost_source"] == "missing_token_record"
             ),
+            "source_splits": sorted({row["source_split"] for row in split_results}),
         }
-
-    trainval_results = [row for row in result_rows if row["split"] in {"train", "val"}]
-    trainval_tasks = [row for row in task_rows if row["split"] in {"train", "val"}]
-    write_csv(output_dir / "id_trainval_results_long.csv", fieldnames, trainval_results)
-    write_jsonl(output_dir / "id_trainval_tasks.jsonl", trainval_tasks)
-    split_summaries["trainval"] = {
-        "tasks": len(trainval_tasks),
-        "rows": len(trainval_results),
-        "cost_usd_total": round(
-            sum(float(row["cost_usd"] or 0.0) for row in trainval_results), 6
-        ),
-        "missing_token_records": sum(
-            1 for row in trainval_results if row["cost_source"] == "missing_token_record"
-        ),
-        "source_splits": ["train", "val"],
-    }
 
     return {
         "tasks": len(obs_matrix),
@@ -277,11 +283,9 @@ tags:
 configs:
   - config_name: default
     data_files:
-      - split: train
-        path: id_train_results_long.csv
-      - split: validation
-        path: id_val_results_long.csv
-      - split: test
+      - split: probing
+        path: id_probing_results_long.csv
+      - split: id_test
         path: id_test_results_long.csv
       - split: ood176
         path: ood176_results_long.csv
@@ -289,20 +293,14 @@ configs:
     data_files:
       - split: all
         path: id_results_long.csv
-      - split: trainval
-        path: id_trainval_results_long.csv
   - config_name: task_metadata
     data_files:
       - split: id_all
         path: id_tasks.jsonl
-      - split: id_train
-        path: id_train_tasks.jsonl
-      - split: id_validation
-        path: id_val_tasks.jsonl
+      - split: probing
+        path: id_probing_tasks.jsonl
       - split: id_test
         path: id_test_tasks.jsonl
-      - split: id_trainval
-        path: id_trainval_tasks.jsonl
       - split: ood176
         path: ood176_tasks.jsonl
 ---
@@ -321,13 +319,11 @@ one recorded result for each of the eight canonical backend models.
 ## Canonical Files
 
 - `id_results_long.csv`: {summary["id"]["tasks"]:,} in-distribution tasks x 8 models = {summary["id"]["rows"]:,} result rows.
-- `id_train_results_long.csv`: {summary["id"]["splits"]["train"]["tasks"]:,} train tasks x 8 models = {summary["id"]["splits"]["train"]["rows"]:,} result rows.
-- `id_val_results_long.csv`: {summary["id"]["splits"]["val"]["tasks"]:,} validation tasks x 8 models = {summary["id"]["splits"]["val"]["rows"]:,} result rows.
-- `id_test_results_long.csv`: {summary["id"]["splits"]["test"]["tasks"]:,} test tasks x 8 models = {summary["id"]["splits"]["test"]["rows"]:,} result rows.
-- `id_trainval_results_long.csv`: train + validation combined for two-way train/test experiments.
+- `id_probing_results_long.csv`: {summary["id"]["splits"]["probing"]["tasks"]:,} probing tasks x 8 models = {summary["id"]["splits"]["probing"]["rows"]:,} result rows. This is the merged original train + validation set.
+- `id_test_results_long.csv`: {summary["id"]["splits"]["id_test"]["tasks"]:,} ID test tasks x 8 models = {summary["id"]["splits"]["id_test"]["rows"]:,} result rows.
 - `ood176_results_long.csv`: 176 OOD tasks x 8 models = {summary["ood176"]["rows"]:,} result rows.
 - `id_tasks.jsonl`: ID task metadata with split and dimension.
-- `id_train_tasks.jsonl`, `id_val_tasks.jsonl`, `id_test_tasks.jsonl`, and `id_trainval_tasks.jsonl`: split-specific ID task metadata.
+- `id_probing_tasks.jsonl` and `id_test_tasks.jsonl`: split-specific ID task metadata.
 - `ood176_tasks.jsonl`: OOD176 task prompts and metadata.
 - `models.json`: canonical model list and USD pricing metadata.
 - `summary.json`: counts, source paths, and integrity checks.
@@ -348,7 +344,8 @@ For ID rows, `cost_usd` is computed from `data/id/tokens.jsonl` and
 `id_results_long.csv` columns:
 
 - `task_id`
-- `split`: `train`, `val`, or `test`
+- `split`: `probing` or `id_test`
+- `source_split`: original internal split, one of `train`, `val`, or `test`
 - `dimension`
 - `model`
 - `score`: task score/performance used by the routing oracle

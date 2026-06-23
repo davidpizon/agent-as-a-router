@@ -114,12 +114,11 @@ core tables are complete task-by-model result matrices:
 
 - `data/coderouterbench/id_results_long.csv`: 9,999 ID tasks x 8 backend models
   = 79,992 result rows.
-- `data/coderouterbench/id_train_results_long.csv`: 6,067 train tasks x 8
-  backend models = 48,536 result rows.
-- `data/coderouterbench/id_test_results_long.csv`: 2,919 test tasks x 8
+- `data/coderouterbench/id_probing_results_long.csv`: 7,080 probing tasks x 8
+  backend models = 56,640 result rows. This is the merged original train +
+  validation set.
+- `data/coderouterbench/id_test_results_long.csv`: 2,919 ID test tasks x 8
   backend models = 23,352 result rows.
-- `data/coderouterbench/id_trainval_results_long.csv`: train + validation
-  combined for two-way train/test experiments.
 - `data/coderouterbench/ood176_results_long.csv`: 176 OOD tasks x 8 backend
   models = 1,408 result rows.
 - `data/coderouterbench/id_tasks.jsonl` and
@@ -281,10 +280,9 @@ The release keeps data needed for offline scoring and reproduction. The
 canonical public benchmark files are in `data/coderouterbench/`:
 
 - `id_results_long.csv`: one row per ID task/model result.
-- `id_train_results_long.csv`, `id_val_results_long.csv`, and
-  `id_test_results_long.csv`: official split-specific ID result tables.
-- `id_trainval_results_long.csv`: train + validation combined for two-way
-  train/test experiments.
+- `id_probing_results_long.csv`: original train + validation merged into the
+  probing set.
+- `id_test_results_long.csv`: held-out ID test set, labeled `id_test`.
 - `ood176_results_long.csv`: one row per OOD176 task/model result.
 - `id_tasks.jsonl` and `ood176_tasks.jsonl`: task metadata.
 - `models.json`: the eight canonical backend models and USD pricing metadata.

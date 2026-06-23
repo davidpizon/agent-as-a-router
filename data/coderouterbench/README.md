@@ -14,11 +14,9 @@ tags:
 configs:
   - config_name: default
     data_files:
-      - split: train
-        path: id_train_results_long.csv
-      - split: validation
-        path: id_val_results_long.csv
-      - split: test
+      - split: probing
+        path: id_probing_results_long.csv
+      - split: id_test
         path: id_test_results_long.csv
       - split: ood176
         path: ood176_results_long.csv
@@ -26,20 +24,14 @@ configs:
     data_files:
       - split: all
         path: id_results_long.csv
-      - split: trainval
-        path: id_trainval_results_long.csv
   - config_name: task_metadata
     data_files:
       - split: id_all
         path: id_tasks.jsonl
-      - split: id_train
-        path: id_train_tasks.jsonl
-      - split: id_validation
-        path: id_val_tasks.jsonl
+      - split: probing
+        path: id_probing_tasks.jsonl
       - split: id_test
         path: id_test_tasks.jsonl
-      - split: id_trainval
-        path: id_trainval_tasks.jsonl
       - split: ood176
         path: ood176_tasks.jsonl
 ---
@@ -58,13 +50,11 @@ one recorded result for each of the eight canonical backend models.
 ## Canonical Files
 
 - `id_results_long.csv`: 9,999 in-distribution tasks x 8 models = 79,992 result rows.
-- `id_train_results_long.csv`: 6,067 train tasks x 8 models = 48,536 result rows.
-- `id_val_results_long.csv`: 1,013 validation tasks x 8 models = 8,104 result rows.
-- `id_test_results_long.csv`: 2,919 test tasks x 8 models = 23,352 result rows.
-- `id_trainval_results_long.csv`: train + validation combined for two-way train/test experiments.
+- `id_probing_results_long.csv`: 7,080 probing tasks x 8 models = 56,640 result rows. This is the merged original train + validation set.
+- `id_test_results_long.csv`: 2,919 ID test tasks x 8 models = 23,352 result rows.
 - `ood176_results_long.csv`: 176 OOD tasks x 8 models = 1,408 result rows.
 - `id_tasks.jsonl`: ID task metadata with split and dimension.
-- `id_train_tasks.jsonl`, `id_val_tasks.jsonl`, `id_test_tasks.jsonl`, and `id_trainval_tasks.jsonl`: split-specific ID task metadata.
+- `id_probing_tasks.jsonl` and `id_test_tasks.jsonl`: split-specific ID task metadata.
 - `ood176_tasks.jsonl`: OOD176 task prompts and metadata.
 - `models.json`: canonical model list and USD pricing metadata.
 - `summary.json`: counts, source paths, and integrity checks.
@@ -85,7 +75,8 @@ For ID rows, `cost_usd` is computed from `data/id/tokens.jsonl` and
 `id_results_long.csv` columns:
 
 - `task_id`
-- `split`: `train`, `val`, or `test`
+- `split`: `probing` or `id_test`
+- `source_split`: original internal split, one of `train`, `val`, or `test`
 - `dimension`
 - `model`
 - `score`: task score/performance used by the routing oracle
