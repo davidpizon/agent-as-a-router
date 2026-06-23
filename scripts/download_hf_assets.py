@@ -13,6 +13,8 @@ sys.path.insert(0, str(REPO_ROOT / "src"))
 
 from acrouter_repro.hf_assets import (  # noqa: E402
     DEFAULT_DATASET_REPO_ID,
+    DEFAULT_ROUTER_MODEL_DIR,
+    DEFAULT_ROUTER_MODEL_REPO_ID,
     MINIMAL_DATASET_PATTERNS,
     default_dataset_dir,
     download_coderouterbench,
@@ -45,17 +47,26 @@ def parse_args() -> argparse.Namespace:
         help="Download only files needed for OOD176 replay instead of the full dataset snapshot.",
     )
     parser.add_argument(
+        "--with-router-model",
+        action="store_true",
+        help=(
+            "Also download the public trained router adapter "
+            f"({DEFAULT_ROUTER_MODEL_REPO_ID})."
+        ),
+    )
+    parser.add_argument(
         "--router-model-repo",
         default=None,
         help=(
-            "Optional Hugging Face model repo id for a public router adapter. "
-            "No public Lance1573 model repo is required for the offline benchmark replay."
+            "Optional Hugging Face model repo id for a router adapter. "
+            f"Overrides the default {DEFAULT_ROUTER_MODEL_REPO_ID} when "
+            "--with-router-model is set."
         ),
     )
     parser.add_argument(
         "--model-dir",
         type=Path,
-        default=REPO_ROOT / ".hf" / "router_model",
+        default=REPO_ROOT / DEFAULT_ROUTER_MODEL_DIR,
         help="Local directory for the optional router model snapshot.",
     )
     parser.add_argument(
@@ -90,19 +101,26 @@ def main() -> None:
     print(f"summary={format_path(layout.summary, REPO_ROOT)}")
     print(f"models={format_path(layout.models, REPO_ROOT)}")
 
-    if args.router_model_repo:
+    router_model_repo = args.router_model_repo
+    if args.with_router_model and not router_model_repo:
+        router_model_repo = DEFAULT_ROUTER_MODEL_REPO_ID
+
+    if router_model_repo:
         model_dir = download_router_model(
-            repo_id=args.router_model_repo,
+            repo_id=router_model_repo,
             local_dir=args.model_dir,
             revision=args.model_revision,
             token=args.token,
             max_workers=args.hf_max_workers,
         )
-        print(f"router_model_repo={args.router_model_repo}")
+        print(f"router_model_repo={router_model_repo}")
         print(f"router_model_dir={format_path(model_dir, REPO_ROOT)}")
     else:
         print("router_model_repo=skipped")
-        print("router_model_note=no public router model repo is required for offline replay")
+        print(
+            "router_model_note=offline replay does not require model weights; "
+            f"use --with-router-model to fetch {DEFAULT_ROUTER_MODEL_REPO_ID}"
+        )
 
 
 if __name__ == "__main__":

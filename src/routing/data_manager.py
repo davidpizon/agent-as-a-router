@@ -73,12 +73,7 @@ class DataManager:
         (1) max performance, (2) min dollar cost, (3) min total tokens, (4) alphabetical.
         """
         pricing_path = _PROJECT_ROOT / "data" / "matrices" / "phase1_id" / "model_pricing.json"
-        legacy_pricing_path = _PROJECT_ROOT / "configs" / "model_pricing.json"
-        pricing = {}
-        if pricing_path.exists():
-            pricing = json.loads(pricing_path.read_text()).get("models", {})
-        elif legacy_pricing_path.exists():
-            pricing = json.loads(legacy_pricing_path.read_text()).get("models", {})
+        pricing = json.loads(pricing_path.read_text()).get("models", {})
         for task_id, record in self.oracle_labels.items():
             scores = record["all_scores"]
             available = [m for m in BACKEND_MODELS if m in scores]

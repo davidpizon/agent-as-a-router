@@ -18,7 +18,7 @@ from pathlib import Path
 
 import numpy as np
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.routing.base import BACKEND_MODELS, MODEL_DATA_ALIASES, MODEL_DATA_REVERSE
@@ -26,17 +26,22 @@ from src.routing.data_manager import DataManager
 from src.routing.baselines import RandomRouter, AlwaysBestRouter, DimensionRouter
 from src.routing.cascade_router import CascadeRouter
 
-# Pricing from model_pricing.json (USD per 1M tokens)
-PRICING = {
-    "claude-sonnet-4-6": {"input": 3.0, "output": 15.0},
-    "claude-opus-4-6":   {"input": 5.0, "output": 25.0},
-    "kimi-k2.5":         {"input": 0.01, "output": 2.9},
-    "gpt-5.4":           {"input": 2.5, "output": 15.0},
-    "MiniMax-M2.7":      {"input": 1.0, "output": 3.0},
-    "qwen3.5-plus":      {"input": 0.11, "output": 0.66},
-    "glm-5":             {"input": 0.8, "output": 3.0},
-    "Qwen3-Max":         {"input": 0.34, "output": 1.38},
-}
+# Pricing from the release pricing table (USD per 1M tokens).
+PRICING_PATH = PROJECT_ROOT / "data" / "matrices" / "phase1_id" / "model_pricing.json"
+
+
+def load_pricing() -> dict[str, dict[str, float]]:
+    payload = json.loads(PRICING_PATH.read_text())["models"]
+    return {
+        model: {
+            "input": float(row["input_per_1m"]),
+            "output": float(row["output_per_1m"]),
+        }
+        for model, row in payload.items()
+    }
+
+
+PRICING = load_pricing()
 
 # EARouter uses sonnet as the router LLM
 ROUTER_PRICING = PRICING["claude-sonnet-4-6"]
@@ -55,7 +60,7 @@ def compute_task_cost(dm, task_id, model):
     tokens = dm.get_backend_tokens(task_id, model)
     inp = tokens.get("input_tokens", 0)
     out = tokens.get("output_tokens", 0)
-    p = PRICING.get(model, {"input": 1.0, "output": 3.0})
+    p = PRICING[model]
     return inp * p["input"] / 1e6 + out * p["output"] / 1e6
 
 
@@ -74,7 +79,7 @@ def evaluate_on_core(dm, decisions, core_task_ids, router_pricing=None):
     Returns dict with all Table 4 metrics.
     """
     if router_pricing is None:
-        router_pricing = PRICING.get("kimi-k2.5", {"input": 0.01, "output": 2.9})
+        router_pricing = PRICING["kimi-k2.5"]
     core_set = set(core_task_ids)
 
     total_perf = 0.0

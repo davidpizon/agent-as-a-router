@@ -201,14 +201,24 @@ python scripts/run_baselines_ood176.py \
 ```
 
 As of the latest public Hugging Face check on 2026-06-23,
-`Lance1573/CodeRouterBench` is public and no public model repo exists under
-`Lance1573`. Offline benchmark replay does not need model weights. If a public
-router adapter is uploaded later, download it with the repo id that appears on
-Hugging Face. The maintainer upload helper currently stages
-`Lance1573/acrouter-qwen35-08b-router-lora`, but that repo is not required by
-the benchmark replay commands above.
+`Lance1573/CodeRouterBench` is public, and the optional trained router adapter
+is public at
+[`Lance1573/acrouter-qwen35-08b-router-lora`](https://huggingface.co/Lance1573/acrouter-qwen35-08b-router-lora).
+Offline benchmark replay does not need model weights; download the adapter only
+when you want to inspect or integrate the trained Qwen3.5-0.8B router.
 
 ```bash
+# Benchmark only, no model weights.
+python scripts/download_hf_assets.py --minimal --dataset-dir .hf/CodeRouterBench
+
+# Benchmark plus the public trained router adapter.
+python scripts/download_hf_assets.py \
+  --minimal \
+  --with-router-model \
+  --dataset-dir .hf/CodeRouterBench \
+  --model-dir .hf/router_model
+
+# Or use a custom public/private router model repo.
 python scripts/download_hf_assets.py \
   --router-model-repo owner_or_org/router_model_repo \
   --model-dir .hf/router_model
@@ -459,7 +469,8 @@ bash scripts/upload_coderouterbench_hf.sh
 
 The script stages the dataset card, canonical CodeRouterBench tables, raw
 matrices, reference outputs, evidence artifacts, config example, and custom
-benchmark example, then performs one `hf upload ... --delete "*"` commit so the
+benchmark example. It deliberately excludes `outputs/tmp/` validation scratch
+runs. The final upload performs one `hf upload ... --delete "*"` commit so the
 remote dataset is overwritten instead of appended to. To target another dataset
 repo:
 

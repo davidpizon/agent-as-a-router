@@ -15,6 +15,8 @@ import warnings
 DEFAULT_DATASET_REPO_ID = "Lance1573/CodeRouterBench"
 DEFAULT_DATASET_REPO_TYPE = "dataset"
 DEFAULT_DATASET_DIR = Path(".hf") / "CodeRouterBench"
+DEFAULT_ROUTER_MODEL_REPO_ID = "Lance1573/acrouter-qwen35-08b-router-lora"
+DEFAULT_ROUTER_MODEL_DIR = Path(".hf") / "router_model"
 MINIMAL_DATASET_PATTERNS = (
     "summary.json",
     "models.json",

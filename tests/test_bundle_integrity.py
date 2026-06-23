@@ -28,7 +28,7 @@ class BundleIntegrityTests(unittest.TestCase):
     def test_runtime_pricing_constants_match_release_pricing(self) -> None:
         sys.path.insert(0, str(ROOT / "src"))
 
-        from acrouter_repro.constants import PRICING_TABLE6  # noqa: PLC0415
+        import acrouter_repro.constants as constants  # noqa: PLC0415
 
         pricing = read_json(ROOT / "data" / "matrices" / "phase1_id" / "model_pricing.json")
         expected = {
@@ -38,7 +38,8 @@ class BundleIntegrityTests(unittest.TestCase):
             )
             for model, row in pricing["models"].items()
         }
-        self.assertEqual(PRICING_TABLE6, expected)
+        self.assertEqual(constants._PRICING_PATH, ROOT / "data" / "matrices" / "phase1_id" / "model_pricing.json")
+        self.assertEqual(constants.PRICING_TABLE6, expected)
 
     def test_coderouterbench_models_match_release_pricing(self) -> None:
         pricing = read_json(ROOT / "data" / "matrices" / "phase1_id" / "model_pricing.json")
@@ -197,6 +198,7 @@ class BundleIntegrityTests(unittest.TestCase):
         self.assertIn("https://arxiv.org/abs/2606.22902", text)
         self.assertIn("arxiv:2606.22902", text)
         self.assertIn("https://github.com/LanceZPF/agent-as-a-router", text)
+        self.assertIn("https://huggingface.co/Lance1573/acrouter-qwen35-08b-router-lora", text)
         self.assertNotIn("path: data/id/voter_decisions", text)
 
     def test_ood176_matrix_is_complete_and_path_sanitized(self) -> None:

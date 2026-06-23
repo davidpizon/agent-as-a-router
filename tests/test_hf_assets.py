@@ -11,6 +11,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from acrouter_repro.hf_assets import (
     DEFAULT_DATASET_REPO_ID,
+    DEFAULT_ROUTER_MODEL_REPO_ID,
     HF_OOD_MATRIX,
     format_path,
     resolve_hf_layout,
@@ -19,6 +20,9 @@ from acrouter_repro.hf_assets import (
 
 
 class HFAssetTests(unittest.TestCase):
+    def test_default_public_router_model_repo_is_documented(self) -> None:
+        self.assertEqual(DEFAULT_ROUTER_MODEL_REPO_ID, "Lance1573/acrouter-qwen35-08b-router-lora")
+
     def test_resolve_ood_matrix_prefers_explicit_path(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

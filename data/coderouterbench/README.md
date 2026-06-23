@@ -44,6 +44,8 @@ one recorded result for each of the eight canonical backend models.
 
 Repository: [https://github.com/LanceZPF/agent-as-a-router](https://github.com/LanceZPF/agent-as-a-router)
 
+Optional trained router adapter: [Lance1573/acrouter-qwen35-08b-router-lora](https://huggingface.co/Lance1573/acrouter-qwen35-08b-router-lora)
+
 ## Associated Paper
 
 - Hugging Face Daily Papers: [Agent-as-a-Router: Agentic Model Routing for Coding Tasks](https://huggingface.co/papers/2606.22902)

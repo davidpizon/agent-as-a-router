@@ -46,6 +46,7 @@ cp -a data/matrices/. "$stage_dir/raw_matrices/"
 
 mkdir -p "$stage_dir/outputs"
 cp -a outputs/. "$stage_dir/outputs/"
+rm -rf "$stage_dir/outputs/tmp"
 
 mkdir -p "$stage_dir/evidence"
 cp -a agentic-artifacts/evidence/. "$stage_dir/evidence/"
