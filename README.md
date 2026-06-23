@@ -8,8 +8,8 @@
   <a href="https://www.omnisource.cn/agent-as-a-router">
     <img alt="Homepage" src="https://img.shields.io/badge/Homepage-agent--as--a--router-1f6feb?style=for-the-badge">
   </a>
-  <a href="https://arxiv.org/abs/2507.05397">
-    <img alt="Paper" src="https://img.shields.io/badge/Paper-arXiv%3A2507.05397-b31b1b?style=for-the-badge">
+  <a href="https://huggingface.co/papers/2606.22902">
+    <img alt="Paper" src="https://img.shields.io/badge/Paper-HF%20Daily%20Papers%3A2606.22902-b31b1b?style=for-the-badge">
   </a>
   <a href="https://huggingface.co/datasets/Lance1573/CodeRouterBench">
     <img alt="Benchmark" src="https://img.shields.io/badge/Benchmark-CodeRouterBench-ff9f1c?style=for-the-badge">
@@ -19,7 +19,7 @@
 <p>
   <a href="https://www.omnisource.cn/agent-as-a-router"><strong>Homepage</strong></a>
   |
-  <a href="https://arxiv.org/abs/2507.05397"><strong>Paper</strong></a>
+  <a href="https://huggingface.co/papers/2606.22902"><strong>Paper</strong></a>
   |
   <a href="https://huggingface.co/datasets/Lance1573/CodeRouterBench"><strong>Benchmark</strong></a>
 </p>
@@ -29,6 +29,9 @@
 This repository also releases **CodeRouterBench**, the benchmark suite used to
 evaluate agentic model routing across in-distribution coding tasks and the
 current OOD176 agentic-programming task stream.
+
+Paper page: [Hugging Face Daily Papers](https://huggingface.co/papers/2606.22902)
+and [arXiv:2606.22902](https://arxiv.org/abs/2606.22902).
 
 ACRouter is a prototype agent-as-a-router framework for comparing an
 agent-style router against single-model, heuristic, online-bandit, retrieval,
@@ -384,10 +387,11 @@ If you use this bundle, please cite the associated arXiv paper.
 @article{agent2026zhou,
   title         = {Agent-as-a-Router: Agentic Model Routing for Coding Tasks},
   author        = {Pengfei Zhou, Zhiwei Tang, Yixing Ma, Jiasheng Tang, Yizeng Han, Zhenglin Wan, Fanqing Meng, Wei Wang, Bohan Zhuang, Wangbo Zhao, Yang You},
-  journal       = {arXiv preprint arXiv:2507.05397},
+  journal       = {arXiv preprint arXiv:2606.22902},
   year          = {2026},
   archivePrefix = {arXiv},
-  eprint        = {2507.05397},
-  url           = {https://arxiv.org/abs/2507.05397},
+  eprint        = {2606.22902},
+  url           = {https://arxiv.org/abs/2606.22902},
+  note          = {Hugging Face Daily Papers: https://huggingface.co/papers/2606.22902},
 }
 ```

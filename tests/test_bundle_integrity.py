@@ -70,6 +70,9 @@ class BundleIntegrityTests(unittest.TestCase):
         self.assertIn("path: id_val_results_long.csv", text)
         self.assertIn("path: id_test_results_long.csv", text)
         self.assertIn("path: ood176_results_long.csv", text)
+        self.assertIn("https://huggingface.co/papers/2606.22902", text)
+        self.assertIn("https://arxiv.org/abs/2606.22902", text)
+        self.assertIn("arxiv:2606.22902", text)
         self.assertNotIn("path: data/id/voter_decisions", text)
 
     def test_ood176_matrix_is_complete_and_path_sanitized(self) -> None:

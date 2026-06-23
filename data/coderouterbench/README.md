@@ -10,6 +10,7 @@ tags:
   - benchmark
   - model-routing
   - tabular
+  - arxiv:2606.22902
 configs:
   - config_name: default
     data_files:
@@ -48,6 +49,11 @@ configs:
 CodeRouterBench is the benchmark data released with Agent-as-a-Router. The
 core unit is a complete task-by-model result matrix: every benchmark task has
 one recorded result for each of the eight canonical backend models.
+
+## Associated Paper
+
+- Hugging Face Daily Papers: [Agent-as-a-Router: Agentic Model Routing for Coding Tasks](https://huggingface.co/papers/2606.22902)
+- arXiv: [2606.22902](https://arxiv.org/abs/2606.22902)
 
 ## Canonical Files
 
