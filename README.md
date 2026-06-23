@@ -340,6 +340,24 @@ repo:
 bash scripts/upload_coderouterbench_hf.sh owner_or_org/CodeRouterBench
 ```
 
+To publish the trained Qwen3.5-0.8B router LoRA adapter, keep the local
+training export next to this repository at `../Agentic_efficiency` or set
+`ACROUTER_LOCAL_ROOT` to that directory, then run:
+
+```bash
+bash scripts/upload_qwen08b_router_hf.sh
+```
+
+The default target is
+`Lance1573/acrouter-qwen35-08b-router-lora`. The script uploads only the PEFT
+adapter, tokenizer assets, compact training config, evaluation metrics, and a
+model card. It rewrites local base-model paths to the public
+`Qwen/Qwen3.5-0.8B` identifier before upload. To target another model repo:
+
+```bash
+bash scripts/upload_qwen08b_router_hf.sh owner_or_org/acrouter-qwen35-08b-router-lora
+```
+
 ## Dependency Sets
 
 `requirements.txt` is the recommended default environment. It covers tests,
