@@ -370,8 +370,6 @@ bash scripts/check_no_secrets.sh
 ## Notes And Caveats
 
 - No API keys are required. The release does not call external model APIs.
-- The saved `bert_mlp_router.pkl` checkpoint uses the TF-IDF fallback path, so
-  OOD176 baseline replay does not download a sentence-transformer model.
 - `scripts/build_compact_data.py`, `scripts/build_ood_patch_bundle.py`, and
   `scripts/build_sandbox_cache.py` are maintainer scripts for rebuilding compact
   data from raw local experiment outputs. Normal users do not need them.
