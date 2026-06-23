@@ -65,6 +65,29 @@ Router outputs, baseline decisions, and paper tables are derived artifacts. The
 benchmark itself is defined by the task tables above plus the per-model result
 rows.
 
+## Download Or Load
+
+Download the full public benchmark snapshot:
+
+```bash
+hf download Lance1573/CodeRouterBench --repo-type dataset --local-dir .hf/CodeRouterBench
+```
+
+Load the default benchmark tables with `datasets`:
+
+```python
+from datasets import load_dataset
+
+bench = load_dataset("Lance1573/CodeRouterBench")
+print(bench)
+```
+
+The GitHub reproduction scripts can use the downloaded snapshot directly via:
+
+```bash
+python scripts/run_acrouter_ood176.py --hf-dataset-dir .hf/CodeRouterBench
+```
+
 For ID rows, `cost_usd` is computed from `data/id/tokens.jsonl` and
 `data/matrices/phase1_id/model_pricing.json`. Rows without a token record leave
 `cost_usd`, `input_tokens`, and `output_tokens` blank unless the compact log

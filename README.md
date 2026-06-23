@@ -50,7 +50,7 @@ calls.
 
 The current public OOD benchmark in this bundle is **OOD176**. The older
 OOD112/SWE-MiniSandbox reproduction is kept only as a legacy supplement and is
-documented near the end.
+documented under `data/README.md` and the agentic artifact evidence tables.
 
 ## Quick Start
 
@@ -88,6 +88,79 @@ python scripts/run_pipeline.py --config configs/eval_pipeline.example.json
 The commands above write to `outputs/tmp/` so the checked-in reference outputs
 are not overwritten. Omit `--output-dir` to regenerate the reference locations
 under `outputs/`.
+
+## Hugging Face Download
+
+The current public benchmark repo is
+[`Lance1573/CodeRouterBench`](https://huggingface.co/datasets/Lance1573/CodeRouterBench).
+Its root contains the canonical task-by-model tables, and the original nested
+matrices are under `raw_matrices/`. The OOD176 replay matrix used by the scripts
+is:
+
+```text
+raw_matrices/phase2_ood/unified/matrix_acrouter_ood176.json
+```
+
+Download the benchmark snapshot into a git-ignored local directory:
+
+```bash
+python scripts/download_hf_assets.py --dataset-dir .hf/CodeRouterBench
+
+# Faster OOD176 replay-only download:
+python scripts/download_hf_assets.py --minimal --dataset-dir .hf/CodeRouterBench
+
+# Equivalent direct HF CLI command:
+hf download Lance1573/CodeRouterBench \
+  --repo-type dataset \
+  --local-dir .hf/CodeRouterBench
+```
+
+`download_hf_assets.py` first tries `huggingface_hub.snapshot_download`. If a
+local HTTP decoder fails, it falls back to a standard-library downloader with
+`Accept-Encoding: identity`.
+
+Run the OOD reproductions directly from that Hugging Face snapshot:
+
+```bash
+python scripts/run_acrouter_ood176.py \
+  --hf-dataset-dir .hf/CodeRouterBench \
+  --output-dir outputs/tmp/acrouter_ood176_hf
+
+python scripts/run_baselines_ood176.py \
+  --hf-dataset-dir .hf/CodeRouterBench \
+  --output-dir outputs/tmp/baselines_ood176_hf
+```
+
+You can also let the script download the dataset first:
+
+```bash
+python scripts/run_acrouter_ood176.py --download-hf --output-dir outputs/tmp/acrouter_ood176_hf
+
+# Or download only the OOD176 replay files before running:
+python scripts/run_acrouter_ood176.py \
+  --download-hf \
+  --minimal-hf \
+  --output-dir outputs/tmp/acrouter_ood176_hf
+
+python scripts/run_baselines_ood176.py \
+  --download-hf \
+  --minimal-hf \
+  --output-dir outputs/tmp/baselines_ood176_hf
+```
+
+As of the latest public Hugging Face check on 2026-06-23,
+`Lance1573/CodeRouterBench` is public and no public model repo exists under
+`Lance1573`. Offline benchmark replay does not need model weights. If a public
+router adapter is uploaded later, download it with the repo id that appears on
+Hugging Face. The maintainer upload helper currently stages
+`Lance1573/acrouter-qwen35-08b-router-lora`, but that repo is not required by
+the benchmark replay commands above.
+
+```bash
+python scripts/download_hf_assets.py \
+  --router-model-repo owner_or_org/router_model_repo \
+  --model-dir .hf/router_model
+```
 
 ## Expected Outputs
 

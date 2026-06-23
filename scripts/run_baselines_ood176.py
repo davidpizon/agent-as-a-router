@@ -30,9 +30,18 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 MATRIX_PATH = REPO_ROOT / "data" / "matrices" / "phase2_ood" / "unified" / "matrix_acrouter_ood176.json"
 SWE112_RESULTS = REPO_ROOT / "data" / "baseline_inputs" / "swebench112_results"
 DEFAULT_OUTPUT_DIR = REPO_ROOT / "outputs" / "baselines_ood176"
+DEFAULT_HF_DATASET_DIR = REPO_ROOT / ".hf" / "CodeRouterBench"
 ACROUTER_DECISIONS = REPO_ROOT / "outputs" / "acrouter_ood176" / "ood_decisions.jsonl"
 ACROUTER_METRICS = REPO_ROOT / "outputs" / "acrouter_ood176" / "ood_metrics.json"
 TRAINED_MODELS_DIR = REPO_ROOT / "data" / "baseline_inputs" / "trained_models"
+
+sys.path.insert(0, str(REPO_ROOT / "src"))
+from acrouter_repro.hf_assets import (  # noqa: E402
+    MINIMAL_DATASET_PATTERNS,
+    download_coderouterbench,
+    format_path,
+    resolve_ood_matrix,
+)
 
 EPS1 = 1.0
 EPS2 = -0.1
@@ -911,6 +920,7 @@ def latex_escape(text: str) -> str:
 def write_outputs(
     output_dir: Path,
     bundle: MatrixBundle,
+    matrix_path: Path,
     metrics: list[dict],
     table_rows: list[dict],
     seed_metrics: list[dict],
@@ -918,7 +928,7 @@ def write_outputs(
 ) -> None:
     payload = {
         "generated_utc": generated_utc,
-        "matrix_path": str(MATRIX_PATH.relative_to(REPO_ROOT)),
+        "matrix_path": format_path(matrix_path, REPO_ROOT),
         "n": len(bundle.ids),
         "models": bundle.models,
         "eps": {"perf": EPS1, "cost": EPS2},
@@ -986,11 +996,62 @@ def print_summary(metrics: list[dict], table_rows: list[dict]) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--matrix", type=Path, default=MATRIX_PATH)
+    parser.add_argument(
+        "--matrix",
+        type=Path,
+        default=None,
+        help="Explicit OOD176 matrix path. Overrides --hf-dataset-dir.",
+    )
+    parser.add_argument(
+        "--hf-dataset-dir",
+        type=Path,
+        default=None,
+        help=(
+            "Path to a Hugging Face CodeRouterBench snapshot, for example "
+            ".hf/CodeRouterBench after `hf download Lance1573/CodeRouterBench "
+            "--repo-type dataset --local-dir .hf/CodeRouterBench`."
+        ),
+    )
+    parser.add_argument(
+        "--download-hf",
+        action="store_true",
+        help="Download the CodeRouterBench dataset snapshot before resolving paths.",
+    )
+    parser.add_argument(
+        "--minimal-hf",
+        action="store_true",
+        help="With --download-hf, download only files needed for OOD176 replay.",
+    )
+    parser.add_argument("--hf-dataset-repo-id", default="Lance1573/CodeRouterBench")
+    parser.add_argument("--hf-revision", default=None)
+    parser.add_argument(
+        "--hf-max-workers",
+        type=int,
+        default=1,
+        help="Parallel HF download workers used with --download-hf.",
+    )
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     args = parser.parse_args()
 
-    bundle = load_matrix(args.matrix)
+    hf_dataset_dir = args.hf_dataset_dir
+    if args.download_hf:
+        hf_dataset_dir = hf_dataset_dir or DEFAULT_HF_DATASET_DIR
+        layout = download_coderouterbench(
+            local_dir=hf_dataset_dir,
+            repo_id=args.hf_dataset_repo_id,
+            revision=args.hf_revision,
+            allow_patterns=MINIMAL_DATASET_PATTERNS if args.minimal_hf else None,
+            max_workers=args.hf_max_workers,
+        )
+        hf_dataset_dir = layout.root
+
+    matrix_path = resolve_ood_matrix(
+        repo_root=REPO_ROOT,
+        matrix=args.matrix,
+        hf_dataset_dir=hf_dataset_dir,
+    )
+
+    bundle = load_matrix(matrix_path)
     if len(bundle.ids) != 176:
         raise RuntimeError(f"expected OOD176 matrix, got {len(bundle.ids)}")
     for task_id in bundle.ids:
@@ -1002,8 +1063,9 @@ def main() -> None:
     metrics, _, seed_metrics = build_results(bundle, args.output_dir)
     table_rows = with_table_rows(metrics)
     verify_outputs(bundle, metrics, table_rows)
-    write_outputs(args.output_dir, bundle, metrics, table_rows, seed_metrics, generated)
+    write_outputs(args.output_dir, bundle, matrix_path, metrics, table_rows, seed_metrics, generated)
     print_summary(metrics, table_rows)
+    print(f"matrix={format_path(matrix_path, REPO_ROOT)}")
     print(f"wrote {args.output_dir}")
 
 
