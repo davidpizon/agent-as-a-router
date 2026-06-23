@@ -1,0 +1,59 @@
+{
+  "tools": [
+    {
+      "name": "codex",
+      "enabled": true,
+      "description": "Codex CLI non-interactive exec. The prompt is appended as the final argument.",
+      "command": [
+        "codex",
+        "exec",
+        "--ask-for-approval",
+        "never",
+        "--sandbox",
+        "workspace-write",
+        "--cd",
+        "{workdir}"
+      ],
+      "prompt_mode": "append_arg"
+    },
+    {
+      "name": "claude-code",
+      "enabled": true,
+      "description": "Claude Code non-interactive print mode. The prompt is appended as the final argument.",
+      "command": [
+        "claude",
+        "--print",
+        "--permission-mode",
+        "acceptEdits"
+      ],
+      "prompt_mode": "append_arg"
+    },
+    {
+      "name": "opencode",
+      "enabled": true,
+      "description": "opencode command template. Edit this command if your installed opencode CLI uses a different non-interactive form.",
+      "command": [
+        "opencode",
+        "run"
+      ],
+      "prompt_mode": "append_arg"
+    }
+  ],
+  "routes": [
+    {
+      "name": "repo_patch",
+      "tool": "codex",
+      "keywords": ["patch", "repo", "test", "pytest", "refactor", "git"]
+    },
+    {
+      "name": "explain_or_plan",
+      "tool": "claude-code",
+      "keywords": ["explain", "plan", "review", "docs", "readme"]
+    },
+    {
+      "name": "fallback_open_tool",
+      "tool": "opencode",
+      "keywords": ["local", "oss", "open"]
+    }
+  ]
+}

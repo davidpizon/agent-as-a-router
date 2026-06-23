@@ -40,6 +40,12 @@ class BundleIntegrityTests(unittest.TestCase):
         }
         self.assertEqual(PRICING_TABLE6, expected)
 
+    def test_coderouterbench_models_match_release_pricing(self) -> None:
+        pricing = read_json(ROOT / "data" / "matrices" / "phase1_id" / "model_pricing.json")
+        models = read_json(ROOT / "data" / "coderouterbench" / "models.json")["models"]
+        exported = {row["model"]: {key: value for key, value in row.items() if key != "model"} for row in models}
+        self.assertEqual(exported, pricing["models"])
+
     def test_coderouterbench_tables_are_complete(self) -> None:
         root = ROOT / "data" / "coderouterbench"
         summary = read_json(root / "summary.json")

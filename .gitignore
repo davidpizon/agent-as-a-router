@@ -8,4 +8,5 @@ build/
 dist/
 outputs/tmp/
 configs/outputs/
+demos/**/runs/
 *.log

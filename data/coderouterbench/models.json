@@ -22,7 +22,7 @@
       "tier": "high"
     },
     {
-      "_note": "CNY pricing converted to USD in the source pricing table.",
+      "_note": "pricing CNY-> USD",
       "input_per_1m": 0.8,
       "model": "glm-5",
       "output_per_1m": 3.0,
@@ -30,7 +30,7 @@
       "tier": "low"
     },
     {
-      "_note": "CNY pricing converted to USD in the source pricing table.",
+      "_note": "kimi-k2.5 pricing CNY-> USD",
       "input_per_1m": 0.01,
       "model": "kimi-k2.5",
       "output_per_1m": 2.9,
@@ -38,7 +38,7 @@
       "tier": "mid"
     },
     {
-      "_note": "CNY pricing converted to USD in the source pricing table.",
+      "_note": "pricing CNY-> USD",
       "input_per_1m": 1.0,
       "model": "MiniMax-M2.7",
       "output_per_1m": 3.0,
@@ -46,7 +46,7 @@
       "tier": "mid"
     },
     {
-      "_note": "qwen-max-latest CNY pricing converted to USD in the source pricing table.",
+      "_note": "qwen-max-latest pricing CNY-> USD",
       "input_per_1m": 0.34,
       "model": "Qwen3-Max",
       "output_per_1m": 1.38,
@@ -54,7 +54,7 @@
       "tier": "mid"
     },
     {
-      "_note": "CNY pricing converted to USD in the source pricing table.",
+      "_note": "pricing CNY-> USD",
       "input_per_1m": 0.11,
       "model": "qwen3.5-plus",
       "output_per_1m": 0.66,

@@ -1,0 +1,23 @@
+{
+  "temperature": 0.2,
+  "max_tokens": 4096,
+  "system_prompt": "You are a senior coding assistant. Produce correct, self-contained Python solutions.",
+  "apis": [
+    {
+      "name": "openrouter",
+      "base_url": "https://openrouter.ai/api/v1",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "referer_env": "ACROUTER_HTTP_REFERER",
+      "title": "ACRouter API coding solver demo",
+      "models": [
+        {"name": "openai/gpt-4o-mini"},
+        {"name": "anthropic/claude-3.5-sonnet"},
+        {"name": "qwen/qwen3-coder"}
+      ]
+    }
+  ],
+  "verifier": {
+    "command": "python -m py_compile {solution}",
+    "timeout_seconds": 30
+  }
+}

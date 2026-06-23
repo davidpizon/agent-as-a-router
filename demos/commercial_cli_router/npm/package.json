@@ -1,0 +1,10 @@
+{
+  "name": "@acrouter/commercial-cli-router-demo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local npm wrapper for the ACRouter Codex/Claude Code/opencode router MVP.",
+  "bin": {
+    "acrouter-cli-router": "bin/acrouter-cli-router.js"
+  },
+  "license": "MIT"
+}

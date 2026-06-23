@@ -1,0 +1,4 @@
+Write a Python function `two_sum(nums, target)` that returns the indices of two
+numbers whose sum is `target`. If several answers exist, return any one of
+them. Include a small `if __name__ == "__main__"` block that demonstrates the
+function on `[2, 7, 11, 15]` and target `9`.

@@ -83,6 +83,64 @@ The commands above write to `outputs/tmp/` so the checked-in reference outputs
 are not overwritten. Omit `--output-dir` to regenerate the reference locations
 under `outputs/`.
 
+## Demo Routers
+
+The repository includes two hands-on demos for users who want to apply
+Agent-as-a-Router to their own coding workflow, not only replay the benchmark.
+
+### Route Coding Problems Through APIs
+
+`demos/api_coding_solver/` lets a user define one or more OpenAI-compatible API
+backends plus a model list, then route a programming problem through the
+candidates until a configured verifier passes. The default config targets
+OpenRouter, but no token is stored in the repository.
+
+```bash
+export OPENROUTER_API_KEY="<set-this-in-your-shell>"
+
+# Inspect the request plan without calling a live API.
+python demos/api_coding_solver/solve.py \
+  --config demos/api_coding_solver/models.example.json \
+  --problem-file demos/api_coding_solver/problems/two_sum.txt \
+  --dry-run
+
+# Live run against the configured OpenRouter model list.
+python demos/api_coding_solver/solve.py \
+  --config demos/api_coding_solver/models.example.json \
+  --problem-file demos/api_coding_solver/problems/two_sum.txt
+```
+
+Add or replace providers in `models.example.json` by changing `base_url`,
+`api_key_env`, and `models`. The demo writes every prompt, response,
+`solution.py`, verifier result, and final summary under its local `runs/`
+folder.
+
+### Route Into Codex, Claude Code, Or opencode
+
+`demos/commercial_cli_router/` is a small router MVP for mature commercial
+coding-agent products. It selects Codex, Claude Code, or opencode from a
+configurable keyword policy, then invokes the selected local CLI. Users keep
+their existing product login and permission model.
+
+```bash
+# Show the selected backend and exact rendered command.
+python demos/commercial_cli_router/router_mvp.py \
+  --prompt "Patch this repository so pytest passes" \
+  --dry-run
+
+# Force one backend for a real local project.
+python demos/commercial_cli_router/router_mvp.py \
+  --tool codex \
+  --workdir /path/to/project \
+  --prompt "Run the tests and fix the failing parser case"
+```
+
+The default command templates are in
+`demos/commercial_cli_router/tools.example.json`. A private-by-default npm
+wrapper is included under `demos/commercial_cli_router/npm/` for local
+`npm link` usage; public npm or product marketplace publication still requires
+maintainer account credentials and an explicit release step.
+
 ## Hugging Face Download
 
 The current public benchmark repo is
@@ -321,6 +379,8 @@ them with relative paths so agents can load only the evidence they need.
 ```text
 agentic-artifacts/               Agent-readable manifest, claims, evidence map
 configs/eval_pipeline.example.json Custom evaluation pipeline example
+demos/api_coding_solver/          API-backed coding problem router demo
+demos/commercial_cli_router/      Codex/Claude Code/opencode router MVP
 examples/                         Custom benchmark and inference demos
 src/acrouter_repro/              ACRouter reproduction package
 src/routing/                     Baseline router implementations
