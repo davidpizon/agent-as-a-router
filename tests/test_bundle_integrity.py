@@ -25,6 +25,21 @@ def expected_cost(model: str, input_tokens: int, output_tokens: int, pricing: di
 
 
 class BundleIntegrityTests(unittest.TestCase):
+    def test_runtime_pricing_constants_match_release_pricing(self) -> None:
+        sys.path.insert(0, str(ROOT / "src"))
+
+        from acrouter_repro.constants import PRICING_TABLE6  # noqa: PLC0415
+
+        pricing = read_json(ROOT / "data" / "matrices" / "phase1_id" / "model_pricing.json")
+        expected = {
+            model: (
+                float(row["input_per_1m"]),
+                float(row["output_per_1m"]),
+            )
+            for model, row in pricing["models"].items()
+        }
+        self.assertEqual(PRICING_TABLE6, expected)
+
     def test_coderouterbench_tables_are_complete(self) -> None:
         root = ROOT / "data" / "coderouterbench"
         summary = read_json(root / "summary.json")
@@ -130,6 +145,40 @@ class BundleIntegrityTests(unittest.TestCase):
                     places=9,
                     msg=row["task_id"],
                 )
+
+    def test_ood_matrices_use_release_pricing(self) -> None:
+        pricing = read_json(ROOT / "data" / "matrices" / "phase1_id" / "model_pricing.json")
+        matrix_paths = [
+            ROOT / "data/matrices/phase2_ood/unified/matrix_acrouter_ood176.json",
+            ROOT / "data/matrices/phase2_ood/raw/old112/matrix.json",
+            ROOT / "data/ood/matrix.json",
+            ROOT / "data/baseline_inputs/swebench112_results/matrix.json",
+        ]
+        expected_totals = {
+            "matrix_acrouter_ood176.json": 422.147494,
+            "matrix.json": 268.639478,
+        }
+        for path in matrix_paths:
+            payload = read_json(path)
+            total = 0.0
+            for task_id, model_cells in payload["matrix"].items():
+                for model, cell in model_cells.items():
+                    if model not in pricing["models"]:
+                        continue
+                    cost = expected_cost(
+                        model,
+                        int(cell.get("in_tok", 0) or 0),
+                        int(cell.get("out_tok", 0) or 0),
+                        pricing,
+                    )
+                    self.assertAlmostEqual(
+                        float(cell.get("cost_usd", 0.0) or 0.0),
+                        cost,
+                        places=9,
+                        msg=f"{path}:{task_id}:{model}",
+                    )
+                    total += cost
+            self.assertAlmostEqual(total, expected_totals[path.name], places=6)
 
     def test_coderouterbench_dataset_card_controls_hf_preview(self) -> None:
         text = (ROOT / "data" / "coderouterbench" / "README.md").read_text()

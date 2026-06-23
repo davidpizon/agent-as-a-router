@@ -81,16 +81,16 @@
     "id": {
       "n": 2919,
       "avg_perf_pct": 50.14,
-      "cum_reg": 201.9,
-      "total_cost_usd": 22.91,
-      "perf_per_usd": 2.19
+      "cum_reg": 202.0,
+      "total_cost_usd": 22.31,
+      "perf_per_usd": 2.25
     },
     "ood176_acrouter": {
       "n": 176,
       "avg_perf_pct": 73.30,
-      "cum_reg": 14.4,
-      "total_cost_usd": 68.29,
-      "perf_per_usd": 1.07,
+      "cum_reg": 15.9,
+      "total_cost_usd": 86.72,
+      "perf_per_usd": 0.85,
       "apply_ok_pct": 85.80
     }
   },
@@ -98,9 +98,9 @@
     "ood112": {
       "n": 112,
       "avg_perf_pct": 66.96,
-      "cum_reg": 12.8,
-      "total_cost_usd": 51.70,
-      "perf_per_usd": 1.30,
+      "cum_reg": 13.7,
+      "total_cost_usd": 63.43,
+      "perf_per_usd": 1.06,
       "apply_ok_pct": 77.68
     }
   },

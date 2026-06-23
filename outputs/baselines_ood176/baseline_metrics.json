@@ -3,50 +3,50 @@
     "cost": -0.1,
     "perf": 1.0
   },
-  "generated_utc": "2026-06-13 15:13:48 UTC",
+  "generated_utc": "2026-06-23 16:36:09 UTC",
   "matrix_path": "data/matrices/phase2_ood/unified/matrix_acrouter_ood176.json",
   "metrics": [
     {
-      "$Backend": 24.11,
+      "$Backend": 27.62,
       "$Router": 0.0,
-      "$Total": 24.11,
-      "Apply_ok%": 86.36,
+      "$Total": 27.62,
+      "Apply_ok%": 85.8,
       "AvgPerf%": 78.98,
       "CumReg": 0.0,
       "OracleAvgPerf%": 78.98,
-      "Perf/$": 3.28,
-      "TotInTok": 33249073,
-      "TotOutTok": 538926,
+      "Perf/$": 2.86,
+      "TotInTok": 30292077,
+      "TotOutTok": 413698,
       "by_bench": {
         "featurebench": {
-          "$Total": 0.18,
+          "$Total": 1.14,
           "AvgPerf%": 100.0,
           "n": 49
         },
         "longcli": {
-          "$Total": 0.19,
+          "$Total": 0.27,
           "AvgPerf%": 28.57,
           "n": 14
         },
         "old112": {
-          "$Total": 23.75,
+          "$Total": 26.2,
           "AvgPerf%": 75.89,
           "n": 112
         },
         "swe_ci": {
-          "$Total": 0.0,
+          "$Total": 0.01,
           "AvgPerf%": 100.0,
           "n": 1
         }
       },
       "by_source_split": {
         "new64": {
-          "$Total": 0.36,
+          "$Total": 1.42,
           "AvgPerf%": 84.38,
           "n": 64
         },
         "old112": {
-          "$Total": 23.75,
+          "$Total": 26.2,
           "AvgPerf%": 75.89,
           "n": 112
         }
@@ -56,60 +56,60 @@
       "method": "Oracle",
       "missing_decisions": 0,
       "model_distribution": {
-        "MiniMax-M2.7": 99,
-        "Qwen3-Max": 11,
+        "MiniMax-M2.7": 5,
+        "Qwen3-Max": 48,
         "claude-opus-4-6": 9,
         "claude-sonnet-4-6": 7,
         "glm-5": 2,
-        "gpt-5.4": 29,
-        "kimi-k2.5": 18,
-        "qwen3.5-plus": 1
+        "gpt-5.4": 37,
+        "kimi-k2.5": 65,
+        "qwen3.5-plus": 3
       },
       "n": 176,
       "note": "Cost-aware reward oracle with epsilon=(1,-0.1).",
       "rAcc_reward_oracle": 1.0
     },
     {
-      "$Backend": 68.29,
+      "$Backend": 86.72,
       "$Router": 0.0,
-      "$Total": 68.29,
+      "$Total": 86.72,
       "Apply_ok%": 85.8,
       "AvgPerf%": 73.3,
-      "CumReg": 14.4,
+      "CumReg": 15.9,
       "OracleAvgPerf%": 78.98,
-      "Perf/$": 1.07,
+      "Perf/$": 0.85,
       "TotInTok": 74536066,
       "TotOutTok": 1128908,
       "by_bench": {
         "featurebench": {
-          "$Total": 0.45,
+          "$Total": 5.58,
           "AvgPerf%": 100.0,
           "n": 49
         },
         "longcli": {
-          "$Total": 16.14,
+          "$Total": 17.61,
           "AvgPerf%": 28.57,
           "n": 14
         },
         "old112": {
-          "$Total": 51.7,
+          "$Total": 63.43,
           "AvgPerf%": 66.96,
           "n": 112
         },
         "swe_ci": {
-          "$Total": 0.0,
+          "$Total": 0.1,
           "AvgPerf%": 100.0,
           "n": 1
         }
       },
       "by_source_split": {
         "new64": {
-          "$Total": 16.59,
+          "$Total": 23.29,
           "AvgPerf%": 84.38,
           "n": 64
         },
         "old112": {
-          "$Total": 51.7,
+          "$Total": 63.43,
           "AvgPerf%": 66.96,
           "n": 112
         }
@@ -126,34 +126,34 @@
         "kimi-k2.5": 18
       },
       "n": 176,
-      "note": "ACRouter release OOD176 decisions from run_acrouter_ood176.py. Source metrics file reports AvgPerf=73.3 CumReg=14.4 $Total=68.29.",
-      "rAcc_reward_oracle": 0.642
+      "note": "ACRouter release OOD176 decisions from run_acrouter_ood176.py. Source metrics file reports AvgPerf=73.3 CumReg=15.9 $Total=86.72.",
+      "rAcc_reward_oracle": 0.3182
     },
     {
-      "$Backend": 58.83,
+      "$Backend": 51.37,
       "$Router": 0.0,
-      "$Total": 58.83,
-      "Apply_ok%": 85.23,
-      "AvgPerf%": 57.95,
-      "CumReg": 40.5,
+      "$Total": 51.37,
+      "Apply_ok%": 81.82,
+      "AvgPerf%": 53.98,
+      "CumReg": 46.4,
       "OracleAvgPerf%": 78.98,
-      "Perf/$": 0.99,
-      "TotInTok": 32855400,
-      "TotOutTok": 545929,
+      "Perf/$": 1.05,
+      "TotInTok": 26682216,
+      "TotOutTok": 437930,
       "by_bench": {
         "featurebench": {
-          "$Total": 7.29,
-          "AvgPerf%": 89.8,
+          "$Total": 4.86,
+          "AvgPerf%": 91.84,
           "n": 49
         },
         "longcli": {
-          "$Total": 7.52,
-          "AvgPerf%": 21.43,
+          "$Total": 3.54,
+          "AvgPerf%": 7.14,
           "n": 14
         },
         "old112": {
-          "$Total": 43.92,
-          "AvgPerf%": 48.21,
+          "$Total": 42.86,
+          "AvgPerf%": 42.86,
           "n": 112
         },
         "swe_ci": {
@@ -164,13 +164,13 @@
       },
       "by_source_split": {
         "new64": {
-          "$Total": 14.91,
-          "AvgPerf%": 75.0,
+          "$Total": 8.51,
+          "AvgPerf%": 73.44,
           "n": 64
         },
         "old112": {
-          "$Total": 43.92,
-          "AvgPerf%": 48.21,
+          "$Total": 42.86,
+          "AvgPerf%": 42.86,
           "n": 112
         }
       },
@@ -179,61 +179,61 @@
       "method": "LinTS",
       "missing_decisions": 0,
       "model_distribution": {
-        "MiniMax-M2.7": 18,
-        "Qwen3-Max": 13,
-        "claude-opus-4-6": 28,
-        "claude-sonnet-4-6": 19,
-        "glm-5": 26,
-        "gpt-5.4": 53,
-        "kimi-k2.5": 7,
-        "qwen3.5-plus": 12
+        "MiniMax-M2.7": 23,
+        "Qwen3-Max": 21,
+        "claude-opus-4-6": 32,
+        "claude-sonnet-4-6": 5,
+        "glm-5": 15,
+        "gpt-5.4": 55,
+        "kimi-k2.5": 9,
+        "qwen3.5-plus": 16
       },
       "n": 176,
       "note": "Offline online replay over the OOD176 task order.",
-      "rAcc_reward_oracle": 0.1534
+      "rAcc_reward_oracle": 0.1989
     },
     {
-      "$Backend": 54.32,
+      "$Backend": 75.03,
       "$Router": 0.0,
-      "$Total": 54.32,
-      "Apply_ok%": 84.09,
-      "AvgPerf%": 57.95,
-      "CumReg": 40.0,
+      "$Total": 75.03,
+      "Apply_ok%": 84.66,
+      "AvgPerf%": 55.11,
+      "CumReg": 46.7,
       "OracleAvgPerf%": 78.98,
-      "Perf/$": 1.07,
-      "TotInTok": 34267911,
-      "TotOutTok": 618163,
+      "Perf/$": 0.73,
+      "TotInTok": 30479072,
+      "TotOutTok": 516399,
       "by_bench": {
         "featurebench": {
-          "$Total": 5.62,
-          "AvgPerf%": 87.76,
+          "$Total": 13.7,
+          "AvgPerf%": 83.67,
           "n": 49
         },
         "longcli": {
-          "$Total": 2.72,
-          "AvgPerf%": 7.14,
+          "$Total": 3.58,
+          "AvgPerf%": 0.0,
           "n": 14
         },
         "old112": {
-          "$Total": 45.76,
-          "AvgPerf%": 50.89,
+          "$Total": 57.64,
+          "AvgPerf%": 49.11,
           "n": 112
         },
         "swe_ci": {
-          "$Total": 0.22,
+          "$Total": 0.1,
           "AvgPerf%": 100.0,
           "n": 1
         }
       },
       "by_source_split": {
         "new64": {
-          "$Total": 8.56,
-          "AvgPerf%": 70.31,
+          "$Total": 17.39,
+          "AvgPerf%": 65.62,
           "n": 64
         },
         "old112": {
-          "$Total": 45.76,
-          "AvgPerf%": 50.89,
+          "$Total": 57.64,
+          "AvgPerf%": 49.11,
           "n": 112
         }
       },
@@ -242,30 +242,30 @@
       "method": "LinUCB",
       "missing_decisions": 0,
       "model_distribution": {
-        "MiniMax-M2.7": 35,
-        "Qwen3-Max": 14,
-        "claude-opus-4-6": 7,
-        "claude-sonnet-4-6": 42,
-        "glm-5": 28,
-        "gpt-5.4": 39,
-        "kimi-k2.5": 4,
-        "qwen3.5-plus": 7
+        "MiniMax-M2.7": 32,
+        "Qwen3-Max": 6,
+        "claude-opus-4-6": 16,
+        "claude-sonnet-4-6": 61,
+        "glm-5": 8,
+        "gpt-5.4": 41,
+        "kimi-k2.5": 6,
+        "qwen3.5-plus": 6
       },
       "n": 176,
       "note": "Offline online replay over the OOD176 task order.",
-      "rAcc_reward_oracle": 0.233
+      "rAcc_reward_oracle": 0.0966
     },
     {
-      "$Backend": 5.53,
+      "$Backend": 7.49,
       "$Router": 0.0,
-      "$Total": 5.53,
-      "Apply_ok%": 48.3,
-      "AvgPerf%": 35.23,
-      "CumReg": 75.1,
+      "$Total": 7.49,
+      "Apply_ok%": 46.02,
+      "AvgPerf%": 32.39,
+      "CumReg": 80.0,
       "OracleAvgPerf%": 78.98,
-      "Perf/$": 6.37,
-      "TotInTok": 13864128,
-      "TotOutTok": 280049,
+      "Perf/$": 4.33,
+      "TotInTok": 11248963,
+      "TotOutTok": 202350,
       "by_bench": {
         "featurebench": {
           "$Total": 1.75,
@@ -278,8 +278,8 @@
           "n": 14
         },
         "old112": {
-          "$Total": 3.22,
-          "AvgPerf%": 13.39,
+          "$Total": 5.18,
+          "AvgPerf%": 8.93,
           "n": 112
         },
         "swe_ci": {
@@ -295,8 +295,8 @@
           "n": 64
         },
         "old112": {
-          "$Total": 3.22,
-          "AvgPerf%": 13.39,
+          "$Total": 5.18,
+          "AvgPerf%": 8.93,
           "n": 112
         }
       },
@@ -305,18 +305,18 @@
       "method": "kNN Retrieval",
       "missing_decisions": 0,
       "model_distribution": {
-        "MiniMax-M2.7": 101,
-        "Qwen3-Max": 64,
+        "MiniMax-M2.7": 47,
+        "Qwen3-Max": 119,
         "claude-opus-4-6": 1,
         "claude-sonnet-4-6": 1,
-        "glm-5": 6,
+        "glm-5": 5,
         "gpt-5.4": 1,
         "kimi-k2.5": 1,
         "qwen3.5-plus": 1
       },
       "n": 176,
       "note": "Online kNN replay using task metadata/hash features and observed chosen-model rewards.",
-      "rAcc_reward_oracle": 0.2216
+      "rAcc_reward_oracle": 0.2386
     },
     {
       "$Backend": 7.48,
@@ -324,7 +324,7 @@
       "$Total": 7.48,
       "Apply_ok%": 42.05,
       "AvgPerf%": 28.98,
-      "CumReg": 86.3,
+      "CumReg": 86.0,
       "OracleAvgPerf%": 78.98,
       "Perf/$": 3.88,
       "TotInTok": 24724484,
@@ -372,7 +372,7 @@
         "claude-opus-4-6": 4,
         "gpt-5.4": 37,
         "kimi-k2.5": 108,
-        "通义千问Max": 23
+        "\u901a\u4e49\u5343\u95eeMax": 23
       },
       "n": 176,
       "new64_extended": 0,
@@ -384,7 +384,7 @@
       "old112_replayed": 112,
       "published_source_file": "data/baseline_inputs/swebench112_results/T1_LogReg_metrics.json",
       "published_source_method": "T1_LogReg",
-      "rAcc_reward_oracle": 0.0909
+      "rAcc_reward_oracle": 0.2159
     },
     {
       "$Backend": 6.06,
@@ -392,7 +392,7 @@
       "$Total": 6.06,
       "Apply_ok%": 51.7,
       "AvgPerf%": 31.82,
-      "CumReg": 81.2,
+      "CumReg": 80.8,
       "OracleAvgPerf%": 78.98,
       "Perf/$": 5.25,
       "TotInTok": 13733083,
@@ -452,7 +452,7 @@
       "old112_replayed": 112,
       "published_source_file": "data/baseline_inputs/swebench112_results/T4_RouteLLM_SW_metrics.json",
       "published_source_method": "T4_RouteLLM_SW",
-      "rAcc_reward_oracle": 0.0739
+      "rAcc_reward_oracle": 0.2443
     },
     {
       "$Backend": 5.02,
@@ -460,7 +460,7 @@
       "$Total": 5.02,
       "Apply_ok%": 18.75,
       "AvgPerf%": 13.07,
-      "CumReg": 114.1,
+      "CumReg": 113.7,
       "OracleAvgPerf%": 78.98,
       "Perf/$": 2.6,
       "TotInTok": 5922268,
@@ -508,7 +508,7 @@
         "claude-sonnet-4-6": 4,
         "gpt-5.4": 14,
         "kimi-k2.5": 21,
-        "通义千问Max": 55
+        "\u901a\u4e49\u5343\u95eeMax": 55
       },
       "n": 176,
       "new64_extended": 0,
@@ -520,17 +520,17 @@
       "old112_replayed": 112,
       "published_source_file": "data/baseline_inputs/swebench112_results/T2_TFIDF_MLP_metrics.json",
       "published_source_method": "T2_TFIDF_MLP",
-      "rAcc_reward_oracle": 0.0455
+      "rAcc_reward_oracle": 0.1307
     },
     {
-      "$Backend": 12.18,
+      "$Backend": 12.71,
       "$Router": 0.0,
-      "$Total": 12.18,
+      "$Total": 12.71,
       "Apply_ok%": 58.52,
       "AvgPerf%": 23.86,
-      "CumReg": 95.8,
+      "CumReg": 95.5,
       "OracleAvgPerf%": 78.98,
-      "Perf/$": 1.96,
+      "Perf/$": 1.88,
       "TotInTok": 37587404,
       "TotOutTok": 383393,
       "by_bench": {
@@ -545,7 +545,7 @@
           "n": 14
         },
         "old112": {
-          "$Total": 11.65,
+          "$Total": 12.17,
           "AvgPerf%": 25.0,
           "n": 112
         },
@@ -562,7 +562,7 @@
           "n": 64
         },
         "old112": {
-          "$Total": 11.65,
+          "$Total": 12.17,
           "AvgPerf%": 25.0,
           "n": 112
         }
@@ -588,15 +588,15 @@
       "old112_replayed": 112,
       "published_source_file": "data/baseline_inputs/swebench112_results/L2_ft08b_router_v3_metrics.json",
       "published_source_method": "L2_ft08b_router_v3",
-      "rAcc_reward_oracle": 0.0966
+      "rAcc_reward_oracle": 0.3068
     },
     {
-      "$Backend": 4.15,
+      "$Backend": 4.16,
       "$Router": 0.0,
-      "$Total": 4.15,
+      "$Total": 4.16,
       "Apply_ok%": 48.3,
       "AvgPerf%": 32.95,
-      "CumReg": 79.0,
+      "CumReg": 78.7,
       "OracleAvgPerf%": 78.98,
       "Perf/$": 7.93,
       "TotInTok": 11657202,
@@ -653,7 +653,7 @@
       "old112_replayed": 112,
       "published_source_file": "data/baseline_inputs/swebench112_results/T3_RouteLLM_MF_metrics.json",
       "published_source_method": "T3_RouteLLM_MF",
-      "rAcc_reward_oracle": 0.0625
+      "rAcc_reward_oracle": 0.2841
     },
     {
       "$Backend": 194.91,
@@ -661,7 +661,7 @@
       "$Total": 194.91,
       "Apply_ok%": 90.34,
       "AvgPerf%": 63.64,
-      "CumReg": 44.1,
+      "CumReg": 43.7,
       "OracleAvgPerf%": 78.98,
       "Perf/$": 0.33,
       "TotInTok": 36228771,
@@ -717,7 +717,7 @@
       "$Total": 1.46,
       "Apply_ok%": 53.41,
       "AvgPerf%": 19.89,
-      "CumReg": 101.7,
+      "CumReg": 101.4,
       "OracleAvgPerf%": 78.98,
       "Perf/$": 13.6,
       "TotInTok": 38288824,
@@ -765,7 +765,7 @@
       },
       "n": 176,
       "note": "",
-      "rAcc_reward_oracle": 0.1023
+      "rAcc_reward_oracle": 0.3693
     },
     {
       "$Backend": 6.21,
@@ -773,7 +773,7 @@
       "$Total": 6.21,
       "Apply_ok%": 39.77,
       "AvgPerf%": 27.27,
-      "CumReg": 89.2,
+      "CumReg": 88.9,
       "OracleAvgPerf%": 78.98,
       "Perf/$": 4.39,
       "TotInTok": 51437774,
@@ -821,32 +821,32 @@
       },
       "n": 176,
       "note": "",
-      "rAcc_reward_oracle": 0.0057
+      "rAcc_reward_oracle": 0.017
     },
     {
-      "$Backend": 54.46,
+      "$Backend": 56.51,
       "$Router": 0.0,
-      "$Total": 54.46,
+      "$Total": 56.51,
       "Apply_ok%": 66.02,
       "AvgPerf%": 40.34,
-      "CumReg": 71.04,
+      "CumReg": 70.89,
       "OracleAvgPerf%": 78.98,
-      "Perf/$": 0.75,
+      "Perf/$": 0.73,
       "TotInTok": 30513673.3,
       "TotOutTok": 494939.7,
       "by_bench": {
         "featurebench": {
-          "$Total": 17.99,
+          "$Total": 18.52,
           "AvgPerf%": 73.47,
           "n": 49
         },
         "longcli": {
-          "$Total": 3.81,
+          "$Total": 3.92,
           "AvgPerf%": 0.0,
           "n": 14
         },
         "old112": {
-          "$Total": 32.43,
+          "$Total": 33.57,
           "AvgPerf%": 37.5,
           "n": 112
         },
@@ -858,12 +858,12 @@
       },
       "by_source_split": {
         "new64": {
-          "$Total": 22.61,
+          "$Total": 23.23,
           "AvgPerf%": 57.81,
           "n": 64
         },
         "old112": {
-          "$Total": 32.43,
+          "$Total": 33.57,
           "AvgPerf%": 37.5,
           "n": 112
         }
@@ -884,33 +884,33 @@
       },
       "n": 176,
       "note": "Mean over seeds 42-51; per-seed decisions are in decisions/.",
-      "rAcc_reward_oracle": 0.1131,
+      "rAcc_reward_oracle": 0.1062,
       "seed_count": 10,
       "seed_metrics": [
         {
-          "$Backend": 55.03,
+          "$Backend": 56.81,
           "$Router": 0.0,
-          "$Total": 55.03,
+          "$Total": 56.81,
           "Apply_ok%": 71.02,
           "AvgPerf%": 44.89,
-          "CumReg": 63.1,
+          "CumReg": 62.9,
           "OracleAvgPerf%": 78.98,
-          "Perf/$": 0.82,
+          "Perf/$": 0.79,
           "TotInTok": 30990452,
           "TotOutTok": 557439,
           "by_bench": {
             "featurebench": {
-              "$Total": 17.99,
+              "$Total": 18.52,
               "AvgPerf%": 73.47,
               "n": 49
             },
             "longcli": {
-              "$Total": 3.81,
+              "$Total": 3.92,
               "AvgPerf%": 0.0,
               "n": 14
             },
             "old112": {
-              "$Total": 32.43,
+              "$Total": 33.57,
               "AvgPerf%": 37.5,
               "n": 112
             },
@@ -922,12 +922,12 @@
           },
           "by_source_split": {
             "new64": {
-              "$Total": 22.61,
+              "$Total": 23.23,
               "AvgPerf%": 57.81,
               "n": 64
             },
             "old112": {
-              "$Total": 32.43,
+              "$Total": 33.57,
               "AvgPerf%": 37.5,
               "n": 112
             }
@@ -948,22 +948,22 @@
           },
           "n": 176,
           "note": "",
-          "rAcc_reward_oracle": 0.1307
+          "rAcc_reward_oracle": 0.1136
         },
         {
-          "$Backend": 57.53,
+          "$Backend": 59.59,
           "$Router": 0.0,
-          "$Total": 57.53,
+          "$Total": 59.59,
           "Apply_ok%": 67.61,
           "AvgPerf%": 41.48,
-          "CumReg": 69.3,
+          "CumReg": 69.2,
           "OracleAvgPerf%": 78.98,
-          "Perf/$": 0.72,
+          "Perf/$": 0.7,
           "TotInTok": 32402175,
           "TotOutTok": 502141,
           "by_bench": {
             "featurebench": {
-              "$Total": 16.01,
+              "$Total": 16.54,
               "AvgPerf%": 73.47,
               "n": 49
             },
@@ -973,7 +973,7 @@
               "n": 14
             },
             "old112": {
-              "$Total": 37.27,
+              "$Total": 38.81,
               "AvgPerf%": 30.36,
               "n": 112
             },
@@ -985,12 +985,12 @@
           },
           "by_source_split": {
             "new64": {
-              "$Total": 20.26,
+              "$Total": 20.78,
               "AvgPerf%": 60.94,
               "n": 64
             },
             "old112": {
-              "$Total": 37.27,
+              "$Total": 38.81,
               "AvgPerf%": 30.36,
               "n": 112
             }
@@ -1011,32 +1011,32 @@
           },
           "n": 176,
           "note": "",
-          "rAcc_reward_oracle": 0.1023
+          "rAcc_reward_oracle": 0.0909
         },
         {
-          "$Backend": 48.89,
+          "$Backend": 49.92,
           "$Router": 0.0,
-          "$Total": 48.89,
+          "$Total": 49.92,
           "Apply_ok%": 68.18,
           "AvgPerf%": 44.32,
-          "CumReg": 63.5,
+          "CumReg": 63.2,
           "OracleAvgPerf%": 78.98,
-          "Perf/$": 0.91,
+          "Perf/$": 0.89,
           "TotInTok": 31573037,
           "TotOutTok": 498868,
           "by_bench": {
             "featurebench": {
-              "$Total": 14.22,
+              "$Total": 14.74,
               "AvgPerf%": 73.47,
               "n": 49
             },
             "longcli": {
-              "$Total": 6.47,
+              "$Total": 6.68,
               "AvgPerf%": 21.43,
               "n": 14
             },
             "old112": {
-              "$Total": 27.4,
+              "$Total": 27.7,
               "AvgPerf%": 33.93,
               "n": 112
             },
@@ -1048,12 +1048,12 @@
           },
           "by_source_split": {
             "new64": {
-              "$Total": 21.49,
+              "$Total": 22.22,
               "AvgPerf%": 62.5,
               "n": 64
             },
             "old112": {
-              "$Total": 27.4,
+              "$Total": 27.7,
               "AvgPerf%": 33.93,
               "n": 112
             }
@@ -1074,49 +1074,49 @@
           },
           "n": 176,
           "note": "",
-          "rAcc_reward_oracle": 0.1193
+          "rAcc_reward_oracle": 0.125
         },
         {
-          "$Backend": 64.21,
+          "$Backend": 66.35,
           "$Router": 0.0,
-          "$Total": 64.21,
+          "$Total": 66.35,
           "Apply_ok%": 69.89,
           "AvgPerf%": 42.05,
-          "CumReg": 69.0,
+          "CumReg": 68.9,
           "OracleAvgPerf%": 78.98,
-          "Perf/$": 0.65,
+          "Perf/$": 0.63,
           "TotInTok": 33526908,
           "TotOutTok": 519515,
           "by_bench": {
             "featurebench": {
-              "$Total": 18.18,
+              "$Total": 18.7,
               "AvgPerf%": 69.39,
               "n": 49
             },
             "longcli": {
-              "$Total": 5.57,
+              "$Total": 5.68,
               "AvgPerf%": 21.43,
               "n": 14
             },
             "old112": {
-              "$Total": 40.46,
+              "$Total": 41.87,
               "AvgPerf%": 32.14,
               "n": 112
             },
             "swe_ci": {
-              "$Total": 0.0,
+              "$Total": 0.1,
               "AvgPerf%": 100.0,
               "n": 1
             }
           },
           "by_source_split": {
             "new64": {
-              "$Total": 23.75,
+              "$Total": 24.48,
               "AvgPerf%": 59.38,
               "n": 64
             },
             "old112": {
-              "$Total": 40.46,
+              "$Total": 41.87,
               "AvgPerf%": 32.14,
               "n": 112
             }
@@ -1137,32 +1137,32 @@
           },
           "n": 176,
           "note": "",
-          "rAcc_reward_oracle": 0.1136
+          "rAcc_reward_oracle": 0.108
         },
         {
-          "$Backend": 65.72,
+          "$Backend": 67.04,
           "$Router": 0.0,
-          "$Total": 65.72,
+          "$Total": 67.04,
           "Apply_ok%": 64.77,
           "AvgPerf%": 40.34,
-          "CumReg": 72.2,
+          "CumReg": 71.9,
           "OracleAvgPerf%": 78.98,
-          "Perf/$": 0.61,
+          "Perf/$": 0.6,
           "TotInTok": 28407381,
           "TotOutTok": 434037,
           "by_bench": {
             "featurebench": {
-              "$Total": 12.92,
+              "$Total": 13.55,
               "AvgPerf%": 81.63,
               "n": 49
             },
             "longcli": {
-              "$Total": 5.21,
+              "$Total": 5.53,
               "AvgPerf%": 0.0,
               "n": 14
             },
             "old112": {
-              "$Total": 47.58,
+              "$Total": 47.96,
               "AvgPerf%": 26.79,
               "n": 112
             },
@@ -1174,12 +1174,12 @@
           },
           "by_source_split": {
             "new64": {
-              "$Total": 18.14,
+              "$Total": 19.09,
               "AvgPerf%": 64.06,
               "n": 64
             },
             "old112": {
-              "$Total": 47.58,
+              "$Total": 47.96,
               "AvgPerf%": 26.79,
               "n": 112
             }
@@ -1203,29 +1203,29 @@
           "rAcc_reward_oracle": 0.108
         },
         {
-          "$Backend": 56.65,
+          "$Backend": 59.76,
           "$Router": 0.0,
-          "$Total": 56.65,
+          "$Total": 59.76,
           "Apply_ok%": 64.77,
           "AvgPerf%": 39.77,
-          "CumReg": 72.3,
+          "CumReg": 72.2,
           "OracleAvgPerf%": 78.98,
-          "Perf/$": 0.7,
+          "Perf/$": 0.67,
           "TotInTok": 34236204,
           "TotOutTok": 549282,
           "by_bench": {
             "featurebench": {
-              "$Total": 17.2,
+              "$Total": 17.62,
               "AvgPerf%": 69.39,
               "n": 49
             },
             "longcli": {
-              "$Total": 4.31,
+              "$Total": 4.62,
               "AvgPerf%": 7.14,
               "n": 14
             },
             "old112": {
-              "$Total": 35.12,
+              "$Total": 37.5,
               "AvgPerf%": 30.36,
               "n": 112
             },
@@ -1237,12 +1237,12 @@
           },
           "by_source_split": {
             "new64": {
-              "$Total": 21.53,
+              "$Total": 22.26,
               "AvgPerf%": 56.25,
               "n": 64
             },
             "old112": {
-              "$Total": 35.12,
+              "$Total": 37.5,
               "AvgPerf%": 30.36,
               "n": 112
             }
@@ -1263,32 +1263,32 @@
           },
           "n": 176,
           "note": "",
-          "rAcc_reward_oracle": 0.1193
+          "rAcc_reward_oracle": 0.1136
         },
         {
-          "$Backend": 41.04,
+          "$Backend": 42.22,
           "$Router": 0.0,
-          "$Total": 41.04,
+          "$Total": 42.22,
           "Apply_ok%": 64.2,
           "AvgPerf%": 38.64,
-          "CumReg": 72.7,
+          "CumReg": 72.5,
           "OracleAvgPerf%": 78.98,
-          "Perf/$": 0.94,
+          "Perf/$": 0.92,
           "TotInTok": 23128941,
           "TotOutTok": 420175,
           "by_bench": {
             "featurebench": {
-              "$Total": 16.11,
+              "$Total": 16.53,
               "AvgPerf%": 71.43,
               "n": 49
             },
             "longcli": {
-              "$Total": 4.94,
+              "$Total": 5.25,
               "AvgPerf%": 14.29,
               "n": 14
             },
             "old112": {
-              "$Total": 18.89,
+              "$Total": 19.33,
               "AvgPerf%": 26.79,
               "n": 112
             },
@@ -1300,12 +1300,12 @@
           },
           "by_source_split": {
             "new64": {
-              "$Total": 22.16,
+              "$Total": 22.89,
               "AvgPerf%": 59.38,
               "n": 64
             },
             "old112": {
-              "$Total": 18.89,
+              "$Total": 19.33,
               "AvgPerf%": 26.79,
               "n": 112
             }
@@ -1326,49 +1326,49 @@
           },
           "n": 176,
           "note": "",
-          "rAcc_reward_oracle": 0.1193
+          "rAcc_reward_oracle": 0.0852
         },
         {
-          "$Backend": 45.93,
+          "$Backend": 49.24,
           "$Router": 0.0,
-          "$Total": 45.93,
+          "$Total": 49.24,
           "Apply_ok%": 63.07,
           "AvgPerf%": 39.77,
           "CumReg": 71.2,
           "OracleAvgPerf%": 78.98,
-          "Perf/$": 0.87,
+          "Perf/$": 0.81,
           "TotInTok": 27362386,
           "TotOutTok": 468142,
           "by_bench": {
             "featurebench": {
-              "$Total": 15.99,
+              "$Total": 16.51,
               "AvgPerf%": 71.43,
               "n": 49
             },
             "longcli": {
-              "$Total": 4.75,
+              "$Total": 5.06,
               "AvgPerf%": 7.14,
               "n": 14
             },
             "old112": {
-              "$Total": 25.2,
+              "$Total": 27.56,
               "AvgPerf%": 29.46,
               "n": 112
             },
             "swe_ci": {
-              "$Total": 0.0,
+              "$Total": 0.1,
               "AvgPerf%": 100.0,
               "n": 1
             }
           },
           "by_source_split": {
             "new64": {
-              "$Total": 20.73,
+              "$Total": 21.68,
               "AvgPerf%": 57.81,
               "n": 64
             },
             "old112": {
-              "$Total": 25.2,
+              "$Total": 27.56,
               "AvgPerf%": 29.46,
               "n": 112
             }
@@ -1392,46 +1392,46 @@
           "rAcc_reward_oracle": 0.1364
         },
         {
-          "$Backend": 54.59,
+          "$Backend": 57.96,
           "$Router": 0.0,
-          "$Total": 54.59,
+          "$Total": 57.96,
           "Apply_ok%": 66.48,
           "AvgPerf%": 37.5,
           "CumReg": 76.0,
           "OracleAvgPerf%": 78.98,
-          "Perf/$": 0.69,
+          "Perf/$": 0.65,
           "TotInTok": 32121979,
           "TotOutTok": 509007,
           "by_bench": {
             "featurebench": {
-              "$Total": 14.59,
+              "$Total": 14.9,
               "AvgPerf%": 57.14,
               "n": 49
             },
             "longcli": {
-              "$Total": 4.97,
+              "$Total": 5.07,
               "AvgPerf%": 0.0,
               "n": 14
             },
             "old112": {
-              "$Total": 35.03,
+              "$Total": 37.88,
               "AvgPerf%": 33.04,
               "n": 112
             },
             "swe_ci": {
-              "$Total": 0.0,
+              "$Total": 0.1,
               "AvgPerf%": 100.0,
               "n": 1
             }
           },
           "by_source_split": {
             "new64": {
-              "$Total": 19.55,
+              "$Total": 20.08,
               "AvgPerf%": 45.31,
               "n": 64
             },
             "old112": {
-              "$Total": 35.03,
+              "$Total": 37.88,
               "AvgPerf%": 33.04,
               "n": 112
             }
@@ -1452,22 +1452,22 @@
           },
           "n": 176,
           "note": "",
-          "rAcc_reward_oracle": 0.0909
+          "rAcc_reward_oracle": 0.0682
         },
         {
-          "$Backend": 55.0,
+          "$Backend": 56.18,
           "$Router": 0.0,
-          "$Total": 55.0,
+          "$Total": 56.18,
           "Apply_ok%": 60.23,
           "AvgPerf%": 34.66,
-          "CumReg": 81.1,
+          "CumReg": 80.9,
           "OracleAvgPerf%": 78.98,
-          "Perf/$": 0.63,
+          "Perf/$": 0.62,
           "TotInTok": 31387270,
           "TotOutTok": 490791,
           "by_bench": {
             "featurebench": {
-              "$Total": 17.31,
+              "$Total": 17.72,
               "AvgPerf%": 69.39,
               "n": 49
             },
@@ -1477,7 +1477,7 @@
               "n": 14
             },
             "old112": {
-              "$Total": 31.57,
+              "$Total": 32.33,
               "AvgPerf%": 22.32,
               "n": 112
             },
@@ -1489,12 +1489,12 @@
           },
           "by_source_split": {
             "new64": {
-              "$Total": 23.43,
+              "$Total": 23.85,
               "AvgPerf%": 56.25,
               "n": 64
             },
             "old112": {
-              "$Total": 31.57,
+              "$Total": 32.33,
               "AvgPerf%": 22.32,
               "n": 112
             }
@@ -1515,7 +1515,7 @@
           },
           "n": 176,
           "note": "",
-          "rAcc_reward_oracle": 0.0909
+          "rAcc_reward_oracle": 0.1136
         }
       ]
     }
@@ -1533,29 +1533,29 @@
   "n": 176,
   "random_seed_metrics": [
     {
-      "$Backend": 55.03,
+      "$Backend": 56.81,
       "$Router": 0.0,
-      "$Total": 55.03,
+      "$Total": 56.81,
       "Apply_ok%": 71.02,
       "AvgPerf%": 44.89,
-      "CumReg": 63.1,
+      "CumReg": 62.9,
       "OracleAvgPerf%": 78.98,
-      "Perf/$": 0.82,
+      "Perf/$": 0.79,
       "TotInTok": 30990452,
       "TotOutTok": 557439,
       "by_bench": {
         "featurebench": {
-          "$Total": 17.99,
+          "$Total": 18.52,
           "AvgPerf%": 73.47,
           "n": 49
         },
         "longcli": {
-          "$Total": 3.81,
+          "$Total": 3.92,
           "AvgPerf%": 0.0,
           "n": 14
         },
         "old112": {
-          "$Total": 32.43,
+          "$Total": 33.57,
           "AvgPerf%": 37.5,
           "n": 112
         },
@@ -1567,12 +1567,12 @@
       },
       "by_source_split": {
         "new64": {
-          "$Total": 22.61,
+          "$Total": 23.23,
           "AvgPerf%": 57.81,
           "n": 64
         },
         "old112": {
-          "$Total": 32.43,
+          "$Total": 33.57,
           "AvgPerf%": 37.5,
           "n": 112
         }
@@ -1593,22 +1593,22 @@
       },
       "n": 176,
       "note": "",
-      "rAcc_reward_oracle": 0.1307
+      "rAcc_reward_oracle": 0.1136
     },
     {
-      "$Backend": 57.53,
+      "$Backend": 59.59,
       "$Router": 0.0,
-      "$Total": 57.53,
+      "$Total": 59.59,
       "Apply_ok%": 67.61,
       "AvgPerf%": 41.48,
-      "CumReg": 69.3,
+      "CumReg": 69.2,
       "OracleAvgPerf%": 78.98,
-      "Perf/$": 0.72,
+      "Perf/$": 0.7,
       "TotInTok": 32402175,
       "TotOutTok": 502141,
       "by_bench": {
         "featurebench": {
-          "$Total": 16.01,
+          "$Total": 16.54,
           "AvgPerf%": 73.47,
           "n": 49
         },
@@ -1618,7 +1618,7 @@
           "n": 14
         },
         "old112": {
-          "$Total": 37.27,
+          "$Total": 38.81,
           "AvgPerf%": 30.36,
           "n": 112
         },
@@ -1630,12 +1630,12 @@
       },
       "by_source_split": {
         "new64": {
-          "$Total": 20.26,
+          "$Total": 20.78,
           "AvgPerf%": 60.94,
           "n": 64
         },
         "old112": {
-          "$Total": 37.27,
+          "$Total": 38.81,
           "AvgPerf%": 30.36,
           "n": 112
         }
@@ -1656,32 +1656,32 @@
       },
       "n": 176,
       "note": "",
-      "rAcc_reward_oracle": 0.1023
+      "rAcc_reward_oracle": 0.0909
     },
     {
-      "$Backend": 48.89,
+      "$Backend": 49.92,
       "$Router": 0.0,
-      "$Total": 48.89,
+      "$Total": 49.92,
       "Apply_ok%": 68.18,
       "AvgPerf%": 44.32,
-      "CumReg": 63.5,
+      "CumReg": 63.2,
       "OracleAvgPerf%": 78.98,
-      "Perf/$": 0.91,
+      "Perf/$": 0.89,
       "TotInTok": 31573037,
       "TotOutTok": 498868,
       "by_bench": {
         "featurebench": {
-          "$Total": 14.22,
+          "$Total": 14.74,
           "AvgPerf%": 73.47,
           "n": 49
         },
         "longcli": {
-          "$Total": 6.47,
+          "$Total": 6.68,
           "AvgPerf%": 21.43,
           "n": 14
         },
         "old112": {
-          "$Total": 27.4,
+          "$Total": 27.7,
           "AvgPerf%": 33.93,
           "n": 112
         },
@@ -1693,12 +1693,12 @@
       },
       "by_source_split": {
         "new64": {
-          "$Total": 21.49,
+          "$Total": 22.22,
           "AvgPerf%": 62.5,
           "n": 64
         },
         "old112": {
-          "$Total": 27.4,
+          "$Total": 27.7,
           "AvgPerf%": 33.93,
           "n": 112
         }
@@ -1719,49 +1719,49 @@
       },
       "n": 176,
       "note": "",
-      "rAcc_reward_oracle": 0.1193
+      "rAcc_reward_oracle": 0.125
     },
     {
-      "$Backend": 64.21,
+      "$Backend": 66.35,
       "$Router": 0.0,
-      "$Total": 64.21,
+      "$Total": 66.35,
       "Apply_ok%": 69.89,
       "AvgPerf%": 42.05,
-      "CumReg": 69.0,
+      "CumReg": 68.9,
       "OracleAvgPerf%": 78.98,
-      "Perf/$": 0.65,
+      "Perf/$": 0.63,
       "TotInTok": 33526908,
       "TotOutTok": 519515,
       "by_bench": {
         "featurebench": {
-          "$Total": 18.18,
+          "$Total": 18.7,
           "AvgPerf%": 69.39,
           "n": 49
         },
         "longcli": {
-          "$Total": 5.57,
+          "$Total": 5.68,
           "AvgPerf%": 21.43,
           "n": 14
         },
         "old112": {
-          "$Total": 40.46,
+          "$Total": 41.87,
           "AvgPerf%": 32.14,
           "n": 112
         },
         "swe_ci": {
-          "$Total": 0.0,
+          "$Total": 0.1,
           "AvgPerf%": 100.0,
           "n": 1
         }
       },
       "by_source_split": {
         "new64": {
-          "$Total": 23.75,
+          "$Total": 24.48,
           "AvgPerf%": 59.38,
           "n": 64
         },
         "old112": {
-          "$Total": 40.46,
+          "$Total": 41.87,
           "AvgPerf%": 32.14,
           "n": 112
         }
@@ -1782,32 +1782,32 @@
       },
       "n": 176,
       "note": "",
-      "rAcc_reward_oracle": 0.1136
+      "rAcc_reward_oracle": 0.108
     },
     {
-      "$Backend": 65.72,
+      "$Backend": 67.04,
       "$Router": 0.0,
-      "$Total": 65.72,
+      "$Total": 67.04,
       "Apply_ok%": 64.77,
       "AvgPerf%": 40.34,
-      "CumReg": 72.2,
+      "CumReg": 71.9,
       "OracleAvgPerf%": 78.98,
-      "Perf/$": 0.61,
+      "Perf/$": 0.6,
       "TotInTok": 28407381,
       "TotOutTok": 434037,
       "by_bench": {
         "featurebench": {
-          "$Total": 12.92,
+          "$Total": 13.55,
           "AvgPerf%": 81.63,
           "n": 49
         },
         "longcli": {
-          "$Total": 5.21,
+          "$Total": 5.53,
           "AvgPerf%": 0.0,
           "n": 14
         },
         "old112": {
-          "$Total": 47.58,
+          "$Total": 47.96,
           "AvgPerf%": 26.79,
           "n": 112
         },
@@ -1819,12 +1819,12 @@
       },
       "by_source_split": {
         "new64": {
-          "$Total": 18.14,
+          "$Total": 19.09,
           "AvgPerf%": 64.06,
           "n": 64
         },
         "old112": {
-          "$Total": 47.58,
+          "$Total": 47.96,
           "AvgPerf%": 26.79,
           "n": 112
         }
@@ -1848,29 +1848,29 @@
       "rAcc_reward_oracle": 0.108
     },
     {
-      "$Backend": 56.65,
+      "$Backend": 59.76,
       "$Router": 0.0,
-      "$Total": 56.65,
+      "$Total": 59.76,
       "Apply_ok%": 64.77,
       "AvgPerf%": 39.77,
-      "CumReg": 72.3,
+      "CumReg": 72.2,
       "OracleAvgPerf%": 78.98,
-      "Perf/$": 0.7,
+      "Perf/$": 0.67,
       "TotInTok": 34236204,
       "TotOutTok": 549282,
       "by_bench": {
         "featurebench": {
-          "$Total": 17.2,
+          "$Total": 17.62,
           "AvgPerf%": 69.39,
           "n": 49
         },
         "longcli": {
-          "$Total": 4.31,
+          "$Total": 4.62,
           "AvgPerf%": 7.14,
           "n": 14
         },
         "old112": {
-          "$Total": 35.12,
+          "$Total": 37.5,
           "AvgPerf%": 30.36,
           "n": 112
         },
@@ -1882,12 +1882,12 @@
       },
       "by_source_split": {
         "new64": {
-          "$Total": 21.53,
+          "$Total": 22.26,
           "AvgPerf%": 56.25,
           "n": 64
         },
         "old112": {
-          "$Total": 35.12,
+          "$Total": 37.5,
           "AvgPerf%": 30.36,
           "n": 112
         }
@@ -1908,32 +1908,32 @@
       },
       "n": 176,
       "note": "",
-      "rAcc_reward_oracle": 0.1193
+      "rAcc_reward_oracle": 0.1136
     },
     {
-      "$Backend": 41.04,
+      "$Backend": 42.22,
       "$Router": 0.0,
-      "$Total": 41.04,
+      "$Total": 42.22,
       "Apply_ok%": 64.2,
       "AvgPerf%": 38.64,
-      "CumReg": 72.7,
+      "CumReg": 72.5,
       "OracleAvgPerf%": 78.98,
-      "Perf/$": 0.94,
+      "Perf/$": 0.92,
       "TotInTok": 23128941,
       "TotOutTok": 420175,
       "by_bench": {
         "featurebench": {
-          "$Total": 16.11,
+          "$Total": 16.53,
           "AvgPerf%": 71.43,
           "n": 49
         },
         "longcli": {
-          "$Total": 4.94,
+          "$Total": 5.25,
           "AvgPerf%": 14.29,
           "n": 14
         },
         "old112": {
-          "$Total": 18.89,
+          "$Total": 19.33,
           "AvgPerf%": 26.79,
           "n": 112
         },
@@ -1945,12 +1945,12 @@
       },
       "by_source_split": {
         "new64": {
-          "$Total": 22.16,
+          "$Total": 22.89,
           "AvgPerf%": 59.38,
           "n": 64
         },
         "old112": {
-          "$Total": 18.89,
+          "$Total": 19.33,
           "AvgPerf%": 26.79,
           "n": 112
         }
@@ -1971,49 +1971,49 @@
       },
       "n": 176,
       "note": "",
-      "rAcc_reward_oracle": 0.1193
+      "rAcc_reward_oracle": 0.0852
     },
     {
-      "$Backend": 45.93,
+      "$Backend": 49.24,
       "$Router": 0.0,
-      "$Total": 45.93,
+      "$Total": 49.24,
       "Apply_ok%": 63.07,
       "AvgPerf%": 39.77,
       "CumReg": 71.2,
       "OracleAvgPerf%": 78.98,
-      "Perf/$": 0.87,
+      "Perf/$": 0.81,
       "TotInTok": 27362386,
       "TotOutTok": 468142,
       "by_bench": {
         "featurebench": {
-          "$Total": 15.99,
+          "$Total": 16.51,
           "AvgPerf%": 71.43,
           "n": 49
         },
         "longcli": {
-          "$Total": 4.75,
+          "$Total": 5.06,
           "AvgPerf%": 7.14,
           "n": 14
         },
         "old112": {
-          "$Total": 25.2,
+          "$Total": 27.56,
           "AvgPerf%": 29.46,
           "n": 112
         },
         "swe_ci": {
-          "$Total": 0.0,
+          "$Total": 0.1,
           "AvgPerf%": 100.0,
           "n": 1
         }
       },
       "by_source_split": {
         "new64": {
-          "$Total": 20.73,
+          "$Total": 21.68,
           "AvgPerf%": 57.81,
           "n": 64
         },
         "old112": {
-          "$Total": 25.2,
+          "$Total": 27.56,
           "AvgPerf%": 29.46,
           "n": 112
         }
@@ -2037,46 +2037,46 @@
       "rAcc_reward_oracle": 0.1364
     },
     {
-      "$Backend": 54.59,
+      "$Backend": 57.96,
       "$Router": 0.0,
-      "$Total": 54.59,
+      "$Total": 57.96,
       "Apply_ok%": 66.48,
       "AvgPerf%": 37.5,
       "CumReg": 76.0,
       "OracleAvgPerf%": 78.98,
-      "Perf/$": 0.69,
+      "Perf/$": 0.65,
       "TotInTok": 32121979,
       "TotOutTok": 509007,
       "by_bench": {
         "featurebench": {
-          "$Total": 14.59,
+          "$Total": 14.9,
           "AvgPerf%": 57.14,
           "n": 49
         },
         "longcli": {
-          "$Total": 4.97,
+          "$Total": 5.07,
           "AvgPerf%": 0.0,
           "n": 14
         },
         "old112": {
-          "$Total": 35.03,
+          "$Total": 37.88,
           "AvgPerf%": 33.04,
           "n": 112
         },
         "swe_ci": {
-          "$Total": 0.0,
+          "$Total": 0.1,
           "AvgPerf%": 100.0,
           "n": 1
         }
       },
       "by_source_split": {
         "new64": {
-          "$Total": 19.55,
+          "$Total": 20.08,
           "AvgPerf%": 45.31,
           "n": 64
         },
         "old112": {
-          "$Total": 35.03,
+          "$Total": 37.88,
           "AvgPerf%": 33.04,
           "n": 112
         }
@@ -2097,22 +2097,22 @@
       },
       "n": 176,
       "note": "",
-      "rAcc_reward_oracle": 0.0909
+      "rAcc_reward_oracle": 0.0682
     },
     {
-      "$Backend": 55.0,
+      "$Backend": 56.18,
       "$Router": 0.0,
-      "$Total": 55.0,
+      "$Total": 56.18,
       "Apply_ok%": 60.23,
       "AvgPerf%": 34.66,
-      "CumReg": 81.1,
+      "CumReg": 80.9,
       "OracleAvgPerf%": 78.98,
-      "Perf/$": 0.63,
+      "Perf/$": 0.62,
       "TotInTok": 31387270,
       "TotOutTok": 490791,
       "by_bench": {
         "featurebench": {
-          "$Total": 17.31,
+          "$Total": 17.72,
           "AvgPerf%": 69.39,
           "n": 49
         },
@@ -2122,7 +2122,7 @@
           "n": 14
         },
         "old112": {
-          "$Total": 31.57,
+          "$Total": 32.33,
           "AvgPerf%": 22.32,
           "n": 112
         },
@@ -2134,12 +2134,12 @@
       },
       "by_source_split": {
         "new64": {
-          "$Total": 23.43,
+          "$Total": 23.85,
           "AvgPerf%": 56.25,
           "n": 64
         },
         "old112": {
-          "$Total": 31.57,
+          "$Total": 32.33,
           "AvgPerf%": 22.32,
           "n": 112
         }
@@ -2160,7 +2160,7 @@
       },
       "n": 176,
       "note": "",
-      "rAcc_reward_oracle": 0.0909
+      "rAcc_reward_oracle": 0.1136
     }
   ],
   "table_rows": [
@@ -2168,11 +2168,11 @@
       "ID_AvgPerf%": 57.0,
       "ID_CumReg": 0.0,
       "ID_Perf/$": 8.2,
-      "OOD_$Total": 24.11,
-      "OOD_Apply_ok%": 86.36,
+      "OOD_$Total": 27.62,
+      "OOD_Apply_ok%": 85.8,
       "OOD_AvgPerf%": 78.98,
       "OOD_CumReg": 0.0,
-      "OOD_Perf/$": 3.28,
+      "OOD_Perf/$": 2.86,
       "OOD_n": 176,
       "Router": "Oracle",
       "decision_source": "reward_oracle",
@@ -2183,26 +2183,26 @@
       "ID_AvgPerf%": 49.98,
       "ID_CumReg": 205.5,
       "ID_Perf/$": 3.79,
-      "OOD_$Total": 68.29,
+      "OOD_$Total": 86.72,
       "OOD_Apply_ok%": 85.8,
       "OOD_AvgPerf%": 73.3,
-      "OOD_CumReg": 14.4,
-      "OOD_Perf/$": 1.07,
+      "OOD_CumReg": 15.9,
+      "OOD_Perf/$": 0.85,
       "OOD_n": 176,
       "Router": "ACRouter (ours)",
       "decision_source": "acrouter_unique_release_ood176",
       "group": "Agent-as-a-Router",
-      "note": "ACRouter release OOD176 decisions from run_acrouter_ood176.py. Source metrics file reports AvgPerf=73.3 CumReg=14.4 $Total=68.29."
+      "note": "ACRouter release OOD176 decisions from run_acrouter_ood176.py. Source metrics file reports AvgPerf=73.3 CumReg=15.9 $Total=86.72."
     },
     {
       "ID_AvgPerf%": 46.48,
       "ID_CumReg": 307.4,
       "ID_Perf/$": 4.49,
-      "OOD_$Total": 58.83,
-      "OOD_Apply_ok%": 85.23,
-      "OOD_AvgPerf%": 57.95,
-      "OOD_CumReg": 40.5,
-      "OOD_Perf/$": 0.99,
+      "OOD_$Total": 51.37,
+      "OOD_Apply_ok%": 81.82,
+      "OOD_AvgPerf%": 53.98,
+      "OOD_CumReg": 46.4,
+      "OOD_Perf/$": 1.05,
       "OOD_n": 176,
       "Router": "LinTS",
       "decision_source": "online_lints_cost_aware",
@@ -2213,11 +2213,11 @@
       "ID_AvgPerf%": 46.84,
       "ID_CumReg": 296.9,
       "ID_Perf/$": 4.38,
-      "OOD_$Total": 54.32,
-      "OOD_Apply_ok%": 84.09,
-      "OOD_AvgPerf%": 57.95,
-      "OOD_CumReg": 40.0,
-      "OOD_Perf/$": 1.07,
+      "OOD_$Total": 75.03,
+      "OOD_Apply_ok%": 84.66,
+      "OOD_AvgPerf%": 55.11,
+      "OOD_CumReg": 46.7,
+      "OOD_Perf/$": 0.73,
       "OOD_n": 176,
       "Router": "LinUCB",
       "decision_source": "online_linucb_cost_aware",
@@ -2241,11 +2241,11 @@
       "ID_AvgPerf%": 47.18,
       "ID_CumReg": 286.7,
       "ID_Perf/$": 6.07,
-      "OOD_$Total": 5.53,
-      "OOD_Apply_ok%": 48.3,
-      "OOD_AvgPerf%": 35.23,
-      "OOD_CumReg": 75.1,
-      "OOD_Perf/$": 6.37,
+      "OOD_$Total": 7.49,
+      "OOD_Apply_ok%": 46.02,
+      "OOD_AvgPerf%": 32.39,
+      "OOD_CumReg": 80.0,
+      "OOD_Perf/$": 4.33,
       "OOD_n": 176,
       "Router": "kNN Retrieval",
       "decision_source": "online_knn_retrieval",
@@ -2259,7 +2259,7 @@
       "OOD_$Total": 7.48,
       "OOD_Apply_ok%": 42.05,
       "OOD_AvgPerf%": 28.98,
-      "OOD_CumReg": 86.3,
+      "OOD_CumReg": 86.0,
       "OOD_Perf/$": 3.88,
       "OOD_n": 176,
       "Router": "LogReg",
@@ -2274,7 +2274,7 @@
       "OOD_$Total": 6.06,
       "OOD_Apply_ok%": 51.7,
       "OOD_AvgPerf%": 31.82,
-      "OOD_CumReg": 81.2,
+      "OOD_CumReg": 80.8,
       "OOD_Perf/$": 5.25,
       "OOD_n": 176,
       "Router": "RouteLLM-BERT",
@@ -2289,7 +2289,7 @@
       "OOD_$Total": 5.02,
       "OOD_Apply_ok%": 18.75,
       "OOD_AvgPerf%": 13.07,
-      "OOD_CumReg": 114.1,
+      "OOD_CumReg": 113.7,
       "OOD_Perf/$": 2.6,
       "OOD_n": 176,
       "Router": "TF-IDF+MLP",
@@ -2301,11 +2301,11 @@
       "ID_AvgPerf%": 46.41,
       "ID_CumReg": 309.1,
       "ID_Perf/$": 6.82,
-      "OOD_$Total": 12.18,
+      "OOD_$Total": 12.71,
       "OOD_Apply_ok%": 58.52,
       "OOD_AvgPerf%": 23.86,
-      "OOD_CumReg": 95.8,
-      "OOD_Perf/$": 1.96,
+      "OOD_CumReg": 95.5,
+      "OOD_Perf/$": 1.88,
       "OOD_n": 176,
       "Router": "Qwen3.5-0.8B-Finetuned",
       "decision_source": "old112_published_replay_plus_new64_router_or_modal:L2_ft08b_router_v3_metrics.json",
@@ -2316,10 +2316,10 @@
       "ID_AvgPerf%": 46.16,
       "ID_CumReg": 316.5,
       "ID_Perf/$": 6.19,
-      "OOD_$Total": 4.15,
+      "OOD_$Total": 4.16,
       "OOD_Apply_ok%": 48.3,
       "OOD_AvgPerf%": 32.95,
-      "OOD_CumReg": 79.0,
+      "OOD_CumReg": 78.7,
       "OOD_Perf/$": 7.93,
       "OOD_n": 176,
       "Router": "RouteLLM-MF",
@@ -2334,7 +2334,7 @@
       "OOD_$Total": 194.91,
       "OOD_Apply_ok%": 90.34,
       "OOD_AvgPerf%": 63.64,
-      "OOD_CumReg": 44.1,
+      "OOD_CumReg": 43.7,
       "OOD_Perf/$": 0.33,
       "OOD_n": 176,
       "Router": "Always-Opus 4.6",
@@ -2349,7 +2349,7 @@
       "OOD_$Total": 1.46,
       "OOD_Apply_ok%": 53.41,
       "OOD_AvgPerf%": 19.89,
-      "OOD_CumReg": 101.7,
+      "OOD_CumReg": 101.4,
       "OOD_Perf/$": 13.6,
       "OOD_n": 176,
       "Router": "Always-Kimi-K2.5",
@@ -2364,7 +2364,7 @@
       "OOD_$Total": 6.21,
       "OOD_Apply_ok%": 39.77,
       "OOD_AvgPerf%": 27.27,
-      "OOD_CumReg": 89.2,
+      "OOD_CumReg": 88.9,
       "OOD_Perf/$": 4.39,
       "OOD_n": 176,
       "Router": "Always-Qwen3.5-Plus",
@@ -2376,11 +2376,11 @@
       "ID_AvgPerf%": 38.75,
       "ID_CumReg": 533.6,
       "ID_Perf/$": 2.48,
-      "OOD_$Total": 54.46,
+      "OOD_$Total": 56.51,
       "OOD_Apply_ok%": 66.02,
       "OOD_AvgPerf%": 40.34,
-      "OOD_CumReg": 71.04,
-      "OOD_Perf/$": 0.75,
+      "OOD_CumReg": 70.89,
+      "OOD_Perf/$": 0.73,
       "OOD_n": 176,
       "Router": "Random",
       "decision_source": "random_10_seed_mean",

@@ -20,6 +20,7 @@ NEW64_CSV_SOURCE = MATRIX_ROOT / "raw" / "new64" / "matrix.csv"
 NEW64_MD_SOURCE = MATRIX_ROOT / "raw" / "new64" / "matrix.md"
 TASKS_SNAPSHOT = MATRIX_ROOT / "unified" / "tasks.jsonl"
 TASKS_SNAPSHOT_LABEL = "data/matrices/phase2_ood/unified/tasks.jsonl"
+PRICING_PATH = REPO_ROOT / "data" / "matrices" / "phase1_id" / "model_pricing.json"
 
 RAW_DIR = MATRIX_ROOT / "raw"
 UNIFIED_DIR = MATRIX_ROOT / "unified"
@@ -68,6 +69,22 @@ def copy_raw_sources() -> None:
     ]:
         if src.resolve() != dst.resolve():
             shutil.copy2(src, dst)
+
+
+def load_pricing() -> dict[str, dict]:
+    return read_json(PRICING_PATH)["models"]
+
+
+def compute_cost_usd(model: str, input_tokens: int, output_tokens: int, pricing: dict[str, dict]) -> float:
+    price = pricing[model]
+    return round(
+        (
+            input_tokens * float(price["input_per_1m"])
+            + output_tokens * float(price["output_per_1m"])
+        )
+        / 1_000_000,
+        9,
+    )
 
 
 def old_model_means(old: dict) -> dict[str, dict[str, float]]:
@@ -138,7 +155,11 @@ def load_old112_task_prompts() -> dict[str, dict]:
     return out
 
 
-def normalize_old112(old: dict, prompt_rows: dict[str, dict]) -> tuple[list[dict], dict[str, dict]]:
+def normalize_old112(
+    old: dict,
+    prompt_rows: dict[str, dict],
+    pricing: dict[str, dict],
+) -> tuple[list[dict], dict[str, dict]]:
     metadata_rows = []
     matrix = {}
     for original_id in old["ids"]:
@@ -163,33 +184,45 @@ def normalize_old112(old: dict, prompt_rows: dict[str, dict]) -> tuple[list[dict
         matrix[task_id] = {}
         for model in old["models"]:
             cell = dict(old["matrix"][original_id].get(model, {}))
+            in_tok = int(cell.get("in_tok", 0) or 0)
+            out_tok = int(cell.get("out_tok", 0) or 0)
             matrix[task_id][model] = {
                 "resolved": bool(cell.get("resolved")),
                 "apply_ok": bool(cell.get("apply_ok")),
                 "non_empty": bool(cell.get("non_empty")),
                 "graded": bool(cell.get("graded")),
-                "in_tok": int(cell.get("in_tok", 0) or 0),
-                "out_tok": int(cell.get("out_tok", 0) or 0),
+                "in_tok": in_tok,
+                "out_tok": out_tok,
                 "calls": int(cell.get("calls", 0) or 0),
-                "cost_usd": float(cell.get("cost_usd", 0.0) or 0.0),
+                "cost_usd": compute_cost_usd(model, in_tok, out_tok, pricing),
+                "cost_source": "token_log_pricing",
                 "source_split": "old112",
                 "source_model": model,
             }
     return metadata_rows, matrix
 
 
-def fallback_cell(status: str, model: str, means: dict[str, dict[str, float]], source_model: str) -> dict:
+def fallback_cell(
+    status: str,
+    model: str,
+    means: dict[str, dict[str, float]],
+    source_model: str,
+    pricing: dict[str, dict],
+) -> dict:
     mean = means.get(model, {})
     ran = status in {"pass", "fail"}
+    in_tok = int(round(mean.get("in_tok", 0.0)))
+    out_tok = int(round(mean.get("out_tok", 0.0)))
     return {
         "resolved": status == "pass",
         "apply_ok": ran,
         "non_empty": ran,
         "graded": ran,
-        "in_tok": int(round(mean.get("in_tok", 0.0))),
-        "out_tok": int(round(mean.get("out_tok", 0.0))),
+        "in_tok": in_tok,
+        "out_tok": out_tok,
         "calls": int(round(mean.get("calls", 0.0))),
-        "cost_usd": round(float(mean.get("cost_usd", 0.0)), 6),
+        "cost_usd": compute_cost_usd(model, in_tok, out_tok, pricing),
+        "cost_source": "token_log_pricing",
         "source_split": "new64",
         "source_model": source_model,
         "source_status": status,
@@ -202,6 +235,7 @@ def normalize_new64(
     models: list[str],
     means: dict[str, dict[str, float]],
     prompt_rows: dict[tuple[str, str], dict],
+    pricing: dict[str, dict],
 ) -> tuple[list[dict], dict[str, dict]]:
     metadata_rows = []
     matrix = {}
@@ -235,6 +269,7 @@ def normalize_new64(
                 model=canonical_model,
                 means=means,
                 source_model=source_model,
+                pricing=pricing,
             )
     return metadata_rows, matrix
 
@@ -409,12 +444,13 @@ def main() -> None:
     old = read_json(OLD112_SOURCE)
     new64 = read_json(NEW64_JSON_SOURCE)
     models = list(old["models"])
+    pricing = load_pricing()
     means = old_model_means(old)
     old_prompt_rows = load_old112_task_prompts()
     new_prompt_rows = load_new64_task_prompts()
 
-    old_meta, old_matrix = normalize_old112(old, old_prompt_rows)
-    new_meta, new_matrix = normalize_new64(new64, models, means, new_prompt_rows)
+    old_meta, old_matrix = normalize_old112(old, old_prompt_rows, pricing)
+    new_meta, new_matrix = normalize_new64(new64, models, means, new_prompt_rows, pricing)
     metadata_rows = old_meta + new_meta
     matrix = {**old_matrix, **new_matrix}
     ids = [row["task_id"] for row in metadata_rows]

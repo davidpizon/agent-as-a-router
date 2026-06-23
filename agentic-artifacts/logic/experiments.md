@@ -14,8 +14,8 @@
 
 | split | n | AvgPerf% | CumReg | total cost USD | Perf/USD | extra |
 | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| ID | 2919 | 50.14 | 201.9 | 22.91 | 2.19 | test split, hierarchical policy |
-| OOD176 | 176 | 73.30 | 14.4 | 68.29 | 1.07 | unified Old112 + New64 matrix |
+| ID | 2919 | 50.14 | 202.0 | 22.31 | 2.25 | test split, hierarchical policy |
+| OOD176 | 176 | 73.30 | 15.9 | 86.72 | 0.85 | unified Old112 + New64 matrix |
 
 ## OOD176 Baseline Coverage
 
@@ -56,7 +56,7 @@ comparison, while current public OOD claims should use OOD176.
 
 | split | n | AvgPerf% | CumReg | total cost USD | Perf/USD | extra |
 | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| Legacy OOD112 | 112 | 66.96 | 12.8 | 51.70 | 1.30 | report-cache sandbox verifier |
+| Legacy OOD112 | 112 | 66.96 | 13.7 | 63.43 | 1.06 | report-cache sandbox verifier |
 
 ## Bindings
 

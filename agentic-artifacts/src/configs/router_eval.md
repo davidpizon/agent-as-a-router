@@ -20,14 +20,14 @@
 
 | split | n | router | total cost USD | source |
 | --- | ---: | --- | ---: | --- |
-| ID | 2919 | ACRouter | 22.91 | `outputs/current/summary.json` |
-| OOD176 | 176 | ACRouter | 68.29 | `outputs/acrouter_ood176/ood_metrics.json` |
+| ID | 2919 | ACRouter | 22.31 | `outputs/current/summary.json` |
+| OOD176 | 176 | ACRouter | 86.72 | `outputs/acrouter_ood176/ood_metrics.json` |
 
 ## Legacy OOD112 Supplement
 
 | split | n | router | total cost USD | source |
 | --- | ---: | --- | ---: | --- |
-| Legacy OOD112 | 112 | ACRouter | 51.70 | `outputs/current/summary.json` |
+| Legacy OOD112 | 112 | ACRouter | 63.43 | `outputs/current/summary.json` |
 
 ## OOD176 Baseline Sources
 

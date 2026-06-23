@@ -34,7 +34,7 @@ Old112 per-model means as fallback values because the New64 matrix snapshot is p
 
 ## Summary
 
-- Generated: 2026-06-20 16:07:48 UTC
+- Generated: 2026-06-23 16:36:06 UTC
 - Old112 tasks: 112
 - Old112 tasks with real prompts: 112
 - Old112 prompt source: `data/matrices/phase2_ood/unified/tasks.jsonl`

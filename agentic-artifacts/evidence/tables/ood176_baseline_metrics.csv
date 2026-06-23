@@ -1,15 +1,15 @@
 method,n,AvgPerf%,CumReg,$Total,Perf/$,Apply_ok%,rAcc_reward_oracle,decision_source,missing_decisions
-Oracle,176,78.98,0.0,24.11,3.28,86.36,1.0,reward_oracle,0
-ACRouter (ours),176,73.3,14.4,68.29,1.07,85.8,0.642,acrouter_unique_release_ood176,0
-LinTS,176,57.95,40.5,58.83,0.99,85.23,0.1534,online_lints_cost_aware,0
-LinUCB,176,57.95,40.0,54.32,1.07,84.09,0.233,online_linucb_cost_aware,0
-kNN Retrieval,176,35.23,75.1,5.53,6.37,48.3,0.2216,online_knn_retrieval,0
-LogReg,176,28.98,86.3,7.48,3.88,42.05,0.0909,old112_published_replay_plus_new64_router_or_modal:T1_LogReg_metrics.json,0
-RouteLLM-BERT,176,31.82,81.2,6.06,5.25,51.7,0.0739,old112_published_replay_plus_new64_router_or_modal:T4_RouteLLM_SW_metrics.json,0
-TF-IDF+MLP,176,13.07,114.1,5.02,2.6,18.75,0.0455,old112_published_replay_plus_new64_router_or_modal:T2_TFIDF_MLP_metrics.json,0
-Qwen3.5-0.8B-Finetuned,176,23.86,95.8,12.18,1.96,58.52,0.0966,old112_published_replay_plus_new64_router_or_modal:L2_ft08b_router_v3_metrics.json,0
-RouteLLM-MF,176,32.95,79.0,4.15,7.93,48.3,0.0625,old112_published_replay_plus_new64_router_or_modal:T3_RouteLLM_MF_metrics.json,0
-Always-Opus 4.6,176,63.64,44.1,194.91,0.33,90.34,0.0511,always:claude-opus-4-6,0
-Always-Kimi-K2.5,176,19.89,101.7,1.46,13.6,53.41,0.1023,always:kimi-k2.5,0
-Always-Qwen3.5-Plus,176,27.27,89.2,6.21,4.39,39.77,0.0057,always:qwen3.5-plus,0
-Random,176,40.34,71.04,54.46,0.75,66.02,0.1131,random_10_seed_mean,0
+Oracle,176,78.98,0.0,27.62,2.86,85.8,1.0,reward_oracle,0
+ACRouter (ours),176,73.3,15.9,86.72,0.85,85.8,0.3182,acrouter_unique_release_ood176,0
+LinTS,176,53.98,46.4,51.37,1.05,81.82,0.1989,online_lints_cost_aware,0
+LinUCB,176,55.11,46.7,75.03,0.73,84.66,0.0966,online_linucb_cost_aware,0
+kNN Retrieval,176,32.39,80.0,7.49,4.33,46.02,0.2386,online_knn_retrieval,0
+LogReg,176,28.98,86.0,7.48,3.88,42.05,0.2159,old112_published_replay_plus_new64_router_or_modal:T1_LogReg_metrics.json,0
+RouteLLM-BERT,176,31.82,80.8,6.06,5.25,51.7,0.2443,old112_published_replay_plus_new64_router_or_modal:T4_RouteLLM_SW_metrics.json,0
+TF-IDF+MLP,176,13.07,113.7,5.02,2.6,18.75,0.1307,old112_published_replay_plus_new64_router_or_modal:T2_TFIDF_MLP_metrics.json,0
+Qwen3.5-0.8B-Finetuned,176,23.86,95.5,12.71,1.88,58.52,0.3068,old112_published_replay_plus_new64_router_or_modal:L2_ft08b_router_v3_metrics.json,0
+RouteLLM-MF,176,32.95,78.7,4.16,7.93,48.3,0.2841,old112_published_replay_plus_new64_router_or_modal:T3_RouteLLM_MF_metrics.json,0
+Always-Opus 4.6,176,63.64,43.7,194.91,0.33,90.34,0.0511,always:claude-opus-4-6,0
+Always-Kimi-K2.5,176,19.89,101.4,1.46,13.6,53.41,0.3693,always:kimi-k2.5,0
+Always-Qwen3.5-Plus,176,27.27,88.9,6.21,4.39,39.77,0.017,always:qwen3.5-plus,0
+Random,176,40.34,70.89,56.51,0.73,66.02,0.1062,random_10_seed_mean,0

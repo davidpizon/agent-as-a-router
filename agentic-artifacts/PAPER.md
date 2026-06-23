@@ -35,7 +35,7 @@ of ACRouter and OOD176 baselines.
 - `claim:router-loop`: ACRouter evaluates routing as a
   Context-Action-Feedback loop with verifier-backed decisions.
 - `claim:ood176`: On the unified OOD176 matrix, ACRouter reaches 73.30
-  AvgPerf, 14.4 cumulative regret, 68.29 USD total cost, and 1.07 Perf/USD.
+  AvgPerf, 15.9 cumulative regret, 86.72 USD total cost, and 0.85 Perf/USD.
 - `claim:baseline-coverage`: The bundle includes Oracle, ACRouter, online
   bandits, retrieval, trained-policy, single-model, and random OOD176 baselines.
 - `claim:cost-aware`: Router evaluation tracks quality, cost, regret, and

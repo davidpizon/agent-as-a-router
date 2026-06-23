@@ -2,49 +2,49 @@
   "old112::astropy__astropy-13033": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 0.5503,
+      "cost": 0.55033,
       "tokens": 100470,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.6556,
+      "cost": 0.655599,
       "tokens": 193417,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0643,
+      "cost": 0.06431,
       "tokens": 20889,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.296,
+      "cost": 0.2959992,
       "tokens": 353180,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 0.0,
-      "cost": 0.0149,
+      "cost": 0.01492614,
       "tokens": 366670,
       "latency_ms": 0
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.292541,
       "tokens": 277133,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.0326,
+      "cost": 0.03264976,
       "tokens": 88140,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1623,
+      "cost": 0.16228157,
       "tokens": 1323472,
       "latency_ms": 0
     }
@@ -52,49 +52,49 @@
   "old112::astropy__astropy-13236": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.8713,
+      "cost": 1.87125,
       "tokens": 358722,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 1.1449,
+      "cost": 1.144917,
       "tokens": 361547,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.026,
+      "cost": 0.0260275,
       "tokens": 7061,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.2264,
+      "cost": 0.226407,
       "tokens": 268607,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 0.0,
-      "cost": 0.0275,
+      "cost": 0.02752236,
       "tokens": 1037599,
       "latency_ms": 0
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.234685,
       "tokens": 225753,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.0089,
+      "cost": 0.00888104,
       "tokens": 23588,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.0932,
+      "cost": 0.09322434,
       "tokens": 788804,
       "latency_ms": 0
     }
@@ -102,49 +102,49 @@
   "old112::astropy__astropy-13398": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 9.7592,
+      "cost": 9.759175,
       "tokens": 1906407,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 4.2693,
+      "cost": 4.269261,
       "tokens": 1363803,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.4042,
+      "cost": 0.4041775,
       "tokens": 146101,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 1.1373,
+      "cost": 1.1372522,
       "tokens": 1395498,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 0.0,
-      "cost": 0.0435,
+      "cost": 0.04346957,
       "tokens": 1473430,
       "latency_ms": 0
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 2.012172,
       "tokens": 1979850,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.1337,
+      "cost": 0.1337062,
       "tokens": 376534,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.2148,
+      "cost": 0.21478457,
       "tokens": 1888877,
       "latency_ms": 0
     }
@@ -152,49 +152,49 @@
   "old112::astropy__astropy-13579": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 2.0402,
+      "cost": 2.04024,
       "tokens": 364408,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.7602,
+      "cost": 0.760197,
       "tokens": 221975,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0937,
+      "cost": 0.093745,
       "tokens": 26973,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.6012,
+      "cost": 0.60124,
       "tokens": 690445,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.0532,
+      "cost": 0.05324703,
       "tokens": 801564,
       "latency_ms": 0
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.988991,
       "tokens": 965845,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.2484,
+      "cost": 0.2484478,
       "tokens": 698758,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1881,
+      "cost": 0.188133,
       "tokens": 1612460,
       "latency_ms": 0
     }
@@ -202,49 +202,49 @@
   "old112::astropy__astropy-13977": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 0.8737,
+      "cost": 0.87375,
       "tokens": 161206,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.4849,
+      "cost": 0.484905,
       "tokens": 150983,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0689,
+      "cost": 0.06894,
       "tokens": 23621,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.4525,
+      "cost": 0.452456,
       "tokens": 539808,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 0.0,
-      "cost": 0.0147,
+      "cost": 0.01473841,
       "tokens": 326222,
       "latency_ms": 0
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 1.36532,
       "tokens": 1340724,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.0361,
+      "cost": 0.03607698,
       "tokens": 99569,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1632,
+      "cost": 0.16318412,
       "tokens": 1414297,
       "latency_ms": 0
     }
@@ -252,43 +252,43 @@
   "old112::astropy__astropy-14096": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.422,
+      "cost": 0.42204,
       "tokens": 72328,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.4279,
+      "cost": 0.427944,
       "tokens": 124540,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.086,
+      "cost": 0.08597,
       "tokens": 29888,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.126,
+      "cost": 0.1259866,
       "tokens": 137565,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.0204,
+      "cost": 0.0204229,
       "tokens": 331121,
       "latency_ms": 0
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.141896,
       "tokens": 127252,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.185,
+      "cost": 0.18499224,
       "tokens": 520132,
       "latency_ms": 0
     },
@@ -302,43 +302,43 @@
   "old112::astropy__astropy-14309": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.1183,
+      "cost": 0.11825,
       "tokens": 21498,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.0999,
+      "cost": 0.09993,
       "tokens": 26850,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0466,
+      "cost": 0.0466075,
       "tokens": 15923,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.1887,
+      "cost": 0.1887162,
       "tokens": 224986,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.007,
+      "cost": 0.00702291,
       "tokens": 181513,
       "latency_ms": 0
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.076614,
       "tokens": 71094,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.0086,
+      "cost": 0.00862348,
       "tokens": 22806,
       "latency_ms": 0
     },
@@ -352,43 +352,43 @@
   "old112::astropy__astropy-14508": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.7061,
+      "cost": 0.70613,
       "tokens": 122530,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.2228,
+      "cost": 0.222756,
       "tokens": 65228,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.1399,
+      "cost": 0.1398825,
       "tokens": 34788,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.5935,
+      "cost": 0.5935228,
       "tokens": 705928,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.0172,
+      "cost": 0.01719768,
       "tokens": 375051,
       "latency_ms": 0
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.385922,
       "tokens": 362988,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.1253,
+      "cost": 0.12532626,
       "tokens": 346213,
       "latency_ms": 0
     },
@@ -402,19 +402,19 @@
   "old112::astropy__astropy-14539": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.3821,
+      "cost": 0.382115,
       "tokens": 68063,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.7987,
+      "cost": 0.798654,
       "tokens": 256654,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.1125,
+      "cost": 0.1124725,
       "tokens": 37299,
       "latency_ms": 0
     },
@@ -438,7 +438,7 @@
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.0256,
+      "cost": 0.02560788,
       "tokens": 67138,
       "latency_ms": 0
     },
@@ -452,25 +452,25 @@
   "old112::astropy__astropy-14598": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 2.9168,
+      "cost": 2.91676,
       "tokens": 551508,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 1.4967,
+      "cost": 1.496673,
       "tokens": 469463,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.7957,
+      "cost": 0.7956675,
       "tokens": 285302,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.7914,
+      "cost": 0.7913708,
       "tokens": 904255,
       "latency_ms": 0
     },
@@ -488,7 +488,7 @@
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.5007,
+      "cost": 0.50067998,
       "tokens": 1419851,
       "latency_ms": 0
     },
@@ -502,19 +502,19 @@
   "old112::astropy__astropy-14995": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.3868,
+      "cost": 0.386825,
       "tokens": 68625,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.2351,
+      "cost": 0.235104,
       "tokens": 68652,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0699,
+      "cost": 0.0699175,
       "tokens": 23897,
       "latency_ms": 0
     },
@@ -538,7 +538,7 @@
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.0548,
+      "cost": 0.05476978,
       "tokens": 152893,
       "latency_ms": 0
     },
@@ -552,19 +552,19 @@
   "old112::astropy__astropy-7166": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.302,
+      "cost": 0.30203,
       "tokens": 53926,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.2321,
+      "cost": 0.232065,
       "tokens": 68303,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.104,
+      "cost": 0.104015,
       "tokens": 32751,
       "latency_ms": 0
     },
@@ -582,13 +582,13 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.187203,
       "tokens": 178355,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.0217,
+      "cost": 0.02169482,
       "tokens": 58905,
       "latency_ms": 0
     },
@@ -602,25 +602,25 @@
   "old112::astropy__astropy-7336": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.0973,
+      "cost": 0.09731,
       "tokens": 17234,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.0462,
+      "cost": 0.046224,
       "tokens": 12992,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.059,
+      "cost": 0.058965,
       "tokens": 20456,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.0642,
+      "cost": 0.0641662,
       "tokens": 75200,
       "latency_ms": 0
     },
@@ -638,7 +638,7 @@
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.0183,
+      "cost": 0.01833468,
       "tokens": 50570,
       "latency_ms": 0
     },
@@ -652,25 +652,25 @@
   "old112::astropy__astropy-7671": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.0958,
+      "cost": 0.095755,
       "tokens": 17575,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.0623,
+      "cost": 0.062262,
       "tokens": 18298,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0665,
+      "cost": 0.066505,
       "tokens": 23407,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.1375,
+      "cost": 0.1375216,
       "tokens": 162761,
       "latency_ms": 0
     },
@@ -688,7 +688,7 @@
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.0141,
+      "cost": 0.01405086,
       "tokens": 37007,
       "latency_ms": 0
     },
@@ -702,19 +702,19 @@
   "old112::astropy__astropy-8872": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 0.8297,
+      "cost": 0.829675,
       "tokens": 155023,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.3749,
+      "cost": 0.374925,
       "tokens": 112635,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.3368,
+      "cost": 0.3367725,
       "tokens": 128149,
       "latency_ms": 0
     },
@@ -738,13 +738,13 @@
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.0363,
+      "cost": 0.03627546,
       "tokens": 99957,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1231,
+      "cost": 0.12309352,
       "tokens": 1021042,
       "latency_ms": 0
     }
@@ -752,19 +752,19 @@
   "old112::django__django-10097": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 0.457,
+      "cost": 0.456995,
       "tokens": 77979,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.559,
+      "cost": 0.558954,
       "tokens": 167954,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0601,
+      "cost": 0.06011,
       "tokens": 20134,
       "latency_ms": 0
     },
@@ -788,13 +788,13 @@
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.1617,
+      "cost": 0.16166872,
       "tokens": 456140,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1735,
+      "cost": 0.17350421,
       "tokens": 1463376,
       "latency_ms": 0
     }
@@ -808,13 +808,13 @@
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 5.0452,
+      "cost": 5.045205,
       "tokens": 1597515,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0845,
+      "cost": 0.084485,
       "tokens": 29779,
       "latency_ms": 0
     },
@@ -838,7 +838,7 @@
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.2608,
+      "cost": 0.2608219,
       "tokens": 728943,
       "latency_ms": 0
     },
@@ -852,19 +852,19 @@
   "old112::django__django-10914": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.066,
+      "cost": 0.06602,
       "tokens": 11276,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.0675,
+      "cost": 0.067479,
       "tokens": 19909,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.044,
+      "cost": 0.04404,
       "tokens": 14946,
       "latency_ms": 0
     },
@@ -902,19 +902,19 @@
   "old112::django__django-10973": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.6272,
+      "cost": 1.62721,
       "tokens": 301786,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.2865,
+      "cost": 0.286479,
       "tokens": 82873,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0466,
+      "cost": 0.0466325,
       "tokens": 14788,
       "latency_ms": 0
     },
@@ -926,7 +926,7 @@
     },
     "kimi-k2.5": {
       "perf": 0.0,
-      "cost": 0.0129,
+      "cost": 0.01287254,
       "tokens": 138479,
       "latency_ms": 0
     },
@@ -952,19 +952,19 @@
   "old112::django__django-10999": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 0.0914,
+      "cost": 0.09141,
       "tokens": 15250,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.1214,
+      "cost": 0.121353,
       "tokens": 36383,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0576,
+      "cost": 0.0575625,
       "tokens": 19290,
       "latency_ms": 0
     },
@@ -1002,19 +1002,19 @@
   "old112::django__django-11087": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.6248,
+      "cost": 1.62483,
       "tokens": 309522,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.9808,
+      "cost": 0.980778,
       "tokens": 305194,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.9817,
+      "cost": 0.9816975,
       "tokens": 376564,
       "latency_ms": 0
     },
@@ -1052,19 +1052,19 @@
   "old112::django__django-11095": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.356,
+      "cost": 0.355965,
       "tokens": 65793,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.1833,
+      "cost": 0.183306,
       "tokens": 55946,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0818,
+      "cost": 0.081795,
       "tokens": 28888,
       "latency_ms": 0
     },
@@ -1102,25 +1102,25 @@
   "old112::django__django-11099": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.0262,
+      "cost": 0.026175,
       "tokens": 4223,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.0346,
+      "cost": 0.034551,
       "tokens": 9525,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0166,
+      "cost": 0.0166025,
       "tokens": 4751,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.0193,
+      "cost": 0.019321,
       "tokens": 20326,
       "latency_ms": 0
     },
@@ -1152,19 +1152,19 @@
   "old112::django__django-11119": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.0594,
+      "cost": 0.059415,
       "tokens": 10495,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.0373,
+      "cost": 0.037305,
       "tokens": 10987,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0238,
+      "cost": 0.02378,
       "tokens": 7322,
       "latency_ms": 0
     },
@@ -1182,7 +1182,7 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.067899,
       "tokens": 63083,
       "latency_ms": 0
     },
@@ -1202,7 +1202,7 @@
   "old112::django__django-11133": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.0961,
+      "cost": 0.096055,
       "tokens": 16411,
       "latency_ms": 0
     },
@@ -1214,7 +1214,7 @@
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0426,
+      "cost": 0.04256,
       "tokens": 12009,
       "latency_ms": 0
     },
@@ -1238,7 +1238,7 @@
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.2239,
+      "cost": 0.22388098,
       "tokens": 634321,
       "latency_ms": 0
     },
@@ -1252,19 +1252,19 @@
   "old112::django__django-11138": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 6.8624,
+      "cost": 6.86238,
       "tokens": 1337092,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 4.7949,
+      "cost": 4.794861,
       "tokens": 1529619,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.1381,
+      "cost": 0.1381325,
       "tokens": 47873,
       "latency_ms": 0
     },
@@ -1276,7 +1276,7 @@
     },
     "kimi-k2.5": {
       "perf": 0.0,
-      "cost": 0.0549,
+      "cost": 0.05487061,
       "tokens": 1659256,
       "latency_ms": 0
     },
@@ -1308,25 +1308,25 @@
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.9558,
+      "cost": 0.955806,
       "tokens": 261082,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.029,
+      "cost": 0.0290425,
       "tokens": 6962,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.2377,
+      "cost": 0.2377336,
       "tokens": 229880,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 0.0,
-      "cost": 0.0615,
+      "cost": 0.06149041,
       "tokens": 520188,
       "latency_ms": 0
     },
@@ -1344,7 +1344,7 @@
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.1938,
+      "cost": 0.19378491,
       "tokens": 1536051,
       "latency_ms": 0
     }
@@ -1352,19 +1352,19 @@
   "old112::django__django-11239": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.4882,
+      "cost": 0.48817,
       "tokens": 87342,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.1605,
+      "cost": 0.160542,
       "tokens": 46750,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.052,
+      "cost": 0.0519975,
       "tokens": 13859,
       "latency_ms": 0
     },
@@ -1382,7 +1382,7 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.153312,
       "tokens": 145756,
       "latency_ms": 0
     },
@@ -1402,19 +1402,19 @@
   "old112::django__django-11276": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.2686,
+      "cost": 0.268595,
       "tokens": 50167,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.1078,
+      "cost": 0.107772,
       "tokens": 33808,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0977,
+      "cost": 0.097735,
       "tokens": 32644,
       "latency_ms": 0
     },
@@ -1432,7 +1432,7 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.255213,
       "tokens": 238481,
       "latency_ms": 0
     },
@@ -1452,19 +1452,19 @@
   "old112::django__django-11292": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 2.6534,
+      "cost": 2.653445,
       "tokens": 514561,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 1.3184,
+      "cost": 1.318374,
       "tokens": 424462,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.1258,
+      "cost": 0.1257525,
       "tokens": 44186,
       "latency_ms": 0
     },
@@ -1482,7 +1482,7 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.297173,
       "tokens": 287523,
       "latency_ms": 0
     },
@@ -1502,19 +1502,19 @@
   "old112::django__django-11333": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.3648,
+      "cost": 0.364775,
       "tokens": 66199,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.1299,
+      "cost": 0.129882,
       "tokens": 36702,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0445,
+      "cost": 0.0444525,
       "tokens": 14261,
       "latency_ms": 0
     },
@@ -1532,7 +1532,7 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.197485,
       "tokens": 188197,
       "latency_ms": 0
     },
@@ -1552,13 +1552,13 @@
   "old112::django__django-11477": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.0042,
+      "cost": 1.00425,
       "tokens": 191926,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.9851,
+      "cost": 0.985092,
       "tokens": 313904,
       "latency_ms": 0
     },
@@ -1582,7 +1582,7 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.238994,
       "tokens": 229236,
       "latency_ms": 0
     },
@@ -1602,19 +1602,19 @@
   "old112::django__django-11490": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.0504,
+      "cost": 1.05044,
       "tokens": 192452,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 1.1081,
+      "cost": 1.10814,
       "tokens": 336440,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.117,
+      "cost": 0.11699,
       "tokens": 41681,
       "latency_ms": 0
     },
@@ -1632,7 +1632,7 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.826635,
       "tokens": 787971,
       "latency_ms": 0
     },
@@ -1644,7 +1644,7 @@
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.104,
+      "cost": 0.10395154,
       "tokens": 854214,
       "latency_ms": 0
     }
@@ -1652,19 +1652,19 @@
   "old112::django__django-11603": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.0909,
+      "cost": 0.090915,
       "tokens": 16291,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.2079,
+      "cost": 0.207942,
       "tokens": 62098,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.032,
+      "cost": 0.0319775,
       "tokens": 10771,
       "latency_ms": 0
     },
@@ -1682,7 +1682,7 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.09883,
       "tokens": 93030,
       "latency_ms": 0
     },
@@ -1702,19 +1702,19 @@
   "old112::django__django-11728": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.5928,
+      "cost": 0.59277,
       "tokens": 107454,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.1966,
+      "cost": 0.196644,
       "tokens": 56772,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0846,
+      "cost": 0.084575,
       "tokens": 29045,
       "latency_ms": 0
     },
@@ -1732,7 +1732,7 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.569449,
       "tokens": 543505,
       "latency_ms": 0
     },
@@ -1752,19 +1752,19 @@
   "old112::django__django-11734": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 8.34,
+      "cost": 8.340045,
       "tokens": 1589437,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 4.4953,
+      "cost": 4.495317,
       "tokens": 1394595,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.1361,
+      "cost": 0.13607,
       "tokens": 50318,
       "latency_ms": 0
     },
@@ -1782,7 +1782,7 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 1.05744,
       "tokens": 1025062,
       "latency_ms": 0
     },
@@ -1802,7 +1802,7 @@
   "old112::django__django-11749": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.6956,
+      "cost": 0.695595,
       "tokens": 121123,
       "latency_ms": 0
     },
@@ -1814,7 +1814,7 @@
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0597,
+      "cost": 0.0597425,
       "tokens": 16162,
       "latency_ms": 0
     },
@@ -1832,7 +1832,7 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.336574,
       "tokens": 318170,
       "latency_ms": 0
     },
@@ -1852,7 +1852,7 @@
   "old112::django__django-11815": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.205,
+      "cost": 1.204955,
       "tokens": 224727,
       "latency_ms": 0
     },
@@ -1864,7 +1864,7 @@
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0712,
+      "cost": 0.0712375,
       "tokens": 22960,
       "latency_ms": 0
     },
@@ -1882,7 +1882,7 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.307306,
       "tokens": 295620,
       "latency_ms": 0
     },
@@ -1902,19 +1902,19 @@
   "old112::django__django-11820": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 0.6442,
+      "cost": 0.64418,
       "tokens": 117800,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.5949,
+      "cost": 0.594864,
       "tokens": 184124,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0613,
+      "cost": 0.06127,
       "tokens": 19898,
       "latency_ms": 0
     },
@@ -1932,7 +1932,7 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.375844,
       "tokens": 358388,
       "latency_ms": 0
     },
@@ -1952,19 +1952,19 @@
   "old112::django__django-11848": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.236,
+      "cost": 0.23603,
       "tokens": 40402,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.2387,
+      "cost": 0.23871,
       "tokens": 68026,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0151,
+      "cost": 0.0150975,
       "tokens": 3404,
       "latency_ms": 0
     },
@@ -1982,7 +1982,7 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.041613,
       "tokens": 36785,
       "latency_ms": 0
     },
@@ -2002,19 +2002,19 @@
   "old112::django__django-11951": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.0798,
+      "cost": 0.079765,
       "tokens": 13941,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.0487,
+      "cost": 0.048651,
       "tokens": 14233,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0351,
+      "cost": 0.03508,
       "tokens": 10112,
       "latency_ms": 0
     },
@@ -2032,7 +2032,7 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.053806,
       "tokens": 49968,
       "latency_ms": 0
     },
@@ -2052,19 +2052,19 @@
   "old112::django__django-11999": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.2636,
+      "cost": 0.26357,
       "tokens": 44498,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.3253,
+      "cost": 0.32529,
       "tokens": 94170,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0685,
+      "cost": 0.06855,
       "tokens": 22160,
       "latency_ms": 0
     },
@@ -2082,7 +2082,7 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.001076,
       "tokens": 834,
       "latency_ms": 0
     },
@@ -2094,7 +2094,7 @@
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1602,
+      "cost": 0.16022996,
       "tokens": 1334471,
       "latency_ms": 0
     }
@@ -2102,19 +2102,19 @@
   "old112::django__django-12039": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.8857,
+      "cost": 0.88566,
       "tokens": 164192,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.2122,
+      "cost": 0.212238,
       "tokens": 63046,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0284,
+      "cost": 0.028365,
       "tokens": 7501,
       "latency_ms": 0
     },
@@ -2144,7 +2144,7 @@
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1384,
+      "cost": 0.13839078,
       "tokens": 1185663,
       "latency_ms": 0
     }
@@ -2152,19 +2152,19 @@
   "old112::django__django-12050": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.0625,
+      "cost": 0.062535,
       "tokens": 10927,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.0421,
+      "cost": 0.042078,
       "tokens": 12246,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0496,
+      "cost": 0.049555,
       "tokens": 15422,
       "latency_ms": 0
     },
@@ -2194,7 +2194,7 @@
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1093,
+      "cost": 0.10928742,
       "tokens": 941452,
       "latency_ms": 0
     }
@@ -2202,19 +2202,19 @@
   "old112::django__django-12143": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.0506,
+      "cost": 0.050575,
       "tokens": 8759,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.0447,
+      "cost": 0.044724,
       "tokens": 12848,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0324,
+      "cost": 0.0323725,
       "tokens": 9549,
       "latency_ms": 0
     },
@@ -2244,7 +2244,7 @@
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.0897,
+      "cost": 0.08974108,
       "tokens": 773153,
       "latency_ms": 0
     }
@@ -2252,19 +2252,19 @@
   "old112::django__django-12155": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.4395,
+      "cost": 0.43948,
       "tokens": 81772,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.1599,
+      "cost": 0.159906,
       "tokens": 47754,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0294,
+      "cost": 0.029415,
       "tokens": 9451,
       "latency_ms": 0
     },
@@ -2294,7 +2294,7 @@
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.0403,
+      "cost": 0.04029432,
       "tokens": 339507,
       "latency_ms": 0
     }
@@ -2302,19 +2302,19 @@
   "old112::django__django-12193": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.4214,
+      "cost": 0.42142,
       "tokens": 76332,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.3178,
+      "cost": 0.317763,
       "tokens": 95569,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0571,
+      "cost": 0.057145,
       "tokens": 16903,
       "latency_ms": 0
     },
@@ -2332,7 +2332,7 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.11957,
       "tokens": 109064,
       "latency_ms": 0
     },
@@ -2344,7 +2344,7 @@
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1219,
+      "cost": 0.12190816,
       "tokens": 1040191,
       "latency_ms": 0
     }
@@ -2358,13 +2358,13 @@
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.4606,
+      "cost": 0.460635,
       "tokens": 144561,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0336,
+      "cost": 0.033625,
       "tokens": 10150,
       "latency_ms": 0
     },
@@ -2394,7 +2394,7 @@
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1049,
+      "cost": 0.10487818,
       "tokens": 899793,
       "latency_ms": 0
     }
@@ -2402,19 +2402,19 @@
   "old112::django__django-12304": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.1718,
+      "cost": 0.17182,
       "tokens": 27356,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.2787,
+      "cost": 0.278697,
       "tokens": 83187,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0308,
+      "cost": 0.0307525,
       "tokens": 9401,
       "latency_ms": 0
     },
@@ -2444,7 +2444,7 @@
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1235,
+      "cost": 0.12354166,
       "tokens": 1069746,
       "latency_ms": 0
     }
@@ -2458,19 +2458,19 @@
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 1.3161,
+      "cost": 1.316145,
       "tokens": 418347,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0686,
+      "cost": 0.068635,
       "tokens": 21524,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.885,
+      "cost": 0.8849784,
       "tokens": 1055337,
       "latency_ms": 0
     },
@@ -2494,7 +2494,7 @@
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1564,
+      "cost": 0.15640856,
       "tokens": 1312241,
       "latency_ms": 0
     }
@@ -2502,25 +2502,25 @@
   "old112::django__django-12419": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.3396,
+      "cost": 0.33958,
       "tokens": 63252,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.1802,
+      "cost": 0.18018,
       "tokens": 54708,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.1059,
+      "cost": 0.105925,
       "tokens": 39090,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.1046,
+      "cost": 0.1045824,
       "tokens": 122159,
       "latency_ms": 0
     },
@@ -2538,13 +2538,13 @@
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.005,
+      "cost": 0.00496444,
       "tokens": 13026,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1159,
+      "cost": 0.11588313,
       "tokens": 1007128,
       "latency_ms": 0
     }
@@ -2552,25 +2552,25 @@
   "old112::django__django-13012": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.6384,
+      "cost": 0.638425,
       "tokens": 120265,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.5041,
+      "cost": 0.504141,
       "tokens": 158067,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.16,
+      "cost": 0.1599625,
       "tokens": 51975,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.5104,
+      "cost": 0.5104176,
       "tokens": 621170,
       "latency_ms": 0
     },
@@ -2594,7 +2594,7 @@
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1214,
+      "cost": 0.12136938,
       "tokens": 1044498,
       "latency_ms": 0
     }
@@ -2602,25 +2602,25 @@
   "old112::django__django-13028": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.4696,
+      "cost": 0.469615,
       "tokens": 84723,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.1977,
+      "cost": 0.19773,
       "tokens": 58910,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0388,
+      "cost": 0.038765,
       "tokens": 11851,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.1645,
+      "cost": 0.164519,
       "tokens": 194624,
       "latency_ms": 0
     },
@@ -2638,13 +2638,13 @@
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.0534,
+      "cost": 0.053443,
       "tokens": 145366,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1358,
+      "cost": 0.13575903,
       "tokens": 1109433,
       "latency_ms": 0
     }
@@ -2652,25 +2652,25 @@
   "old112::django__django-13089": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.205,
+      "cost": 0.205015,
       "tokens": 35331,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.0568,
+      "cost": 0.056775,
       "tokens": 15777,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0322,
+      "cost": 0.0321775,
       "tokens": 10266,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.1338,
+      "cost": 0.1338388,
       "tokens": 158867,
       "latency_ms": 0
     },
@@ -2694,7 +2694,7 @@
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1153,
+      "cost": 0.11526229,
       "tokens": 997754,
       "latency_ms": 0
     }
@@ -2702,25 +2702,25 @@
   "old112::django__django-13121": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 3.0522,
+      "cost": 3.052215,
       "tokens": 588723,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 3.769,
+      "cost": 3.769014,
       "tokens": 1177234,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.1244,
+      "cost": 0.1243825,
       "tokens": 44563,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 1.0748,
+      "cost": 1.074788,
       "tokens": 1318592,
       "latency_ms": 0
     },
@@ -2744,7 +2744,7 @@
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1049,
+      "cost": 0.10485981,
       "tokens": 892406,
       "latency_ms": 0
     }
@@ -2752,31 +2752,31 @@
   "old112::django__django-13128": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.4944,
+      "cost": 0.49445,
       "tokens": 90422,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 1.1761,
+      "cost": 1.176081,
       "tokens": 367179,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.2901,
+      "cost": 0.2901225,
       "tokens": 106974,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.5248,
+      "cost": 0.5248082,
       "tokens": 627941,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.0316,
+      "cost": 0.03161285,
       "tokens": 937719,
       "latency_ms": 0
     },
@@ -2794,7 +2794,7 @@
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1153,
+      "cost": 0.11529936,
       "tokens": 923406,
       "latency_ms": 0
     }
@@ -2802,25 +2802,25 @@
   "old112::django__django-13195": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.316,
+      "cost": 1.316005,
       "tokens": 247309,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.3141,
+      "cost": 0.314109,
       "tokens": 97463,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0752,
+      "cost": 0.0751825,
       "tokens": 25153,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.2757,
+      "cost": 0.2756994,
       "tokens": 329590,
       "latency_ms": 0
     },
@@ -2844,7 +2844,7 @@
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1434,
+      "cost": 0.14337752,
       "tokens": 1217317,
       "latency_ms": 0
     }
@@ -2852,25 +2852,25 @@
   "old112::django__django-13212": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.4245,
+      "cost": 1.424475,
       "tokens": 259295,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 1.2908,
+      "cost": 1.290774,
       "tokens": 398174,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.1731,
+      "cost": 0.173135,
       "tokens": 59719,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.5996,
+      "cost": 0.5996366,
       "tokens": 729600,
       "latency_ms": 0
     },
@@ -2894,7 +2894,7 @@
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1682,
+      "cost": 0.16820606,
       "tokens": 1453091,
       "latency_ms": 0
     }
@@ -2902,25 +2902,25 @@
   "old112::django__django-13297": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.2017,
+      "cost": 1.201685,
       "tokens": 220169,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 5.1192,
+      "cost": 5.119188,
       "tokens": 1609076,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0712,
+      "cost": 0.07116,
       "tokens": 23929,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.9906,
+      "cost": 0.9905622,
       "tokens": 1203605,
       "latency_ms": 0
     },
@@ -2938,13 +2938,13 @@
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.124,
+      "cost": 0.1240464,
       "tokens": 342828,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.0829,
+      "cost": 0.08293516,
       "tokens": 657296,
       "latency_ms": 0
     }
@@ -2958,19 +2958,19 @@
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.3386,
+      "cost": 0.338598,
       "tokens": 106782,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.1381,
+      "cost": 0.1381125,
       "tokens": 49790,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.9817,
+      "cost": 0.9817298,
       "tokens": 1197410,
       "latency_ms": 0
     },
@@ -2994,7 +2994,7 @@
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1227,
+      "cost": 0.12265979,
       "tokens": 1069529,
       "latency_ms": 0
     }
@@ -3002,25 +3002,25 @@
   "old112::django__django-13343": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.532,
+      "cost": 0.53199,
       "tokens": 96290,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.2578,
+      "cost": 0.257826,
       "tokens": 78406,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0482,
+      "cost": 0.0481525,
       "tokens": 14456,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.4689,
+      "cost": 0.4688948,
       "tokens": 568227,
       "latency_ms": 0
     },
@@ -3044,7 +3044,7 @@
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.1415,
+      "cost": 0.14154492,
       "tokens": 1119752,
       "latency_ms": 0
     }
@@ -3052,25 +3052,25 @@
   "old112::django__django-13344": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 10.1319,
+      "cost": 10.13187,
       "tokens": 1932090,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 3.983,
+      "cost": 3.983022,
       "tokens": 1246782,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0416,
+      "cost": 0.0415525,
       "tokens": 13031,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 1.1242,
+      "cost": 1.12422,
       "tokens": 1299301,
       "latency_ms": 0
     },
@@ -3094,7 +3094,7 @@
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.0404,
+      "cost": 0.04035427,
       "tokens": 275742,
       "latency_ms": 0
     }
@@ -3102,25 +3102,25 @@
   "old112::django__django-13346": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.6408,
+      "cost": 1.64084,
       "tokens": 311504,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 2.0948,
+      "cost": 2.094792,
       "tokens": 659388,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.2365,
+      "cost": 0.23649,
       "tokens": 89091,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 1.2363,
+      "cost": 1.2363206,
       "tokens": 1467837,
       "latency_ms": 0
     },
@@ -3152,19 +3152,19 @@
   "old112::django__django-13401": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.4858,
+      "cost": 0.48584,
       "tokens": 86396,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.3341,
+      "cost": 0.334074,
       "tokens": 98114,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.1315,
+      "cost": 0.1315475,
       "tokens": 37459,
       "latency_ms": 0
     },
@@ -3202,19 +3202,19 @@
   "old112::django__django-13406": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 2.0836,
+      "cost": 2.083595,
       "tokens": 397103,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 2.8525,
+      "cost": 2.85255,
       "tokens": 910286,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0989,
+      "cost": 0.09893,
       "tokens": 35802,
       "latency_ms": 0
     },
@@ -3252,19 +3252,19 @@
   "old112::django__django-13512": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 0.2708,
+      "cost": 0.27079,
       "tokens": 46062,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.3236,
+      "cost": 0.323598,
       "tokens": 100734,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0649,
+      "cost": 0.064925,
       "tokens": 22020,
       "latency_ms": 0
     },
@@ -3302,19 +3302,19 @@
   "old112::django__django-13516": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.3749,
+      "cost": 0.37486,
       "tokens": 68984,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.2565,
+      "cost": 0.256491,
       "tokens": 78353,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0174,
+      "cost": 0.017355,
       "tokens": 5082,
       "latency_ms": 0
     },
@@ -3352,19 +3352,19 @@
   "old112::django__django-13551": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.2213,
+      "cost": 0.22129,
       "tokens": 41238,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.3024,
+      "cost": 0.302421,
       "tokens": 88639,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0608,
+      "cost": 0.060805,
       "tokens": 21287,
       "latency_ms": 0
     },
@@ -3402,19 +3402,19 @@
   "old112::django__django-13590": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.7368,
+      "cost": 0.73677,
       "tokens": 136038,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.314,
+      "cost": 0.313956,
       "tokens": 93496,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0439,
+      "cost": 0.0439025,
       "tokens": 14286,
       "latency_ms": 0
     },
@@ -3458,13 +3458,13 @@
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.0571,
+      "cost": 0.057066,
       "tokens": 15494,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0611,
+      "cost": 0.0610525,
       "tokens": 19111,
       "latency_ms": 0
     },
@@ -3508,19 +3508,19 @@
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.2549,
+      "cost": 0.254868,
       "tokens": 76624,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0446,
+      "cost": 0.0445725,
       "tokens": 14614,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.1467,
+      "cost": 0.1467246,
       "tokens": 174636,
       "latency_ms": 0
     },
@@ -3552,25 +3552,25 @@
   "old112::django__django-13794": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.8228,
+      "cost": 1.822795,
       "tokens": 330815,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 1.0748,
+      "cost": 1.074819,
       "tokens": 326493,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.142,
+      "cost": 0.141985,
       "tokens": 49059,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.4608,
+      "cost": 0.4608084,
       "tokens": 552641,
       "latency_ms": 0
     },
@@ -3588,7 +3588,7 @@
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.0152,
+      "cost": 0.01519726,
       "tokens": 38779,
       "latency_ms": 0
     },
@@ -3602,25 +3602,25 @@
   "old112::django__django-13809": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 2.2591,
+      "cost": 2.25915,
       "tokens": 434798,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.6089,
+      "cost": 0.608883,
       "tokens": 192273,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.102,
+      "cost": 0.1020275,
       "tokens": 36696,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.4253,
+      "cost": 0.4252896,
       "tokens": 515024,
       "latency_ms": 0
     },
@@ -3652,25 +3652,25 @@
   "old112::django__django-13810": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.4104,
+      "cost": 0.410385,
       "tokens": 74501,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.1875,
+      "cost": 0.187527,
       "tokens": 55821,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0736,
+      "cost": 0.073575,
       "tokens": 25120,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.4551,
+      "cost": 0.4550828,
       "tokens": 503442,
       "latency_ms": 0
     },
@@ -3702,25 +3702,25 @@
   "old112::django__django-13820": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.081,
+      "cost": 0.08097,
       "tokens": 13678,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.1941,
+      "cost": 0.194079,
       "tokens": 58361,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0542,
+      "cost": 0.05422,
       "tokens": 15283,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.1212,
+      "cost": 0.1211742,
       "tokens": 143072,
       "latency_ms": 0
     },
@@ -3752,25 +3752,25 @@
   "old112::django__django-13821": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 2.2945,
+      "cost": 2.29448,
       "tokens": 448244,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.5617,
+      "cost": 0.561663,
       "tokens": 179153,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0929,
+      "cost": 0.092935,
       "tokens": 32899,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.106,
+      "cost": 0.105994,
       "tokens": 127911,
       "latency_ms": 0
     },
@@ -3802,25 +3802,25 @@
   "old112::django__django-14007": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 2.1442,
+      "cost": 2.144235,
       "tokens": 411707,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 2.0955,
+      "cost": 2.095464,
       "tokens": 670300,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0515,
+      "cost": 0.05151,
       "tokens": 15124,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.8119,
+      "cost": 0.8119212,
       "tokens": 976297,
       "latency_ms": 0
     },
@@ -3858,19 +3858,19 @@
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.8403,
+      "cost": 0.840336,
       "tokens": 259672,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.049,
+      "cost": 0.0490325,
       "tokens": 15373,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.4539,
+      "cost": 0.4538694,
       "tokens": 541110,
       "latency_ms": 0
     },
@@ -3902,25 +3902,25 @@
   "old112::django__django-14053": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.1224,
+      "cost": 1.122385,
       "tokens": 213025,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 1.7254,
+      "cost": 1.725435,
       "tokens": 535313,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.2013,
+      "cost": 0.201295,
       "tokens": 68888,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.352,
+      "cost": 0.3520482,
       "tokens": 422606,
       "latency_ms": 0
     },
@@ -3952,25 +3952,25 @@
   "old112::django__django-14122": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.0129,
+      "cost": 1.012915,
       "tokens": 186359,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 2.2598,
+      "cost": 2.259756,
       "tokens": 731468,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.1164,
+      "cost": 0.1163575,
       "tokens": 42013,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.8484,
+      "cost": 0.8484118,
       "tokens": 1030185,
       "latency_ms": 0
     },
@@ -4002,25 +4002,25 @@
   "old112::django__django-14140": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 0.197,
+      "cost": 0.19703,
       "tokens": 34190,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.1864,
+      "cost": 0.186426,
       "tokens": 55810,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0407,
+      "cost": 0.0406725,
       "tokens": 11164,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.1276,
+      "cost": 0.1276042,
       "tokens": 150433,
       "latency_ms": 0
     },
@@ -4052,25 +4052,25 @@
   "old112::django__django-14155": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 0.5505,
+      "cost": 0.550535,
       "tokens": 101171,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.447,
+      "cost": 0.447042,
       "tokens": 137158,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.2245,
+      "cost": 0.2244575,
       "tokens": 67238,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.265,
+      "cost": 0.2650106,
       "tokens": 317780,
       "latency_ms": 0
     },
@@ -4102,25 +4102,25 @@
   "old112::django__django-14170": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.943,
+      "cost": 1.943005,
       "tokens": 371681,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 3.0209,
+      "cost": 3.020883,
       "tokens": 950045,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.103,
+      "cost": 0.1030275,
       "tokens": 28231,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.3899,
+      "cost": 0.3898804,
       "tokens": 466291,
       "latency_ms": 0
     },
@@ -4158,19 +4158,19 @@
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 1.2913,
+      "cost": 1.291347,
       "tokens": 408049,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.1423,
+      "cost": 0.1423275,
       "tokens": 51291,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 1.4276,
+      "cost": 1.4276352,
       "tokens": 1720227,
       "latency_ms": 0
     },
@@ -4202,25 +4202,25 @@
   "old112::django__django-14315": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 0.3215,
+      "cost": 0.32152,
       "tokens": 58624,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.0679,
+      "cost": 0.067941,
       "tokens": 19627,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0138,
+      "cost": 0.0137775,
       "tokens": 2816,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.103,
+      "cost": 0.1030242,
       "tokens": 120269,
       "latency_ms": 0
     },
@@ -4258,19 +4258,19 @@
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.3433,
+      "cost": 0.343257,
       "tokens": 106455,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0583,
+      "cost": 0.05833,
       "tokens": 17757,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.2074,
+      "cost": 0.2074462,
       "tokens": 252716,
       "latency_ms": 0
     },
@@ -4288,7 +4288,7 @@
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.0445,
+      "cost": 0.04453056,
       "tokens": 124252,
       "latency_ms": 0
     },
@@ -4302,31 +4302,31 @@
   "old112::django__django-14351": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 7.1772,
+      "cost": 7.17717,
       "tokens": 1378826,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 5.1081,
+      "cost": 5.108103,
       "tokens": 1634201,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.2111,
+      "cost": 0.21113,
       "tokens": 78377,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 1.0991,
+      "cost": 1.099057,
       "tokens": 1344982,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 0.0,
-      "cost": 0.0109,
+      "cost": 0.01092052,
       "tokens": 285164,
       "latency_ms": 0
     },
@@ -4338,7 +4338,7 @@
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.0527,
+      "cost": 0.05268644,
       "tokens": 142838,
       "latency_ms": 0
     },
@@ -4352,31 +4352,31 @@
   "old112::django__django-14373": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.0767,
+      "cost": 0.07673,
       "tokens": 12762,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.0431,
+      "cost": 0.043149,
       "tokens": 12303,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0727,
+      "cost": 0.0726925,
       "tokens": 23002,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.2372,
+      "cost": 0.237198,
       "tokens": 285184,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.0063,
+      "cost": 0.00633167,
       "tokens": 141578,
       "latency_ms": 0
     },
@@ -4402,31 +4402,31 @@
   "old112::django__django-14376": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 0.0415,
+      "cost": 0.04145,
       "tokens": 7014,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.026,
+      "cost": 0.025965,
       "tokens": 7287,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0239,
+      "cost": 0.0238775,
       "tokens": 7586,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.0212,
+      "cost": 0.0212034,
       "tokens": 24241,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 0.0,
-      "cost": 0.0036,
+      "cost": 0.00361066,
       "tokens": 68309,
       "latency_ms": 0
     },
@@ -4452,31 +4452,31 @@
   "old112::django__django-14404": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.087,
+      "cost": 0.086985,
       "tokens": 14973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.2531,
+      "cost": 0.253104,
       "tokens": 76500,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0599,
+      "cost": 0.0599025,
       "tokens": 20831,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.4705,
+      "cost": 0.4705064,
       "tokens": 569026,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 0.0,
-      "cost": 0.0121,
+      "cost": 0.01205601,
       "tokens": 341491,
       "latency_ms": 0
     },
@@ -4508,25 +4508,25 @@
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.2854,
+      "cost": 0.285384,
       "tokens": 87288,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0888,
+      "cost": 0.0888425,
       "tokens": 31322,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.2618,
+      "cost": 0.2617662,
       "tokens": 309220,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.0148,
+      "cost": 0.01477885,
       "tokens": 356276,
       "latency_ms": 0
     },
@@ -4552,31 +4552,31 @@
   "old112::django__django-14493": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.0815,
+      "cost": 0.081505,
       "tokens": 14333,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.0828,
+      "cost": 0.082794,
       "tokens": 24058,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0203,
+      "cost": 0.0202975,
       "tokens": 5624,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.1855,
+      "cost": 0.1854576,
       "tokens": 220602,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.0093,
+      "cost": 0.00928529,
       "tokens": 208052,
       "latency_ms": 0
     },
@@ -4594,7 +4594,7 @@
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.0353,
+      "cost": 0.03530692,
       "tokens": 296302,
       "latency_ms": 0
     }
@@ -4602,31 +4602,31 @@
   "old112::django__django-14500": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.6104,
+      "cost": 0.61038,
       "tokens": 116740,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.6044,
+      "cost": 0.604356,
       "tokens": 191456,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0535,
+      "cost": 0.053465,
       "tokens": 16741,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 1.0494,
+      "cost": 1.0493738,
       "tokens": 1257622,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.0278,
+      "cost": 0.02780837,
       "tokens": 786448,
       "latency_ms": 0
     },
@@ -4644,7 +4644,7 @@
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.0504,
+      "cost": 0.05038176,
       "tokens": 405786,
       "latency_ms": 0
     }
@@ -4652,31 +4652,31 @@
   "old112::django__django-14539": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.6402,
+      "cost": 0.64017,
       "tokens": 117358,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.5433,
+      "cost": 0.54327,
       "tokens": 168494,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.1693,
+      "cost": 0.16934,
       "tokens": 59731,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.3436,
+      "cost": 0.343624,
       "tokens": 400589,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.0158,
+      "cost": 0.01575234,
       "tokens": 240921,
       "latency_ms": 0
     },
@@ -4702,31 +4702,31 @@
   "old112::django__django-14559": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.2267,
+      "cost": 0.22666,
       "tokens": 40380,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.0622,
+      "cost": 0.062172,
       "tokens": 17652,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0322,
+      "cost": 0.0321725,
       "tokens": 10549,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.0185,
+      "cost": 0.0185114,
       "tokens": 20788,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.022,
+      "cost": 0.02204768,
       "tokens": 784911,
       "latency_ms": 0
     },
@@ -4758,25 +4758,25 @@
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.3398,
+      "cost": 0.339795,
       "tokens": 104489,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0727,
+      "cost": 0.072675,
       "tokens": 26420,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.0018,
+      "cost": 0.001785,
       "tokens": 1827,
       "latency_ms": 0
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.0163,
+      "cost": 0.01630705,
       "tokens": 439158,
       "latency_ms": 0
     },
@@ -4802,19 +4802,19 @@
   "old112::django__django-14631": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 2.9181,
+      "cost": 2.91808,
       "tokens": 564436,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.9987,
+      "cost": 0.998748,
       "tokens": 309316,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.3249,
+      "cost": 0.3249125,
       "tokens": 117450,
       "latency_ms": 0
     },
@@ -4826,7 +4826,7 @@
     },
     "kimi-k2.5": {
       "perf": 0.0,
-      "cost": 0.0367,
+      "cost": 0.03671738,
       "tokens": 1261478,
       "latency_ms": 0
     },
@@ -4852,19 +4852,19 @@
   "old112::django__django-14725": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 2.0789,
+      "cost": 2.078865,
       "tokens": 391129,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 2.3888,
+      "cost": 2.388774,
       "tokens": 763650,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.2021,
+      "cost": 0.2021225,
       "tokens": 69579,
       "latency_ms": 0
     },
@@ -4876,7 +4876,7 @@
     },
     "kimi-k2.5": {
       "perf": 0.0,
-      "cost": 0.0358,
+      "cost": 0.03581427,
       "tokens": 1130707,
       "latency_ms": 0
     },
@@ -4902,19 +4902,19 @@
   "old112::django__django-14765": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 0.1172,
+      "cost": 0.11719,
       "tokens": 20062,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.1651,
+      "cost": 0.165132,
       "tokens": 50036,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0321,
+      "cost": 0.03214,
       "tokens": 9086,
       "latency_ms": 0
     },
@@ -4926,7 +4926,7 @@
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.0117,
+      "cost": 0.01167615,
       "tokens": 379223,
       "latency_ms": 0
     },
@@ -4952,19 +4952,19 @@
   "old112::django__django-14792": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 0.8532,
+      "cost": 0.853235,
       "tokens": 140719,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.3362,
+      "cost": 0.336198,
       "tokens": 85982,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0695,
+      "cost": 0.0694825,
       "tokens": 23353,
       "latency_ms": 0
     },
@@ -4976,7 +4976,7 @@
     },
     "kimi-k2.5": {
       "perf": 0.0,
-      "cost": 0.0414,
+      "cost": 0.04135499,
       "tokens": 1326419,
       "latency_ms": 0
     },
@@ -5002,19 +5002,19 @@
   "old112::django__django-15037": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 0.1903,
+      "cost": 0.190305,
       "tokens": 34285,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.1564,
+      "cost": 0.156432,
       "tokens": 47144,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0464,
+      "cost": 0.0463625,
       "tokens": 15000,
       "latency_ms": 0
     },
@@ -5026,7 +5026,7 @@
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.0388,
+      "cost": 0.03884037,
       "tokens": 1415110,
       "latency_ms": 0
     },
@@ -5038,7 +5038,7 @@
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.2858,
+      "cost": 0.2858394,
       "tokens": 816154,
       "latency_ms": 0
     },
@@ -5052,7 +5052,7 @@
   "old112::django__django-15098": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 0.1094,
+      "cost": 0.109435,
       "tokens": 17411,
       "latency_ms": 0
     },
@@ -5064,7 +5064,7 @@
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0927,
+      "cost": 0.0927175,
       "tokens": 32512,
       "latency_ms": 0
     },
@@ -5076,7 +5076,7 @@
     },
     "kimi-k2.5": {
       "perf": 0.0,
-      "cost": 0.0437,
+      "cost": 0.04366908,
       "tokens": 1295705,
       "latency_ms": 0
     },
@@ -5114,7 +5114,7 @@
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0666,
+      "cost": 0.0666075,
       "tokens": 21003,
       "latency_ms": 0
     },
@@ -5126,7 +5126,7 @@
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.0121,
+      "cost": 0.01214174,
       "tokens": 217991,
       "latency_ms": 0
     },
@@ -5164,7 +5164,7 @@
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0227,
+      "cost": 0.022655,
       "tokens": 6622,
       "latency_ms": 0
     },
@@ -5176,7 +5176,7 @@
     },
     "kimi-k2.5": {
       "perf": 0.0,
-      "cost": 0.0121,
+      "cost": 0.01208712,
       "tokens": 207905,
       "latency_ms": 0
     },
@@ -5214,7 +5214,7 @@
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.2254,
+      "cost": 0.2254475,
       "tokens": 81439,
       "latency_ms": 0
     },
@@ -5226,7 +5226,7 @@
     },
     "kimi-k2.5": {
       "perf": 0.0,
-      "cost": 0.0243,
+      "cost": 0.02426828,
       "tokens": 999457,
       "latency_ms": 0
     },
@@ -5264,7 +5264,7 @@
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0147,
+      "cost": 0.014705,
       "tokens": 4152,
       "latency_ms": 0
     },
@@ -5276,7 +5276,7 @@
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.0143,
+      "cost": 0.01425976,
       "tokens": 412742,
       "latency_ms": 0
     },
@@ -5314,7 +5314,7 @@
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0733,
+      "cost": 0.0733225,
       "tokens": 24484,
       "latency_ms": 0
     },
@@ -5326,7 +5326,7 @@
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.0251,
+      "cost": 0.02510067,
       "tokens": 604401,
       "latency_ms": 0
     },
@@ -5364,7 +5364,7 @@
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0221,
+      "cost": 0.0220975,
       "tokens": 6304,
       "latency_ms": 0
     },
@@ -5376,7 +5376,7 @@
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.0155,
+      "cost": 0.01551589,
       "tokens": 265539,
       "latency_ms": 0
     },
@@ -5414,7 +5414,7 @@
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0955,
+      "cost": 0.0954775,
       "tokens": 33881,
       "latency_ms": 0
     },
@@ -5426,7 +5426,7 @@
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.0322,
+      "cost": 0.03224907,
       "tokens": 705116,
       "latency_ms": 0
     },
@@ -5464,7 +5464,7 @@
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0849,
+      "cost": 0.0849125,
       "tokens": 29970,
       "latency_ms": 0
     },
@@ -5476,7 +5476,7 @@
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.0155,
+      "cost": 0.01550295,
       "tokens": 438512,
       "latency_ms": 0
     },
@@ -5514,7 +5514,7 @@
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.0684,
+      "cost": 0.0684375,
       "tokens": 23770,
       "latency_ms": 0
     },
@@ -5526,7 +5526,7 @@
     },
     "kimi-k2.5": {
       "perf": 1.0,
-      "cost": 0.0423,
+      "cost": 0.04228435,
       "tokens": 1323118,
       "latency_ms": 0
     },
@@ -5564,7 +5564,7 @@
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.0847,
+      "cost": 0.084735,
       "tokens": 30204,
       "latency_ms": 0
     },
@@ -5576,13 +5576,13 @@
     },
     "kimi-k2.5": {
       "perf": 0.0,
-      "cost": 0.0309,
+      "cost": 0.03085752,
       "tokens": 817969,
       "latency_ms": 0
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 1.04495,
       "tokens": 1005626,
       "latency_ms": 0
     },
@@ -5602,25 +5602,25 @@
   "new64::featurebench::Lightning-AI__pytorch-lightning.126fa6f1.test_connector.825ef3b1.lv1": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -5632,19 +5632,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -5652,25 +5652,25 @@
   "new64::featurebench::Lightning-AI__pytorch-lightning.126fa6f1.test_data.c8b292af.lv1": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -5682,19 +5682,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -5702,25 +5702,25 @@
   "new64::featurebench::Lightning-AI__pytorch-lightning.126fa6f1.test_fsdp_integration.61c07610.lv2": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -5732,19 +5732,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -5752,25 +5752,25 @@
   "new64::featurebench::Lightning-AI__pytorch-lightning.126fa6f1.test_hooks.34620588.lv1": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -5782,19 +5782,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -5802,25 +5802,25 @@
   "new64::featurebench::Lightning-AI__pytorch-lightning.126fa6f1.test_xla.7c94e7d2.lv1": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -5832,19 +5832,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -5852,25 +5852,25 @@
   "new64::featurebench::astropy__astropy.b0db0daa.test_compressed.8daeb7d6.lv1": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -5882,19 +5882,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -5902,25 +5902,25 @@
   "new64::featurebench::astropy__astropy.b0db0daa.test_compression_failures.48dc420b.lv1": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -5932,19 +5932,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -5952,25 +5952,25 @@
   "new64::featurebench::astropy__astropy.b0db0daa.test_converter.2ef0539f.lv1": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -5982,19 +5982,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6002,25 +6002,25 @@
   "new64::featurebench::astropy__astropy.b0db0daa.test_table.48eef659.lv1": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6032,19 +6032,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6052,25 +6052,25 @@
   "new64::featurebench::astropy__astropy.b0db0daa.test_tree.261bac3c.lv2": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6082,19 +6082,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6102,25 +6102,25 @@
   "new64::featurebench::fastapi__fastapi.02e108d1.test_compat.71e8518f.lv2": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6132,19 +6132,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6152,25 +6152,25 @@
   "new64::featurebench::huggingface__transformers.e2e8dbed.test_modeling_speech_to_text.e53c8eb4.lv2": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6182,19 +6182,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6202,25 +6202,25 @@
   "new64::featurebench::huggingface__transformers.e2e8dbed.test_modeling_swin2sr.f5cba486.lv2": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6232,19 +6232,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6252,25 +6252,25 @@
   "new64::featurebench::huggingface__transformers.e2e8dbed.test_modeling_vitpose.30ffd86e.lv2": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6282,19 +6282,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6302,25 +6302,25 @@
   "new64::featurebench::huggingface__transformers.e2e8dbed.test_modeling_vits.6379a2ba.lv2": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6332,19 +6332,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6352,25 +6352,25 @@
   "new64::featurebench::huggingface__trl.02a34777.test_data_utils.827a9d15.lv2": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6382,19 +6382,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6402,25 +6402,25 @@
   "new64::featurebench::linkedin__Liger-Kernel.c856fbab.test_fused_add_rms_norm.fecadbdf.lv1": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6432,19 +6432,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6452,25 +6452,25 @@
   "new64::featurebench::linkedin__Liger-Kernel.c856fbab.test_fused_linear_jsd.4bd46945.lv1": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6482,19 +6482,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6502,25 +6502,25 @@
   "new64::featurebench::linkedin__Liger-Kernel.c856fbab.test_fused_neighborhood_attention.78217be4.lv2": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6532,19 +6532,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6552,25 +6552,25 @@
   "new64::featurebench::linkedin__Liger-Kernel.c856fbab.test_mini_models.96209d55.lv1": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6582,19 +6582,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6602,25 +6602,25 @@
   "new64::featurebench::linkedin__Liger-Kernel.c856fbab.test_multi_token_attention.4c06a35b.lv1": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6632,19 +6632,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6652,25 +6652,25 @@
   "new64::featurebench::matplotlib__matplotlib.86a476d2.test_angle_helper.48e96b5a.lv2": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6682,19 +6682,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6702,25 +6702,25 @@
   "new64::featurebench::matplotlib__matplotlib.86a476d2.test_backend_registry.872ba384.lv1": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6732,19 +6732,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6752,25 +6752,25 @@
   "new64::featurebench::mesonbuild__meson.f5d81d07.cargotests.8e49c2d0.lv2": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6782,19 +6782,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6802,25 +6802,25 @@
   "new64::featurebench::mlflow__mlflow.93dab383.test_client_webhooks.75e39b52.lv2": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6832,19 +6832,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6852,25 +6852,25 @@
   "new64::featurebench::mlflow__mlflow.93dab383.test_file_store_logged_model.a9596c54.lv2": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6882,19 +6882,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6902,25 +6902,25 @@
   "new64::featurebench::mlflow__mlflow.93dab383.test_numpy_dataset.1beaad57.lv2": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6932,19 +6932,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -6952,25 +6952,25 @@
   "new64::featurebench::mlflow__mlflow.93dab383.test_trace_manager.bb95fbcd.lv2": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -6982,19 +6982,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7002,25 +7002,25 @@
   "new64::featurebench::mlflow__mlflow.93dab383.test_tracing.0dc1e3a3.lv2": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7032,19 +7032,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7052,25 +7052,25 @@
   "new64::featurebench::mwaskom__seaborn.7001ebe7.test_algorithms.1f0181c2.lv2": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7082,19 +7082,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7102,25 +7102,25 @@
   "new64::featurebench::mwaskom__seaborn.7001ebe7.test_scales.d9dcdef6.lv1": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7132,19 +7132,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7152,25 +7152,25 @@
   "new64::featurebench::optuna__optuna.e7c6f1dd.test_heartbeat.5ad4d08f.lv1": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7182,19 +7182,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7202,25 +7202,25 @@
   "new64::featurebench::pandas-dev__pandas.82fa2715.test_http_headers.aafb551e.lv1": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7232,19 +7232,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7252,25 +7252,25 @@
   "new64::featurebench::pandas-dev__pandas.82fa2715.test_iceberg.85771c70.lv2": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7282,19 +7282,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7302,25 +7302,25 @@
   "new64::featurebench::pandas-dev__pandas.82fa2715.test_info.d8a64ebf.lv1": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7332,19 +7332,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7352,25 +7352,25 @@
   "new64::featurebench::pydantic__pydantic.e1dcaf9e.test_deprecated_fields.40a2ec54.lv1": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7382,19 +7382,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7402,25 +7402,25 @@
   "new64::featurebench::pydantic__pydantic.e1dcaf9e.test_experimental_arguments_schema.00dc2dd4.lv1": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7432,19 +7432,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7452,25 +7452,25 @@
   "new64::featurebench::pydantic__pydantic.e1dcaf9e.test_titles.e806bda8.lv1": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7482,19 +7482,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7502,25 +7502,25 @@
   "new64::featurebench::pydata__xarray.97f3a746.test_coordinate_transform.6cacb660.lv2": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7532,19 +7532,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7552,25 +7552,25 @@
   "new64::featurebench::pypa__hatch.ff4b4040.test_fmt.782c88a8.lv1": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7582,19 +7582,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7602,25 +7602,25 @@
   "new64::featurebench::pytest-dev__pytest.68016f0e.raises_group.c28bf36a.lv1": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7632,19 +7632,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7652,25 +7652,25 @@
   "new64::featurebench::python__mypy.8e2ce962.testconstraints.db380fe7.lv2": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7682,19 +7682,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7702,25 +7702,25 @@
   "new64::featurebench::scikit-learn__scikit-learn.5741bac9.test_arff_parser.ecde431a.lv1": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7732,19 +7732,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7752,25 +7752,25 @@
   "new64::featurebench::scikit-learn__scikit-learn.5741bac9.test_public_functions.28421aef.lv1": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7782,19 +7782,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7802,25 +7802,25 @@
   "new64::featurebench::sphinx-doc__sphinx.e347e59c.test_build_gettext.2721e644.lv1": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7832,19 +7832,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7852,25 +7852,25 @@
   "new64::featurebench::sphinx-doc__sphinx.e347e59c.test_build_linkcheck.20428c8f.lv1": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7882,19 +7882,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7902,25 +7902,25 @@
   "new64::featurebench::sphinx-doc__sphinx.e347e59c.test_domain_c.4068b9e8.lv1": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7932,19 +7932,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -7952,25 +7952,25 @@
   "new64::featurebench::sphinx-doc__sphinx.e347e59c.test_util_nodes.08cdc62d.lv1": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -7982,19 +7982,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -8002,25 +8002,25 @@
   "new64::featurebench::sympy__sympy.c1097516.test_nullspace.f14fc970.lv1": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -8032,19 +8032,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -8052,25 +8052,25 @@
   "new64::longcli::61810_cow": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -8082,19 +8082,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -8102,25 +8102,25 @@
   "new64::longcli::61810_fs": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -8132,19 +8132,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -8152,25 +8152,25 @@
   "new64::longcli::61810_lock": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -8182,19 +8182,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -8202,25 +8202,25 @@
   "new64::longcli::61810_mmap": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -8232,19 +8232,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -8252,25 +8252,25 @@
   "new64::longcli::61810_net": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -8282,19 +8282,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -8302,25 +8302,25 @@
   "new64::longcli::61810_pgtbl": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -8332,19 +8332,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -8352,25 +8352,25 @@
   "new64::longcli::61810_syscall": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -8382,19 +8382,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -8402,25 +8402,25 @@
   "new64::longcli::61810_thread": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -8432,19 +8432,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -8452,25 +8452,25 @@
   "new64::longcli::61810_traps": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -8482,19 +8482,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -8502,25 +8502,25 @@
   "new64::longcli::61810_util": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -8532,19 +8532,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -8552,25 +8552,25 @@
   "new64::longcli::ap1400_2_hw26": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -8582,19 +8582,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -8602,25 +8602,25 @@
   "new64::longcli::ap1400_2_hw35": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -8632,19 +8632,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -8652,25 +8652,25 @@
   "new64::longcli::cs61_fa24_ants": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -8682,19 +8682,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -8702,25 +8702,25 @@
   "new64::longcli::cs61_fa24_hw08": {
     "claude-opus-4-6": {
       "perf": 0.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 0.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 0.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 0.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -8732,19 +8732,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 0.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 0.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 0.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }
@@ -8752,25 +8752,25 @@
   "new64::swe_ci::anthropics__claude-agent-sdk-python__91315e__22fa9f": {
     "claude-opus-4-6": {
       "perf": 1.0,
-      "cost": 1.107438,
+      "cost": 1.107425,
       "tokens": 208973,
       "latency_ms": 0
     },
     "claude-sonnet-4-6": {
       "perf": 1.0,
-      "cost": 0.797813,
+      "cost": 0.797817,
       "tokens": 249139,
       "latency_ms": 0
     },
     "gpt-5.4": {
       "perf": 1.0,
-      "cost": 0.10379,
+      "cost": 0.1037925,
       "tokens": 35752,
       "latency_ms": 0
     },
     "glm-5": {
       "perf": 1.0,
-      "cost": 0.217295,
+      "cost": 0.217296,
       "tokens": 259388,
       "latency_ms": 0
     },
@@ -8782,19 +8782,19 @@
     },
     "MiniMax-M2.7": {
       "perf": 1.0,
-      "cost": 0.0,
+      "cost": 0.104718,
       "tokens": 100940,
       "latency_ms": 0
     },
     "qwen3.5-plus": {
       "perf": 1.0,
-      "cost": 0.035304,
+      "cost": 0.03530208,
       "tokens": 297038,
       "latency_ms": 0
     },
     "Qwen3-Max": {
       "perf": 1.0,
-      "cost": 0.023903,
+      "cost": 0.02390316,
       "tokens": 67006,
       "latency_ms": 0
     }

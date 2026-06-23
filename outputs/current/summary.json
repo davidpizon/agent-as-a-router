@@ -1,9 +1,9 @@
 {
   "id": {
-    "$Total": 22.91,
+    "$Total": 22.31,
     "AvgPerf%": 50.14,
-    "CumReg": 201.9,
-    "Perf/$": 2.19,
+    "CumReg": 202.0,
+    "Perf/$": 2.25,
     "eval_split": "test",
     "leakage_risk": "none",
     "missing_score": 1,
@@ -14,18 +14,18 @@
     "tune_split": "train+val"
   },
   "ood": {
-    "$Total": 51.7,
+    "$Total": 63.43,
     "Apply_ok%": 77.68,
     "AvgPerf%": 66.96,
     "AvgSteps": 3.1,
-    "CumReg": 12.8,
+    "CumReg": 13.7,
     "Escalations": 18,
-    "Perf/$": 1.3,
+    "Perf/$": 1.06,
     "TotInTok": 58589485,
     "TotOutTok": 865852,
     "decision_source": "sandbox_verifier",
     "n": 112,
-    "rAcc_reward_oracle": 0.6786,
+    "rAcc_reward_oracle": 0.5804,
     "verifier_mode": "ReportCacheVerifier"
   }
 }

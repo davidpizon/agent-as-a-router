@@ -1,8 +1,8 @@
 {
-  "$Total": 22.91,
+  "$Total": 22.31,
   "AvgPerf%": 50.14,
-  "CumReg": 201.9,
-  "Perf/$": 2.19,
+  "CumReg": 202.0,
+  "Perf/$": 2.25,
   "eval_split": "test",
   "leakage_risk": "none",
   "missing_score": 1,

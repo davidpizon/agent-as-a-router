@@ -8,8 +8,8 @@
   <a href="https://www.omnisource.cn/agent-as-a-router">
     <img alt="Homepage" src="https://img.shields.io/badge/Homepage-agent--as--a--router-1f6feb?style=for-the-badge">
   </a>
-  <a href="https://huggingface.co/papers/2606.22902">
-    <img alt="Paper" src="https://img.shields.io/badge/Paper-HF%20Daily%20Papers%3A2606.22902-b31b1b?style=for-the-badge">
+  <a href="https://arxiv.org/abs/2606.22902">
+    <img alt="Paper" src="https://img.shields.io/badge/Paper-arXiv%3A2606.22902-b31b1b?style=for-the-badge">
   </a>
   <a href="https://huggingface.co/datasets/Lance1573/CodeRouterBench">
     <img alt="Benchmark" src="https://img.shields.io/badge/Benchmark-CodeRouterBench-ff9f1c?style=for-the-badge">
@@ -22,7 +22,7 @@
 <p>
   <a href="https://www.omnisource.cn/agent-as-a-router"><strong>Homepage</strong></a>
   |
-  <a href="https://huggingface.co/papers/2606.22902"><strong>Paper</strong></a>
+  <a href="https://arxiv.org/abs/2606.22902"><strong>Paper</strong></a>
   |
   <a href="https://huggingface.co/datasets/Lance1573/CodeRouterBench"><strong>Benchmark</strong></a>
   |
@@ -167,14 +167,14 @@ python scripts/download_hf_assets.py \
 `scripts/run_id.py` should print:
 
 ```text
-ID n=2919 AvgPerf=50.14 CumReg=201.9 $Total=22.91 Perf/$=2.19 rAcc=0.2395
+ID n=2919 AvgPerf=50.14 CumReg=202.0 $Total=22.31 Perf/$=2.25 rAcc=0.2395
 ```
 
 `scripts/run_acrouter_ood176.py` should print:
 
 | split | n | AvgPerf% | CumReg | $Total | Perf/$ |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| OOD176 | 176 | 73.30 | 14.4 | 68.29 | 1.07 |
+| OOD176 | 176 | 73.30 | 15.9 | 86.72 | 0.85 |
 
 `scripts/run_baselines_ood176.py` writes:
 

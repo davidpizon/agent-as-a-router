@@ -34,22 +34,17 @@ MODELS = [
     "qwen3.5-plus", "kimi-k2.5", "glm-5", "MiniMax-M2.7",
 ]
 
-# Blended USD per total token (input+output mixed) — back-derived from
-# Always-* baselines in the existing paper table so $Total reproduces:
-#   always_opus  $34 / (691 tok * 2919 tasks) ≈ $16.86 / M
-#   always_sonnet $25 / 2.328M ≈ $10.74 / M
-#   always_gpt   $16.6 / 1.713M ≈ $9.69 / M
-#   always_qwenmax $1.5 / 1.673M ≈ $0.90 / M
-PRICE_PER_TOKEN = {
-    "claude-opus-4-6":   16.86e-6,
-    "claude-sonnet-4-6": 10.74e-6,
-    "gpt-5.4":            9.69e-6,
-    "Qwen3-Max":          0.90e-6,
-    "qwen3.5-plus":       0.50e-6,
-    "kimi-k2.5":          1.50e-6,
-    "glm-5":              1.20e-6,
-    "MiniMax-M2.7":       1.20e-6,
-}
+def load_pricing(repo_root: Path) -> dict:
+    path = repo_root / "data" / "matrices" / "phase1_id" / "model_pricing.json"
+    return json.loads(path.read_text())["models"]
+
+
+def compute_cost_usd(model: str, input_tokens: int, output_tokens: int, pricing: dict) -> float:
+    price = pricing[model]
+    return (
+        input_tokens * float(price["input_per_1m"])
+        + output_tokens * float(price["output_per_1m"])
+    ) / 1_000_000
 
 
 def build_canonical_2919(repo_root: Path) -> set:
@@ -68,6 +63,7 @@ def build_canonical_2919(repo_root: Path) -> set:
 
 def build_obs(repo_root: Path) -> dict:
     """obs[task_id][model] = {'perf', 'tokens', 'cost'}"""
+    pricing = load_pricing(repo_root)
     obs = defaultdict(dict)
     for m in MODELS:
         for dim in DIMS_PROBING:
@@ -78,12 +74,13 @@ def build_obs(repo_root: Path) -> dict:
                 d = json.loads(line)
                 if d.get("score") is None:
                     continue
-                tok = int((d.get("input_tokens") or 0)
-                           + (d.get("output_tokens") or 0))
+                input_tokens = int(d.get("input_tokens") or 0)
+                output_tokens = int(d.get("output_tokens") or 0)
+                tok = input_tokens + output_tokens
                 obs[d["task_id"]][m] = {
                     "perf":   float(d["score"]),
                     "tokens": tok,
-                    "cost":   tok * PRICE_PER_TOKEN.get(m, 1e-6),
+                    "cost":   compute_cost_usd(m, input_tokens, output_tokens, pricing),
                 }
     return obs
 
