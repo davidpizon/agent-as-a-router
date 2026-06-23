@@ -14,6 +14,9 @@
   <a href="https://huggingface.co/datasets/Lance1573/CodeRouterBench">
     <img alt="Benchmark" src="https://img.shields.io/badge/Benchmark-CodeRouterBench-ff9f1c?style=for-the-badge">
   </a>
+  <a href="https://github.com/LanceZPF/agent-as-a-router">
+    <img alt="GitHub" src="https://img.shields.io/badge/GitHub-agent--as--a--router-24292f?style=for-the-badge">
+  </a>
 </p>
 
 <p>
@@ -22,6 +25,8 @@
   <a href="https://huggingface.co/papers/2606.22902"><strong>Paper</strong></a>
   |
   <a href="https://huggingface.co/datasets/Lance1573/CodeRouterBench"><strong>Benchmark</strong></a>
+  |
+  <a href="https://github.com/LanceZPF/agent-as-a-router"><strong>GitHub</strong></a>
 </p>
 
 </div>
@@ -32,6 +37,7 @@ current OOD176 agentic-programming task stream.
 
 Paper page: [Hugging Face Daily Papers](https://huggingface.co/papers/2606.22902)
 and [arXiv:2606.22902](https://arxiv.org/abs/2606.22902).
+GitHub repository: [https://github.com/LanceZPF/agent-as-a-router](https://github.com/LanceZPF/agent-as-a-router).
 
 ACRouter is a prototype agent-as-a-router framework for comparing an
 agent-style router against single-model, heuristic, online-bandit, retrieval,
@@ -135,7 +141,9 @@ under `outputs/`.
 For ID rows, `cost_usd` is computed from `data/id/tokens.jsonl` and
 `data/matrices/phase1_id/model_pricing.json`; it is not copied from the legacy
 compact observation matrix. Rows without token records are marked with
-`cost_source=missing_token_record`.
+`cost_source=missing_token_record_zero_total` when the compact log records zero
+total tokens. OOD176 rows are recomputed from `in_tok`, `out_tok`, and the same
+pricing table.
 
 Rebuild the user-facing benchmark tables from the nested source matrices:
 

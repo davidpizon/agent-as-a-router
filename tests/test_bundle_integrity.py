@@ -15,10 +15,20 @@ def read_json(path: Path) -> dict:
     return json.loads(path.read_text())
 
 
+def expected_cost(model: str, input_tokens: int, output_tokens: int, pricing: dict) -> float:
+    price = pricing["models"][model]
+    cost = (
+        input_tokens * float(price["input_per_1m"])
+        + output_tokens * float(price["output_per_1m"])
+    ) / 1_000_000
+    return round(cost, 9)
+
+
 class BundleIntegrityTests(unittest.TestCase):
     def test_coderouterbench_tables_are_complete(self) -> None:
         root = ROOT / "data" / "coderouterbench"
         summary = read_json(root / "summary.json")
+        pricing = read_json(ROOT / "data" / "matrices" / "phase1_id" / "model_pricing.json")
 
         self.assertEqual(summary["dataset"], "CodeRouterBench")
         self.assertEqual(summary["id"]["tasks"], 9999)
@@ -26,17 +36,22 @@ class BundleIntegrityTests(unittest.TestCase):
         self.assertEqual(summary["id"]["rows"], 79992)
         self.assertEqual(summary["id"]["missing_cells"], 0)
         self.assertEqual(summary["id"]["missing_token_records"], 148)
-        self.assertAlmostEqual(summary["id"]["cost_usd_total"], 618.179743, places=6)
+        self.assertAlmostEqual(summary["id"]["cost_usd_total"], 408.082583, places=6)
         self.assertEqual(summary["id"]["splits"]["probing"]["rows"], 56640)
         self.assertEqual(summary["id"]["splits"]["probing"]["tasks"], 7080)
         self.assertEqual(summary["id"]["splits"]["probing"]["source_splits"], ["train", "val"])
+        self.assertAlmostEqual(summary["id"]["splits"]["probing"]["cost_usd_total"], 291.957249, places=6)
+        self.assertEqual(summary["id"]["splits"]["probing"]["missing_token_records"], 106)
         self.assertEqual(summary["id"]["splits"]["id_test"]["rows"], 23352)
         self.assertEqual(summary["id"]["splits"]["id_test"]["tasks"], 2919)
         self.assertEqual(summary["id"]["splits"]["id_test"]["source_splits"], ["test"])
+        self.assertAlmostEqual(summary["id"]["splits"]["id_test"]["cost_usd_total"], 116.125334, places=6)
+        self.assertEqual(summary["id"]["splits"]["id_test"]["missing_token_records"], 42)
         self.assertEqual(summary["ood176"]["tasks"], 176)
         self.assertEqual(summary["ood176"]["models"], 8)
         self.assertEqual(summary["ood176"]["rows"], 1408)
         self.assertEqual(summary["ood176"]["missing_cells"], 0)
+        self.assertAlmostEqual(summary["ood176"]["cost_usd_total"], 422.147494, places=6)
 
         id_path = root / "id_results_long.csv"
         ood_path = root / "ood176_results_long.csv"
@@ -65,12 +80,19 @@ class BundleIntegrityTests(unittest.TestCase):
             reader = csv.DictReader(fh)
             rows = list(reader)
             nonzero_cost_rows = sum(float(row["cost_usd"] or 0.0) > 0 for row in rows)
-            missing_token_rows = sum(row["cost_source"] == "missing_token_record" for row in rows)
+            missing_token_rows = sum(row["cost_source"] == "missing_token_record_zero_total" for row in rows)
             self.assertEqual({row["split"] for row in rows}, {"probing", "id_test"})
             self.assertEqual({row["source_split"] for row in rows}, {"train", "val", "test"})
             self.assertEqual(nonzero_cost_rows, 79844)
             self.assertEqual(missing_token_rows, 148)
-            self.assertAlmostEqual(sum(float(row["cost_usd"] or 0.0) for row in rows), 618.179743, places=6)
+            self.assertAlmostEqual(sum(float(row["cost_usd"] or 0.0) for row in rows), 408.082583, places=6)
+            for row in rows:
+                self.assertAlmostEqual(
+                    float(row["cost_usd"] or 0.0),
+                    expected_cost(row["model"], int(row["input_tokens"] or 0), int(row["output_tokens"] or 0), pricing),
+                    places=9,
+                    msg=row["task_id"],
+                )
 
         for split, expected_rows in [
             ("probing", 56640),
@@ -97,7 +119,17 @@ class BundleIntegrityTests(unittest.TestCase):
             self.assertIn("task_id", reader.fieldnames or [])
             self.assertIn("model", reader.fieldnames or [])
             self.assertIn("resolved", reader.fieldnames or [])
-            self.assertEqual(sum(1 for _ in reader), summary["ood176"]["rows"])
+            ood_rows = list(reader)
+            self.assertEqual(len(ood_rows), summary["ood176"]["rows"])
+            self.assertEqual({row["cost_source"] for row in ood_rows}, {"token_log_pricing"})
+            self.assertAlmostEqual(sum(float(row["cost_usd"] or 0.0) for row in ood_rows), 422.147494, places=6)
+            for row in ood_rows:
+                self.assertAlmostEqual(
+                    float(row["cost_usd"] or 0.0),
+                    expected_cost(row["model"], int(row["in_tok"] or 0), int(row["out_tok"] or 0), pricing),
+                    places=9,
+                    msg=row["task_id"],
+                )
 
     def test_coderouterbench_dataset_card_controls_hf_preview(self) -> None:
         text = (ROOT / "data" / "coderouterbench" / "README.md").read_text()
@@ -109,6 +141,7 @@ class BundleIntegrityTests(unittest.TestCase):
         self.assertIn("https://huggingface.co/papers/2606.22902", text)
         self.assertIn("https://arxiv.org/abs/2606.22902", text)
         self.assertIn("arxiv:2606.22902", text)
+        self.assertIn("https://github.com/LanceZPF/agent-as-a-router", text)
         self.assertNotIn("path: data/id/voter_decisions", text)
 
     def test_ood176_matrix_is_complete_and_path_sanitized(self) -> None:

@@ -42,6 +42,8 @@ CodeRouterBench is the benchmark data released with Agent-as-a-Router. The
 core unit is a complete task-by-model result matrix: every benchmark task has
 one recorded result for each of the eight canonical backend models.
 
+Repository: [https://github.com/LanceZPF/agent-as-a-router](https://github.com/LanceZPF/agent-as-a-router)
+
 ## Associated Paper
 
 - Hugging Face Daily Papers: [Agent-as-a-Router: Agentic Model Routing for Coding Tasks](https://huggingface.co/papers/2606.22902)
@@ -65,10 +67,15 @@ rows.
 
 For ID rows, `cost_usd` is computed from `data/id/tokens.jsonl` and
 `data/matrices/phase1_id/model_pricing.json`. Rows without a token record leave
-`cost_usd`, `input_tokens`, and `output_tokens` blank and use
-`cost_source=missing_token_record`. The current export has
+`cost_usd`, `input_tokens`, and `output_tokens` blank unless the compact log
+records zero total tokens; zero-token rows use
+`cost_source=missing_token_record_zero_total`. The current export has
 148 such legacy rows and
-618.179743 USD of computed ID cost.
+408.082583 USD of computed ID cost.
+
+For OOD176 rows, `cost_usd` is recomputed from `in_tok`, `out_tok`, and the same
+pricing table. The current export has 422.147494
+USD of computed OOD176 cost.
 
 ## Schemas
 
@@ -85,7 +92,7 @@ For ID rows, `cost_usd` is computed from `data/id/tokens.jsonl` and
 - `output_tokens`
 - `total_tokens`
 - `latency_ms`
-- `cost_source`: `token_log_pricing` or `missing_token_record`
+- `cost_source`: `token_log_pricing`, `missing_token_record`, or `missing_token_record_zero_total`
 
 `ood176_results_long.csv` columns:
 
@@ -102,6 +109,7 @@ For ID rows, `cost_usd` is computed from `data/id/tokens.jsonl` and
 - `out_tok`
 - `calls`
 - `cost_usd`
+- `cost_source`
 - `source_status`
 
 ## Splits

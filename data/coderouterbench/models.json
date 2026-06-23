@@ -1,9 +1,9 @@
 {
   "models": [
     {
-      "input_per_1m": 15.0,
+      "input_per_1m": 5.0,
       "model": "claude-opus-4-6",
-      "output_per_1m": 75.0,
+      "output_per_1m": 25.0,
       "provider": "Anthropic",
       "tier": "premium"
     },
@@ -15,44 +15,49 @@
       "tier": "high"
     },
     {
-      "input_per_1m": 1.25,
+      "input_per_1m": 2.5,
       "model": "gpt-5.4",
-      "output_per_1m": 10.0,
+      "output_per_1m": 15.0,
       "provider": "OpenAI",
       "tier": "high"
     },
     {
-      "input_per_1m": 0.6,
+      "_note": "CNY pricing converted to USD in the source pricing table.",
+      "input_per_1m": 0.8,
       "model": "glm-5",
-      "output_per_1m": 2.2,
+      "output_per_1m": 3.0,
       "provider": "Zhipu",
-      "tier": "mid"
+      "tier": "low"
     },
     {
-      "input_per_1m": 0.6,
+      "_note": "CNY pricing converted to USD in the source pricing table.",
+      "input_per_1m": 0.01,
       "model": "kimi-k2.5",
-      "output_per_1m": 2.5,
+      "output_per_1m": 2.9,
       "provider": "Moonshot",
       "tier": "mid"
     },
     {
-      "input_per_1m": 0.3,
+      "_note": "CNY pricing converted to USD in the source pricing table.",
+      "input_per_1m": 1.0,
       "model": "MiniMax-M2.7",
-      "output_per_1m": 1.2,
+      "output_per_1m": 3.0,
       "provider": "MiniMax",
-      "tier": "low"
+      "tier": "mid"
     },
     {
-      "input_per_1m": 2.0,
+      "_note": "qwen-max-latest CNY pricing converted to USD in the source pricing table.",
+      "input_per_1m": 0.34,
       "model": "Qwen3-Max",
-      "output_per_1m": 6.0,
+      "output_per_1m": 1.38,
       "provider": "Alibaba",
       "tier": "mid"
     },
     {
-      "input_per_1m": 0.4,
+      "_note": "CNY pricing converted to USD in the source pricing table.",
+      "input_per_1m": 0.11,
       "model": "qwen3.5-plus",
-      "output_per_1m": 1.2,
+      "output_per_1m": 0.66,
       "provider": "Alibaba",
       "tier": "low"
     }

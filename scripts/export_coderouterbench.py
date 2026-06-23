@@ -143,11 +143,17 @@ def export_id_tables(output_dir: Path) -> dict[str, Any]:
             token_row = token_by_task_model.get((task_id, model))
             if token_row is None:
                 missing_token_records += 1
-                input_tokens = ""
-                output_tokens = ""
                 total_tokens = int(cell.get("tokens", 0) or 0)
-                cost_usd = ""
-                cost_source = "missing_token_record"
+                if total_tokens == 0:
+                    input_tokens = 0
+                    output_tokens = 0
+                    cost_usd = 0.0
+                    cost_source = "missing_token_record_zero_total"
+                else:
+                    input_tokens = ""
+                    output_tokens = ""
+                    cost_usd = ""
+                    cost_source = "missing_token_record"
             else:
                 input_tokens = token_row["input_tokens"]
                 output_tokens = token_row["output_tokens"]
@@ -213,7 +219,7 @@ def export_id_tables(output_dir: Path) -> dict[str, Any]:
                 sum(float(row["cost_usd"] or 0.0) for row in split_results), 6
             ),
             "missing_token_records": sum(
-                1 for row in split_results if row["cost_source"] == "missing_token_record"
+                1 for row in split_results if row["cost_source"].startswith("missing_token_record")
             ),
             "source_splits": sorted({row["source_split"] for row in split_results}),
         }
@@ -235,6 +241,7 @@ def export_ood_tables(output_dir: Path) -> dict[str, Any]:
     matrix = read_json(OOD_MATRIX)
     if matrix["models"] != CANONICAL_MODELS:
         raise ValueError(f"Unexpected OOD model order: {matrix['models']}")
+    pricing = read_json(PRICING_PATH)["models"]
 
     missing_cells = 0
     for task_id in matrix["ids"]:
@@ -243,7 +250,18 @@ def export_ood_tables(output_dir: Path) -> dict[str, Any]:
             if model not in model_cells:
                 missing_cells += 1
 
-    shutil.copy2(OOD_RESULTS_LONG, output_dir / "ood176_results_long.csv")
+    with OOD_RESULTS_LONG.open(newline="") as fh:
+        reader = csv.DictReader(fh)
+        rows = list(reader)
+        fieldnames = list(reader.fieldnames or [])
+    if "cost_source" not in fieldnames:
+        fieldnames.append("cost_source")
+    for row in rows:
+        input_tokens = int(row.get("in_tok") or 0)
+        output_tokens = int(row.get("out_tok") or 0)
+        row["cost_usd"] = compute_cost_usd(row["model"], input_tokens, output_tokens, pricing)
+        row["cost_source"] = "token_log_pricing"
+    write_csv(output_dir / "ood176_results_long.csv", fieldnames, rows)
     shutil.copy2(OOD_TASKS, output_dir / "ood176_tasks.jsonl")
 
     return {
@@ -251,6 +269,8 @@ def export_ood_tables(output_dir: Path) -> dict[str, Any]:
         "models": len(CANONICAL_MODELS),
         "rows": len(matrix["ids"]) * len(CANONICAL_MODELS) - missing_cells,
         "missing_cells": missing_cells,
+        "cost_usd_total": round(sum(float(row["cost_usd"] or 0.0) for row in rows), 6),
+        "cost_source": "computed from in_tok/out_tok and data/matrices/phase1_id/model_pricing.json",
         "source_matrix": "data/matrices/phase2_ood/unified/matrix_acrouter_ood176.json",
     }
 
@@ -311,6 +331,8 @@ CodeRouterBench is the benchmark data released with Agent-as-a-Router. The
 core unit is a complete task-by-model result matrix: every benchmark task has
 one recorded result for each of the eight canonical backend models.
 
+Repository: [https://github.com/LanceZPF/agent-as-a-router](https://github.com/LanceZPF/agent-as-a-router)
+
 ## Associated Paper
 
 - Hugging Face Daily Papers: [Agent-as-a-Router: Agentic Model Routing for Coding Tasks](https://huggingface.co/papers/2606.22902)
@@ -334,10 +356,15 @@ rows.
 
 For ID rows, `cost_usd` is computed from `data/id/tokens.jsonl` and
 `data/matrices/phase1_id/model_pricing.json`. Rows without a token record leave
-`cost_usd`, `input_tokens`, and `output_tokens` blank and use
-`cost_source=missing_token_record`. The current export has
+`cost_usd`, `input_tokens`, and `output_tokens` blank unless the compact log
+records zero total tokens; zero-token rows use
+`cost_source=missing_token_record_zero_total`. The current export has
 {summary["id"]["missing_token_records"]:,} such legacy rows and
 {summary["id"]["cost_usd_total"]:.6f} USD of computed ID cost.
+
+For OOD176 rows, `cost_usd` is recomputed from `in_tok`, `out_tok`, and the same
+pricing table. The current export has {summary["ood176"]["cost_usd_total"]:.6f}
+USD of computed OOD176 cost.
 
 ## Schemas
 
@@ -354,7 +381,7 @@ For ID rows, `cost_usd` is computed from `data/id/tokens.jsonl` and
 - `output_tokens`
 - `total_tokens`
 - `latency_ms`
-- `cost_source`: `token_log_pricing` or `missing_token_record`
+- `cost_source`: `token_log_pricing`, `missing_token_record`, or `missing_token_record_zero_total`
 
 `ood176_results_long.csv` columns:
 
@@ -371,6 +398,7 @@ For ID rows, `cost_usd` is computed from `data/id/tokens.jsonl` and
 - `out_tok`
 - `calls`
 - `cost_usd`
+- `cost_source`
 - `source_status`
 
 ## Splits
