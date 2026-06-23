@@ -2,20 +2,29 @@
   "dataset": "CodeRouterBench",
   "definition": "complete task-by-model result matrices for eight backend models",
   "id": {
+    "cost_source": "computed from data/id/tokens.jsonl and data/matrices/phase1_id/model_pricing.json",
+    "cost_usd_total": 618.179743,
     "missing_cells": 0,
+    "missing_token_records": 148,
     "models": 8,
     "rows": 79992,
     "source_matrix": "data/matrices/phase1_acrouter_v2/obs_matrix_clean.json",
     "splits": {
       "test": {
+        "cost_usd_total": 174.711472,
+        "missing_token_records": 42,
         "rows": 23352,
         "tasks": 2919
       },
       "train": {
+        "cost_usd_total": 381.895299,
+        "missing_token_records": 95,
         "rows": 48536,
         "tasks": 6067
       },
       "trainval": {
+        "cost_usd_total": 443.468272,
+        "missing_token_records": 106,
         "rows": 56640,
         "source_splits": [
           "train",
@@ -24,6 +33,8 @@
         "tasks": 7080
       },
       "val": {
+        "cost_usd_total": 61.572972,
+        "missing_token_records": 11,
         "rows": 8104,
         "tasks": 1013
       }

@@ -25,9 +25,14 @@ class BundleIntegrityTests(unittest.TestCase):
         self.assertEqual(summary["id"]["models"], 8)
         self.assertEqual(summary["id"]["rows"], 79992)
         self.assertEqual(summary["id"]["missing_cells"], 0)
-        self.assertEqual(summary["id"]["splits"]["train"], {"rows": 48536, "tasks": 6067})
-        self.assertEqual(summary["id"]["splits"]["val"], {"rows": 8104, "tasks": 1013})
-        self.assertEqual(summary["id"]["splits"]["test"], {"rows": 23352, "tasks": 2919})
+        self.assertEqual(summary["id"]["missing_token_records"], 148)
+        self.assertAlmostEqual(summary["id"]["cost_usd_total"], 618.179743, places=6)
+        self.assertEqual(summary["id"]["splits"]["train"]["rows"], 48536)
+        self.assertEqual(summary["id"]["splits"]["train"]["tasks"], 6067)
+        self.assertEqual(summary["id"]["splits"]["val"]["rows"], 8104)
+        self.assertEqual(summary["id"]["splits"]["val"]["tasks"], 1013)
+        self.assertEqual(summary["id"]["splits"]["test"]["rows"], 23352)
+        self.assertEqual(summary["id"]["splits"]["test"]["tasks"], 2919)
         self.assertEqual(summary["id"]["splits"]["trainval"]["rows"], 56640)
         self.assertEqual(summary["id"]["splits"]["trainval"]["tasks"], 7080)
         self.assertEqual(summary["ood176"]["tasks"], 176)
@@ -41,9 +46,30 @@ class BundleIntegrityTests(unittest.TestCase):
             reader = csv.reader(fh)
             self.assertEqual(
                 next(reader),
-                ["task_id", "split", "dimension", "model", "score", "cost_usd", "total_tokens", "latency_ms"],
+                [
+                    "task_id",
+                    "split",
+                    "dimension",
+                    "model",
+                    "score",
+                    "cost_usd",
+                    "input_tokens",
+                    "output_tokens",
+                    "total_tokens",
+                    "latency_ms",
+                    "cost_source",
+                ],
             )
             self.assertEqual(sum(1 for _ in reader), summary["id"]["rows"])
+
+        with id_path.open(newline="") as fh:
+            reader = csv.DictReader(fh)
+            rows = list(reader)
+            nonzero_cost_rows = sum(float(row["cost_usd"] or 0.0) > 0 for row in rows)
+            missing_token_rows = sum(row["cost_source"] == "missing_token_record" for row in rows)
+            self.assertEqual(nonzero_cost_rows, 79844)
+            self.assertEqual(missing_token_rows, 148)
+            self.assertAlmostEqual(sum(float(row["cost_usd"] or 0.0) for row in rows), 618.179743, places=6)
 
         for split, expected_rows in [
             ("train", 48536),

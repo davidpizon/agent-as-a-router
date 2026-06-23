@@ -16,6 +16,7 @@ DEFAULT_OUTPUT = ROOT / "data" / "coderouterbench"
 
 ID_OBS_MATRIX = ROOT / "data" / "matrices" / "phase1_acrouter_v2" / "obs_matrix_clean.json"
 ID_TASK_DIMENSIONS = ROOT / "data" / "id" / "task_dimensions.jsonl"
+ID_TOKENS = ROOT / "data" / "id" / "tokens.jsonl"
 ID_SPLIT_DIR = ROOT / "data" / "id" / "splits"
 PRICING_PATH = ROOT / "data" / "matrices" / "phase1_id" / "model_pricing.json"
 
@@ -75,6 +76,25 @@ def load_id_dimensions() -> dict[str, str]:
     }
 
 
+def load_id_tokens() -> dict[tuple[str, str], dict[str, int]]:
+    tokens = {}
+    for row in read_jsonl(ID_TOKENS):
+        tokens[(row["task_id"], row["model"])] = {
+            "input_tokens": int(row.get("input_tokens", 0) or 0),
+            "output_tokens": int(row.get("output_tokens", 0) or 0),
+        }
+    return tokens
+
+
+def compute_cost_usd(model: str, input_tokens: int, output_tokens: int, pricing: dict[str, Any]) -> float:
+    price = pricing[model]
+    cost = (
+        input_tokens * float(price["input_per_1m"])
+        + output_tokens * float(price["output_per_1m"])
+    ) / 1_000_000
+    return round(cost, 9)
+
+
 def write_csv(path: Path, fieldnames: list[str], rows: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="") as fh:
@@ -87,6 +107,8 @@ def export_id_tables(output_dir: Path) -> dict[str, Any]:
     obs_matrix: dict[str, dict[str, dict[str, Any]]] = read_json(ID_OBS_MATRIX)
     split_by_task = load_id_splits()
     dimension_by_task = load_id_dimensions()
+    token_by_task_model = load_id_tokens()
+    pricing = read_json(PRICING_PATH)["models"]
 
     observed_models = {model for row in obs_matrix.values() for model in row}
     if set(CANONICAL_MODELS) != observed_models:
@@ -99,11 +121,15 @@ def export_id_tables(output_dir: Path) -> dict[str, Any]:
         "model",
         "score",
         "cost_usd",
+        "input_tokens",
+        "output_tokens",
         "total_tokens",
         "latency_ms",
+        "cost_source",
     ]
 
     missing_cells = 0
+    missing_token_records = 0
     result_rows = []
     for task_id, model_cells in obs_matrix.items():
         for model in CANONICAL_MODELS:
@@ -111,6 +137,20 @@ def export_id_tables(output_dir: Path) -> dict[str, Any]:
             if cell is None:
                 missing_cells += 1
                 continue
+            token_row = token_by_task_model.get((task_id, model))
+            if token_row is None:
+                missing_token_records += 1
+                input_tokens = ""
+                output_tokens = ""
+                total_tokens = int(cell.get("tokens", 0) or 0)
+                cost_usd = ""
+                cost_source = "missing_token_record"
+            else:
+                input_tokens = token_row["input_tokens"]
+                output_tokens = token_row["output_tokens"]
+                total_tokens = input_tokens + output_tokens
+                cost_usd = compute_cost_usd(model, input_tokens, output_tokens, pricing)
+                cost_source = "token_log_pricing"
             result_rows.append(
                 {
                     "task_id": task_id,
@@ -118,9 +158,12 @@ def export_id_tables(output_dir: Path) -> dict[str, Any]:
                     "dimension": dimension_by_task.get(task_id, ""),
                     "model": model,
                     "score": cell.get("perf", ""),
-                    "cost_usd": cell.get("cost", ""),
-                    "total_tokens": cell.get("tokens", ""),
+                    "cost_usd": cost_usd,
+                    "input_tokens": input_tokens,
+                    "output_tokens": output_tokens,
+                    "total_tokens": total_tokens,
                     "latency_ms": cell.get("latency_ms", ""),
+                    "cost_source": cost_source,
                 }
             )
 
@@ -145,6 +188,12 @@ def export_id_tables(output_dir: Path) -> dict[str, Any]:
         split_summaries[split] = {
             "tasks": len(split_tasks),
             "rows": len(split_results),
+            "cost_usd_total": round(
+                sum(float(row["cost_usd"] or 0.0) for row in split_results), 6
+            ),
+            "missing_token_records": sum(
+                1 for row in split_results if row["cost_source"] == "missing_token_record"
+            ),
         }
 
     trainval_results = [row for row in result_rows if row["split"] in {"train", "val"}]
@@ -154,6 +203,12 @@ def export_id_tables(output_dir: Path) -> dict[str, Any]:
     split_summaries["trainval"] = {
         "tasks": len(trainval_tasks),
         "rows": len(trainval_results),
+        "cost_usd_total": round(
+            sum(float(row["cost_usd"] or 0.0) for row in trainval_results), 6
+        ),
+        "missing_token_records": sum(
+            1 for row in trainval_results if row["cost_source"] == "missing_token_record"
+        ),
         "source_splits": ["train", "val"],
     }
 
@@ -162,6 +217,9 @@ def export_id_tables(output_dir: Path) -> dict[str, Any]:
         "models": len(CANONICAL_MODELS),
         "rows": len(result_rows),
         "missing_cells": missing_cells,
+        "cost_usd_total": round(sum(float(row["cost_usd"] or 0.0) for row in result_rows), 6),
+        "missing_token_records": missing_token_records,
+        "cost_source": "computed from data/id/tokens.jsonl and data/matrices/phase1_id/model_pricing.json",
         "splits": split_summaries,
         "source_matrix": "data/matrices/phase1_acrouter_v2/obs_matrix_clean.json",
     }
@@ -278,6 +336,13 @@ Router outputs, baseline decisions, and paper tables are derived artifacts. The
 benchmark itself is defined by the task tables above plus the per-model result
 rows.
 
+For ID rows, `cost_usd` is computed from `data/id/tokens.jsonl` and
+`data/matrices/phase1_id/model_pricing.json`. Rows without a token record leave
+`cost_usd`, `input_tokens`, and `output_tokens` blank and use
+`cost_source=missing_token_record`. The current export has
+{summary["id"]["missing_token_records"]:,} such legacy rows and
+{summary["id"]["cost_usd_total"]:.6f} USD of computed ID cost.
+
 ## Schemas
 
 `id_results_long.csv` columns:
@@ -288,8 +353,11 @@ rows.
 - `model`
 - `score`: task score/performance used by the routing oracle
 - `cost_usd`
+- `input_tokens`
+- `output_tokens`
 - `total_tokens`
 - `latency_ms`
+- `cost_source`: `token_log_pricing` or `missing_token_record`
 
 `ood176_results_long.csv` columns:
 

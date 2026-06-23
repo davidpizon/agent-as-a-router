@@ -133,6 +133,11 @@ token/latency or verifier metadata when available. ACRouter decisions,
 baseline traces, and paper tables are derived from these matrices and live
 under `outputs/`.
 
+For ID rows, `cost_usd` is computed from `data/id/tokens.jsonl` and
+`data/matrices/phase1_id/model_pricing.json`; it is not copied from the legacy
+compact observation matrix. Rows without token records are marked with
+`cost_source=missing_token_record`.
+
 Rebuild the user-facing benchmark tables from the nested source matrices:
 
 ```bash

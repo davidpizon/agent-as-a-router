@@ -73,6 +73,13 @@ Router outputs, baseline decisions, and paper tables are derived artifacts. The
 benchmark itself is defined by the task tables above plus the per-model result
 rows.
 
+For ID rows, `cost_usd` is computed from `data/id/tokens.jsonl` and
+`data/matrices/phase1_id/model_pricing.json`. Rows without a token record leave
+`cost_usd`, `input_tokens`, and `output_tokens` blank and use
+`cost_source=missing_token_record`. The current export has
+148 such legacy rows and
+618.179743 USD of computed ID cost.
+
 ## Schemas
 
 `id_results_long.csv` columns:
@@ -83,8 +90,11 @@ rows.
 - `model`
 - `score`: task score/performance used by the routing oracle
 - `cost_usd`
+- `input_tokens`
+- `output_tokens`
 - `total_tokens`
 - `latency_ms`
+- `cost_source`: `token_log_pricing` or `missing_token_record`
 
 `ood176_results_long.csv` columns:
 
