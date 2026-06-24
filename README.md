@@ -256,7 +256,6 @@ Apptainer verification. The default offline replay uses cached results.
   year          = {2026},
   archivePrefix = {arXiv},
   eprint        = {2606.22902},
-  url           = {https://arxiv.org/abs/2606.22902},
-  note          = {Hugging Face Daily Papers: https://huggingface.co/papers/2606.22902},
+  url           = {https://arxiv.org/abs/2606.22902}
 }
 ```
