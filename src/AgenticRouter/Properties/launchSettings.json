@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "AgenticRouter": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
