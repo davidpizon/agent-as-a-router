@@ -38,6 +38,17 @@ legacy supplementary data under `data/ood/`.
 For the full pre-cleanup guide with maintainer notes, extended data details,
 and publishing commands, see [docs/HANDBOOK.md](docs/HANDBOOK.md).
 
+## Runtime Integration Highlights
+
+ACRouter also ships with ready-to-adapt runtime integrations for popular
+Claude Code routing tools:
+
+- [`claude-code-router/`](claude-code-router/) adds gateway-level ACRouter
+  support to Claude Code Router, so routing can happen before a request is sent
+  to the selected backend model.
+- [`cc-switch/`](cc-switch/) adds proxy-level ACRouter support to cc-switch, so
+  model selection can run before static provider/model mapping.
+
 ## Quick Start
 
 ```bash
