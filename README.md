@@ -41,7 +41,7 @@ and publishing commands, see [docs/HANDBOOK.md](docs/HANDBOOK.md).
 ## Runtime Integration Highlights
 
 ACRouter also ships with ready-to-adapt runtime integrations for popular
-Claude Code routing tools:
+Claude Code/Codex routing tools:
 
 - [`claude-code-router/`](claude-code-router/) adds gateway-level ACRouter
   support to Claude Code Router, so routing can happen before a request is sent
@@ -152,10 +152,10 @@ python demos/api_coding_solver/solve.py \
 Edit `demos/api_coding_solver/models.example.json` to add providers, model
 names, or a stronger verifier command.
 
-### Codex / Claude Code / opencode Router
+### A Router Demo for Codex / Claude Code / Opencode 
 
 `demos/commercial_cli_router/` routes a prompt into a local Codex, Claude Code,
-or opencode CLI command.
+or Opencode CLI command.
 
 ```bash
 python demos/commercial_cli_router/router_mvp.py \
