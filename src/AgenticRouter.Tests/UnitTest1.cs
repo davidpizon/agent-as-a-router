@@ -5,8 +5,14 @@ using Microsoft.SemanticKernel;
 
 namespace AgenticRouter.Tests;
 
+/// <summary>
+/// Validates phase-0 and phase-1 migration contracts.
+/// </summary>
 public class UnitTest1
 {
+    /// <summary>
+    /// Verifies that the phase-0 inventory includes core routing and demo surfaces.
+    /// </summary>
     [Fact]
     public void Phase0Inventory_IncludesCoreRouterAndDemoSurfaces()
     {
@@ -18,6 +24,9 @@ public class UnitTest1
         Assert.Contains("tests/test_demos.py", sourcePaths);
     }
 
+    /// <summary>
+    /// Verifies that benchmark-boundary constraints include the current OOD stream and legacy notes.
+    /// </summary>
     [Fact]
     public void Phase0Constraints_CaptureCurrentBenchmarkBoundary()
     {
@@ -28,6 +37,9 @@ public class UnitTest1
         Assert.Contains("9,999 ID tasks x 8 models", constraintsText, StringComparison.Ordinal);
     }
 
+    /// <summary>
+    /// Verifies that captured benchmark expectations match the checked-in summary values.
+    /// </summary>
     [Fact]
     public void Phase0Expectations_MatchCheckedInReleaseSummary()
     {
@@ -43,6 +55,9 @@ public class UnitTest1
         Assert.Contains("verify-and-escalate", oodExpectation.Notes, StringComparison.OrdinalIgnoreCase);
     }
 
+    /// <summary>
+    /// Verifies that host construction registers options and required core services.
+    /// </summary>
     [Fact]
     public void Phase1BuildHost_RegistersOptionsAndCoreServices()
     {
@@ -59,6 +74,9 @@ public class UnitTest1
         Assert.NotNull(startupProbe);
     }
 
+    /// <summary>
+    /// Verifies that host construction applies in-memory configuration overrides.
+    /// </summary>
     [Fact]
     public void Phase1BuildHost_BindsConfigurationOverrides()
     {
