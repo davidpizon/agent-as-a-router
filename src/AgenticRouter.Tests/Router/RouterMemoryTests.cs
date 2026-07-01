@@ -9,7 +9,7 @@ namespace AgenticRouter.Tests.Router;
 public class RouterMemoryTests
 {
     [Fact]
-    public void AddScore_And_GetAverageScore_WorkCorrectly()
+    public async Task AddScore_And_GetAverageScore_WorkCorrectly()
     {
         // Arrange
         var memory = new RouterMemory();
@@ -17,8 +17,8 @@ public class RouterMemoryTests
         var model = "test_model";
 
         // Act
-        memory.AddScore(dimension, model, 0.8);
-        memory.AddScore(dimension, model, 0.9);
+        await memory.AddScoreAsync(dimension, model, 0.8);
+        await memory.AddScoreAsync(dimension, model, 0.9);
         var averageScore = memory.GetAverageScore(dimension, model);
 
         // Assert
@@ -40,13 +40,13 @@ public class RouterMemoryTests
     }
 
     [Fact]
-    public void GetModelsForDimension_ReturnsCorrectModels()
+    public async Task GetModelsForDimension_ReturnsCorrectModels()
     {
         // Arrange
         var memory = new RouterMemory();
         var dimension = "test_dimension";
-        memory.AddScore(dimension, "model1", 0.8);
-        memory.AddScore(dimension, "model2", 0.9);
+        await memory.AddScoreAsync(dimension, "model1", 0.8);
+        await memory.AddScoreAsync(dimension, "model2", 0.9);
 
         // Act
         var models = memory.GetModelsForDimension(dimension);

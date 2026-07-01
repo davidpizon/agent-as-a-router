@@ -52,7 +52,7 @@ internal static class Program
                 .ReadFrom.Services(services)
                 .Enrich.FromLogContext()
                 .WriteTo.Console())
-            .ConfigureServices((hostContext, services) =>
+            .ConfigureServices(async (hostContext, services) =>
             {
                 // Configuration options can be bound here
                 services.AddOptions<RoutingOptions>()
@@ -61,10 +61,16 @@ internal static class Program
                     .ValidateOnStart();
 
                 // Add application services
+                services.AddSingleton<IRouterMemoryStore, JsonRouterMemoryStore>();
                 services.AddSingleton<RouterMemory>();
                 services.AddSingleton<IRouterModelClient, MockRouterModelClient>(); // Using a mock for now
                 services.AddSingleton<AgentAsARouter>();
                 services.AddHostedService<Worker>();
+
+                // Initialize RouterMemory
+                var sp = services.BuildServiceProvider();
+                var memory = sp.GetRequiredService<RouterMemory>();
+                await memory.InitializeAsync();
             });
 }
 

@@ -134,7 +134,7 @@ public class AgentAsARouter
     /// <param name="dimension">The dimension of the prompt.</param>
     /// <param name="model">The model that was used.</param>
     /// <param name="score">The quality score of the model's response (0.0 to 1.0).</param>
-    public void Observe(string dimension, string model, double score)
+    public async Task ObserveAsync(string dimension, string model, double score)
     {
         if (score < 0.0 || score > 1.0)
         {
@@ -142,6 +142,6 @@ public class AgentAsARouter
         }
 
         _logger.LogInformation("Observing score {Score} for model '{Model}' in dimension '{Dimension}'.", score, model, dimension);
-        _memory.AddScore(dimension, model, score);
+        await _memory.AddScoreAsync(dimension, model, score);
     }
 }

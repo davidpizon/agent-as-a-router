@@ -32,8 +32,8 @@ public class AgentAsARouterTests
     {
         // Arrange
         var dimension = "test_dimension";
-        _memory.AddScore(dimension, "model1", 0.7);
-        _memory.AddScore(dimension, "model2", 0.9);
+        await _memory.AddScoreAsync(dimension, "model1", 0.7);
+        await _memory.AddScoreAsync(dimension, "model2", 0.9);
         _modelClientMock.Setup(c => c.GetResponseAsync("model2", "prompt", It.IsAny<CancellationToken>()))
             .ReturnsAsync("response from model2");
 
@@ -53,8 +53,8 @@ public class AgentAsARouterTests
     {
         // Arrange
         var dimension = "test_dimension";
-        _memory.AddScore(dimension, "model1", 0.8);
-        _memory.AddScore(dimension, "model2", 0.9);
+        await _memory.AddScoreAsync(dimension, "model1", 0.8);
+        await _memory.AddScoreAsync(dimension, "model2", 0.9);
         _modelClientMock.Setup(c => c.GetResponseAsync("model2", "prompt", It.IsAny<CancellationToken>()))
             .ThrowsAsync(new Exception("Model failed"));
         _modelClientMock.Setup(c => c.GetResponseAsync("model1", "prompt", It.IsAny<CancellationToken>()))
@@ -91,7 +91,7 @@ public class AgentAsARouterTests
     }
 
     [Fact]
-    public void Observe_AddsScoreToMemory()
+    public async Task Observe_AddsScoreToMemory()
     {
         // Arrange
         var router = new AgentAsARouter(_loggerMock.Object, _optionsMock.Object, _modelClientMock.Object, _memory);
@@ -100,7 +100,7 @@ public class AgentAsARouterTests
         var score = 0.95;
 
         // Act
-        router.Observe(dimension, model, score);
+        await router.ObserveAsync(dimension, model, score);
         var averageScore = _memory.GetAverageScore(dimension, model);
 
         // Assert
@@ -108,13 +108,13 @@ public class AgentAsARouterTests
     }
 
     [Fact]
-    public void Observe_Throws_OnInvalidScore()
+    public async Task Observe_Throws_OnInvalidScore()
     {
         // Arrange
         var router = new AgentAsARouter(_loggerMock.Object, _optionsMock.Object, _modelClientMock.Object, _memory);
 
         // Act & Assert
-        Assert.Throws<ArgumentOutOfRangeException>(() => router.Observe("dim", "mod", -0.1));
-        Assert.Throws<ArgumentOutOfRangeException>(() => router.Observe("dim", "mod", 1.1));
+        await Assert.ThrowsAsync<ArgumentOutOfRangeException>(() => router.ObserveAsync("dim", "mod", -0.1));
+        await Assert.ThrowsAsync<ArgumentOutOfRangeException>(() => router.ObserveAsync("dim", "mod", 1.1));
     }
 }

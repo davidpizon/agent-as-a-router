@@ -41,16 +41,16 @@ public class Worker : BackgroundService
         // First route, likely explores or uses default
         var result1 = await _router.RouteAsync(prompt, dimension, stoppingToken);
         _logger.LogInformation("Decision 1: Chose {Model} with rationale: {Rationale}", result1.Decision.SelectedModel, result1.Decision.Rationale);
-        _router.Observe(dimension, result1.Decision.SelectedModel, 0.9); // Simulate good response
+        await _router.ObserveAsync(dimension, result1.Decision.SelectedModel, 0.9); // Simulate good response
 
         // Second route, should exploit the learned information
         var result2 = await _router.RouteAsync(prompt, dimension, stoppingToken);
         _logger.LogInformation("Decision 2: Chose {Model} with rationale: {Rationale}", result2.Decision.SelectedModel, result2.Decision.Rationale);
-        _router.Observe(dimension, result2.Decision.SelectedModel, 0.95); // Simulate even better response
+        await _router.ObserveAsync(dimension, result2.Decision.SelectedModel, 0.95); // Simulate even better response
 
         // Explore a different dimension
         var result3 = await _router.RouteAsync("Translate 'hello' to French", "translation", stoppingToken);
         _logger.LogInformation("Decision 3: Chose {Model} with rationale: {Rationale}", result3.Decision.SelectedModel, result3.Decision.Rationale);
-        _router.Observe("translation", result3.Decision.SelectedModel, 0.8);
+        await _router.ObserveAsync("translation", result3.Decision.SelectedModel, 0.8);
     }
 }
