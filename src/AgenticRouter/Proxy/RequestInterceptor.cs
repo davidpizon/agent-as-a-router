@@ -12,6 +12,7 @@ namespace AgenticRouter.Proxy
     public class RequestInterceptor
     {
         private readonly ILogger<RequestInterceptor> _logger;
+        public int InterceptedRequestCount { get; private set; }
 
         public RequestInterceptor(ILogger<RequestInterceptor> logger)
         {
@@ -26,6 +27,7 @@ namespace AgenticRouter.Proxy
         public Task InterceptRequestAsync(HttpContext context)
         {
             _logger.LogInformation("[INTERCEPTOR] Intercepting request for {Method} {Scheme}://{Host}{Path}", context.Request.Method, context.Request.Scheme, context.Request.Host, context.Request.Path);
+            InterceptedRequestCount++;
 
             // Placeholder for routing logic.
             // Here, we would use the Agent-as-a-Router to decide which model/endpoint to use.
