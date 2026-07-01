@@ -1,7 +1,4 @@
-﻿using AgenticRouter.Models;
-using AgenticRouter.Router;
-using AgenticRouter.Services;
-using Microsoft.Extensions.DependencyInjection;
+﻿using AgenticRouter.Hosting;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 
@@ -10,7 +7,7 @@ namespace AgenticRouter;
 /// <summary>
 /// Application entrypoint for the AgenticRouter console host.
 /// </summary>
-internal static class Program
+public static class Program
 {
     /// <summary>
     /// Main entry point for the application.
@@ -52,34 +49,9 @@ internal static class Program
                 .ReadFrom.Services(services)
                 .Enrich.FromLogContext()
                 .WriteTo.Console())
-            .ConfigureServices(async (hostContext, services) =>
+            .ConfigureServices((hostContext, services) =>
             {
-                // Configuration options can be bound here
-                services.AddOptions<RoutingOptions>()
-                    .Bind(hostContext.Configuration.GetSection(RoutingOptions.SectionName))
-                    .ValidateDataAnnotations()
-                    .ValidateOnStart();
-
-                // Add application services
-                services.AddSingleton<IRouterMemoryStore, JsonRouterMemoryStore>();
-                services.AddSingleton<RouterMemory>();
-                services.AddSingleton<IRouterModelClient, MockRouterModelClient>(); // Using a mock for now
-                services.AddSingleton<AgentAsARouter>();
-                services.AddHostedService<Worker>();
-
-                // Initialize RouterMemory
-                var sp = services.BuildServiceProvider();
-                var memory = sp.GetRequiredService<RouterMemory>();
-                await memory.InitializeAsync();
+                services.AddAgenticRouter();
             });
 }
 
-// A mock implementation of IRouterModelClient for demonstration purposes.
-// This would be replaced with a real implementation that calls an LLM.
-public class MockRouterModelClient : IRouterModelClient
-{
-    public Task<string> GetResponseAsync(string model, string prompt, CancellationToken cancellationToken = default)
-    {
-        return Task.FromResult($"Mock response from {model} for prompt: '{prompt}'");
-    }
-}
