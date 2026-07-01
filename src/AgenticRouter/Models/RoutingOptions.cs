@@ -48,6 +48,13 @@ public sealed class RoutingOptions
     public string PolicyName { get; init; } = RouterConstants.DefaultPolicy;
 
     /// <summary>
+    /// Gets the path to the JSON file used for router memory persistence.
+    /// Relative paths are resolved from the application base directory.
+    /// </summary>
+    [Required]
+    public string MemoryPath { get; init; } = "router_memory.json";
+
+    /// <summary>
     /// Performs domain-level validation that is not fully expressible through data annotations.
     /// </summary>
     /// <exception cref="OptionsValidationException">Thrown when the routing option values are inconsistent.</exception>
@@ -67,6 +74,14 @@ public sealed class RoutingOptions
                 nameof(RoutingOptions),
                 typeof(RoutingOptions),
                 ["ExplorationRate must be 0 when exploration is disabled."]);
+        }
+
+        if (string.IsNullOrWhiteSpace(MemoryPath))
+        {
+            throw new OptionsValidationException(
+                nameof(RoutingOptions),
+                typeof(RoutingOptions),
+                ["MemoryPath is required."]);
         }
     }
 }

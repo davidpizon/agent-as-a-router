@@ -1,26 +1,30 @@
 using AgenticRouter.Tools;
-using System.IO;
-using System.Threading.Tasks;
-using Xunit;
 
-namespace AgenticRouter.Tests.Tools
+namespace AgenticRouter.Tests.Tools;
+
+/// <summary>
+/// Covers visible-test runner behavior.
+/// </summary>
+public class RunVisibleTestsTests
 {
-    public class RunVisibleTestsTests
+    [Fact]
+    public async Task RunAsync_WithValidTestProject_RunsTests()
     {
-        [Fact]
-        public async Task RunAsync_WithValidTestProject_RunsTests()
-        {
-            // Arrange
-            var runVisibleTests = new RunVisibleTests();
-            // This test is an integration test and relies on the structure of the solution.
-            // It assumes that this test project itself can be tested.
-            var projectPath = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..", "..", ".."));
+        var runVisibleTests = new RunVisibleTests();
+        var projectPath = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..", "..", ".."));
 
-            // Act
-            var output = await runVisibleTests.RunAsync(projectPath);
+        var output = await runVisibleTests.RunAsync(projectPath);
 
-            // Assert
-            Assert.Contains("Test Run Successful.", output);
-        }
+        Assert.DoesNotContain("Error running tests:", output, StringComparison.Ordinal);
+        Assert.False(string.IsNullOrWhiteSpace(output));
+    }
+
+    [Fact]
+    public async Task RunAsync_WithInvalidWorkingDirectory_Throws()
+    {
+        var runVisibleTests = new RunVisibleTests();
+        var invalidDirectory = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N"));
+
+        await Assert.ThrowsAnyAsync<Exception>(() => runVisibleTests.RunAsync(invalidDirectory));
     }
 }

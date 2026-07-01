@@ -46,7 +46,11 @@ public class RouterMemory
     {
         var dimensionScores = _scores.GetOrAdd(dimension, new ConcurrentDictionary<string, List<double>>());
         var modelScores = dimensionScores.GetOrAdd(model, new List<double>());
-        modelScores.Add(score);
+
+        lock (modelScores)
+        {
+            modelScores.Add(score);
+        }
 
         if (_memoryStore != null)
         {

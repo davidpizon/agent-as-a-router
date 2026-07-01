@@ -1,62 +1,73 @@
 using AgenticRouter.Tools;
-using Xunit;
 
-namespace AgenticRouter.Tests.Tools
+namespace AgenticRouter.Tests.Tools;
+
+/// <summary>
+/// Covers quality estimation behavior.
+/// </summary>
+public class EstimateQualityTests
 {
-    public class EstimateQualityTests
+    [Fact]
+    public void Estimate_WithEmptyCode_ReturnsZero()
     {
-        [Fact]
-        public void Estimate_WithEmptyCode_ReturnsZero()
-        {
-            // Arrange
-            var estimateQuality = new EstimateQuality();
-            var code = "";
+        var estimateQuality = new EstimateQuality();
 
-            // Act
-            var score = estimateQuality.Estimate(code);
+        var score = estimateQuality.Estimate(string.Empty);
 
-            // Assert
-            Assert.Equal(0.0, score);
-        }
+        Assert.Equal(0.0, score);
+    }
 
-        [Fact]
-        public void Estimate_WithShortCode_ReturnsLowScore()
-        {
-            // Arrange
-            var estimateQuality = new EstimateQuality();
-            var code = "public class A {}";
+    [Fact]
+    public void Estimate_WithWhitespaceCode_ReturnsZero()
+    {
+        var estimateQuality = new EstimateQuality();
 
-            // Act
-            var score = estimateQuality.Estimate(code);
+        var score = estimateQuality.Estimate("   \r\n\t");
 
-            // Assert
-            Assert.True(score > 0.0);
-            Assert.True(score < 0.5);
-        }
+        Assert.Equal(0.0, score);
+    }
 
-        [Fact]
-        public void Estimate_WithLongerCodeAndNoComments_IsPenalized()
-        {
-            // Arrange
-            var estimateQuality = new EstimateQuality();
-            var codeWithComment = @"
+    [Fact]
+    public void Estimate_WithShortCode_ReturnsLowScore()
+    {
+        var estimateQuality = new EstimateQuality();
+
+        var score = estimateQuality.Estimate("public class A {}");
+
+        Assert.True(score > 0.0);
+        Assert.True(score < 0.5);
+    }
+
+    [Fact]
+    public void Estimate_WithLongerCodeAndNoComments_IsPenalized()
+    {
+        var estimateQuality = new EstimateQuality();
+        var codeWithComment = @"
 // This is a good class
 public class MyClass
 {
     public void MyMethod() {}
 }";
-            var codeWithoutComment = @"
+        var codeWithoutComment = @"
 public class MyClass
 {
     public void MyMethod() {}
 }";
 
-            // Act
-            var scoreWithComment = estimateQuality.Estimate(codeWithComment);
-            var scoreWithoutComment = estimateQuality.Estimate(codeWithoutComment);
+        var scoreWithComment = estimateQuality.Estimate(codeWithComment);
+        var scoreWithoutComment = estimateQuality.Estimate(codeWithoutComment);
 
-            // Assert
-            Assert.True(scoreWithoutComment < scoreWithComment);
-        }
+        Assert.True(scoreWithoutComment < scoreWithComment);
+    }
+
+    [Fact]
+    public void Estimate_WithVeryLongCode_RemainsInExpectedRange()
+    {
+        var estimateQuality = new EstimateQuality();
+        var longCode = string.Concat(Enumerable.Repeat("public class A { }\n", 1000));
+
+        var score = estimateQuality.Estimate(longCode);
+
+        Assert.InRange(score, 0.0, 1.0);
     }
 }

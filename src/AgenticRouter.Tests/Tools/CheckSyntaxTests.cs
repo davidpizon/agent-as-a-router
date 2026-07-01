@@ -1,17 +1,18 @@
 using AgenticRouter.Tools;
-using System.Linq;
-using Xunit;
+using Microsoft.CodeAnalysis;
 
-namespace AgenticRouter.Tests.Tools
+namespace AgenticRouter.Tests.Tools;
+
+/// <summary>
+/// Covers syntax-checking behavior.
+/// </summary>
+public class CheckSyntaxTests
 {
-    public class CheckSyntaxTests
+    [Fact]
+    public void Check_WithValidCode_ReturnsNoErrors()
     {
-        [Fact]
-        public void Check_WithValidCode_ReturnsNoErrors()
-        {
-            // Arrange
-            var checkSyntax = new CheckSyntax();
-            var code = @"
+        var checkSyntax = new CheckSyntax();
+        var code = @"
 public class MyClass
 {
     public void MyMethod()
@@ -19,19 +20,16 @@ public class MyClass
     }
 }";
 
-            // Act
-            var diagnostics = checkSyntax.Check(code);
+        var diagnostics = checkSyntax.Check(code);
 
-            // Assert
-            Assert.Empty(diagnostics);
-        }
+        Assert.Empty(diagnostics);
+    }
 
-        [Fact]
-        public void Check_WithInvalidCode_ReturnsErrors()
-        {
-            // Arrange
-            var checkSyntax = new CheckSyntax();
-            var code = @"
+    [Fact]
+    public void Check_WithInvalidCode_ReturnsErrors()
+    {
+        var checkSyntax = new CheckSyntax();
+        var code = @"
 public class MyClass
 {
     public void MyMethod()
@@ -39,12 +37,27 @@ public class MyClass
         // Missing closing brace
     ";
 
-            // Act
-            var diagnostics = checkSyntax.Check(code);
+        var diagnostics = checkSyntax.Check(code);
 
-            // Assert
-            Assert.NotEmpty(diagnostics);
-            Assert.True(diagnostics.All(d => d.Severity == Microsoft.CodeAnalysis.DiagnosticSeverity.Error));
-        }
+        Assert.NotEmpty(diagnostics);
+        Assert.All(diagnostics, d => Assert.Equal(DiagnosticSeverity.Error, d.Severity));
+    }
+
+    [Fact]
+    public void Check_WithWhitespaceOnlyCode_ReturnsNoErrors()
+    {
+        var checkSyntax = new CheckSyntax();
+
+        var diagnostics = checkSyntax.Check("   \r\n\t ");
+
+        Assert.Empty(diagnostics);
+    }
+
+    [Fact]
+    public void Check_WithNullCode_ThrowsArgumentNullException()
+    {
+        var checkSyntax = new CheckSyntax();
+
+        Assert.Throws<ArgumentNullException>(() => checkSyntax.Check(null!));
     }
 }

@@ -1,25 +1,61 @@
 using AgenticRouter.Hosting;
+using AgenticRouter.Models;
+using AgenticRouter.Proxy;
+using AgenticRouter.Router;
+using AgenticRouter.Tools;
 using Microsoft.Extensions.DependencyInjection;
-using Xunit;
+using Microsoft.Extensions.Hosting;
 
-namespace AgenticRouter.Tests.Hosting
+namespace AgenticRouter.Tests.Hosting;
+
+/// <summary>
+/// Covers service registration behavior for <see cref="ServiceCollectionExtensions"/>.
+/// </summary>
+public class ServiceCollectionExtensionsTests
 {
-    public class ServiceCollectionExtensionsTests
+    [Fact]
+    public void AddAgenticRouter_RegistersExpectedServiceDescriptors()
     {
-        [Fact]
-        public void AddAgenticRouter_RegistersServices()
-        {
-            // Arrange
-            var services = new ServiceCollection();
+        var services = new ServiceCollection();
 
-            // Act
-            services.AddAgenticRouter();
+        services.AddAgenticRouter();
 
-            // Assert
-            var serviceProvider = services.BuildServiceProvider();
-            Assert.NotNull(serviceProvider.GetService<AgenticRouter.Router.AgentAsARouter>());
-            Assert.NotNull(serviceProvider.GetService<AgenticRouter.Tools.CheckSyntax>());
-            Assert.NotNull(serviceProvider.GetService<AgenticRouter.Proxy.RequestInterceptor>());
-        }
+        Assert.Contains(services, d => d.ServiceType == typeof(IRouterMemoryStore) && d.ImplementationType == typeof(JsonRouterMemoryStore) && d.Lifetime == ServiceLifetime.Singleton);
+        Assert.Contains(services, d => d.ServiceType == typeof(RouterMemory) && d.Lifetime == ServiceLifetime.Singleton);
+        Assert.Contains(services, d => d.ServiceType == typeof(AgentAsARouter) && d.Lifetime == ServiceLifetime.Transient);
+        Assert.Contains(services, d => d.ServiceType == typeof(CheckSyntax) && d.Lifetime == ServiceLifetime.Transient);
+        Assert.Contains(services, d => d.ServiceType == typeof(RunVisibleTests) && d.Lifetime == ServiceLifetime.Transient);
+        Assert.Contains(services, d => d.ServiceType == typeof(EstimateQuality) && d.Lifetime == ServiceLifetime.Transient);
+        Assert.Contains(services, d => d.ServiceType == typeof(RequestInterceptor) && d.Lifetime == ServiceLifetime.Singleton);
+        Assert.Contains(services, d => d.ServiceType == typeof(ProxyMiddleware) && d.Lifetime == ServiceLifetime.Transient);
+        Assert.Contains(services, d => d.ServiceType == typeof(IHostedService));
+    }
+
+    [Fact]
+    public void AddAgenticRouter_ResolvesRegisteredServices_WithSupportingDependencies()
+    {
+        var services = new ServiceCollection();
+        services.AddLogging();
+        services.AddOptions();
+        services.Configure<RoutingOptions>(_ => { });
+        services.AddSingleton<IRouterModelClient, StubRouterModelClient>();
+
+        services.AddAgenticRouter();
+
+        using var provider = services.BuildServiceProvider();
+
+        Assert.NotNull(provider.GetRequiredService<RouterMemory>());
+        Assert.NotNull(provider.GetRequiredService<CheckSyntax>());
+        Assert.NotNull(provider.GetRequiredService<RunVisibleTests>());
+        Assert.NotNull(provider.GetRequiredService<EstimateQuality>());
+        Assert.NotNull(provider.GetRequiredService<RequestInterceptor>());
+        Assert.NotNull(provider.GetRequiredService<ProxyMiddleware>());
+        Assert.NotNull(provider.GetRequiredService<AgentAsARouter>());
+    }
+
+    private sealed class StubRouterModelClient : IRouterModelClient
+    {
+        public Task<string> GetResponseAsync(string model, string prompt, CancellationToken cancellationToken = default)
+            => Task.FromResult("ok");
     }
 }

@@ -23,9 +23,12 @@ public class JsonRouterMemoryStore : IRouterMemoryStore
     public JsonRouterMemoryStore(ILogger<JsonRouterMemoryStore> logger, IOptions<RoutingOptions> options)
     {
         _logger = logger;
-        // A real implementation would have a dedicated path in options.
-        // For now, we'll just use a hardcoded path.
-        _filePath = Path.Combine(AppContext.BaseDirectory, "router_memory.json");
+
+        var configuredPath = options.Value.MemoryPath;
+        _filePath = Path.IsPathRooted(configuredPath)
+            ? configuredPath
+            : Path.Combine(AppContext.BaseDirectory, configuredPath);
+
         _logger.LogInformation("JSON memory store will use file: {FilePath}", _filePath);
     }
 
@@ -57,6 +60,12 @@ public class JsonRouterMemoryStore : IRouterMemoryStore
     {
         try
         {
+            var directoryPath = Path.GetDirectoryName(_filePath);
+            if (!string.IsNullOrWhiteSpace(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+
             var json = JsonSerializer.Serialize(memory, _serializerOptions);
             await File.WriteAllTextAsync(_filePath, json);
             _logger.LogInformation("Successfully saved memory to {FilePath}", _filePath);

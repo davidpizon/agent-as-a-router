@@ -17,6 +17,7 @@ This repository contains the Agent-as-a-Router project.
 - **Phase Completion Criteria:**
   - The application must always compile with no errors or warnings at the end of each phase.
   - The application must always pass all unit tests at the end of each phase.
+  - The application must maintain at least 80% code coverage in unit tests.
 - **Logging:** Use Serilog exclusively for all logging. Configure Serilog via `appsettings.json` to support output destinations based on configuration:
   - **File logging:** Enable via `Serilog.WriteTo.File` configuration with customizable path, retention, and rolling file policies.
   - **Windows Event Viewer logging:** Enable via `Serilog.Sinks.EventLog` configuration for events that should be captured by the Windows Event Viewer (errors, critical events, audit trails).

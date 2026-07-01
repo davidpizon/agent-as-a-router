@@ -1,22 +1,79 @@
+using AgenticRouter.Hosting;
+using AgenticRouter.Models;
+using AgenticRouter.Proxy;
 using AgenticRouter.Router;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Xunit;
+using Microsoft.Extensions.Options;
 
-namespace AgenticRouter.Tests.Integration
+namespace AgenticRouter.Tests.Integration;
+
+/// <summary>
+/// Covers integration composition for router services.
+/// </summary>
+[Collection("Integration")]
+public class RouterCompositionTests
 {
-    public class RouterCompositionTests
+    [Fact]
+    public async Task RouterComposition_ObserveThenRoute_SelectsBestModel()
     {
-        [Fact]
-        public void Host_CanResolve_AllServices()
+        var provider = BuildProvider(new RoutingOptions
         {
-            // Arrange
-            var host = Program.CreateHostBuilder(new string[] { }).Build();
+            EnableExploration = false,
+            DefaultModel = RouterConstants.DefaultModel
+        });
 
-            // Act & Assert
-            Assert.NotNull(host.Services.GetService<AgentAsARouter>());
-            Assert.NotNull(host.Services.GetService<RouterMemory>());
-            Assert.NotNull(host.Services.GetService<AgenticRouter.Proxy.RequestInterceptor>());
-        }
+        var router = provider.GetRequiredService<AgentAsARouter>();
+
+        await router.ObserveAsync("code_gen", "gpt-5.4", 0.9);
+        await router.ObserveAsync("code_gen", "qwen3-max", 0.7);
+
+        var result = await router.RouteAsync("prompt", "code_gen");
+
+        Assert.Equal("gpt-5.4", result.Decision.SelectedModel);
+        Assert.Equal("response:gpt-5.4", result.Response);
+    }
+
+    [Fact]
+    public async Task RouterComposition_WithoutHistory_UsesFallbackDefaultModel()
+    {
+        var provider = BuildProvider(new RoutingOptions
+        {
+            EnableExploration = false,
+            DefaultModel = RouterConstants.DefaultModel
+        });
+
+        var router = provider.GetRequiredService<AgentAsARouter>();
+
+        var result = await router.RouteAsync("prompt", "unknown_dimension");
+
+        Assert.Equal(RouterConstants.DefaultModel, result.Decision.SelectedModel);
+        Assert.Equal(RouterConstants.FallbackReason, result.Decision.Rationale);
+    }
+
+    [Fact]
+    public void RouterComposition_CanResolveCoreServices()
+    {
+        var provider = BuildProvider(new RoutingOptions());
+
+        Assert.NotNull(provider.GetRequiredService<AgentAsARouter>());
+        Assert.NotNull(provider.GetRequiredService<RouterMemory>());
+        Assert.NotNull(provider.GetRequiredService<RequestInterceptor>());
+    }
+
+    private static ServiceProvider BuildProvider(RoutingOptions options)
+    {
+        var services = new ServiceCollection();
+        services.AddLogging();
+        services.AddSingleton<IOptions<RoutingOptions>>(Options.Create(options));
+        services.AddSingleton<IRouterModelClient, StubRouterModelClient>();
+        services.AddAgenticRouter();
+
+        return services.BuildServiceProvider();
+    }
+
+    private sealed class StubRouterModelClient : IRouterModelClient
+    {
+        public Task<string> GetResponseAsync(string model, string prompt, CancellationToken cancellationToken = default)
+            => Task.FromResult($"response:{model}");
     }
 }
