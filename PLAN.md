@@ -4,6 +4,8 @@ This document outlines a phased, parity-first migration from the current Python 
 
 **Architectural Goal:** Port the proven **System Proxy Interception** pattern from `cc-switch` (Rust/Tauri) to .NET, enabling transparent integration with GitHub Copilot and other IDE extensions without requiring IDE-specific modifications.
 
+**Critical Path Scope Note:** Tray icon and UI shell work are **future TODO items** and are **not part of the critical path** for this migration. The critical path is proxy-first routing parity and reliable OpenAI-compatible endpoint behavior.
+
 ## Guiding Principles
 - Preserve current behavior first; refactor only after parity is proven.
 - Use dependency injection, async/await, the options pattern, structured logging, nullable reference types, and analyzers.
@@ -12,6 +14,16 @@ This document outlines a phased, parity-first migration from the current Python 
 - Require XML documentation comments for all classes and functions introduced or modified in each phase.
 - Validate each phase with unit tests before integration tests.
 - **Proxy-first design:** Route all LLM API traffic through a local HTTP proxy (port 5001) before forwarding to providers, eliminating need for IDE-specific integrations.
+
+## Practical Hybrid Goal (LiteLLM Reference + C# Native Proxy)
+Reference project: [BerriAI/litellm](https://github.com/BerriAI/litellm)
+
+- [ ] **TODO 1:** Use LiteLLM immediately as a temporary sidecar for real traffic.
+- [ ] **TODO 2:** Build AgenticRouter proxy in C# with OpenAI-compatible endpoints first.
+- [ ] **TODO 3:** Create parity tests against LiteLLM behavior (routing, retries, key handling, streaming, errors).
+- [ ] **TODO 4:** Port only high-value features next (model abstraction, fallback/load-balance, spend tracking, guardrails).
+- [ ] **TODO 5:** Keep advanced/admin features behind interfaces so they can be added later without re-architecture.
+- [ ] **TODO 6:** Add Tray icon and UI shell after core proxy/routing parity is complete (explicitly non-critical path).
 
 ## Testing Strategy
 - Start with unit tests for shared models, router decisions, tool helpers, and configuration binding.
