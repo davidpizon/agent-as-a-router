@@ -2,7 +2,7 @@ import { execFile } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import type { ProxySystemStatus } from "../../shared/app";
-import { DATADIR } from "../../main/constants";
+import { DATADIR, SYSTEM_PROXY_SNAPSHOT_FILE } from "../../main/constants";
 import { windowsSystemCommand } from "../../main/windows-system";
 
 export type UpstreamProxyServer = {
@@ -87,7 +87,7 @@ type WindowsRegistryValue = {
 
 const networkSetup = "/usr/sbin/networksetup";
 const windowsInternetSettingsKey = "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings";
-const systemProxySnapshotFile = path.join(DATADIR, "system-proxy-snapshot.json");
+const systemProxySnapshotFile = SYSTEM_PROXY_SNAPSHOT_FILE;
 
 class SystemProxyManager {
   private snapshot?: SystemProxySnapshot;
@@ -808,6 +808,101 @@ function readSetting(output: string, key: string): string {
 function persistSnapshot(snapshot: SystemProxySnapshot): void {
   mkdirSync(path.dirname(systemProxySnapshotFile), { recursive: true });
   writeFileSync(systemProxySnapshotFile, `${JSON.stringify(snapshot, null, 2)}\n`, "utf8");
+}
+
+/**
+ * Validates the persisted system proxy snapshot file on initialization.
+ * 
+ * Checks:
+ * - File exists and is readable
+ * - File contains valid JSON
+ * - JSON structure matches expected SystemProxySnapshot schema
+ * - Platform matches current OS (not a leftover from different platform)
+ * - Snapshot contains required fields (version, managedEndpoint, etc.)
+ * 
+ * @returns { valid: true } if snapshot is valid and usable
+ * @returns { valid: false, reason: string } if snapshot is invalid or corrupted
+ */
+export function validatePersistedSnapshot(): { valid: boolean; reason?: string } {
+  if (!existsSync(systemProxySnapshotFile)) {
+    return { valid: true }; // No snapshot file is fine; validation passes
+  }
+
+  try {
+    const content = readFileSync(systemProxySnapshotFile, "utf8");
+
+    // Check for empty file
+    if (!content || !content.trim()) {
+      return { valid: false, reason: "Snapshot file is empty" };
+    }
+
+    // Parse JSON
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(content);
+    } catch (parseError) {
+      return { 
+        valid: false, 
+        reason: `Snapshot file contains invalid JSON: ${parseError instanceof Error ? parseError.message : String(parseError)}` 
+      };
+    }
+
+    // Validate structure
+    if (!isObject(parsed)) {
+      return { valid: false, reason: "Snapshot root must be an object" };
+    }
+
+    // Check version
+    if (parsed.version !== 1) {
+      return { valid: false, reason: `Unsupported snapshot version: ${parsed.version}` };
+    }
+
+    // Check managedEndpoint
+    if (typeof parsed.managedEndpoint !== "string" || !parsed.managedEndpoint) {
+      return { valid: false, reason: "Snapshot missing or invalid managedEndpoint field" };
+    }
+
+    // Check createdAt timestamp
+    if (typeof parsed.createdAt !== "string" || !parsed.createdAt) {
+      return { valid: false, reason: "Snapshot missing or invalid createdAt field" };
+    }
+
+    // Check platform matches current OS
+    if (parsed.platform !== process.platform) {
+      return { 
+        valid: false, 
+        reason: `Snapshot platform mismatch: snapshot is for ${parsed.platform}, but running on ${process.platform}` 
+      };
+    }
+
+    // Platform-specific validation
+    if (parsed.platform === "darwin") {
+      if (!Array.isArray(parsed.services)) {
+        return { valid: false, reason: "macOS snapshot missing or invalid services array" };
+      }
+      if (parsed.services.length === 0) {
+        return { valid: false, reason: "macOS snapshot has empty services array" };
+      }
+    } else if (parsed.platform === "win32") {
+      if (!isObject(parsed.settings)) {
+        return { valid: false, reason: "Windows snapshot missing or invalid settings object" };
+      }
+    } else {
+      return { valid: false, reason: `Unsupported platform in snapshot: ${parsed.platform}` };
+    }
+
+    // Final type check
+    if (!isSystemProxySnapshot(parsed)) {
+      return { valid: false, reason: "Snapshot structure does not match expected SystemProxySnapshot schema" };
+    }
+
+    return { valid: true };
+  } catch (error) {
+    return { 
+      valid: false, 
+      reason: `Failed to read snapshot file: ${error instanceof Error ? error.message : String(error)}` 
+    };
+  }
 }
 
 function readPersistedSnapshot(): SystemProxySnapshot | undefined {

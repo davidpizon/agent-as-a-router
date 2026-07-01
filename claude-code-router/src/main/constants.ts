@@ -24,20 +24,33 @@ function appPath(name: "appData" | "home" | "userData"): string {
   return path.join(LEGACY_CONFIGDIR, "app-data");
 }
 
+// Agent-neutral application directory for all ACRouter data
+export const ACROUTER_DIR = process.platform === "win32"
+  ? path.join(appPath("appData"), "ACRouter")
+  : path.join(os.homedir(), ".acrouter");
+
+// Configuration directory (for app config and settings)
 export const CONFIGDIR = process.platform === "win32"
   ? path.join(appPath("appData"), APP_NAME)
   : LEGACY_CONFIGDIR;
 export const CONFIG_FILE = path.join(CONFIGDIR, "config.json");
 export const ONBOARDING_FINISHED_FILE = path.join(CONFIGDIR, ".onboard_finished");
-export const DATADIR = appPath("userData");
-export const APP_CONFIG_DB_FILE = path.join(CONFIGDIR, "config.sqlite");
-export const API_KEYS_DB_FILE = path.join(DATADIR, "api-keys.sqlite");
-export const CERTDIR = path.join(DATADIR, "certs");
-export const PROVIDER_ICON_CACHE_DIR = path.join(DATADIR, "provider-icons");
+
+// Data directory (for databases, certs, caches, etc.)
+export const DATADIR = process.platform === "win32"
+  ? path.join(ACROUTER_DIR, "data")
+  : path.join(ACROUTER_DIR, "data");
+
+export const APP_CONFIG_DB_FILE = path.join(ACROUTER_DIR, "config.sqlite");
+export const API_KEYS_DB_FILE = path.join(ACROUTER_DIR, "api-keys.sqlite");
+export const CERTDIR = path.join(ACROUTER_DIR, "certs");
+export const PROVIDER_ICON_CACHE_DIR = path.join(ACROUTER_DIR, "provider-icons");
 export const PROXY_CA_CERT_FILE = path.join(CERTDIR, "ca.pem");
 export const PROXY_CA_CERT_DER_FILE = path.join(CERTDIR, "ca.cer");
 export const PROXY_CA_KEY_FILE = path.join(CERTDIR, "key.pem");
-export const GATEWAY_CONFIG_FILE = path.join(CONFIGDIR, "gateway.config.json");
-export const REQUEST_LOGS_DB_FILE = path.join(DATADIR, "request-logs.sqlite");
-export const RAW_TRACE_SPOOL_DIR = path.join(DATADIR, "raw-trace-spool");
-export const USAGE_DB_FILE = path.join(DATADIR, "usage.sqlite");
+export const GATEWAY_CONFIG_FILE = path.join(ACROUTER_DIR, "gateway.config.json");
+export const REQUEST_LOGS_DB_FILE = path.join(ACROUTER_DIR, "request-logs.sqlite");
+export const RAW_TRACE_SPOOL_DIR = path.join(ACROUTER_DIR, "raw-trace-spool");
+export const USAGE_DB_FILE = path.join(ACROUTER_DIR, "usage.sqlite");
+export const ACROUTER_SNAPDIR = ACROUTER_DIR;
+export const SYSTEM_PROXY_SNAPSHOT_FILE = path.join(ACROUTER_SNAPDIR, "system-proxy-snapshot.json");

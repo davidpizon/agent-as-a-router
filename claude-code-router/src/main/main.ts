@@ -7,6 +7,7 @@ import { gatewayService } from "../server/gateway/service";
 import "./ipc";
 import { applyProfileConfig } from "./profile-service";
 import { proxyService } from "../server/proxy/service";
+import { validatePersistedSnapshot } from "../server/proxy/system-proxy";
 import trayController from "./tray-controller";
 import { appUpdateService } from "./update-service";
 import windowsManager from "./windows";
@@ -36,6 +37,14 @@ function startPrimaryInstance(): void {
   });
 
   app.whenReady().then(() => {
+    // Validate system proxy snapshot on startup
+    const snapshotValidation = validatePersistedSnapshot();
+    if (!snapshotValidation.valid) {
+      console.warn(`[init] System proxy snapshot validation failed: ${snapshotValidation.reason}`);
+    } else {
+      console.info("[init] System proxy snapshot is valid or does not exist");
+    }
+
     setupApplicationMenu();
     windowsManager.createMainWindow();
     trayController.start();
