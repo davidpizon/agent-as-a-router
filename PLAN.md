@@ -15,8 +15,16 @@ This document outlines a phased, parity-first migration from the current Python 
 - Validate each phase with unit tests before integration tests.
 - **Proxy-first design:** Route all LLM API traffic through a local HTTP proxy (port 5001) before forwarding to providers, eliminating need for IDE-specific integrations.
 
+## Explicit Non-Goals and Deferred Scope
+- Tray icon and UI shell are deferred until after proxy/routing parity is complete.
+- Advanced/admin features are non-critical and must remain behind interfaces until promoted to scoped phase work.
+- IDE-specific extension modifications are out of scope for the critical path; system proxy interception is the required integration model.
+- Phase 0 remains documentation-only and does not include production implementation changes.
+
 ## Practical Hybrid Goal (LiteLLM Reference + C# Native Proxy)
 Reference project: [BerriAI/litellm](https://github.com/BerriAI/litellm)
+
+The following TODOs are a cross-cutting workstream and should be tracked across phases rather than treated as a separate phase gate.
 
 - [ ] **TODO 1:** Use LiteLLM immediately as a temporary sidecar for real traffic.
 - [ ] **TODO 2:** Build AgenticRouter proxy in C# with OpenAI-compatible endpoints first.
@@ -47,9 +55,9 @@ Reference project: [BerriAI/litellm](https://github.com/BerriAI/litellm)
 
 ## 1. Phase 0: Discovery and Repository Mapping
 - Inventory the Python modules, demo scripts, and test fixtures that define current behavior.
-- Map each surface area to its C# equivalent in `src/AgenticRouter` and `src/AgenticRouter.Tests`.
+- Produce a contract-level Python-to-C# mapping for models, router, tools, proxy, and tests in `src/AgenticRouter` and `src/AgenticRouter.Tests`.
 - Capture current benchmark expectations and repository constraints from the documentation.
-- Exit criteria: migration scope and parity targets are documented.
+- Exit criteria (documentation-only): migration scope, parity targets, and contract-level mapping are documented.
 
 ## 2. Phase 1: Solution and Infrastructure Foundation
 - Stabilize the .NET 10 solution layout and project references.
