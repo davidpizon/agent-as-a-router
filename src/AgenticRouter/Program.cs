@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using AgenticRouter.Models;
+using AgenticRouter.Router;
+using AgenticRouter.Services;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 
@@ -52,9 +55,25 @@ internal static class Program
             .ConfigureServices((hostContext, services) =>
             {
                 // Configuration options can be bound here
-                // services.Configure<MyOptions>(hostContext.Configuration.GetSection("MyOptions"));
+                services.AddOptions<RoutingOptions>()
+                    .Bind(hostContext.Configuration.GetSection(RoutingOptions.SectionName))
+                    .ValidateDataAnnotations()
+                    .ValidateOnStart();
 
                 // Add application services
-                // services.AddHostedService<Worker>();
+                services.AddSingleton<RouterMemory>();
+                services.AddSingleton<IRouterModelClient, MockRouterModelClient>(); // Using a mock for now
+                services.AddSingleton<AgentAsARouter>();
+                services.AddHostedService<Worker>();
             });
+}
+
+// A mock implementation of IRouterModelClient for demonstration purposes.
+// This would be replaced with a real implementation that calls an LLM.
+public class MockRouterModelClient : IRouterModelClient
+{
+    public Task<string> GetResponseAsync(string model, string prompt, CancellationToken cancellationToken = default)
+    {
+        return Task.FromResult($"Mock response from {model} for prompt: '{prompt}'");
+    }
 }

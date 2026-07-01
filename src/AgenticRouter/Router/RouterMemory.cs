@@ -1,0 +1,57 @@
+using System.Collections.Concurrent;
+
+namespace AgenticRouter.Router;
+
+/// <summary>
+/// Represents the memory of the router, storing scores for different models.
+/// </summary>
+public class RouterMemory
+{
+    private readonly ConcurrentDictionary<string, ConcurrentDictionary<string, List<double>>> _scores = new();
+
+    /// <summary>
+    /// Adds a score for a given model and dimension.
+    /// </summary>
+    /// <param name="dimension">The dimension to which the score belongs.</param>
+    /// <param name="model">The model for which the score is recorded.</param>
+    /// <param name="score">The score to add.</param>
+    public void AddScore(string dimension, string model, double score)
+    {
+        var dimensionScores = _scores.GetOrAdd(dimension, new ConcurrentDictionary<string, List<double>>());
+        var modelScores = dimensionScores.GetOrAdd(model, new List<double>());
+        modelScores.Add(score);
+    }
+
+    /// <summary>
+    /// Gets the average score for a given model and dimension.
+    /// </summary>
+    /// <param name="dimension">The dimension.</param>
+    /// <param name="model">The model.</param>
+    /// <returns>The average score, or null if no scores are available.</returns>
+    public double? GetAverageScore(string dimension, string model)
+    {
+        if (_scores.TryGetValue(dimension, out var dimensionScores) &&
+            dimensionScores.TryGetValue(model, out var modelScores) &&
+            modelScores.Count > 0)
+        {
+            return modelScores.Average();
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    /// Gets all models for a given dimension.
+    /// </summary>
+    /// <param name="dimension">The dimension.</param>
+    /// <returns>A collection of model names.</returns>
+    public IEnumerable<string> GetModelsForDimension(string dimension)
+    {
+        if (_scores.TryGetValue(dimension, out var dimensionScores))
+        {
+            return dimensionScores.Keys;
+        }
+
+        return Enumerable.Empty<string>();
+    }
+}

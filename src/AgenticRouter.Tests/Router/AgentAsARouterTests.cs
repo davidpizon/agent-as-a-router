@@ -1,0 +1,120 @@
+using AgenticRouter.Models;
+using AgenticRouter.Router;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using Moq;
+
+namespace AgenticRouter.Tests.Router;
+
+/// <summary>
+/// Tests for the <see cref="AgentAsARouter"/> class.
+/// </summary>
+public class AgentAsARouterTests
+{
+    private readonly Mock<ILogger<AgentAsARouter>> _loggerMock;
+    private readonly Mock<IRouterModelClient> _modelClientMock;
+    private readonly Mock<IOptions<RoutingOptions>> _optionsMock;
+    private readonly RouterMemory _memory;
+    private readonly RoutingOptions _routingOptions;
+
+    public AgentAsARouterTests()
+    {
+        _loggerMock = new Mock<ILogger<AgentAsARouter>>();
+        _modelClientMock = new Mock<IRouterModelClient>();
+        _optionsMock = new Mock<IOptions<RoutingOptions>>();
+        _memory = new RouterMemory();
+        _routingOptions = new RoutingOptions();
+        _optionsMock.Setup(o => o.Value).Returns(_routingOptions);
+    }
+
+    [Fact]
+    public async Task RouteAsync_Exploitation_SelectsBestModel()
+    {
+        // Arrange
+        var dimension = "test_dimension";
+        _memory.AddScore(dimension, "model1", 0.7);
+        _memory.AddScore(dimension, "model2", 0.9);
+        _modelClientMock.Setup(c => c.GetResponseAsync("model2", "prompt", It.IsAny<CancellationToken>()))
+            .ReturnsAsync("response from model2");
+
+        var router = new AgentAsARouter(_loggerMock.Object, _optionsMock.Object, _modelClientMock.Object, _memory);
+
+        // Act
+        var result = await router.RouteAsync("prompt", dimension);
+
+        // Assert
+        Assert.Equal("model2", result.Decision.SelectedModel);
+        Assert.Contains("Selected best model", result.Decision.Rationale);
+        _modelClientMock.Verify(c => c.GetResponseAsync("model2", "prompt", It.IsAny<CancellationToken>()), Times.Once);
+    }
+
+    [Fact]
+    public async Task RouteAsync_Exploitation_HandlesModelFailure()
+    {
+        // Arrange
+        var dimension = "test_dimension";
+        _memory.AddScore(dimension, "model1", 0.8);
+        _memory.AddScore(dimension, "model2", 0.9);
+        _modelClientMock.Setup(c => c.GetResponseAsync("model2", "prompt", It.IsAny<CancellationToken>()))
+            .ThrowsAsync(new Exception("Model failed"));
+        _modelClientMock.Setup(c => c.GetResponseAsync("model1", "prompt", It.IsAny<CancellationToken>()))
+            .ReturnsAsync("response from model1");
+
+        var router = new AgentAsARouter(_loggerMock.Object, _optionsMock.Object, _modelClientMock.Object, _memory);
+
+        // Act
+        var result = await router.RouteAsync("prompt", dimension);
+
+        // Assert
+        Assert.Equal("model1", result.Decision.SelectedModel);
+        _modelClientMock.Verify(c => c.GetResponseAsync("model2", "prompt", It.IsAny<CancellationToken>()), Times.Once);
+        _modelClientMock.Verify(c => c.GetResponseAsync("model1", "prompt", It.IsAny<CancellationToken>()), Times.Once);
+    }
+
+    [Fact]
+    public async Task RouteAsync_Exploration_SelectsRandomModel()
+    {
+        // Arrange
+        var options = new RoutingOptions { EnableExploration = true, ExplorationRate = 1.0 }; // Force exploration
+        _optionsMock.Setup(o => o.Value).Returns(options);
+        _modelClientMock.Setup(c => c.GetResponseAsync(It.IsAny<string>(), "prompt", It.IsAny<CancellationToken>()))
+            .ReturnsAsync("response");
+
+        var router = new AgentAsARouter(_loggerMock.Object, _optionsMock.Object, _modelClientMock.Object, _memory);
+
+        // Act
+        var result = await router.RouteAsync("prompt", "test_dimension");
+
+        // Assert
+        Assert.Contains(result.Decision.SelectedModel, RouterConstants.SupportedModels);
+        Assert.Equal("Exploration: randomly selected model to gather new data.", result.Decision.Rationale);
+    }
+
+    [Fact]
+    public void Observe_AddsScoreToMemory()
+    {
+        // Arrange
+        var router = new AgentAsARouter(_loggerMock.Object, _optionsMock.Object, _modelClientMock.Object, _memory);
+        var dimension = "test_dimension";
+        var model = "test_model";
+        var score = 0.95;
+
+        // Act
+        router.Observe(dimension, model, score);
+        var averageScore = _memory.GetAverageScore(dimension, model);
+
+        // Assert
+        Assert.Equal(score, averageScore);
+    }
+
+    [Fact]
+    public void Observe_Throws_OnInvalidScore()
+    {
+        // Arrange
+        var router = new AgentAsARouter(_loggerMock.Object, _optionsMock.Object, _modelClientMock.Object, _memory);
+
+        // Act & Assert
+        Assert.Throws<ArgumentOutOfRangeException>(() => router.Observe("dim", "mod", -0.1));
+        Assert.Throws<ArgumentOutOfRangeException>(() => router.Observe("dim", "mod", 1.1));
+    }
+}
