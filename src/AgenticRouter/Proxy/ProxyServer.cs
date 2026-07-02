@@ -29,6 +29,17 @@ namespace AgenticRouter.Proxy
                     {
                         foreach (var service in services)
                         {
+                            var isHostedService = service.ServiceType == typeof(IHostedService)
+                                || typeof(IHostedService).IsAssignableFrom(service.ServiceType)
+                                || (service.ImplementationType is not null && typeof(IHostedService).IsAssignableFrom(service.ImplementationType))
+                                || (service.ImplementationInstance is IHostedService)
+                                || (service.ImplementationFactory is not null && service.ServiceType == typeof(IHostedService));
+
+                            if (isHostedService)
+                            {
+                                continue;
+                            }
+
                             s.Add(service);
                         }
                     });

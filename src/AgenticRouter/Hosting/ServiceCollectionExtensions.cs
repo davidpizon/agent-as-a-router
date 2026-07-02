@@ -2,6 +2,7 @@ using AgenticRouter.Proxy;
 using AgenticRouter.Router;
 using AgenticRouter.Tools;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace AgenticRouter.Hosting
 {
@@ -32,8 +33,33 @@ namespace AgenticRouter.Hosting
             // Proxy
             services.AddSingleton<RequestInterceptor>();
             services.AddTransient<ProxyMiddleware>();
-            services.AddHostedService(sp => new ProxyHostedService(sp.GetRequiredService<Microsoft.Extensions.Logging.ILogger<ProxyHostedService>>(), services));
 
+            // Create a copy of services WITHOUT hosted services BEFORE registering ProxyHostedService
+            // to prevent circular dependency
+            var proxyServices = new ServiceCollection();
+            foreach (var descriptor in services)
+            {
+                var isHostedService = descriptor.ServiceType == typeof(Microsoft.Extensions.Hosting.IHostedService)
+                    || typeof(Microsoft.Extensions.Hosting.IHostedService).IsAssignableFrom(descriptor.ServiceType)
+                    || (descriptor.ImplementationType is not null && typeof(Microsoft.Extensions.Hosting.IHostedService).IsAssignableFrom(descriptor.ImplementationType))
+                    || (descriptor.ImplementationInstance is Microsoft.Extensions.Hosting.IHostedService)
+                    || (descriptor.ImplementationFactory is not null && descriptor.ServiceType == typeof(Microsoft.Extensions.Hosting.IHostedService));
+
+                if (isHostedService)
+                {
+                    continue;
+                }
+
+                proxyServices.Add(descriptor);
+            }
+
+            services.AddHostedService(sp =>
+            {
+                return new ProxyHostedService(
+                    sp.GetRequiredService<Microsoft.Extensions.Logging.ILogger<ProxyHostedService>>(),
+                    sp.GetRequiredService<Microsoft.Extensions.Logging.ILogger<ProxyServer>>(),
+                    proxyServices);
+            });
 
             return services;
         }

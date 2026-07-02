@@ -15,12 +15,9 @@ namespace AgenticRouter.Hosting
         private readonly ILogger<ProxyHostedService> _logger;
         private readonly ProxyServer _proxyServer;
 
-        public ProxyHostedService(ILogger<ProxyHostedService> logger, IServiceCollection services)
+        public ProxyHostedService(ILogger<ProxyHostedService> logger, ILogger<ProxyServer> proxyLogger, IServiceCollection services)
         {
             _logger = logger;
-            // Manually create a logger for ProxyServer as it's not directly in the DI container for the main host.
-            var serviceProvider = services.BuildServiceProvider();
-            var proxyLogger = serviceProvider.GetRequiredService<ILogger<ProxyServer>>();
             _proxyServer = new ProxyServer(proxyLogger, services);
         }
 

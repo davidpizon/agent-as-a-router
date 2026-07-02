@@ -18,14 +18,15 @@ public class ProxyHostedServiceTests
     public async Task StartAndStopAsync_StartsAndStopsProxy_AndLogsLifecycle()
     {
         var loggerMock = new Mock<ILogger<ProxyHostedService>>();
+        var proxyLogger = new NullLogger<ProxyServer>();
         var services = new ServiceCollection();
-        services.AddSingleton<ILogger<ProxyServer>>(new NullLogger<ProxyServer>());
+        services.AddSingleton<ILogger<ProxyServer>>(proxyLogger);
         services.AddSingleton<ILogger<ProxyMiddleware>>(new NullLogger<ProxyMiddleware>());
         services.AddSingleton<ILogger<RequestInterceptor>>(new NullLogger<RequestInterceptor>());
         services.AddSingleton<RequestInterceptor>();
         services.AddTransient<ProxyMiddleware>();
 
-        var hostedService = new ProxyHostedService(loggerMock.Object, services);
+        var hostedService = new ProxyHostedService(loggerMock.Object, proxyLogger, services);
 
         await hostedService.StartAsync(CancellationToken.None);
 
