@@ -1,3 +1,5 @@
+using System.Text;
+using System.Text.Json;
 using AgenticRouter.Proxy;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
@@ -14,7 +16,7 @@ public class RequestInterceptorTests
     public async Task InterceptRequestAsync_IncrementsCount_AndLogsStructuredMessage()
     {
         var loggerMock = new Mock<ILogger<RequestInterceptor>>();
-        var interceptor = new RequestInterceptor(loggerMock.Object);
+        var interceptor = new RequestInterceptor(loggerMock.Object, ModelRouteResolverTestFactory.Empty());
         var context = new DefaultHttpContext();
         context.Request.Method = HttpMethods.Get;
         context.Request.Scheme = "https";
@@ -32,7 +34,7 @@ public class RequestInterceptorTests
     public async Task InterceptResponseAsync_LogsStructuredMessage()
     {
         var loggerMock = new Mock<ILogger<RequestInterceptor>>();
-        var interceptor = new RequestInterceptor(loggerMock.Object);
+        var interceptor = new RequestInterceptor(loggerMock.Object, ModelRouteResolverTestFactory.Empty());
         var context = new DefaultHttpContext();
         context.Request.Path = "/chat";
         context.Response.StatusCode = StatusCodes.Status200OK;
@@ -40,6 +42,81 @@ public class RequestInterceptorTests
         await interceptor.InterceptResponseAsync(context);
 
         VerifyLogContains(loggerMock, LogLevel.Information, "[INTERCEPTOR] Intercepting response for");
+    }
+
+    [Fact]
+    public async Task ResolveModelRouteAsync_KnownModel_RewritesBodyToProviderModelId()
+    {
+        var resolver = ModelRouteResolverTestFactory.Create("gpt-5.4", "gpt-5.4-2026-01", "https://api.openai.com");
+        var interceptor = new RequestInterceptor(Mock.Of<ILogger<RequestInterceptor>>(), resolver);
+        var context = CreateContextWithBody("""{"model":"gpt-5.4","temperature":0.7}""");
+
+        var result = await interceptor.ResolveModelRouteAsync(context);
+
+        Assert.True(result.IsSuccess);
+        Assert.Equal("gpt-5.4-2026-01", result.Route!.ProviderModelId);
+
+        using var document = JsonDocument.Parse(result.RewrittenBody!);
+        Assert.Equal("gpt-5.4-2026-01", document.RootElement.GetProperty("model").GetString());
+        Assert.Equal(0.7, document.RootElement.GetProperty("temperature").GetDouble());
+    }
+
+    [Fact]
+    public async Task ResolveModelRouteAsync_UnknownModel_ReturnsFailure()
+    {
+        var resolver = ModelRouteResolverTestFactory.Create("gpt-5.4", "gpt-5.4", "https://api.openai.com");
+        var interceptor = new RequestInterceptor(Mock.Of<ILogger<RequestInterceptor>>(), resolver);
+        var context = CreateContextWithBody("""{"model":"not-a-known-model"}""");
+
+        var result = await interceptor.ResolveModelRouteAsync(context);
+
+        Assert.False(result.IsSuccess);
+        Assert.Null(result.Route);
+        Assert.Contains("not-a-known-model", result.ErrorMessage);
+    }
+
+    [Fact]
+    public async Task ResolveModelRouteAsync_MissingModelField_ReturnsFailure()
+    {
+        var interceptor = new RequestInterceptor(Mock.Of<ILogger<RequestInterceptor>>(), ModelRouteResolverTestFactory.Empty());
+        var context = CreateContextWithBody("""{"messages":[]}""");
+
+        var result = await interceptor.ResolveModelRouteAsync(context);
+
+        Assert.False(result.IsSuccess);
+        Assert.NotNull(result.ErrorMessage);
+    }
+
+    [Fact]
+    public async Task ResolveModelRouteAsync_MalformedJson_ReturnsFailure()
+    {
+        var interceptor = new RequestInterceptor(Mock.Of<ILogger<RequestInterceptor>>(), ModelRouteResolverTestFactory.Empty());
+        var context = CreateContextWithBody("not-json");
+
+        var result = await interceptor.ResolveModelRouteAsync(context);
+
+        Assert.False(result.IsSuccess);
+        Assert.NotNull(result.ErrorMessage);
+    }
+
+    [Fact]
+    public async Task ResolveModelRouteAsync_EmptyBody_ReturnsFailure()
+    {
+        var interceptor = new RequestInterceptor(Mock.Of<ILogger<RequestInterceptor>>(), ModelRouteResolverTestFactory.Empty());
+        var context = CreateContextWithBody(string.Empty);
+
+        var result = await interceptor.ResolveModelRouteAsync(context);
+
+        Assert.False(result.IsSuccess);
+    }
+
+    private static DefaultHttpContext CreateContextWithBody(string body)
+    {
+        var context = new DefaultHttpContext();
+        var bytes = Encoding.UTF8.GetBytes(body);
+        context.Request.Body = new MemoryStream(bytes);
+        context.Request.ContentLength = bytes.Length;
+        return context;
     }
 
     private static void VerifyLogContains(Mock<ILogger<RequestInterceptor>> loggerMock, LogLevel level, string expectedText)

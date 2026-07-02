@@ -3,6 +3,7 @@ using AgenticRouter.Models;
 using AgenticRouter.Proxy;
 using AgenticRouter.Router;
 using AgenticRouter.Tools;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -26,6 +27,8 @@ public class ServiceCollectionExtensionsTests
         Assert.Contains(services, d => d.ServiceType == typeof(CheckSyntax) && d.Lifetime == ServiceLifetime.Transient);
         Assert.Contains(services, d => d.ServiceType == typeof(RunVisibleTests) && d.Lifetime == ServiceLifetime.Transient);
         Assert.Contains(services, d => d.ServiceType == typeof(EstimateQuality) && d.Lifetime == ServiceLifetime.Transient);
+        Assert.Contains(services, d => d.ServiceType == typeof(IEnvironmentVariableProvider) && d.ImplementationType == typeof(EnvironmentVariableProvider) && d.Lifetime == ServiceLifetime.Singleton);
+        Assert.Contains(services, d => d.ServiceType == typeof(IModelRouteResolver) && d.ImplementationType == typeof(ModelRouteResolver) && d.Lifetime == ServiceLifetime.Singleton);
         Assert.Contains(services, d => d.ServiceType == typeof(RequestInterceptor) && d.Lifetime == ServiceLifetime.Singleton);
         Assert.Contains(services, d => d.ServiceType == typeof(ProxyMiddleware) && d.Lifetime == ServiceLifetime.Transient);
         Assert.Contains(services, d => d.ServiceType == typeof(IHostedService));
@@ -39,6 +42,7 @@ public class ServiceCollectionExtensionsTests
         services.AddOptions();
         services.Configure<RoutingOptions>(_ => { });
         services.AddSingleton<IRouterModelClient, StubRouterModelClient>();
+        services.AddSingleton<IConfiguration>(new ConfigurationBuilder().Build());
 
         services.AddAgenticRouter();
 
@@ -48,6 +52,7 @@ public class ServiceCollectionExtensionsTests
         Assert.NotNull(provider.GetRequiredService<CheckSyntax>());
         Assert.NotNull(provider.GetRequiredService<RunVisibleTests>());
         Assert.NotNull(provider.GetRequiredService<EstimateQuality>());
+        Assert.NotNull(provider.GetRequiredService<IModelRouteResolver>());
         Assert.NotNull(provider.GetRequiredService<RequestInterceptor>());
         Assert.NotNull(provider.GetRequiredService<ProxyMiddleware>());
         Assert.NotNull(provider.GetRequiredService<AgentAsARouter>());

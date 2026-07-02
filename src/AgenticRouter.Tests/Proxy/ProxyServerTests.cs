@@ -20,6 +20,8 @@ public class ProxyServerTests
         services.AddSingleton<ILogger<ProxyServer>>(new NullLogger<ProxyServer>());
         services.AddSingleton<ILogger<ProxyMiddleware>>(new NullLogger<ProxyMiddleware>());
         services.AddSingleton<ILogger<RequestInterceptor>>(new NullLogger<RequestInterceptor>());
+        services.AddSingleton<IEnvironmentVariableProvider, EnvironmentVariableProvider>();
+        services.AddSingleton<IModelRouteResolver>(ModelRouteResolverTestFactory.Empty());
         services.AddSingleton<RequestInterceptor>();
         services.AddTransient<ProxyMiddleware>();
 

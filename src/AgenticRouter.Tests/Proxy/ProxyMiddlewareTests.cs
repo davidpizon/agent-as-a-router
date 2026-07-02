@@ -5,6 +5,7 @@ using Moq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 
 namespace AgenticRouter.Tests.Proxy;
 
@@ -14,18 +15,28 @@ namespace AgenticRouter.Tests.Proxy;
 public class ProxyMiddlewareTests
 {
     [Fact]
-    public async Task InvokeAsync_ForwardsRequestAndCopiesResponse()
+    public async Task InvokeAsync_KnownModel_ForwardsToResolvedUpstream_RewritesBody_AndInjectsCredential()
     {
         var loggerMock = new Mock<ILogger<ProxyMiddleware>>();
-        var interceptor = new RequestInterceptor(Mock.Of<ILogger<RequestInterceptor>>());
+        var resolver = ModelRouteResolverTestFactory.Create(
+            modelName: "gpt-5.4",
+            providerModelId: "gpt-5.4-2026-01",
+            baseUrl: "https://example.com",
+            authHeaderName: "Authorization",
+            authHeaderScheme: "Bearer",
+            apiKey: "secret-key");
+        var interceptor = new RequestInterceptor(Mock.Of<ILogger<RequestInterceptor>>(), resolver);
+
         var handler = new DelegatingHandlerStub(async request =>
         {
             Assert.Equal(HttpMethod.Post, request.Method);
             Assert.Equal("https://example.com/chat?x=1", request.RequestUri!.ToString());
             Assert.True(request.Headers.Contains("X-Trace"));
+            Assert.Equal("Bearer secret-key", request.Headers.GetValues("Authorization").Single());
 
             var body = request.Content is null ? string.Empty : await request.Content.ReadAsStringAsync(TestContext.Current.CancellationToken);
-            Assert.Equal("{\"model\":\"gpt\"}", body);
+            using var document = JsonDocument.Parse(body);
+            Assert.Equal("gpt-5.4-2026-01", document.RootElement.GetProperty("model").GetString());
 
             var response = new HttpResponseMessage(HttpStatusCode.Accepted)
             {
@@ -40,11 +51,11 @@ public class ProxyMiddlewareTests
         var context = new DefaultHttpContext();
         context.Request.Method = HttpMethods.Post;
         context.Request.Scheme = "https";
-        context.Request.Host = new HostString("example.com");
+        context.Request.Host = new HostString("127.0.0.1:5001");
         context.Request.Path = "/chat";
         context.Request.QueryString = new QueryString("?x=1");
         context.Request.Headers["X-Trace"] = "abc";
-        var requestBody = Encoding.UTF8.GetBytes("{\"model\":\"gpt\"}");
+        var requestBody = Encoding.UTF8.GetBytes("""{"model":"gpt-5.4"}""");
         context.Request.Body = new MemoryStream(requestBody);
         context.Request.ContentLength = requestBody.Length;
         context.Response.Body = new MemoryStream();
@@ -71,17 +82,84 @@ public class ProxyMiddlewareTests
     }
 
     [Fact]
+    public async Task InvokeAsync_DoesNotForwardToTheProxysOwnAddress_EvenWhenRequestHostMatchesIt()
+    {
+        // Regression test: the forwarding target must come from the resolved upstream route, never from
+        // context.Request.Host, otherwise the proxy would forward a request back to itself indefinitely.
+        var resolver = ModelRouteResolverTestFactory.Create("gpt-5.4", "gpt-5.4", "https://api.openai.com");
+        var interceptor = new RequestInterceptor(Mock.Of<ILogger<RequestInterceptor>>(), resolver);
+
+        var handler = new DelegatingHandlerStub(request =>
+        {
+            Assert.Equal("api.openai.com", request.RequestUri!.Host);
+            return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent("ok") });
+        });
+
+        var middleware = new ProxyMiddleware(Mock.Of<ILogger<ProxyMiddleware>>(), interceptor, new HttpClient(handler));
+
+        var context = new DefaultHttpContext();
+        context.Request.Method = HttpMethods.Post;
+        context.Request.Scheme = "http";
+        context.Request.Host = new HostString("127.0.0.1:5001");
+        context.Request.Path = "/v1/chat/completions";
+        var requestBody = Encoding.UTF8.GetBytes("""{"model":"gpt-5.4"}""");
+        context.Request.Body = new MemoryStream(requestBody);
+        context.Request.ContentLength = requestBody.Length;
+        context.Response.Body = new MemoryStream();
+
+        await middleware.InvokeAsync(context, _ => Task.CompletedTask);
+
+        Assert.Equal(StatusCodes.Status200OK, context.Response.StatusCode);
+    }
+
+    [Fact]
+    public async Task InvokeAsync_UnknownModel_Returns400_AndNeverCallsUpstream()
+    {
+        var resolver = ModelRouteResolverTestFactory.Create("gpt-5.4", "gpt-5.4", "https://api.openai.com");
+        var interceptor = new RequestInterceptor(Mock.Of<ILogger<RequestInterceptor>>(), resolver);
+
+        var handler = new DelegatingHandlerStub(_ => throw new InvalidOperationException("Upstream should never be called for an unknown model."));
+        var middleware = new ProxyMiddleware(Mock.Of<ILogger<ProxyMiddleware>>(), interceptor, new HttpClient(handler));
+
+        var context = new DefaultHttpContext();
+        context.Request.Method = HttpMethods.Post;
+        context.Request.Scheme = "http";
+        context.Request.Host = new HostString("127.0.0.1:5001");
+        context.Request.Path = "/v1/chat/completions";
+        var requestBody = Encoding.UTF8.GetBytes("""{"model":"totally-unknown-model"}""");
+        context.Request.Body = new MemoryStream(requestBody);
+        context.Request.ContentLength = requestBody.Length;
+        context.Response.Body = new MemoryStream();
+
+        await middleware.InvokeAsync(context, _ => Task.CompletedTask);
+
+        Assert.Equal(StatusCodes.Status400BadRequest, context.Response.StatusCode);
+        Assert.Equal("application/json", context.Response.ContentType);
+
+        context.Response.Body.Position = 0;
+        using var reader = new StreamReader(context.Response.Body, Encoding.UTF8);
+        var responseBody = await reader.ReadToEndAsync(TestContext.Current.CancellationToken);
+        using var document = JsonDocument.Parse(responseBody);
+        Assert.Equal("invalid_request_error", document.RootElement.GetProperty("error").GetProperty("type").GetString());
+        Assert.Contains("totally-unknown-model", document.RootElement.GetProperty("error").GetProperty("message").GetString());
+    }
+
+    [Fact]
     public async Task InvokeAsync_WhenForwardingFails_ThrowsHttpRequestException()
     {
-        var interceptor = new RequestInterceptor(Mock.Of<ILogger<RequestInterceptor>>());
+        var resolver = ModelRouteResolverTestFactory.Create("gpt-5.4", "gpt-5.4", "https://api.openai.com");
+        var interceptor = new RequestInterceptor(Mock.Of<ILogger<RequestInterceptor>>(), resolver);
         var handler = new DelegatingHandlerStub(_ => throw new HttpRequestException("upstream unavailable"));
         var middleware = new ProxyMiddleware(Mock.Of<ILogger<ProxyMiddleware>>(), interceptor, new HttpClient(handler));
 
         var context = new DefaultHttpContext();
-        context.Request.Method = HttpMethods.Get;
+        context.Request.Method = HttpMethods.Post;
         context.Request.Scheme = "https";
-        context.Request.Host = new HostString("example.com");
+        context.Request.Host = new HostString("127.0.0.1:5001");
         context.Request.Path = "/fail";
+        var requestBody = Encoding.UTF8.GetBytes("""{"model":"gpt-5.4"}""");
+        context.Request.Body = new MemoryStream(requestBody);
+        context.Request.ContentLength = requestBody.Length;
 
         await Assert.ThrowsAsync<HttpRequestException>(() => middleware.InvokeAsync(context, _ => Task.CompletedTask));
     }

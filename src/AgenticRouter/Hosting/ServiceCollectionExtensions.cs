@@ -1,8 +1,11 @@
+using AgenticRouter.Models;
 using AgenticRouter.Proxy;
 using AgenticRouter.Router;
 using AgenticRouter.Tools;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Options;
 
 namespace AgenticRouter.Hosting
 {
@@ -31,6 +34,11 @@ namespace AgenticRouter.Hosting
             services.AddTransient<EstimateQuality>();
 
             // Proxy
+            services.AddOptions<ModelRoutingOptions>()
+                .Configure<IConfiguration>((options, configuration) =>
+                    configuration.GetSection(ModelRoutingOptions.SectionName).Bind(options));
+            services.AddSingleton<IEnvironmentVariableProvider, EnvironmentVariableProvider>();
+            services.AddSingleton<IModelRouteResolver, ModelRouteResolver>();
             services.AddSingleton<RequestInterceptor>();
             services.AddTransient<ProxyMiddleware>();
 

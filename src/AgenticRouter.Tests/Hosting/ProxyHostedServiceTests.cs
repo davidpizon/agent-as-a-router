@@ -1,5 +1,6 @@
 using AgenticRouter.Hosting;
 using AgenticRouter.Proxy;
+using AgenticRouter.Tests.Proxy;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
@@ -23,6 +24,8 @@ public class ProxyHostedServiceTests
         services.AddSingleton<ILogger<ProxyServer>>(proxyLogger);
         services.AddSingleton<ILogger<ProxyMiddleware>>(new NullLogger<ProxyMiddleware>());
         services.AddSingleton<ILogger<RequestInterceptor>>(new NullLogger<RequestInterceptor>());
+        services.AddSingleton<IEnvironmentVariableProvider, EnvironmentVariableProvider>();
+        services.AddSingleton<IModelRouteResolver>(ModelRouteResolverTestFactory.Empty());
         services.AddSingleton<RequestInterceptor>();
         services.AddTransient<ProxyMiddleware>();
 
