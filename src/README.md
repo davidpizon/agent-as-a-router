@@ -47,7 +47,7 @@ environment variable — see [Provider API keys](#provider-api-keys) below.
 
 ## 3. Configure routing
 
-`AgenticRouter/appsettings.json` has two relevant sections:
+`src/AgenticRouter/appsettings.json` has two relevant sections:
 
 - **`Routing`** — router policy defaults (`DefaultModel`, `MaxCandidates`,
   `MaxNeighborCount`, `EnableExploration`, `ExplorationRate`, `PolicyName`,
