@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -45,7 +46,10 @@ namespace AgenticRouter.Proxy
                 {
                     webBuilder.UseKestrel(options =>
                     {
-                        options.ListenLocalhost(port);
+                        // Listen(IPAddress.Loopback, ...) is used instead of ListenLocalhost so that port 0
+                        // (dynamic/ephemeral port binding, used by tests) is supported; ListenLocalhost throws
+                        // for port 0.
+                        options.Listen(IPAddress.Loopback, port);
                     });
 
                     webBuilder.Configure(app =>
