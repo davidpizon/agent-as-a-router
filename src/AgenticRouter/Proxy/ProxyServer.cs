@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Threading;
@@ -15,8 +14,21 @@ namespace AgenticRouter.Proxy
     {
         private readonly IHost _host;
 
-        public ProxyServer(ILogger<ProxyServer> logger, IServiceCollection services)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProxyServer"/> class.
+        /// </summary>
+        /// <param name="logger">The logger for this instance (currently unused by Kestrel wiring, reserved for future diagnostics).</param>
+        /// <param name="proxyMiddleware">
+        /// The already-constructed middleware instance used to handle every request. Passed directly, rather than
+        /// copying the application's DI container into the inner host, so the inner host can never end up with its
+        /// own copy of application-level hosted service registrations (which previously caused unbounded recursive
+        /// construction of <see cref="AgenticRouter.Hosting.ProxyHostedService"/>).
+        /// </param>
+        public ProxyServer(ILogger<ProxyServer> logger, ProxyMiddleware proxyMiddleware)
         {
+            ArgumentNullException.ThrowIfNull(logger);
+            ArgumentNullException.ThrowIfNull(proxyMiddleware);
+
             _host = Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
@@ -25,28 +37,9 @@ namespace AgenticRouter.Proxy
                         options.ListenLocalhost(5001);
                     });
 
-                    webBuilder.ConfigureServices(s =>
-                    {
-                        foreach (var service in services)
-                        {
-                            var isHostedService = service.ServiceType == typeof(IHostedService)
-                                || typeof(IHostedService).IsAssignableFrom(service.ServiceType)
-                                || (service.ImplementationType is not null && typeof(IHostedService).IsAssignableFrom(service.ImplementationType))
-                                || (service.ImplementationInstance is IHostedService)
-                                || (service.ImplementationFactory is not null && service.ServiceType == typeof(IHostedService));
-
-                            if (isHostedService)
-                            {
-                                continue;
-                            }
-
-                            s.Add(service);
-                        }
-                    });
-
                     webBuilder.Configure(app =>
                     {
-                        app.UseMiddleware<ProxyMiddleware>();
+                        app.Run(context => proxyMiddleware.InvokeAsync(context, _ => Task.CompletedTask));
                     });
                 })
                 .Build();

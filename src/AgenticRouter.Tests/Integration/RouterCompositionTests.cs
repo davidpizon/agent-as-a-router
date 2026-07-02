@@ -2,6 +2,7 @@ using AgenticRouter.Hosting;
 using AgenticRouter.Models;
 using AgenticRouter.Proxy;
 using AgenticRouter.Router;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
@@ -66,6 +67,7 @@ public class RouterCompositionTests
         services.AddLogging();
         services.AddSingleton<IOptions<RoutingOptions>>(Options.Create(options));
         services.AddSingleton<IRouterModelClient, StubRouterModelClient>();
+        services.AddSingleton<IConfiguration>(new ConfigurationBuilder().Build());
         services.AddAgenticRouter();
 
         return services.BuildServiceProvider();

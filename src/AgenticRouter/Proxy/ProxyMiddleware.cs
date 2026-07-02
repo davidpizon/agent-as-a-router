@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
@@ -9,6 +10,8 @@ namespace AgenticRouter.Proxy;
 /// </summary>
 public class ProxyMiddleware : IMiddleware
 {
+    private static readonly string[] SkippedRequestHeaders = ["Host", "Content-Type", "Content-Length", "Transfer-Encoding"];
+
     private readonly ILogger<ProxyMiddleware> _logger;
     private readonly HttpClient _httpClient;
     private readonly RequestInterceptor _interceptor;
@@ -37,7 +40,16 @@ public class ProxyMiddleware : IMiddleware
 
         await _interceptor.InterceptRequestAsync(context);
 
-        var targetUri = new Uri($"{context.Request.Scheme}://{context.Request.Host}{context.Request.Path}{context.Request.QueryString}");
+        var resolution = await _interceptor.ResolveModelRouteAsync(context, context.RequestAborted);
+
+        if (!resolution.IsSuccess)
+        {
+            await WriteModelNotFoundResponseAsync(context, resolution.ErrorMessage!);
+            return;
+        }
+
+        var route = resolution.Route!;
+        var targetUri = new Uri(route.UpstreamBaseUrl, $"{context.Request.Path}{context.Request.QueryString}");
 
         var requestMessage = new HttpRequestMessage
         {
@@ -47,12 +59,21 @@ public class ProxyMiddleware : IMiddleware
 
         foreach (var header in context.Request.Headers)
         {
+            if (SkippedRequestHeaders.Contains(header.Key, StringComparer.OrdinalIgnoreCase) ||
+                string.Equals(header.Key, route.AuthHeaderName, StringComparison.OrdinalIgnoreCase))
+            {
+                continue;
+            }
+
             requestMessage.Headers.TryAddWithoutValidation(header.Key, header.Value.ToArray());
         }
 
-        if (context.Request.ContentLength > 0)
+        requestMessage.Content = new ByteArrayContent(resolution.RewrittenBody!);
+        requestMessage.Content.Headers.TryAddWithoutValidation("Content-Type", "application/json");
+
+        if (route.AuthHeaderValue is not null)
         {
-            requestMessage.Content = new StreamContent(context.Request.Body);
+            requestMessage.Headers.TryAddWithoutValidation(route.AuthHeaderName, route.AuthHeaderValue);
         }
 
         using var responseMessage = await _httpClient.SendAsync(requestMessage, HttpCompletionOption.ResponseHeadersRead, context.RequestAborted);
@@ -71,5 +92,24 @@ public class ProxyMiddleware : IMiddleware
         await responseMessage.Content.CopyToAsync(context.Response.Body);
 
         await _interceptor.InterceptResponseAsync(context);
+    }
+
+    private static async Task WriteModelNotFoundResponseAsync(HttpContext context, string errorMessage)
+    {
+        context.Response.StatusCode = StatusCodes.Status400BadRequest;
+        context.Response.ContentType = "application/json";
+
+        var payload = new
+        {
+            error = new
+            {
+                message = errorMessage,
+                type = "invalid_request_error",
+                param = "model",
+                code = "400"
+            }
+        };
+
+        await context.Response.WriteAsync(JsonSerializer.Serialize(payload), context.RequestAborted);
     }
 }

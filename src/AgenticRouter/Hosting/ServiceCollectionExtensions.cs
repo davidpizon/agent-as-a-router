@@ -1,8 +1,10 @@
+using AgenticRouter.Models;
 using AgenticRouter.Proxy;
 using AgenticRouter.Router;
 using AgenticRouter.Tools;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Options;
 
 namespace AgenticRouter.Hosting
 {
@@ -31,34 +33,23 @@ namespace AgenticRouter.Hosting
             services.AddTransient<EstimateQuality>();
 
             // Proxy
+            services.AddOptions<ModelRoutingOptions>()
+                .Configure<IConfiguration>((options, configuration) =>
+                    configuration.GetSection(ModelRoutingOptions.SectionName).Bind(options));
+            services.AddSingleton<IEnvironmentVariableProvider, EnvironmentVariableProvider>();
+            services.AddSingleton<IModelRouteResolver, ModelRouteResolver>();
             services.AddSingleton<RequestInterceptor>();
-            services.AddTransient<ProxyMiddleware>();
+            services.AddSingleton<ProxyMiddleware>();
 
-            // Create a copy of services WITHOUT hosted services BEFORE registering ProxyHostedService
-            // to prevent circular dependency
-            var proxyServices = new ServiceCollection();
-            foreach (var descriptor in services)
-            {
-                var isHostedService = descriptor.ServiceType == typeof(Microsoft.Extensions.Hosting.IHostedService)
-                    || typeof(Microsoft.Extensions.Hosting.IHostedService).IsAssignableFrom(descriptor.ServiceType)
-                    || (descriptor.ImplementationType is not null && typeof(Microsoft.Extensions.Hosting.IHostedService).IsAssignableFrom(descriptor.ImplementationType))
-                    || (descriptor.ImplementationInstance is Microsoft.Extensions.Hosting.IHostedService)
-                    || (descriptor.ImplementationFactory is not null && descriptor.ServiceType == typeof(Microsoft.Extensions.Hosting.IHostedService));
-
-                if (isHostedService)
-                {
-                    continue;
-                }
-
-                proxyServices.Add(descriptor);
-            }
-
+            // ProxyServer's inner Kestrel host is handed an already-constructed ProxyMiddleware instance rather
+            // than a copy of this IServiceCollection. It never gets its own IHostedService registrations, so it
+            // can never end up recursively constructing another ProxyHostedService.
             services.AddHostedService(sp =>
             {
                 return new ProxyHostedService(
                     sp.GetRequiredService<Microsoft.Extensions.Logging.ILogger<ProxyHostedService>>(),
                     sp.GetRequiredService<Microsoft.Extensions.Logging.ILogger<ProxyServer>>(),
-                    proxyServices);
+                    sp.GetRequiredService<ProxyMiddleware>());
             });
 
             return services;
