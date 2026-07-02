@@ -87,8 +87,16 @@ public sealed class ProviderOptions
 
     /// <summary>
     /// Gets the name of the environment variable holding the API key used to authenticate with this provider.
+    /// Used only when <see cref="ApiKey"/> is not set. Prefer this over <see cref="ApiKey"/> so secrets are not
+    /// checked into configuration files.
     /// </summary>
     public string? ApiKeyEnvVar { get; init; }
+
+    /// <summary>
+    /// Gets the literal API key used to authenticate with this provider, when supplied directly in configuration.
+    /// Takes precedence over <see cref="ApiKeyEnvVar"/> when non-empty.
+    /// </summary>
+    public string? ApiKey { get; init; }
 
     /// <summary>
     /// Gets the name of the HTTP header used to carry the API key (e.g. <c>Authorization</c> or <c>x-api-key</c>).

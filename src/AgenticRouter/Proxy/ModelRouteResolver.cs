@@ -75,9 +75,7 @@ public sealed class ModelRouteResolver : IModelRouteResolver
         }
 
         var (entry, provider) = match;
-        var apiKey = string.IsNullOrWhiteSpace(provider.ApiKeyEnvVar)
-            ? null
-            : _environment.GetVariable(provider.ApiKeyEnvVar);
+        var apiKey = ResolveApiKey(provider);
 
         var authHeaderValue = apiKey is null
             ? null
@@ -94,5 +92,21 @@ public sealed class ModelRouteResolver : IModelRouteResolver
             authHeaderValue);
 
         return true;
+    }
+
+    /// <summary>
+    /// Resolves the API key for a provider, preferring a literal <see cref="ProviderOptions.ApiKey"/> value over
+    /// the environment variable named by <see cref="ProviderOptions.ApiKeyEnvVar"/>.
+    /// </summary>
+    private string? ResolveApiKey(ProviderOptions provider)
+    {
+        if (!string.IsNullOrWhiteSpace(provider.ApiKey))
+        {
+            return provider.ApiKey;
+        }
+
+        return string.IsNullOrWhiteSpace(provider.ApiKeyEnvVar)
+            ? null
+            : _environment.GetVariable(provider.ApiKeyEnvVar);
     }
 }
