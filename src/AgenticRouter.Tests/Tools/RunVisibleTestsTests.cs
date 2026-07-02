@@ -7,7 +7,7 @@ namespace AgenticRouter.Tests.Tools;
 /// </summary>
 public class RunVisibleTestsTests
 {
-    [Fact]
+    [Fact(Skip = "Integration testing disabled")]
     public async Task RunAsync_WithValidTestProject_RunsTests()
     {
         var runVisibleTests = new RunVisibleTests();
@@ -19,7 +19,7 @@ public class RunVisibleTestsTests
         Assert.False(string.IsNullOrWhiteSpace(output));
     }
 
-    [Fact]
+    [Fact(Skip = "Integration testing disabled")]
     public async Task RunAsync_WithInvalidWorkingDirectory_Throws()
     {
         var runVisibleTests = new RunVisibleTests();

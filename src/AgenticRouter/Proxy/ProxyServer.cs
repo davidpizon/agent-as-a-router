@@ -13,25 +13,30 @@ namespace AgenticRouter.Proxy
     /// </summary>
     public class ProxyServer
     {
-        private readonly IWebHost _webHost;
+        private readonly IHost _host;
 
         public ProxyServer(ILogger<ProxyServer> logger, IServiceCollection services)
         {
-            _webHost = new WebHostBuilder()
-                .UseKestrel(options =>
+            _host = Host.CreateDefaultBuilder()
+                .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    options.ListenLocalhost(5001);
-                })
-                .ConfigureServices(s =>
-                {
-                    foreach (var service in services)
+                    webBuilder.UseKestrel(options =>
                     {
-                        s.Add(service);
-                    }
-                })
-                .Configure(app =>
-                {
-                    app.UseMiddleware<ProxyMiddleware>();
+                        options.ListenLocalhost(5001);
+                    });
+
+                    webBuilder.ConfigureServices(s =>
+                    {
+                        foreach (var service in services)
+                        {
+                            s.Add(service);
+                        }
+                    });
+
+                    webBuilder.Configure(app =>
+                    {
+                        app.UseMiddleware<ProxyMiddleware>();
+                    });
                 })
                 .Build();
         }
@@ -41,7 +46,7 @@ namespace AgenticRouter.Proxy
         /// </summary>
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            return _webHost.StartAsync(cancellationToken);
+            return _host.StartAsync(cancellationToken);
         }
 
         /// <summary>
@@ -49,7 +54,7 @@ namespace AgenticRouter.Proxy
         /// </summary>
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            return _webHost.StopAsync(cancellationToken);
+            return _host.StopAsync(cancellationToken);
         }
     }
 }

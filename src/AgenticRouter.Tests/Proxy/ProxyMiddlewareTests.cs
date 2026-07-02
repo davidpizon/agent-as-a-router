@@ -24,7 +24,7 @@ public class ProxyMiddlewareTests
             Assert.Equal("https://example.com/chat?x=1", request.RequestUri!.ToString());
             Assert.True(request.Headers.Contains("X-Trace"));
 
-            var body = request.Content is null ? string.Empty : await request.Content.ReadAsStringAsync();
+            var body = request.Content is null ? string.Empty : await request.Content.ReadAsStringAsync(TestContext.Current.CancellationToken);
             Assert.Equal("{\"model\":\"gpt\"}", body);
 
             var response = new HttpResponseMessage(HttpStatusCode.Accepted)
@@ -57,7 +57,7 @@ public class ProxyMiddlewareTests
 
         context.Response.Body.Position = 0;
         using var reader = new StreamReader(context.Response.Body, Encoding.UTF8);
-        var responseBody = await reader.ReadToEndAsync();
+        var responseBody = await reader.ReadToEndAsync(TestContext.Current.CancellationToken);
         Assert.Equal("forwarded", responseBody);
 
         loggerMock.Verify(

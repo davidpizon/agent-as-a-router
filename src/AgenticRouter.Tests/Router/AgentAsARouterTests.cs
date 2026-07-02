@@ -40,7 +40,7 @@ public class AgentAsARouterTests
         var router = new AgentAsARouter(_loggerMock.Object, _optionsMock.Object, _modelClientMock.Object, _memory);
 
         // Act
-        var result = await router.RouteAsync("prompt", dimension);
+        var result = await router.RouteAsync("prompt", dimension, TestContext.Current.CancellationToken);
 
         // Assert
         Assert.Equal("model2", result.Decision.SelectedModel);
@@ -63,7 +63,7 @@ public class AgentAsARouterTests
         var router = new AgentAsARouter(_loggerMock.Object, _optionsMock.Object, _modelClientMock.Object, _memory);
 
         // Act
-        var result = await router.RouteAsync("prompt", dimension);
+        var result = await router.RouteAsync("prompt", dimension, TestContext.Current.CancellationToken);
 
         // Assert
         Assert.Equal("model1", result.Decision.SelectedModel);
@@ -83,7 +83,7 @@ public class AgentAsARouterTests
         var router = new AgentAsARouter(_loggerMock.Object, _optionsMock.Object, _modelClientMock.Object, _memory);
 
         // Act
-        var result = await router.RouteAsync("prompt", "test_dimension");
+        var result = await router.RouteAsync("prompt", "test_dimension", TestContext.Current.CancellationToken);
 
         // Assert
         Assert.Contains(result.Decision.SelectedModel, RouterConstants.SupportedModels);

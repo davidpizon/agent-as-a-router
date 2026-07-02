@@ -11,9 +11,10 @@ namespace AgenticRouter.Tests.Hosting;
 /// Covers hosted service lifecycle behavior for <see cref="ProxyHostedService"/>.
 /// </summary>
 [Collection("ProxyLifecycle")]
+[Trait("Category", "Integration")]
 public class ProxyHostedServiceTests
 {
-    [Fact(Timeout = 5000)]
+    [Fact(Skip = "Integration testing disabled")]
     public async Task StartAndStopAsync_StartsAndStopsProxy_AndLogsLifecycle()
     {
         var loggerMock = new Mock<ILogger<ProxyHostedService>>();

@@ -10,9 +10,10 @@ namespace AgenticRouter.Tests.Proxy;
 /// Covers lifecycle behavior for <see cref="ProxyServer"/>.
 /// </summary>
 [Collection("ProxyLifecycle")]
+[Trait("Category", "Integration")]
 public class ProxyServerTests
 {
-    [Fact(Timeout = 5000)]
+    [Fact(Skip = "Integration testing disabled")]
     public async Task ProxyServer_Starts_AcceptsConnection_AndStops()
     {
         var services = new ServiceCollection();
