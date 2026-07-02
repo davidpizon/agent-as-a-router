@@ -1,7 +1,6 @@
 using AgenticRouter.Hosting;
 using AgenticRouter.Proxy;
 using AgenticRouter.Tests.Proxy;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Moq;
@@ -15,21 +14,15 @@ namespace AgenticRouter.Tests.Hosting;
 [Trait("Category", "Integration")]
 public class ProxyHostedServiceTests
 {
-    [Fact(Skip = "Integration testing disabled")]
+    [Fact]
     public async Task StartAndStopAsync_StartsAndStopsProxy_AndLogsLifecycle()
     {
         var loggerMock = new Mock<ILogger<ProxyHostedService>>();
         var proxyLogger = new NullLogger<ProxyServer>();
-        var services = new ServiceCollection();
-        services.AddSingleton<ILogger<ProxyServer>>(proxyLogger);
-        services.AddSingleton<ILogger<ProxyMiddleware>>(new NullLogger<ProxyMiddleware>());
-        services.AddSingleton<ILogger<RequestInterceptor>>(new NullLogger<RequestInterceptor>());
-        services.AddSingleton<IEnvironmentVariableProvider, EnvironmentVariableProvider>();
-        services.AddSingleton<IModelRouteResolver>(ModelRouteResolverTestFactory.Empty());
-        services.AddSingleton<RequestInterceptor>();
-        services.AddTransient<ProxyMiddleware>();
+        var interceptor = new RequestInterceptor(NullLogger<RequestInterceptor>.Instance, ModelRouteResolverTestFactory.Empty());
+        var proxyMiddleware = new ProxyMiddleware(NullLogger<ProxyMiddleware>.Instance, interceptor);
 
-        var hostedService = new ProxyHostedService(loggerMock.Object, proxyLogger, services);
+        var hostedService = new ProxyHostedService(loggerMock.Object, proxyLogger, proxyMiddleware);
 
         await hostedService.StartAsync(CancellationToken.None);
 

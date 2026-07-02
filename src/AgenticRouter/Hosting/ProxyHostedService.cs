@@ -1,5 +1,4 @@
 using AgenticRouter.Proxy;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Threading;
@@ -15,10 +14,10 @@ namespace AgenticRouter.Hosting
         private readonly ILogger<ProxyHostedService> _logger;
         private readonly ProxyServer _proxyServer;
 
-        public ProxyHostedService(ILogger<ProxyHostedService> logger, ILogger<ProxyServer> proxyLogger, IServiceCollection services)
+        public ProxyHostedService(ILogger<ProxyHostedService> logger, ILogger<ProxyServer> proxyLogger, ProxyMiddleware proxyMiddleware)
         {
             _logger = logger;
-            _proxyServer = new ProxyServer(proxyLogger, services);
+            _proxyServer = new ProxyServer(proxyLogger, proxyMiddleware);
         }
 
         /// <summary>

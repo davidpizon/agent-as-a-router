@@ -1,5 +1,4 @@
 using AgenticRouter.Proxy;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using System.Net.Sockets;
@@ -13,19 +12,13 @@ namespace AgenticRouter.Tests.Proxy;
 [Trait("Category", "Integration")]
 public class ProxyServerTests
 {
-    [Fact(Skip = "Integration testing disabled")]
+    [Fact]
     public async Task ProxyServer_Starts_AcceptsConnection_AndStops()
     {
-        var services = new ServiceCollection();
-        services.AddSingleton<ILogger<ProxyServer>>(new NullLogger<ProxyServer>());
-        services.AddSingleton<ILogger<ProxyMiddleware>>(new NullLogger<ProxyMiddleware>());
-        services.AddSingleton<ILogger<RequestInterceptor>>(new NullLogger<RequestInterceptor>());
-        services.AddSingleton<IEnvironmentVariableProvider, EnvironmentVariableProvider>();
-        services.AddSingleton<IModelRouteResolver>(ModelRouteResolverTestFactory.Empty());
-        services.AddSingleton<RequestInterceptor>();
-        services.AddTransient<ProxyMiddleware>();
+        var interceptor = new RequestInterceptor(NullLogger<RequestInterceptor>.Instance, ModelRouteResolverTestFactory.Empty());
+        var proxyMiddleware = new ProxyMiddleware(NullLogger<ProxyMiddleware>.Instance, interceptor);
 
-        var server = new ProxyServer(new NullLogger<ProxyServer>(), services);
+        var server = new ProxyServer(new NullLogger<ProxyServer>(), proxyMiddleware);
 
         await server.StartAsync(CancellationToken.None);
 
