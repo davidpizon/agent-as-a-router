@@ -10,7 +10,21 @@ namespace AgenticRouter.Proxy;
 /// </summary>
 public class ProxyMiddleware : IMiddleware
 {
-    private static readonly string[] SkippedRequestHeaders = ["Host", "Content-Type", "Content-Length", "Transfer-Encoding"];
+    // RFC 7230 Section 6.1 hop-by-hop headers: meaningful only for a single transport-level connection,
+    // so they must never be blindly forwarded between the client, this proxy, and the upstream.
+    private static readonly string[] HopByHopHeaders =
+    [
+        "Connection",
+        "Keep-Alive",
+        "Proxy-Authenticate",
+        "Proxy-Authorization",
+        "TE",
+        "Trailer",
+        "Transfer-Encoding",
+        "Upgrade"
+    ];
+
+    private static readonly string[] SkippedRequestHeaders = ["Host", "Content-Type", "Content-Length", .. HopByHopHeaders];
 
     private readonly ILogger<ProxyMiddleware> _logger;
     private readonly HttpClient _httpClient;
@@ -81,6 +95,11 @@ public class ProxyMiddleware : IMiddleware
         context.Response.StatusCode = (int)responseMessage.StatusCode;
         foreach (var header in responseMessage.Headers)
         {
+            if (HopByHopHeaders.Contains(header.Key, StringComparer.OrdinalIgnoreCase))
+            {
+                continue;
+            }
+
             context.Response.Headers[header.Key] = header.Value.ToArray();
         }
 

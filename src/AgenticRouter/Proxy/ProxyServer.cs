@@ -1,7 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Hosting.Server.Features;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -24,7 +28,12 @@ namespace AgenticRouter.Proxy
         /// own copy of application-level hosted service registrations (which previously caused unbounded recursive
         /// construction of <see cref="AgenticRouter.Hosting.ProxyHostedService"/>).
         /// </param>
-        public ProxyServer(ILogger<ProxyServer> logger, ProxyMiddleware proxyMiddleware)
+        /// <param name="port">
+        /// The localhost port Kestrel listens on. Defaults to 5001. Pass 0 to bind an ephemeral port (useful in
+        /// tests to avoid flaking when the default port is already in use); the resolved address is available via
+        /// <see cref="Addresses"/> once <see cref="StartAsync"/> completes.
+        /// </param>
+        public ProxyServer(ILogger<ProxyServer> logger, ProxyMiddleware proxyMiddleware, int port = 5001)
         {
             ArgumentNullException.ThrowIfNull(logger);
             ArgumentNullException.ThrowIfNull(proxyMiddleware);
@@ -34,7 +43,7 @@ namespace AgenticRouter.Proxy
                 {
                     webBuilder.UseKestrel(options =>
                     {
-                        options.ListenLocalhost(5001);
+                        options.ListenLocalhost(port);
                     });
 
                     webBuilder.Configure(app =>
@@ -43,6 +52,18 @@ namespace AgenticRouter.Proxy
                     });
                 })
                 .Build();
+        }
+
+        /// <summary>
+        /// Gets the addresses Kestrel is actually listening on. Only meaningful after <see cref="StartAsync"/> completes.
+        /// </summary>
+        public IReadOnlyCollection<string> Addresses
+        {
+            get
+            {
+                var addresses = _host.Services.GetRequiredService<IServer>().Features.Get<IServerAddressesFeature>()?.Addresses;
+                return addresses is null ? [] : new List<string>(addresses);
+            }
         }
 
         /// <summary>

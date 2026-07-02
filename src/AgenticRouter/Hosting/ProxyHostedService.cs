@@ -14,11 +14,17 @@ namespace AgenticRouter.Hosting
         private readonly ILogger<ProxyHostedService> _logger;
         private readonly ProxyServer _proxyServer;
 
-        public ProxyHostedService(ILogger<ProxyHostedService> logger, ILogger<ProxyServer> proxyLogger, ProxyMiddleware proxyMiddleware)
+        public ProxyHostedService(ILogger<ProxyHostedService> logger, ILogger<ProxyServer> proxyLogger, ProxyMiddleware proxyMiddleware, int port = 5001)
         {
             _logger = logger;
-            _proxyServer = new ProxyServer(proxyLogger, proxyMiddleware);
+            _proxyServer = new ProxyServer(proxyLogger, proxyMiddleware, port);
         }
+
+        /// <summary>
+        /// Gets the addresses the underlying <see cref="ProxyServer"/> is actually listening on. Only meaningful
+        /// after <see cref="StartAsync"/> completes.
+        /// </summary>
+        public System.Collections.Generic.IReadOnlyCollection<string> Addresses => _proxyServer.Addresses;
 
         /// <summary>
         /// Starts the proxy server.

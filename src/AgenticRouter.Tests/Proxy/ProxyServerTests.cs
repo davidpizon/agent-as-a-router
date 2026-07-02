@@ -1,6 +1,8 @@
 using AgenticRouter.Proxy;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
+using System;
+using System.Linq;
 using System.Net.Sockets;
 
 namespace AgenticRouter.Tests.Proxy;
@@ -18,12 +20,14 @@ public class ProxyServerTests
         var interceptor = new RequestInterceptor(NullLogger<RequestInterceptor>.Instance, ModelRouteResolverTestFactory.Empty());
         var proxyMiddleware = new ProxyMiddleware(NullLogger<ProxyMiddleware>.Instance, interceptor);
 
-        var server = new ProxyServer(new NullLogger<ProxyServer>(), proxyMiddleware);
+        var server = new ProxyServer(new NullLogger<ProxyServer>(), proxyMiddleware, port: 0);
 
         await server.StartAsync(CancellationToken.None);
 
+        var boundPort = new Uri(server.Addresses.Single()).Port;
+
         using var tcpClient = new TcpClient();
-        await tcpClient.ConnectAsync("127.0.0.1", 5001);
+        await tcpClient.ConnectAsync("127.0.0.1", boundPort);
 
         Assert.True(tcpClient.Connected);
 

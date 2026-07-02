@@ -81,7 +81,12 @@ namespace AgenticRouter.Proxy
                 return ModelRouteResolutionResult.Failure("Request body is not valid JSON.");
             }
 
-            var modelName = json?["model"] is JsonValue modelValue && modelValue.TryGetValue<string>(out var value)
+            if (json is not JsonObject jsonObject)
+            {
+                return ModelRouteResolutionResult.Failure("Request body must be a JSON object containing a 'model' field.");
+            }
+
+            var modelName = jsonObject["model"] is JsonValue modelValue && modelValue.TryGetValue<string>(out var value)
                 ? value
                 : null;
 
@@ -96,8 +101,8 @@ namespace AgenticRouter.Proxy
                 return ModelRouteResolutionResult.Failure($"model '{modelName}' is not in the known model list.");
             }
 
-            json!["model"] = route.ProviderModelId;
-            var rewrittenBody = Encoding.UTF8.GetBytes(json.ToJsonString());
+            jsonObject["model"] = route.ProviderModelId;
+            var rewrittenBody = Encoding.UTF8.GetBytes(jsonObject.ToJsonString());
 
             return ModelRouteResolutionResult.Success(route, rewrittenBody);
         }
