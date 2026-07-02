@@ -47,8 +47,7 @@ public static class Program
             .UseSerilog((context, services, loggerConfiguration) => loggerConfiguration
                 .ReadFrom.Configuration(context.Configuration)
                 .ReadFrom.Services(services)
-                .Enrich.FromLogContext()
-                .WriteTo.Console())
+                .Enrich.FromLogContext())
             .ConfigureServices((hostContext, services) =>
             {
                 services.AddAgenticRouter();

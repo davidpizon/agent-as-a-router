@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -45,7 +46,18 @@ namespace AgenticRouter.Proxy
                 {
                     webBuilder.UseKestrel(options =>
                     {
-                        options.ListenLocalhost(port);
+                        if (port == 0)
+                        {
+                            // ListenLocalhost throws for port 0. Bind a single IPv4 loopback address instead of
+                            // dual-stack, since binding IPv4 and IPv6 separately for an ephemeral port would
+                            // assign two different port numbers.
+                            options.Listen(IPAddress.Loopback, port);
+                        }
+                        else
+                        {
+                            // Preserve dual-stack (IPv4 + IPv6) localhost binding for fixed ports.
+                            options.ListenLocalhost(port);
+                        }
                     });
 
                     webBuilder.Configure(app =>
