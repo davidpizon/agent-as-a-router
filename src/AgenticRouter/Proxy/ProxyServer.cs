@@ -46,10 +46,18 @@ namespace AgenticRouter.Proxy
                 {
                     webBuilder.UseKestrel(options =>
                     {
-                        // Listen(IPAddress.Loopback, ...) is used instead of ListenLocalhost so that port 0
-                        // (dynamic/ephemeral port binding, used by tests) is supported; ListenLocalhost throws
-                        // for port 0.
-                        options.Listen(IPAddress.Loopback, port);
+                        if (port == 0)
+                        {
+                            // ListenLocalhost throws for port 0. Bind a single IPv4 loopback address instead of
+                            // dual-stack, since binding IPv4 and IPv6 separately for an ephemeral port would
+                            // assign two different port numbers.
+                            options.Listen(IPAddress.Loopback, port);
+                        }
+                        else
+                        {
+                            // Preserve dual-stack (IPv4 + IPv6) localhost binding for fixed ports.
+                            options.ListenLocalhost(port);
+                        }
                     });
 
                     webBuilder.Configure(app =>
