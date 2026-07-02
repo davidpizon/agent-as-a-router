@@ -41,6 +41,10 @@ export MINIMAX_API_KEY="<your-minimax-key>"
 If a provider's key is missing, requests to models routed to that provider
 are forwarded without an auth header.
 
+Alternatively, a provider can carry a literal `ApiKey` directly in
+`appsettings.json` instead of (or as a fallback source ahead of) an
+environment variable — see [Provider API keys](#provider-api-keys) below.
+
 ## 3. Configure routing
 
 `AgenticRouter/appsettings.json` has two relevant sections:
@@ -87,6 +91,33 @@ using environment variables (ASP.NET Core configuration convention), e.g.:
 ```bash
 export Routing__DefaultModel="glm-5"
 ```
+
+### Provider API keys
+
+Each provider resolves its API key in this order:
+
+1. **`ApiKey`** — a literal key set directly on the provider entry. If
+   non-empty, it is used as-is and `ApiKeyEnvVar` is not consulted.
+2. **`ApiKeyEnvVar`** — the name of an environment variable read at request
+   time, used only when `ApiKey` is empty or unset.
+3. Neither set (or the named environment variable isn't present) — the
+   request is forwarded to the provider with no auth header.
+
+```json
+"my-provider": {
+  "BaseUrl": "https://api.my-provider.com",
+  "ApiKey": "sk-my-literal-key",
+  "ApiKeyEnvVar": "MY_PROVIDER_API_KEY",
+  "AuthHeaderName": "Authorization",
+  "AuthHeaderScheme": "Bearer"
+}
+```
+
+Prefer `ApiKeyEnvVar` for anything checked into source control —
+`appsettings.json` is typically committed to git, so a literal `ApiKey`
+belongs only in an untracked/local override file (e.g.
+`appsettings.Local.json`, excluded via `.gitignore`) or a secret store, not
+in the tracked base config.
 
 ## 4. Run the proxy
 

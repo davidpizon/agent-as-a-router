@@ -19,7 +19,8 @@ internal static class ModelRouteResolverTestFactory
         string authHeaderName = "Authorization",
         string authHeaderScheme = "Bearer",
         string? apiKey = "test-api-key",
-        string providerName = "test-provider")
+        string providerName = "test-provider",
+        string? literalApiKey = null)
     {
         var options = new ModelRoutingOptions
         {
@@ -28,6 +29,7 @@ internal static class ModelRouteResolverTestFactory
                 [providerName] = new ProviderOptions
                 {
                     BaseUrl = baseUrl,
+                    ApiKey = literalApiKey,
                     ApiKeyEnvVar = ApiKeyEnvVar,
                     AuthHeaderName = authHeaderName,
                     AuthHeaderScheme = authHeaderScheme

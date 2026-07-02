@@ -114,4 +114,78 @@ public class ModelRouteResolverTests
 
         Assert.False(resolver.TryResolve("anything", out _));
     }
+
+    // Verifies that a literal ApiKey configured directly on the provider is used over the ApiKeyEnvVar
+    // lookup, so operators can supply a key without setting a process environment variable.
+    [Fact]
+    public void TryResolve_LiteralApiKeyConfigured_UsesLiteralKeyInsteadOfEnvironmentVariable()
+    {
+        var resolver = ModelRouteResolverTestFactory.Create(
+            modelName: "gpt-5.4",
+            providerModelId: "gpt-5.4",
+            baseUrl: "https://api.openai.com",
+            authHeaderScheme: "Bearer",
+            apiKey: "env-value-should-not-be-used",
+            literalApiKey: "literal-value-from-appsettings");
+
+        resolver.TryResolve("gpt-5.4", out var route);
+
+        Assert.Equal("Bearer literal-value-from-appsettings", route!.AuthHeaderValue);
+    }
+
+    // Verifies that when no literal ApiKey is configured, resolution still falls back to the
+    // ApiKeyEnvVar-named environment variable, preserving pre-existing behavior.
+    [Fact]
+    public void TryResolve_NoLiteralApiKeyConfigured_FallsBackToEnvironmentVariable()
+    {
+        var resolver = ModelRouteResolverTestFactory.Create(
+            modelName: "gpt-5.4",
+            providerModelId: "gpt-5.4",
+            baseUrl: "https://api.openai.com",
+            authHeaderScheme: "Bearer",
+            apiKey: "env-value-should-be-used",
+            literalApiKey: null);
+
+        resolver.TryResolve("gpt-5.4", out var route);
+
+        Assert.Equal("Bearer env-value-should-be-used", route!.AuthHeaderValue);
+    }
+
+    // Verifies that a literal ApiKey consisting only of whitespace is treated as unset, so it does not
+    // shadow a valid ApiKeyEnvVar fallback with an empty credential.
+    [Theory]
+    [InlineData("")]
+    [InlineData("   ")]
+    public void TryResolve_WhitespaceOnlyLiteralApiKey_FallsBackToEnvironmentVariable(string literalApiKey)
+    {
+        var resolver = ModelRouteResolverTestFactory.Create(
+            modelName: "gpt-5.4",
+            providerModelId: "gpt-5.4",
+            baseUrl: "https://api.openai.com",
+            authHeaderScheme: "Bearer",
+            apiKey: "env-value-should-be-used",
+            literalApiKey: literalApiKey);
+
+        resolver.TryResolve("gpt-5.4", out var route);
+
+        Assert.Equal("Bearer env-value-should-be-used", route!.AuthHeaderValue);
+    }
+
+    // Verifies that when neither a literal ApiKey nor a resolvable ApiKeyEnvVar value is present,
+    // the route still resolves successfully but with no auth header value (forwarded unauthenticated).
+    [Fact]
+    public void TryResolve_NoLiteralApiKeyAndMissingEnvironmentVariable_ResolvesWithNullAuthHeaderValue()
+    {
+        var resolver = ModelRouteResolverTestFactory.Create(
+            modelName: "gpt-5.4",
+            providerModelId: "gpt-5.4",
+            baseUrl: "https://api.openai.com",
+            apiKey: null,
+            literalApiKey: null);
+
+        var resolved = resolver.TryResolve("gpt-5.4", out var route);
+
+        Assert.True(resolved);
+        Assert.Null(route!.AuthHeaderValue);
+    }
 }
