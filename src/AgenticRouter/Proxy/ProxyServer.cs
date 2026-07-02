@@ -37,6 +37,8 @@ namespace AgenticRouter.Proxy
         {
             ArgumentNullException.ThrowIfNull(logger);
             ArgumentNullException.ThrowIfNull(proxyMiddleware);
+            ArgumentOutOfRangeException.ThrowIfNegative(port);
+            ArgumentOutOfRangeException.ThrowIfGreaterThan(port, 65535);
 
             _host = Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(webBuilder =>

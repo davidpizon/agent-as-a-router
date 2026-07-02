@@ -2,6 +2,7 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
+using System.Collections.Generic;
 
 namespace AgenticRouter.Proxy;
 
@@ -24,7 +25,7 @@ public class ProxyMiddleware : IMiddleware
         "Upgrade"
     ];
 
-    private static readonly string[] SkippedRequestHeaders = ["Host", "Content-Type", "Content-Length", .. HopByHopHeaders];
+    private static readonly string[] AlwaysSkippedRequestHeaders = ["Host", "Content-Type", "Content-Length"];
 
     private readonly ILogger<ProxyMiddleware> _logger;
     private readonly HttpClient _httpClient;
@@ -71,9 +72,13 @@ public class ProxyMiddleware : IMiddleware
             Method = new HttpMethod(context.Request.Method)
         };
 
+        var requestHopByHopHeaders = GetHopByHopHeaderNames(
+            context.Request.Headers.TryGetValue("Connection", out var requestConnectionValues) ? requestConnectionValues : default);
+
         foreach (var header in context.Request.Headers)
         {
-            if (SkippedRequestHeaders.Contains(header.Key, StringComparer.OrdinalIgnoreCase) ||
+            if (AlwaysSkippedRequestHeaders.Contains(header.Key, StringComparer.OrdinalIgnoreCase) ||
+                requestHopByHopHeaders.Contains(header.Key) ||
                 string.Equals(header.Key, route.AuthHeaderName, StringComparison.OrdinalIgnoreCase))
             {
                 continue;
@@ -92,10 +97,12 @@ public class ProxyMiddleware : IMiddleware
 
         using var responseMessage = await _httpClient.SendAsync(requestMessage, HttpCompletionOption.ResponseHeadersRead, context.RequestAborted);
 
+        var responseHopByHopHeaders = GetHopByHopHeaderNames(responseMessage.Headers.Connection);
+
         context.Response.StatusCode = (int)responseMessage.StatusCode;
         foreach (var header in responseMessage.Headers)
         {
-            if (HopByHopHeaders.Contains(header.Key, StringComparer.OrdinalIgnoreCase))
+            if (responseHopByHopHeaders.Contains(header.Key))
             {
                 continue;
             }
@@ -105,12 +112,41 @@ public class ProxyMiddleware : IMiddleware
 
         foreach (var header in responseMessage.Content.Headers)
         {
+            if (responseHopByHopHeaders.Contains(header.Key))
+            {
+                continue;
+            }
+
             context.Response.Headers[header.Key] = header.Value.ToArray();
         }
 
         await responseMessage.Content.CopyToAsync(context.Response.Body);
 
         await _interceptor.InterceptResponseAsync(context);
+    }
+
+    /// <summary>
+    /// Builds the set of hop-by-hop header names to strip: the fixed RFC 7230 set, plus any additional header
+    /// names nominated by a <c>Connection</c> header value (e.g. <c>Connection: Foo</c> makes <c>Foo</c> hop-by-hop).
+    /// </summary>
+    private static HashSet<string> GetHopByHopHeaderNames(IEnumerable<string>? connectionHeaderValues)
+    {
+        var names = new HashSet<string>(HopByHopHeaders, StringComparer.OrdinalIgnoreCase);
+
+        if (connectionHeaderValues is null)
+        {
+            return names;
+        }
+
+        foreach (var value in connectionHeaderValues)
+        {
+            foreach (var token in value.Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries))
+            {
+                names.Add(token);
+            }
+        }
+
+        return names;
     }
 
     private static async Task WriteModelNotFoundResponseAsync(HttpContext context, string errorMessage)
