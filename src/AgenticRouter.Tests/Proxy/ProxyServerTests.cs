@@ -12,7 +12,7 @@ namespace AgenticRouter.Tests.Proxy;
 [Collection("ProxyLifecycle")]
 public class ProxyServerTests
 {
-    [Fact]
+    [Fact(Timeout = 5000)]
     public async Task ProxyServer_Starts_AcceptsConnection_AndStops()
     {
         var services = new ServiceCollection();

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <RunConfiguration>
+	<!-- Global test timeout: 5 seconds (5000 ms) as per AGENTS.md -->
+	<TestSessionTimeout>5000</TestSessionTimeout>
+  </RunConfiguration>
+  <xUnit>
+	<!-- xUnit-specific settings can be added here if needed -->
+  </xUnit>
+</RunSettings>

@@ -12,7 +12,7 @@ namespace AgenticRouter.Tests.Integration;
 [Collection("ProxyLifecycle")]
 public class ProxyInterceptionTests
 {
-    [Fact]
+    [Fact(Timeout = 5000)]
     public async Task Proxy_InterceptsAndForwards_Request_ToUpstream()
     {
         using var upstream = new HttpListener();

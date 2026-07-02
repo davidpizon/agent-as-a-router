@@ -13,6 +13,7 @@ This repository contains the Agent-as-a-Router project.
 - When editing C# code, follow .NET 10 best practices: nullable reference types, async/await where appropriate, dependency injection, options binding, and structured logging.
 - Add or update tests when behavior changes.
 - Validate changes before finishing.
+- Set an upper bound for unusually heavy unit tests at 5 seconds maximum.
 - **Markdown Diagrams:** All diagrams in markdown documentation MUST be represented using Mermaid syntax (not ASCII art, text boxes, or other formats). This ensures consistency, readability, and platform compatibility across documentation.
 - **Phase Completion Criteria:**
   - The application must always compile with no errors or warnings at the end of each phase.

@@ -13,7 +13,7 @@ namespace AgenticRouter.Tests.Hosting;
 [Collection("ProxyLifecycle")]
 public class ProxyHostedServiceTests
 {
-    [Fact]
+    [Fact(Timeout = 5000)]
     public async Task StartAndStopAsync_StartsAndStopsProxy_AndLogsLifecycle()
     {
         var loggerMock = new Mock<ILogger<ProxyHostedService>>();
