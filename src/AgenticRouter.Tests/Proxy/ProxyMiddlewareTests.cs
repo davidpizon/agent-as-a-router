@@ -145,6 +145,73 @@ public class ProxyMiddlewareTests
     }
 
     [Fact]
+    public async Task InvokeAsync_StripsHeadersNominatedByRequestConnectionHeader()
+    {
+        var resolver = ModelRouteResolverTestFactory.Create("gpt-5.4", "gpt-5.4", "https://example.com");
+        var interceptor = new RequestInterceptor(Mock.Of<ILogger<RequestInterceptor>>(), resolver);
+
+        var handler = new DelegatingHandlerStub(request =>
+        {
+            Assert.False(request.Headers.Contains("X-Nominated"));
+            Assert.True(request.Headers.Contains("X-Kept"));
+            return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent("ok") });
+        });
+
+        var middleware = new ProxyMiddleware(Mock.Of<ILogger<ProxyMiddleware>>(), interceptor, new HttpClient(handler));
+
+        var context = new DefaultHttpContext();
+        context.Request.Method = HttpMethods.Post;
+        context.Request.Scheme = "https";
+        context.Request.Host = new HostString("127.0.0.1:5001");
+        context.Request.Path = "/chat";
+        context.Request.Headers["Connection"] = "X-Nominated";
+        context.Request.Headers["X-Nominated"] = "should-be-stripped";
+        context.Request.Headers["X-Kept"] = "should-be-forwarded";
+        var requestBody = Encoding.UTF8.GetBytes("""{"model":"gpt-5.4"}""");
+        context.Request.Body = new MemoryStream(requestBody);
+        context.Request.ContentLength = requestBody.Length;
+        context.Response.Body = new MemoryStream();
+
+        await middleware.InvokeAsync(context, _ => Task.CompletedTask);
+
+        Assert.Equal(StatusCodes.Status200OK, context.Response.StatusCode);
+    }
+
+    [Fact]
+    public async Task InvokeAsync_StripsHeadersNominatedByResponseConnectionHeader()
+    {
+        var resolver = ModelRouteResolverTestFactory.Create("gpt-5.4", "gpt-5.4", "https://example.com");
+        var interceptor = new RequestInterceptor(Mock.Of<ILogger<RequestInterceptor>>(), resolver);
+
+        var handler = new DelegatingHandlerStub(_ =>
+        {
+            var response = new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent("ok") };
+            response.Headers.Add("Connection", "X-Custom");
+            response.Headers.Add("X-Custom", "should-be-stripped");
+            response.Headers.Add("X-Kept", "should-be-forwarded");
+            return Task.FromResult(response);
+        });
+
+        var middleware = new ProxyMiddleware(Mock.Of<ILogger<ProxyMiddleware>>(), interceptor, new HttpClient(handler));
+
+        var context = new DefaultHttpContext();
+        context.Request.Method = HttpMethods.Post;
+        context.Request.Scheme = "https";
+        context.Request.Host = new HostString("127.0.0.1:5001");
+        context.Request.Path = "/chat";
+        var requestBody = Encoding.UTF8.GetBytes("""{"model":"gpt-5.4"}""");
+        context.Request.Body = new MemoryStream(requestBody);
+        context.Request.ContentLength = requestBody.Length;
+        context.Response.Body = new MemoryStream();
+
+        await middleware.InvokeAsync(context, _ => Task.CompletedTask);
+
+        Assert.False(context.Response.Headers.ContainsKey("X-Custom"));
+        Assert.False(context.Response.Headers.ContainsKey("Connection"));
+        Assert.Equal("should-be-forwarded", context.Response.Headers["X-Kept"].ToString());
+    }
+
+    [Fact]
     public async Task InvokeAsync_WhenForwardingFails_ThrowsHttpRequestException()
     {
         var resolver = ModelRouteResolverTestFactory.Create("gpt-5.4", "gpt-5.4", "https://api.openai.com");

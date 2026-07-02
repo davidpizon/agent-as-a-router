@@ -22,7 +22,7 @@ public class ProxyHostedServiceTests
         var interceptor = new RequestInterceptor(NullLogger<RequestInterceptor>.Instance, ModelRouteResolverTestFactory.Empty());
         var proxyMiddleware = new ProxyMiddleware(NullLogger<ProxyMiddleware>.Instance, interceptor);
 
-        var hostedService = new ProxyHostedService(loggerMock.Object, proxyLogger, proxyMiddleware);
+        var hostedService = new ProxyHostedService(loggerMock.Object, proxyLogger, proxyMiddleware, port: 0);
 
         await hostedService.StartAsync(CancellationToken.None);
 

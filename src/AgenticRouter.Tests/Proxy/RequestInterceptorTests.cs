@@ -110,6 +110,21 @@ public class RequestInterceptorTests
         Assert.False(result.IsSuccess);
     }
 
+    [Theory]
+    [InlineData("[1,2,3]")]
+    [InlineData("\"gpt-5.4\"")]
+    [InlineData("42")]
+    public async Task ResolveModelRouteAsync_NonObjectJsonRoot_ReturnsFailure_WithoutThrowing(string body)
+    {
+        var interceptor = new RequestInterceptor(Mock.Of<ILogger<RequestInterceptor>>(), ModelRouteResolverTestFactory.Empty());
+        var context = CreateContextWithBody(body);
+
+        var result = await interceptor.ResolveModelRouteAsync(context);
+
+        Assert.False(result.IsSuccess);
+        Assert.NotNull(result.ErrorMessage);
+    }
+
     private static DefaultHttpContext CreateContextWithBody(string body)
     {
         var context = new DefaultHttpContext();
